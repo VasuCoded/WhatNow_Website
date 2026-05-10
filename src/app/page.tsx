@@ -21,7 +21,7 @@ export default function Home() {
               <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-extrabold text-[#111827] mb-6 tracking-tight">
                 You have options.<br />
                 We help you find<br />
-                the <span className="text-[#0A8B74]">right one</span>.
+                the <span className="text-secondary">right one</span>.
               </h1>
 
               <p className="text-gray-600 text-base lg:text-lg mb-8 max-w-lg leading-relaxed">
@@ -29,13 +29,13 @@ export default function Home() {
               </p>
 
               <div className="flex flex-row flex-wrap items-center gap-4">
-                <button className="bg-[#0A8B74] text-white px-6 py-3.5 rounded-xl font-medium flex items-center gap-2 hover:bg-[#087a66] transition-colors shadow-sm whitespace-nowrap">
+                <button className="bg-secondary text-white px-6 py-3.5 rounded-2xl font-medium flex items-center gap-2 hover:bg-secondary-hover transition-colors shadow-sm whitespace-nowrap cursor-pointer">
                   Explore Careers
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.33331 8H12.6666M12.6666 8L7.99998 3.33334M12.6666 8L7.99998 12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-                <button className="bg-white text-gray-700 border border-gray-300 px-6 py-3.5 rounded-xl font-medium hover:bg-gray-50 transition-colors shadow-sm whitespace-nowrap">
+                <button className="bg-white text-black/70 border border-gray-300 px-6 py-3.5 rounded-2xl font-medium hover:bg-gray-50 transition-colors cursor-pointer">
                   Browse Exams
                 </button>
               </div>
