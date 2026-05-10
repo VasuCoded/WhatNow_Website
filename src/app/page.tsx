@@ -75,7 +75,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col items-center justify-center py-6 px-2 lg:p-8">
-                <span className="text-[#0A8B74] text-xl lg:text-[2.5rem] font-bold mb-1 lg:mb-2">0₹</span>
+                <span className="text-[#0A8B74] text-xl lg:text-[2.5rem] font-bold mb-1 lg:mb-2">₹0</span>
                 <span className="text-gray-500 text-[10px] lg:text-sm text-center font-medium">Always<br className="lg:hidden" /> Free</span>
               </div>
 
