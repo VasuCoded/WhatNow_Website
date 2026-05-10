@@ -19,8 +19,8 @@ export default function Navbar() {
               />
             </div>
             <div className="inline-block">
-              <span className="font-bold text-xl text-neutral-dark tracking-tight">What</span>
-              <span className="font-bold text-xl text-primary tracking-tight">Now</span>
+              <span className="font-heading font-bold text-xl text-neutral-dark tracking-tight">What</span>
+              <span className="font-heading font-bold text-xl text-primary tracking-tight">Now</span>
             </div>
           </Link>
 

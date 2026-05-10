@@ -13,11 +13,11 @@ export default function Home() {
 
             {/* Left Content */}
             <div className="flex flex-col items-start order-1 lg:order-1">
-              <span className="inline-block bg-[#E6F5F2] text-[#0A8B74] px-4 py-1.5 rounded-full text-xs font-semibold mb-6">
+              <span className="inline-block bg-secondary/15 text-secondary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
                 For Indian Students. By Students.
               </span>
 
-              <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-bold text-[#111827] mb-6 tracking-tight">
+              <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-extrabold text-[#111827] mb-6 tracking-tight">
                 You have options.<br />
                 We help you find<br />
                 the <span className="text-[#0A8B74]">right one</span>.
@@ -60,22 +60,22 @@ export default function Home() {
             <div className="grid grid-cols-4 divide-x divide-gray-200 border border-gray-200 rounded-2xl bg-white shadow-sm w-full overflow-hidden">
 
               <div className="flex flex-col items-center justify-center py-6 px-2 lg:p-8">
-                <span className="text-[#0A8B74] text-xl lg:text-[2.5rem] font-bold mb-1 lg:mb-2">100+</span>
+                <span className="font-heading text-[#0A8B74] text-xl lg:text-[2.5rem] font-extrabold mb-1 lg:mb-2">100+</span>
                 <span className="text-gray-500 text-[10px] lg:text-sm text-center font-medium">Exams &<br className="lg:hidden" /> Careers</span>
               </div>
 
               <div className="flex flex-col items-center justify-center py-6 px-2 lg:p-8">
-                <span className="text-[#0A8B74] text-xl lg:text-[2.5rem] font-bold mb-1 lg:mb-2">50K+</span>
+                <span className="font-heading text-[#0A8B74] text-xl lg:text-[2.5rem] font-extrabold mb-1 lg:mb-2">50K+</span>
                 <span className="text-gray-500 text-[10px] lg:text-sm text-center font-medium">Students<br className="lg:hidden" /> Helped</span>
               </div>
 
               <div className="flex flex-col items-center justify-center py-6 px-2 lg:p-8">
-                <span className="text-[#0A8B74] text-xl lg:text-[2.5rem] font-bold mb-1 lg:mb-2">200+</span>
+                <span className="font-heading text-[#0A8B74] text-xl lg:text-[2.5rem] font-extrabold mb-1 lg:mb-2">200+</span>
                 <span className="text-gray-500 text-[10px] lg:text-sm text-center font-medium">In-depth<br className="lg:hidden" /> Guides</span>
               </div>
 
               <div className="flex flex-col items-center justify-center py-6 px-2 lg:p-8">
-                <span className="text-[#0A8B74] text-xl lg:text-[2.5rem] font-bold mb-1 lg:mb-2">₹0</span>
+                <span className="font-heading text-[#0A8B74] text-xl lg:text-[2.5rem] font-extrabold mb-1 lg:mb-2">₹0</span>
                 <span className="text-gray-500 text-[10px] lg:text-sm text-center font-medium">Always<br className="lg:hidden" /> Free</span>
               </div>
 
