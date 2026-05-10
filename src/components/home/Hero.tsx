@@ -1,5 +1,6 @@
 import Marquee from "./Marquee";
 import Image from "next/image";
+import Button from "../ui/Button";
 
 export default function Hero() {
     return (<main className="flex-1">
@@ -24,15 +25,19 @@ export default function Hero() {
                     </p>
 
                     <div className="flex flex-row flex-wrap items-center gap-4">
-                        <button className="bg-secondary text-white px-6 py-3.5 rounded-2xl font-medium flex items-center gap-2 hover:bg-secondary-hover transition-colors shadow-sm whitespace-nowrap cursor-pointer">
+                        <Button 
+                            variant="primary" 
+                            icon={
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.33331 8H12.6666M12.6666 8L7.99998 3.33334M12.6666 8L7.99998 12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            }
+                        >
                             Explore Careers
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.33331 8H12.6666M12.6666 8L7.99998 3.33334M12.6666 8L7.99998 12.6667" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </button>
-                        <button className="bg-white text-black/70 border border-gray-300 px-6 py-3.5 rounded-2xl font-medium hover:bg-gray-50 transition-colors cursor-pointer">
+                        </Button>
+                        <Button variant="outline">
                             Browse Exams
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
