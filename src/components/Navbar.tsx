@@ -19,38 +19,38 @@ export default function Navbar() {
               />
             </div>
             <div className="inline-block">
-              <span className="font-heading font-bold text-xl text-neutral-dark tracking-tight">What</span>
-              <span className="font-heading font-bold text-xl text-primary tracking-tight">Now</span>
+              <span className="font-heading font-black text-2xl text-neutral-dark tracking-tight">What</span>
+              <span className="font-heading font-black text-2xl text-primary tracking-tight">Now</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors">
               Explore Careers
             </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1">
+            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
               Exams
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1">
+            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
               Guides
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors">
               Scholarships
             </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1">
+            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
               Resources
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors">
               About Us
             </Link>
           </div>

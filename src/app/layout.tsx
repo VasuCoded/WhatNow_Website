@@ -11,7 +11,7 @@ const nunito = Nunito({
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
-  weight: ["500"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
