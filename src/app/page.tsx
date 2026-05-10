@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Marquee from "@/components/Marquee";
 
 export default function Home() {
   return (
@@ -54,7 +55,10 @@ export default function Home() {
             </div>
 
           </div>
+        </div>
 
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Stats Section */}
           <div className="pb-16 lg:pb-24">
             <div className="grid grid-cols-4 divide-x divide-gray-200 border border-gray-200 rounded-2xl bg-white shadow-sm w-full overflow-hidden">
@@ -81,7 +85,11 @@ export default function Home() {
 
             </div>
           </div>
+        </div>
 
+        {/* Marquee Section */}
+        <div className="w-full mb-16 lg:mb-24">
+          <Marquee />
         </div>
       </main>
     </div>
