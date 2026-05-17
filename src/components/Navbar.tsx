@@ -25,33 +25,33 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors">
-              Explore Careers
+          <div className="hidden lg:flex items-center space-x-5 text-sm">
+            <Link href="/careers" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
+              Careers
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
-            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
+            <Link href="/exams" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
               Exams
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
-              Guides
+            <Link href="/reads" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
+              Reads
               <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors">
-              Scholarships
+            <Link href="/scholarships" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1.5">
+              Scholarships <span className="bg-primary/10 text-primary text-[10px] font-extrabold px-1.5 py-0.5 rounded-sm">NEW</span>
             </Link>
-            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
-              Resources
-              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <Link href="/convince-parents" className="font-semibold text-neutral-dark hover:text-primary transition-colors">
+              Convince Parents
             </Link>
-            <Link href="#" className="font-medium text-neutral-dark hover:text-primary transition-colors">
-              About Us
+            <Link href="/about" className="font-semibold text-neutral-dark hover:text-primary transition-colors">
+              About
             </Link>
           </div>
 
