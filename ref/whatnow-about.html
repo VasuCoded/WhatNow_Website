@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — WhatNow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── DESIGN NOTES FOR ANTINITY ───────────────────────────────────────────
+       This is a layout/content reference document. Not final code.
+       Purpose: show content structure, copy, and rough visual direction.
+       Stack: Next.js + TailwindCSS + Supabase (as per project brief)
+       Font: Nunito 800–900 for headings, Nunito Sans 400 for body
+       Palette below is FINAL and approved.
+    ─────────────────────────────────────────────────────────────────────────── */
+
+    :root {
+      --deep-navy:    #1A1A2E;
+      --navy:         #16213E;
+      --indigo:       #4A47C7;
+      --purple-blue:  #6C63FF;
+      --teal:         #00C9A7;
+      --amber:        #F5A623;
+      --purple:       #9B59B6;
+      --white:        #FFFFFF;
+      --off-white:    #F4F4F8;
+      --muted:        #8A8A9A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--deep-navy);
+      color: var(--white);
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────────────────────── */
+    /* ANTINITY NOTE: Replace with your actual Navbar component */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      position: sticky;
+      top: 0;
+      background: rgba(26,26,46,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--purple-blue); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* ─── HERO ────────────────────────────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      The hero should feel like an editorial opener — like the first page
+      of a long-read magazine piece. Full viewport height, left-aligned text,
+      a single large statement. The amber underline on "honest guidance" is
+      intentional and should be kept — it's the thesis of the whole page.
+      Consider a subtle noise texture overlay on the background.
+    */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px 64px 80px;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      margin-bottom: 28px;
+      color: var(--white);
+    }
+    .hero h1 .underline {
+      /* ANTINITY NOTE: Use a CSS underline or border-bottom in amber */
+      text-decoration: underline;
+      text-decoration-color: var(--amber);
+      text-underline-offset: 8px;
+      text-decoration-thickness: 4px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────────────────────────── */
+    .divider {
+      width: 64px;
+      height: 4px;
+      background: var(--purple-blue);
+      margin: 60px 64px;
+      border-radius: 2px;
+    }
+
+    /* ─── SECTION BASE ────────────────────────────────────────────────────── */
+    section {
+      padding: 72px 64px;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--purple-blue);
+      margin-bottom: 16px;
+    }
+    section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 28px;
+      max-width: 700px;
+    }
+    section p {
+      color: rgba(255,255,255,0.75);
+      max-width: 660px;
+      margin-bottom: 20px;
+    }
+    section p:last-child { margin-bottom: 0; }
+
+    /* ─── SECTION 1: THE PROBLEM ──────────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      This section benefits from a slightly different background — use var(--navy)
+      (#16213E) to create separation from the hero. The pull quote
+      "Nobody was asking the harder question" should be visually lifted —
+      larger, lighter color, maybe left-border in amber. Think magazine pull quote.
+    */
+    .section-problem {
+      background: var(--navy);
+    }
+    .pull-quote {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      color: var(--white);
+      border-left: 4px solid var(--amber);
+      padding-left: 28px;
+      margin: 40px 0;
+      max-width: 640px;
+      line-height: 1.4;
+    }
+
+    /* ─── SECTION 2: WHAT WHATNOW IS ─────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      Back to var(--deep-navy) background. The "We don't / We do" contrast
+      is important — consider two-column layout on desktop: left col is "what
+      we are not", right col is "what we are". Separated by a vertical rule.
+      On mobile, stacked.
+    */
+
+    /* ─── SECTION 3: THE THREE PILLARS ───────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      This is the most visually important section after the hero.
+      Three cards — Careers, Exams, Reads — in a horizontal row on desktop.
+      Each card: var(--navy) background, top accent bar in a different color
+      (Careers = teal, Exams = purple-blue, Reads = amber), icon, title, body.
+      Cards should have a subtle hover lift (transform: translateY(-4px)).
+      They are NOT equal — "Careers" is the primary card and can be slightly
+      larger or given more visual weight.
+    */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .pillar-card {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 36px 32px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(108,99,255,0.3);
+    }
+    .pillar-accent {
+      height: 4px;
+      width: 40px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+    .pillar-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .pillar-card p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 100%;
+    }
+    /* ANTINITY NOTE: accent colors per card */
+    .pillar-careers .pillar-accent  { background: var(--teal); }
+    .pillar-exams   .pillar-accent  { background: var(--purple-blue); }
+    .pillar-reads   .pillar-accent  { background: var(--amber); }
+
+    /* ─── SECTION 4: WHAT WE DON'T DO ────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      Dark background. Four items, each a short sharp statement.
+      NOT a bulleted list. Instead: large number (01, 02, 03, 04) in muted color
+      on the left, bold statement on the right. Two-column grid, 2 rows.
+      The restraint here is the point — keep it clean and dry.
+    */
+    .section-dont { background: var(--navy); }
+    .dont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 64px;
+      margin-top: 48px;
+    }
+    .dont-item {}
+    .dont-num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .dont-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .dont-item p {
+      font-size: 0.93rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 100%;
+    }
+
+    /* ─── SECTION 5: WHERE WE ARE ─────────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      Simple section, deep-navy background. The three platform pills
+      (Website / YouTube / Instagram) should be inline tags with a border —
+      not full buttons. Think editorial tags, not CTAs.
+    */
+    .platform-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .platform-tag {
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── CLOSING / MISSION ───────────────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      Full-width section, centered text. Deep navy or a very subtle
+      radial glow from purple-blue at center. The closing line
+      "One career at a time." should be isolated — large, understated,
+      no fanfare. The restraint is intentional per the brief. Do NOT
+      add confetti, animated counters, or anything celebratory here.
+    */
+    .section-closing {
+      text-align: center;
+      padding: 100px 64px;
+    }
+    .closing-mission {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+    }
+    .closing-statement {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .closing-kicker {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--muted);
+    }
+
+    /* ─── CTA STRIP ───────────────────────────────────────────────────────── */
+    /*
+      DESIGN NOTE FOR ANTINITY:
+      Three buttons side by side. Primary style for "Explore Careers",
+      outlined style for "Browse Exams" and "Read our Reads".
+      On mobile these stack vertically and go full-width.
+    */
+    .cta-strip {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .btn {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+    .btn-primary {
+      background: var(--purple-blue);
+      color: var(--white);
+      border: 2px solid var(--purple-blue);
+    }
+    .btn-primary:hover { background: var(--indigo); border-color: var(--indigo); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); }
+
+    /* ─── FOOTER ──────────────────────────────────────────────────────────── */
+    /* ANTINITY NOTE: Replace with your actual Footer component */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 32px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────────────────── */
+    /*
+      ANTINITY NOTE: Mobile is primary. 80%+ audience is on phones.
+      All padding should reduce to ~24px on mobile.
+      Pillars grid → single column on mobile.
+      Don't grid → single column on mobile.
+      Hero font sizes are already fluid via clamp().
+    */
+    @media (max-width: 768px) {
+      nav, section, .hero, footer { padding-left: 24px; padding-right: 24px; }
+      .divider { margin-left: 24px; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .dont-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero { min-height: 60vh; padding-top: 60px; }
+      .section-closing { padding: 72px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       NAV — Replace with your Navbar component
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <nav>
+    <div class="nav-logo">What<span>Now</span></div>
+    <ul class="nav-links">
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Exams</a></li>
+      <li><a href="#">Reads</a></li>
+      <li><a href="#">YouTube</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       HERO
+       DESIGN NOTE: Full-height editorial opener. Left-aligned.
+       The amber underline on "honest guidance" is the thesis of the page —
+       keep it in all implementations.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <div class="hero">
+    <p class="hero-eyebrow">About WhatNow</p>
+    <h1>
+      India has no shortage of career options.<br />
+      It has a shortage of <span class="underline">honest guidance</span>.
+    </h1>
+    <p class="hero-sub">WhatNow exists to fix that.</p>
+  </div>
+
+  <div class="divider"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 1 — THE PROBLEM
+       DESIGN NOTE: navy (#16213E) background to separate from hero.
+       Pull quote should be visually lifted — larger text, amber left border.
+       Think magazine pull quote treatment.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-problem">
+    <p class="section-label">The Problem</p>
+    <h2>A broken system making a consequential decision</h2>
+
+    <p>
+      Every year, millions of Indian students make one of the biggest decisions
+      of their lives with almost no real information.
+    </p>
+    <p>
+      Their teachers default to two options. Their parents repeat what worked a
+      generation ago. Paid consultants push whichever college pays them
+      commission. And the internet gives them either exam prep material — or
+      nothing at all.
+    </p>
+
+    <div class="pull-quote">
+      "Nobody is asking the harder question: is this path actually right for you?"
+    </div>
+
+    <p>
+      Not "how do you crack NEET" — but <em>should</em> you be writing NEET at
+      all? What does a doctor's life actually look like at 35? What happens if
+      you crack UCEED but hate sitting at a screen for eight hours? Is merchant
+      navy the right call if you can't stand being away from home for months?
+    </p>
+    <p>
+      These are the questions that determine whether someone spends the next
+      decade building something they love — or quietly resenting a choice they
+      made at seventeen. Nobody was answering them honestly. So we built WhatNow.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 2 — WHAT WHATNOW IS
+       DESIGN NOTE: Back to deep-navy. Consider a two-column split on desktop:
+       "What we are not" on the left in muted text, "What we do" on the right
+       in full white. Separated by a vertical rule in purple-blue.
+       The contrast between the two columns is the point.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">What We Are</p>
+    <h2>Free. Honest. No agenda.</h2>
+
+    <p>
+      WhatNow is a free, structured career guidance platform built specifically
+      for Indian students. We are not a coaching centre. We don't sell courses.
+      We don't rank colleges or push you toward anything. We have no financial
+      relationship with any institution.
+    </p>
+    <p>
+      What we do is simpler — and harder — than all of that: we tell you the
+      truth about careers. What a path actually looks like. What the exam really
+      tests. What the day-to-day feels like five years in. What the money
+      situation is. Whether you need to convince your parents and how.
+    </p>
+    <p>
+      We cover careers nobody else covers properly — design, law, merchant navy,
+      urban planning, game design, agriculture, forensic science, occupational
+      therapy, international relations. The careers your school counsellor has
+      never heard of and your parents don't know how to evaluate.
+    </p>
+    <p>And we do it for free. Always.</p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 3 — THE THREE PILLARS
+       DESIGN NOTE: This is the most visually important section after the hero.
+       Three cards in a horizontal row on desktop. Each has a top accent bar
+       in a distinct color (see CSS classes). Cards have subtle hover lift.
+       "Careers" is the primary card — give it slightly more visual weight
+       or mark it with a "Start Here" tag.
+       On mobile: single column, stacked.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section style="background: var(--navy);">
+    <p class="section-label">How We're Organised</p>
+    <h2>Three sections. One purpose.</h2>
+    <p>WhatNow is structured around three sections. Here's what each one is for.</p>
+
+    <div class="pillars-grid">
+
+      <div class="pillar-card pillar-careers">
+        <div class="pillar-accent"></div>
+        <!-- ANTINITY NOTE: Add a compass or map icon here -->
+        <h3>Careers</h3>
+        <p>
+          Every career gets its own deep-dive hub. Not a Wikipedia summary.
+          A real, honest look — what it actually is, who it's for,
+          what the day-to-day looks like, what the money trajectory is,
+          what people get wrong about it, and what you should know before
+          you decide.
+        </p>
+        <p style="margin-top:16px; font-weight:700; color: var(--teal); font-size:0.9rem;">
+          Every hub answers: is this right for me? →
+        </p>
+      </div>
+
+      <div class="pillar-card pillar-exams">
+        <div class="pillar-accent"></div>
+        <!-- ANTINITY NOTE: Add a document/exam icon here -->
+        <h3>Exams</h3>
+        <p>
+          Every entrance exam gets its own hub — but we approach exams
+          differently. We don't lead with "how to crack it." We lead with
+          "should you be writing it?" Because the exam is not the goal.
+          The career is.
+        </p>
+        <p style="margin-top:16px; font-weight:700; color: var(--purple-blue); font-size:0.9rem;">
+          Exam hubs and career hubs are interlinked →
+        </p>
+      </div>
+
+      <div class="pillar-card pillar-reads">
+        <div class="pillar-accent"></div>
+        <!-- ANTINITY NOTE: Add a reading/article icon here -->
+        <h3>Reads</h3>
+        <p>
+          Standalone editorial pieces — longer, honest, opinionated writing
+          on questions that don't fit neatly into one career or one exam.
+          Should you move to a metro? Is the IIT brand worth it?
+          What does it mean to follow your passion — and why is that advice
+          almost always incomplete?
+        </p>
+        <p style="margin-top:16px; font-weight:700; color: var(--amber); font-size:0.9rem;">
+          The pieces we wished existed →
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 4 — WHAT WE DON'T DO
+       DESIGN NOTE: navy background. Four items as numbered statements —
+       NOT a bulleted list. Large muted number on the left (01, 02, 03, 04),
+       bold statement + short explanation on the right. 2×2 grid on desktop.
+       The dry, restrained tone here is intentional. Don't dress it up.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-dont">
+    <p class="section-label">Boundaries</p>
+    <h2>What we don't do — and why</h2>
+
+    <div class="dont-grid">
+      <div class="dont-item">
+        <div class="dont-num">01</div>
+        <h4>No exam prep material</h4>
+        <p>
+          Coaching content, question banks, mock tests — that world is
+          well-served. We're not adding to it.
+        </p>
+      </div>
+      <div class="dont-item">
+        <div class="dont-num">02</div>
+        <h4>No college rankings</h4>
+        <p>
+          Anyone who gives you a universal ranking is selling you something.
+          The "best" college depends on the student, city, budget, and goal.
+        </p>
+      </div>
+      <div class="dont-item">
+        <div class="dont-num">03</div>
+        <h4>We don't tell you what to do</h4>
+        <p>
+          We give you what you need to decide for yourself. The decision
+          is yours. It should be.
+        </p>
+      </div>
+      <div class="dont-item">
+        <div class="dont-num">04</div>
+        <h4>We don't charge anything</h4>
+        <p>
+          Not now, not ever for the core guidance. The students who need
+          honest guidance most are often the ones with the least access to it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       SECTION 5 — WHERE WE ARE
+       DESIGN NOTE: deep-navy background. Simple, honest section.
+       Platform tags should be inline pills with border — not full buttons.
+       Think editorial tags, not CTAs.
+       The "WhatNow is new" honesty is a trust signal — keep it in.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section>
+    <p class="section-label">Where We Are</p>
+    <h2>New. Building carefully.</h2>
+
+    <p>
+      WhatNow is new. We're building it carefully — going deep on one vertical
+      at a time rather than publishing shallow content across everything at once.
+    </p>
+    <p>
+      Our first vertical is UCEED, the design entrance exam for IITs. We chose
+      it because the guidance gap is the largest and the aspirants are the most
+      underserved. From there we expand — to NIFT, CLAT, NDA, and beyond.
+    </p>
+    <p>We publish across three platforms. Everything points back here.</p>
+
+    <div class="platform-tags">
+      <span class="platform-tag">🌐 Website</span>
+      <span class="platform-tag">▶ YouTube</span>
+      <span class="platform-tag">◈ Instagram</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       CLOSING — MISSION STATEMENT
+       DESIGN NOTE: Centered, full-width. Optionally add a very subtle
+       radial glow from var(--purple-blue) at center, low opacity.
+       The final line "One career at a time." must be large and isolated.
+       DO NOT add animations, confetti, or anything celebratory here.
+       The restraint is intentional. The understatement is the point.
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="section-closing">
+    <p class="closing-mission">
+      A student in a small town in Telangana with no access to a paid consultant
+      should be able to come to WhatNow and get the same quality of honest,
+      structured guidance as someone whose parents can afford to pay for it.
+      <br /><br />
+      That gap exists. We're closing it.
+    </p>
+    <p class="closing-statement">One career at a time.</p>
+
+    <div class="cta-strip">
+      <a href="#" class="btn btn-primary">Explore Careers</a>
+      <a href="#" class="btn btn-outline">Browse Exams</a>
+      <a href="#" class="btn btn-outline">Read our Reads</a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════════
+       FOOTER — Replace with your Footer component
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <footer>
+    <span>© 2024 WhatNow India · indiawhatnow@gmail.com</span>
+    <span>YouTube · Instagram · Reddit</span>
+  </footer>
+
+</body>
+</html>
