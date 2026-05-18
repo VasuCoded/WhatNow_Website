@@ -17,11 +17,11 @@ export default function UceedHubPage() {
           <span>›</span>
           <span className="text-primary">UCEED</span>
         </div>
-        
-        <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] font-black leading-[1.1] tracking-tight mb-8 text-neutral-dark">
+
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-neutral-dark">
           UCEED — Design at an <em className="text-primary not-italic">IIT</em>
         </h1>
-        
+
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium mb-6">
           The one exam that gets you into the Bachelor of Design (B.Des) programs at IIT Bombay, IIT Delhi, IIT Guwahati, and four other IITs. 245 seats. Around 15,000 students. This is everything you need to know — no coaching centre bias, no fluff.
         </p>
@@ -32,7 +32,7 @@ export default function UceedHubPage() {
       </section>
 
       <div className="px-6 lg:px-12 pb-20 md:pb-32 max-w-4xl mx-auto w-full space-y-20">
-        
+
         {/* ─── STAT BAR ─── */}
         <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4 shadow-sm">
           <div className="flex flex-col">
@@ -66,7 +66,7 @@ export default function UceedHubPage() {
           <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b-2 border-slate-200 pb-4 mb-8">
             What is UCEED
           </h2>
-          
+
           <div className="space-y-6 text-lg text-slate-700 leading-relaxed font-medium mb-12">
             <p>
               UCEED — Undergraduate Common Entrance Exam for Design — is conducted by IIT Bombay every January. Clear it, and you're in the running for a Bachelor of Design seat at one of seven IITs and IIITDM Jabalpur. It's the only route into IIT design programs at the undergraduate level.
@@ -99,9 +99,9 @@ export default function UceedHubPage() {
           <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b-2 border-slate-200 pb-4 mb-8">
             Everything on UCEED — WhatNow Guides
           </h2>
-          
+
           <div className="space-y-4">
-            
+
             {/* Card 1 */}
             <Link href="/exams/uceed/what-it-is" className="group flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:border-primary transition-colors shadow-sm hover:shadow-md">
               <div className="text-4xl md:text-5xl font-black text-primary leading-none opacity-80">01</div>
