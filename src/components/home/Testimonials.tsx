@@ -92,21 +92,21 @@ const TestimonialsColumn = (props: {
                   key={`${index}-${i}`}
                   aria-hidden={index === 1 ? "true" : "false"}
                   tabIndex={index === 1 ? -1 : 0}
-                  className="p-10 rounded-3xl border border-neutral-200 shadow-lg shadow-black/5 max-w-xs w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="p-10 rounded-[2rem] border border-slate-200/60 backdrop-blur-md bg-white/80 hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 max-w-xs w-full"
                 >
                   <blockquote className="m-0 p-0">
-                    <p className="text-neutral-600 leading-relaxed font-normal m-0 transition-colors duration-300">
+                    <p className="text-slate-650 leading-relaxed font-medium m-0 transition-colors duration-300">
                       {text}
                     </p>
                     <footer className="flex items-center gap-3 mt-6">
-                      <div className="h-10 w-10 rounded-full bg-neutral-50 border border-neutral-200/80 flex items-center justify-center text-neutral-400 select-none transition-all duration-300">
-                        <Icon icon="solar:user-linear" className="w-5 h-5 text-neutral-400/70" />
+                      <div className="h-10 w-10 rounded-full bg-slate-50 border border-slate-200/80 group-hover:bg-primary/5 group-hover:text-primary group-hover:border-primary/20 flex items-center justify-center text-slate-400 select-none transition-all duration-500">
+                        <Icon icon="solar:user-linear" className="w-5 h-5 transition-colors duration-500 group-hover:text-primary" />
                       </div>
                       <div className="flex flex-col">
-                        <cite className="font-semibold not-italic tracking-tight leading-5 text-neutral-900 transition-colors duration-300">
+                        <cite className="font-extrabold not-italic tracking-tight leading-5 text-neutral-dark transition-colors duration-300">
                           {name}
                         </cite>
-                        <span className="text-sm leading-5 tracking-tight text-neutral-500 mt-0.5 transition-colors duration-300">
+                        <span className="text-xs font-bold leading-5 tracking-tight text-slate-400 mt-0.5 transition-colors duration-300">
                           {role}
                         </span>
                       </div>

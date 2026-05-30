@@ -1,77 +1,108 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { useLanguage } from "@/context/LanguageContext";
+
+const translations = {
+  en: {
+    sectionTitle: "Why WhatNow",
+    headlineMain: "Built like a senior,",
+    headlineSub: "not like a brand.",
+    description: "We made the thing we needed when we were 17 and confused. Three things make us different — and we're stubborn about all of them.",
+    card1Title: "Actually free",
+    card1Desc: "No paywall, no email gate, no upsell. Every guide stays free because the next student behind you deserves the same head start.",
+    card2Title: "No coaching agenda",
+    card2Desc: "We don't sell courses or get kickbacks. We're not pushing IIT or IIM. Just honest reads on what each path actually demands.",
+    card3Title: "Careers nobody covers",
+    card3Desc: "Urban planner, animator, agronomist, naval architect. The careers your career counselor forgot — written by people doing them.",
+  },
+  hi: {
+    sectionTitle: "व्हाटनाव क्यों?",
+    headlineMain: "एक सीनियर की तरह,",
+    headlineSub: "किसी ब्रांड की तरह नहीं।",
+    description: "हमने वह चीज़ बनाई जिसकी ज़रूरत हमें 17 साल की उम्र में थी जब हम असमंजस में थे। तीन बातें हमें अलग बनाती हैं - और हम उन सभी को लेकर अडिग हैं।",
+    card1Title: "वास्तव में मुफ़्त",
+    card1Desc: "कोई पेवॉल नहीं, कोई ईमेल गेट नहीं, कोई अपसेल नहीं। हर गाइड मुफ़्त रहती है क्योंकि आपके बाद आने वाले छात्र भी एक समान शुरुआत के हकदार हैं।",
+    card2Title: "कोई कोचिंग एजेंडा नहीं",
+    card2Desc: "हम कोई कोर्स नहीं बेचते या कमीशन नहीं लेते। हम IIT या IIM में जाने का कोई दबाव नहीं डाल रहे। बस प्रत्येक मार्ग की वास्तविक आवश्यकताओं के बारे में ईमानदार विश्लेषण देते हैं।",
+    card3Title: "ऐसे करियर जिन्हें कोई नहीं बताता",
+    card3Desc: "अर्बन प्लानर, एनिमेटर, एग्रोनोमिस्ट, नेवल आर्किटेक्ट। वे करियर जिन्हें आपके करियर काउंसलर भूल गए — उन्हें उन लोगों द्वारा लिखा गया है जो वास्तव में ये काम कर रहे हैं।",
+  }
+};
 
 export default function WhyWhatnow() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section className="py-24 md:py-32 px-6 lg:px-12 bg-slate-50 overflow-hidden relative">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-20">
           <div className="flex-1">
             <h3 className="text-secondary text-xs font-extrabold tracking-[0.2em] uppercase mb-5">
-              Why WhatNow
+              {t.sectionTitle}
             </h3>
             <h2 className="text-4xl md:text-6xl lg:text-[4rem] font-black text-neutral-dark tracking-tight leading-[1.1]">
-              Built like a senior,<br />
-              <span className="text-slate-400">not like a brand.</span>
+              {t.headlineMain}<br />
+              <span className="text-slate-400">{t.headlineSub}</span>
             </h2>
           </div>
           <div className="flex-1 lg:pt-10">
             <p className="text-base md:text-xl text-slate-600 leading-relaxed font-medium">
-              We made the thing we needed when we were 17 and confused. Three things make us different — and we&apos;re stubborn about all of them.
+              {t.description}
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="relative bg-white rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
-            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12">
+          <div className="relative bg-white hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 hover:border-green-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:lock-unlocked-bold-duotone" className="w-64 h-64 text-green-600" />
             </div>
-            <div className="h-16 w-16 bg-green-50 text-green-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner">
+            <div className="h-16 w-16 bg-green-50 text-green-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
               <Icon icon="solar:lock-unlocked-bold-duotone" className="w-8 h-8" />
             </div>
-            <div className="flex items-end gap-4 mb-6">
-              <span className="text-green-600 font-black text-2xl tracking-tighter opacity-80">01</span>
-              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">Actually free</h4>
+            <div className="flex items-end gap-4 mb-6 relative z-10">
+              <span className="text-green-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">01</span>
+              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card1Title}</h4>
             </div>
-            <p className="text-slate-600 leading-relaxed relative z-10 text-lg">
-              No paywall, no email gate, no upsell. Every guide stays free because the next student behind you deserves the same head start.
+            <p className="text-slate-600 leading-relaxed relative z-10 text-base sm:text-lg">
+              {t.card1Desc}
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="relative bg-white rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
-            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12">
+          <div className="relative bg-white hover:bg-gradient-to-b hover:from-white hover:to-orange-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 hover:border-orange-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(249,115,22,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:shield-check-bold-duotone" className="w-64 h-64 text-orange-500" />
             </div>
-            <div className="h-16 w-16 bg-orange-50 text-orange-500 rounded-3xl flex items-center justify-center mb-10 shadow-inner">
+            <div className="h-16 w-16 bg-orange-50 text-orange-500 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
               <Icon icon="solar:shield-check-bold-duotone" className="w-8 h-8" />
             </div>
-            <div className="flex items-end gap-4 mb-6">
-              <span className="text-orange-500 font-black text-2xl tracking-tighter opacity-80">02</span>
-              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">No coaching agenda</h4>
+            <div className="flex items-end gap-4 mb-6 relative z-10">
+              <span className="text-orange-500 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">02</span>
+              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card2Title}</h4>
             </div>
-            <p className="text-slate-600 leading-relaxed relative z-10 text-lg">
-              We don&apos;t sell courses or get kickbacks. We&apos;re not pushing IIT or IIM. Just honest reads on what each path actually demands.
+            <p className="text-slate-600 leading-relaxed relative z-10 text-base sm:text-lg">
+              {t.card2Desc}
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="relative bg-white rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden">
-            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12">
+          <div className="relative bg-white hover:bg-gradient-to-b hover:from-white hover:to-blue-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 hover:border-blue-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:compass-bold-duotone" className="w-64 h-64 text-blue-600" />
             </div>
-            <div className="h-16 w-16 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner">
+            <div className="h-16 w-16 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
               <Icon icon="solar:compass-bold-duotone" className="w-8 h-8" />
             </div>
-            <div className="flex items-end gap-4 mb-6">
-              <span className="text-blue-600 font-black text-2xl tracking-tighter opacity-80">03</span>
-              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">Careers nobody covers</h4>
+            <div className="flex items-end gap-4 mb-6 relative z-10">
+              <span className="text-blue-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">03</span>
+              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card3Title}</h4>
             </div>
-            <p className="text-slate-600 leading-relaxed relative z-10 text-lg">
-              Urban planner, animator, agronomist, naval architect. The careers your career counselor forgot — written by people doing them.
+            <p className="text-slate-600 leading-relaxed relative z-10 text-base sm:text-lg">
+              {t.card3Desc}
             </p>
           </div>
         </div>

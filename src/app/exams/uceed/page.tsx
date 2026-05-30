@@ -10,23 +10,60 @@ export default function UceedHubPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50">
       {/* ─── PAGE HEADER ─── */}
-      <section className="px-6 lg:px-12 pt-24 pb-16 md:pt-32 md:pb-20 max-w-4xl mx-auto w-full">
-        <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
-          <Link href="/exams" className="hover:text-primary transition-colors">Exams</Link>
-          <span>›</span>
-          <span className="text-primary">UCEED</span>
+      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+        {/* SVG Hero Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          {/* Subtle grid pattern */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="uceed-hub-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#5563ED" strokeWidth="1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#uceed-hub-grid)" />
+          </svg>
+          
+          {/* Layered glowing blobs */}
+          <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-[#5563ED]/5 rounded-full blur-[80px]" />
+          <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-[#ff5a1f]/5 rounded-full blur-[60px]" />
+
+          {/* Smooth vector paths */}
+          <svg className="absolute right-0 bottom-0 w-full h-full min-w-[1200px]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="uceed-hub-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#5563ED" stopOpacity="0.04" />
+                <stop offset="100%" stopColor="#5563ED" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="uceed-hub-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ff5a1f" stopOpacity="0.02" />
+                <stop offset="100%" stopColor="#ff5a1f" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80 L1440,320 L0,320 Z" fill="url(#uceed-hub-wave-grad-1)" />
+            <path d="M0,240 C480,120 960,320 1440,160 L1440,320 L0,320 Z" fill="url(#uceed-hub-wave-grad-2)" />
+            <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80" stroke="#5563ED" strokeWidth="1.5" strokeOpacity="0.1" />
+            <path d="M0,240 C480,120 960,320 1440,160" stroke="#ff5a1f" strokeWidth="1.5" strokeOpacity="0.05" strokeDasharray="6 6" />
+          </svg>
         </div>
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-neutral-dark">
-          UCEED — Design at an <em className="text-primary not-italic">IIT</em>
-        </h1>
+        <div className="max-w-4xl mx-auto w-full px-6 lg:px-12 relative z-10">
+          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+            <Link href="/exams" className="hover:text-primary transition-colors">Exams</Link>
+            <span>›</span>
+            <span className="text-primary">UCEED</span>
+          </div>
 
-        <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium mb-6">
-          The one exam that gets you into the Bachelor of Design (B.Des) programs at IIT Bombay, IIT Delhi, IIT Guwahati, and four other IITs. 245 seats. Around 15,000 students. This is everything you need to know — no coaching centre bias, no fluff.
-        </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-neutral-dark">
+            UCEED — Design at an <em className="text-primary not-italic">IIT</em>
+          </h1>
 
-        <div className="text-sm font-bold text-slate-400">
-          Last reviewed: May 2026 · Based on UCEED 2026 official brochure
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium mb-6">
+            The one exam that gets you into the Bachelor of Design (B.Des) programs at IIT Bombay, IIT Delhi, IIT Guwahati, and four other IITs. 245 seats. Around 15,000 students. This is everything you need to know — no coaching centre bias, no fluff.
+          </p>
+
+          <div className="text-sm font-bold text-slate-400">
+            Last reviewed: May 2026 · Based on UCEED 2026 official brochure
+          </div>
         </div>
       </section>
 
@@ -102,69 +139,69 @@ export default function UceedHubPage() {
           <div className="space-y-4">
 
             {/* Card 1 */}
-            <Link href="/exams/uceed/what-it-is" className="group flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:border-primary transition-colors shadow-sm hover:shadow-md">
-              <div className="text-4xl md:text-5xl font-black text-primary leading-none opacity-80">01</div>
+            <Link href="/exams/uceed/what-it-is" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-primary/45 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-black text-primary leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">01</div>
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-primary transition-colors">What It Is — The complete breakdown</h3>
-                <div className="text-primary text-xs font-mono mb-4">/exams/uceed/what-it-is</div>
-                <p className="text-slate-600 leading-relaxed mb-4">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-primary transition-colors duration-300">What It Is — The complete breakdown</h3>
+                <div className="text-primary text-xs font-semibold font-mono mb-4">/exams/uceed/what-it-is</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
                   Everything about the exam itself. How Part A and Part B work, what the marking scheme actually means (especially those tricky MSQs), complete syllabus, eligibility, all 7 institutes in detail, seat matrix, counselling process, and what closing ranks look like in practice. If you want to understand UCEED from scratch, start here.
                 </p>
-                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">✓ Ready to read</span>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-sm border border-emerald-100">✓ Ready to read</span>
               </div>
             </Link>
 
             {/* Card 2 */}
-            <Link href="/exams/uceed/is-it-for-you" className="group flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:border-slate-300 transition-colors shadow-sm">
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-350 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
               <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">02</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Is It For You — Honest self-check</h3>
-                <div className="text-slate-400 text-xs font-mono mb-4">/exams/uceed/is-it-for-you</div>
-                <p className="text-slate-600 leading-relaxed mb-4">
+                <div className="text-slate-400 text-xs font-semibold font-mono mb-4">/exams/uceed/is-it-for-you</div>
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
                   This is the question most guides skip. Should you actually go for UCEED? What kind of person thrives in a BDes program versus regrets it? Questions you should ask yourself before committing a year — or two — to this. No cheerleading, no coaching centre pitch.
                 </p>
-                <span className="inline-block bg-orange-50 text-orange-700 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">Coming soon</span>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">Coming soon</span>
               </div>
-            </Link>
+            </div>
 
             {/* Card 3 */}
-            <Link href="/exams/uceed/resources" className="group flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:border-slate-300 transition-colors shadow-sm">
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-350 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
               <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">03</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Resources — What actually helps</h3>
-                <div className="text-slate-400 text-xs font-mono mb-4">/exams/uceed/resources</div>
-                <p className="text-slate-600 leading-relaxed mb-4">
+                <div className="text-slate-400 text-xs font-semibold font-mono mb-4">/exams/uceed/resources</div>
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
                   Books worth buying, books worth skipping, coaching vs. self-study (honest assessment), where to find past papers for free, mock test platforms, and a week-by-week preparation roadmap. Written by someone who&apos;s seen what works and what wastes time.
                 </p>
-                <span className="inline-block bg-orange-50 text-orange-700 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">Coming soon</span>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">Coming soon</span>
               </div>
-            </Link>
+            </div>
 
             {/* Card 4 */}
-            <Link href="/exams/uceed/scholarships" className="group flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:border-primary transition-colors shadow-sm hover:shadow-md">
-              <div className="text-4xl md:text-5xl font-black text-primary leading-none opacity-80">04</div>
+            <Link href="/exams/uceed/scholarships" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-primary/45 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-black text-primary leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">04</div>
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-primary transition-colors">Scholarships — Don&apos;t pay more than you have to</h3>
-                <div className="text-primary text-xs font-mono mb-4">/exams/uceed/scholarships</div>
-                <p className="text-slate-600 leading-relaxed mb-4">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-primary transition-colors duration-300">Scholarships — Don&apos;t pay more than you have to</h3>
+                <div className="text-primary text-xs font-semibold font-mono mb-4">/exams/uceed/scholarships</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
                   Institute-wise fee waivers, government scholarship schemes, and everything available to BDes students at IITs. SC/ST students get full tuition waiver. General category students under ₹5 lakh annual income qualify for significant relief. The fee is not as scary as it looks.
                 </p>
-                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">✓ Ready to read</span>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-sm border border-emerald-100">✓ Ready to read</span>
               </div>
             </Link>
 
             {/* Card 5 */}
-            <Link href="/exams/uceed/convince-parents" className="group flex flex-col md:flex-row gap-6 bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:border-slate-300 transition-colors shadow-sm">
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-350 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
               <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">05</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Convince Your Parents — With actual data</h3>
-                <div className="text-slate-400 text-xs font-mono mb-4">/exams/uceed/convince-parents</div>
-                <p className="text-slate-600 leading-relaxed mb-4">
+                <div className="text-slate-400 text-xs font-semibold font-mono mb-4">/exams/uceed/convince-parents</div>
+                <p className="text-slate-550 leading-relaxed mb-4 text-sm md:text-base">
                   Design at an IIT isn&apos;t a risk — but you&apos;ll need to explain that. This guide arms you with placement data, salary figures, career paths, and how to answer the hard questions: job security, prestige, &ldquo;is this a real IIT degree?&rdquo; Have the conversation with facts, not feeling.
                 </p>
-                <span className="inline-block bg-orange-50 text-orange-700 text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full">Coming soon</span>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">Coming soon</span>
               </div>
-            </Link>
+            </div>
 
           </div>
         </section>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import React, { useRef, useState, useEffect } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface GuideCardProps {
   category: string;
@@ -11,67 +12,149 @@ interface GuideCardProps {
   badgeClass: string;
 }
 
+const localTranslations = {
+  en: {
+    readGuide: "Read Guide",
+    startHere: <>Start here. Three guides<br className="hidden sm:block" /> we wish we had.</>,
+    viewAll: "View all guides",
+  },
+  hi: {
+    readGuide: "गाइड पढ़ें",
+    startHere: <>यहाँ से शुरू करें। तीन मार्गदर्शिकाएँ<br className="hidden sm:block" /> जो हम चाहते हैं कि हमारे पास होतीं।</>,
+    viewAll: "सभी मार्गदर्शिकाएँ देखें",
+  }
+};
+
+const CATEGORY_TRANSLATIONS: Record<string, Record<string, string>> = {
+  en: {
+    "design": "Design",
+    "defence": "Defence",
+    "maritime": "Maritime",
+  },
+  hi: {
+    "design": "डिज़ाइन",
+    "defence": "रक्षा",
+    "maritime": "मर्चेंट नेवी",
+  }
+};
+
 function GuideCard({ category, title, description, badgeClass }: GuideCardProps) {
+  const { language } = useLanguage();
+  const getGlowColor = (cat: string) => {
+    switch (cat.toLowerCase()) {
+      case "design":
+        return "bg-indigo-500/5 group-hover:bg-indigo-500/10";
+      case "defence":
+      case "defense":
+        return "bg-emerald-500/5 group-hover:bg-emerald-500/10";
+      case "maritime":
+        return "bg-orange-500/5 group-hover:bg-orange-500/10";
+      default:
+        return "bg-slate-500/5 group-hover:bg-slate-500/10";
+    }
+  };
+
+  const displayCategory = CATEGORY_TRANSLATIONS[language][category.toLowerCase()] || category;
+  const t = localTranslations[language];
+
   return (
-    <div className="bg-white rounded-2xl p-8 sm:p-10 flex flex-col h-full border border-neutral-200/60 hover:border-neutral-300 transition-colors group cursor-pointer shadow-sm">
-      <div className="mb-6 flex items-start">
-        <span className={`font-semibold text-sm px-3 py-1 rounded-xl border ${badgeClass}`}>
-          {category}
+    <div className="relative bg-white/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 hover:border-slate-350 transition-all duration-500 group cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 overflow-hidden">
+      {/* Ambient background glow */}
+      <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowColor(category)}`} />
+
+      <div className="mb-6 flex items-start relative z-10">
+        <span className={`font-black text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full border shadow-sm ${badgeClass}`}>
+          {displayCategory}
         </span>
       </div>
 
-      <h3 className="text-[26px] lg:text-[28px] font-bold text-neutral-800 mb-5 leading-[1.3]">
+      <h3 className="text-2xl lg:text-[1.65rem] font-black text-neutral-dark mb-5 leading-tight tracking-tight relative z-10 group-hover:text-primary transition-colors duration-300">
         {title}
       </h3>
 
-      <p className="text-neutral-500 leading-relaxed mb-10 flex-grow font-medium">
+      <p className="text-slate-550 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
         {description}
       </p>
 
-      <div className="mt-auto flex items-center gap-2 justify-end">
-        <span className="text-neutral-500 font-medium group-hover:text-neutral-800 transition-colors">
-          Read
+      <div className="mt-auto flex items-center gap-2 justify-end relative z-10">
+        <span className="text-xs font-black uppercase tracking-wider text-slate-500 group-hover:text-primary transition-colors duration-300">
+          {t.readGuide}
         </span>
-        <Icon icon="ph:arrow-right" className="w-5 h-5 text-neutral-400 group-hover:text-neutral-800 transition-all transform group-hover:translate-x-1" />
+        <Icon icon="ph:arrow-right" className="w-4 h-4 text-slate-400 group-hover:text-primary transition-all transform group-hover:translate-x-1 duration-300" />
       </div>
     </div>
   );
 }
 
-const GUIDES = [
-  {
-    category: "Design",
-    title: <>UCEED — Cracking it<br className="hidden lg:block" /> without coaching</>,
-    description: "What the entrance actually tests, how seniors prepped at home, and which prep books are honestly worth your money.",
-    badgeClass: "bg-indigo-50/80 text-indigo-600 border-indigo-100/50",
-  },
-  {
-    category: "Defence",
-    title: <>NDA — Beyond the uniform myth</>,
-    description: "What life looks like after Class 12 if you pick this path. Pay, postings, exit options, and the parts recruiters skip.",
-    badgeClass: "bg-emerald-50/80 text-emerald-600 border-emerald-100/50",
-  },
-  {
-    category: "Maritime",
-    title: <>Merchant Navy — Salary, sea time & reality</>,
-    description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
-    badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-  },
-  {
-    category: "Maritime",
-    title: <>Merchant Navy — Salary, sea time & reality</>,
-    description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
-    badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-  },
-  {
-    category: "Maritime",
-    title: <>Merchant Navy — Salary, sea time & reality</>,
-    description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
-    badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-  }
-];
+const GUIDES_DATA = {
+  en: [
+    {
+      category: "Design",
+      title: <>UCEED — Cracking it<br className="hidden lg:block" /> without coaching</>,
+      description: "What the entrance actually tests, how seniors prepped at home, and which prep books are honestly worth your money.",
+      badgeClass: "bg-indigo-50/80 text-indigo-600 border-indigo-100/50",
+    },
+    {
+      category: "Defence",
+      title: <>NDA — Beyond the uniform myth</>,
+      description: "What life looks like after Class 12 if you pick this path. Pay, postings, exit options, and the parts recruiters skip.",
+      badgeClass: "bg-emerald-50/80 text-emerald-600 border-emerald-100/50",
+    },
+    {
+      category: "Maritime",
+      title: <>Merchant Navy — Salary, sea time & reality</>,
+      description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
+      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+    },
+    {
+      category: "Maritime",
+      title: <>Merchant Navy — Salary, sea time & reality</>,
+      description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
+      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+    },
+    {
+      category: "Maritime",
+      title: <>Merchant Navy — Salary, sea time & reality</>,
+      description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
+      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+    }
+  ],
+  hi: [
+    {
+      category: "Design",
+      title: <>UCEED — बिना कोचिंग के<br className="hidden lg:block" /> क्रैक करना</>,
+      description: "प्रवेश परीक्षा वास्तव में क्या परीक्षण करती है, सीनियर छात्रों ने घर पर कैसे तैयारी की, और कौन सी तैयारी की किताबें वास्तव में आपके पैसे के लायक हैं।",
+      badgeClass: "bg-indigo-50/80 text-indigo-600 border-indigo-100/50",
+    },
+    {
+      category: "Defence",
+      title: <>NDA — वर्दी के मिथक से परे</>,
+      description: "यदि आप इस मार्ग को चुनते हैं तो कक्षा 12 के बाद जीवन कैसा दिखता है। वेतन, पोस्टिंग, बाहर निकलने के विकल्प, और वे हिस्से जिन्हें भर्ती करने वाले छोड़ देते हैं।",
+      badgeClass: "bg-emerald-50/80 text-emerald-600 border-emerald-100/50",
+    },
+    {
+      category: "Maritime",
+      title: <>मर्चेंट नेवी — वेतन, समुद्री समय और वास्तविकता</>,
+      description: "डीजी शिपिंग से लेकर आपके पहले अनुबंध तक। कैडेट्स क्या कमाते हैं, वे आपको क्या नहीं बताते हैं, और वास्तव में प्रवेश कैसे करें।",
+      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+    },
+    {
+      category: "Maritime",
+      title: <>मर्चेंट नेवी — वेतन, समुद्री समय और वास्तविकता</>,
+      description: "डीजी शिपिंग से लेकर आपके पहले अनुबंध तक। कैडेट्स क्या कमाते हैं, वे आपको क्या नहीं बताते हैं, और वास्तव में प्रवेश कैसे करें।",
+      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+    },
+    {
+      category: "Maritime",
+      title: <>मर्चेंट नेवी — वेतन, समुद्री समय और वास्तविकता</>,
+      description: "डीजी शिपिंग से लेकर आपके पहले अनुबंध तक। कैडेट्स क्या कमाते हैं, वे आपको क्या नहीं बताते हैं, और वास्तव में प्रवेश कैसे करें।",
+      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+    }
+  ]
+};
 
 export default function FeaturedGuides() {
+  const { language } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
   const firstCardRef = useRef<HTMLDivElement>(null);
   const lastCardRef = useRef<HTMLDivElement>(null);
@@ -105,6 +188,9 @@ export default function FeaturedGuides() {
     }
   };
 
+  const t = localTranslations[language];
+  const guides = GUIDES_DATA[language];
+
   return (
     <section className="bg-[#F8F8F6] py-20 lg:py-28 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,7 +199,7 @@ export default function FeaturedGuides() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 lg:mb-16 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-extrabold text-[#111827] tracking-tight">
-              Start here. Three guides<br className="hidden sm:block" /> we wish we had.
+              {t.startHere}
             </h2>
           </div>
 
@@ -121,7 +207,7 @@ export default function FeaturedGuides() {
             href="/guides"
             className="group flex items-center gap-2 font-medium text-neutral-500 hover:text-neutral-800 transition-colors w-fit pb-2"
           >
-            <span>View all guides</span>
+            <span>{t.viewAll}</span>
             <Icon icon="ph:arrow-right" className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -158,10 +244,10 @@ export default function FeaturedGuides() {
             onScroll={handleScroll}
             className="flex overflow-x-auto snap-x snap-mandatory gap-6 lg:gap-8 pb-8 -mb-8 px-4 sm:px-6 lg:px-8 xl:px-[calc((100vw-1280px)/2)] 2xl:px-[calc((100vw-1536px)/2)] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
-            {GUIDES.map((guide, idx) => (
+            {guides.map((guide, idx) => (
               <div
                 key={idx}
-                ref={idx === 0 ? firstCardRef : idx === GUIDES.length - 1 ? lastCardRef : null}
+                ref={idx === 0 ? firstCardRef : idx === guides.length - 1 ? lastCardRef : null}
                 className="w-[85vw] sm:w-[380px] lg:w-[400px] flex-none snap-center lg:snap-start"
               >
                 <GuideCard
