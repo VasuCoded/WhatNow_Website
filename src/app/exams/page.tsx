@@ -135,7 +135,8 @@ const EXAMS_DATA = {
       seats: "~3,000 Seats",
       applicants: "~25,000",
       date: "June 2026",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/exams/imu-cet",
       colleges: "IMU & Affiliated Academies",
       colorClass: {
         badge: "bg-orange-50 text-orange-600 border-orange-100",
@@ -522,7 +523,7 @@ export default function ExamsPage() {
             </defs>
             <rect width="100%" height="100%" fill="url(#hero-grid)" />
           </svg>
-          
+
           {/* Layered glowing blobs */}
           <div className="absolute -top-[10%] -right-[5%] w-[450px] h-[450px] bg-[#5563ED]/5 rounded-full blur-[80px]" />
           <div className="absolute -bottom-[20%] -left-[5%] w-[350px] h-[350px] bg-[#ff5a1f]/5 rounded-full blur-[60px]" />
@@ -591,15 +592,14 @@ export default function ExamsPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`relative pb-4 text-xs md:text-sm font-extrabold uppercase tracking-widest transition-colors duration-300 cursor-pointer whitespace-nowrap select-none focus:outline-none ${
-                  isActive
+                className={`relative pb-4 text-xs md:text-sm font-extrabold uppercase tracking-widest transition-colors duration-300 cursor-pointer whitespace-nowrap select-none focus:outline-none ${isActive
                     ? "text-neutral-dark font-black"
                     : "text-slate-400 hover:text-neutral-dark"
-                }`}
+                  }`}
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
                 <span className="relative z-10">{categoriesTranslations[category]}</span>
-                
+
                 {/* Underline indicator */}
                 {isActive && (
                   <motion.div
@@ -614,7 +614,7 @@ export default function ExamsPage() {
         </div>
 
         {/* Exams Grid */}
-        <motion.div 
+        <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
@@ -643,7 +643,7 @@ export default function ExamsPage() {
               };
 
               const displayCategory = categoriesTranslations[exam.category] || exam.category;
-              
+
               return (
                 <motion.div
                   key={exam.id}
@@ -860,9 +860,8 @@ export default function ExamsPage() {
                         <span className="font-semibold">{categoriesTranslations[reqCategory] || reqCategory}</span>
                         <Icon
                           icon="solar:alt-arrow-down-linear"
-                          className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${
-                            dropdownOpen ? "rotate-180 text-white" : ""
-                          }`}
+                          className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${dropdownOpen ? "rotate-180 text-white" : ""
+                            }`}
                         />
                       </button>
 
@@ -885,11 +884,10 @@ export default function ExamsPage() {
                                     setReqCategory(category);
                                     setDropdownOpen(false);
                                   }}
-                                  className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors flex items-center justify-between cursor-pointer ${
-                                    isSelected
+                                  className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors flex items-center justify-between cursor-pointer ${isSelected
                                       ? "bg-indigo-500/20 text-white font-bold"
                                       : "text-slate-300 hover:bg-white/5 hover:text-white"
-                                  }`}
+                                    }`}
                                 >
                                   <span>{categoriesTranslations[category] || category}</span>
                                   {isSelected && (

@@ -1,0 +1,240 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import { Icon } from '@iconify/react';
+import { useLanguage } from '@/context/LanguageContext';
+
+const translations = {
+  en: {
+    breadcrumbsHome: "Home",
+    breadcrumbsCareers: "Careers",
+    breadcrumbsMerchantNavy: "Merchant Navy",
+    title: "Merchant Navy — Life at Sea, Pay on Land",
+    subtitle: "Tax-free salaries, global travel, and months of isolation. We break down the real career path, entry routes, and what nobody tells you about life offshore.",
+    lastReviewed: "Last reviewed: May 2026 · Compiled by serving Deck Officers & Marine Engineers",
+    stat1Label: "Starting Salary",
+    stat1Val: "₹80K-₹3L/mo",
+    stat2Label: "Tax Status",
+    stat2Val: "Tax-Free*",
+    stat3Label: "Sea Time",
+    stat3Val: "6-9 months/yr",
+    stat4Label: "Top Exams",
+    stat4Val: "IMU CET",
+    stat5Label: "Study Duration",
+    stat5Val: "1-4 Years",
+    stat6Label: "Career Span",
+    stat6Val: "20-25 Years",
+    sectionTitle: "What is a Career in Merchant Navy?",
+    descParagraph1: "The Merchant Navy is the commercial shipping fleet that carries 90% of global trade — crude oil, container cargo, LNG, automobiles, grain. Officers either navigate ships (Deck Officers) or manage their propulsion and electrical systems (Marine Engineers). You work on contracts: typically 4-9 months at sea, followed by 2-4 months of paid leave on land.",
+    descParagraph2: "The pay is extraordinary for Indian standards — a Second Officer or Fourth Engineer can earn ₹80,000-₹1,50,000 per month tax-free within 2 years of graduating. A Captain or Chief Engineer draws ₹3,00,000-₹8,00,000 per month. The catch: months of isolation, minimal internet at sea, zero social life during contracts, and extremely demanding physical and mental conditions.",
+    descParagraph3: "Entry is through IMU CET (Indian Maritime University Common Entrance Test) or direct admission to DG Shipping-approved institutes. The two primary paths are B.Sc Nautical Science (Deck side) and B.Tech Marine Engineering (Engine side). A faster route is the DNS course (Diploma in Nautical Science) — just 1 year of academics followed by 18 months of sea training.",
+    warningTitle: "Reality check:",
+    warningText: "Most YouTube channels and coaching centres sell the glamour — international travel, high salary, uniform. What they don't tell you: you will miss weddings, birthdays, festivals, and emergencies. Relationships are hard. Mental health at sea is a real issue. You need to be genuinely okay with isolation before committing.",
+    roadmapTitle: "Merchant Navy Career Guides & Roadmaps",
+    card1Title: "Is It For You — The Hard Truth",
+    card1Desc: "Isolation tolerance, physical fitness requirements, personality traits that thrive at sea, and a realistic day-in-the-life for Deck and Engine cadets. No glamour, just facts.",
+    card2Title: "Entry Routes — DNS vs B.Sc vs B.Tech",
+    card2Desc: "Complete comparison of DNS (fastest, 1 year), B.Sc Nautical Science (3 years), and B.Tech Marine Engineering (4 years). Costs, ROI, and which path suits your background.",
+    card3Title: "Colleges & DG Shipping Approval",
+    card3Desc: "The only list that matters: DG Shipping-approved institutes. Fee structures, placement rates, campus locations, and which ones are actually worth the investment.",
+    card4Title: "Salary, Ranks & Career Progression",
+    card4Desc: "From Trainee Cadet to Captain/Chief Engineer. Rank-by-rank salary breakdowns, CDC requirements, competency exams (MEO/Mate), and the 20-year career arc in shipping.",
+    badgeComingSoon: "Coming soon",
+    imucetExamLinkText: "Related Exam Guide: IMU CET (Maritime Entrance)"
+  },
+  hi: {
+    breadcrumbsHome: "होम",
+    breadcrumbsCareers: "करियर",
+    breadcrumbsMerchantNavy: "मर्चेंट नेवी",
+    title: "मर्चेंट नेवी — समुद्र पर जीवन, जमीन पर वेतन",
+    subtitle: "कर-मुक्त वेतन, वैश्विक यात्रा और महीनों का एकांत। हम वास्तविक करियर पथ, प्रवेश मार्ग और ऑफशोर जीवन के बारे में वह सब बताते हैं जो कोई नहीं बताता।",
+    lastReviewed: "अंतिम समीक्षा: मई 2026 · सेवारत डेक ऑफिसर्स और मरीन इंजीनियर्स द्वारा संकलित",
+    stat1Label: "शुरुआती वेतन",
+    stat1Val: "₹80K-₹3L/माह",
+    stat2Label: "कर स्थिति",
+    stat2Val: "कर-मुक्त*",
+    stat3Label: "समुद्री समय",
+    stat3Val: "6-9 माह/वर्ष",
+    stat4Label: "शीर्ष परीक्षाएं",
+    stat4Val: "IMU CET",
+    stat5Label: "अध्ययन अवधि",
+    stat5Val: "1-4 वर्ष",
+    stat6Label: "करियर अवधि",
+    stat6Val: "20-25 वर्ष",
+    sectionTitle: "मर्चेंट नेवी में करियर क्या है?",
+    descParagraph1: "मर्चेंट नेवी वाणिज्यिक शिपिंग बेड़ा है जो वैश्विक व्यापार का 90% — कच्चा तेल, कंटेनर कार्गो, LNG, ऑटोमोबाइल, अनाज — ढोता है। अधिकारी या तो जहाजों को नेविगेट करते हैं (डेक अधिकारी) या उनके प्रणोदन और विद्युत प्रणालियों का प्रबंधन करते हैं (मरीन इंजीनियर)। आप अनुबंधों पर काम करते हैं: आमतौर पर 4-9 महीने समुद्र में, उसके बाद 2-4 महीने की सवेतन छुट्टी।",
+    descParagraph2: "भारतीय मानकों के लिए वेतन असाधारण है — एक सेकंड ऑफिसर या फोर्थ इंजीनियर स्नातक होने के 2 साल के भीतर ₹80,000-₹1,50,000 प्रति माह कर-मुक्त कमा सकता है। एक कैप्टन या चीफ इंजीनियर ₹3,00,000-₹8,00,000 प्रति माह कमाता है। कठिनाई: महीनों का एकांत, समुद्र में न्यूनतम इंटरनेट, अनुबंधों के दौरान शून्य सामाजिक जीवन।",
+    descParagraph3: "प्रवेश IMU CET (भारतीय समुद्री विश्वविद्यालय सामान्य प्रवेश परीक्षा) या DG शिपिंग-अनुमोदित संस्थानों में सीधे प्रवेश के माध्यम से होता है। दो प्राथमिक मार्ग हैं: B.Sc नॉटिकल साइंस (डेक साइड) और B.Tech मरीन इंजीनियरिंग (इंजन साइड)। एक तेज मार्ग DNS कोर्स (डिप्लोमा इन नॉटिकल साइंस) है — केवल 1 वर्ष का शैक्षणिक कार्य और 18 महीने का समुद्री प्रशिक्षण।",
+    warningTitle: "वास्तविकता जांच:",
+    warningText: "अधिकांश YouTube चैनल और कोचिंग सेंटर ग्लैमर बेचते हैं — अंतर्राष्ट्रीय यात्रा, उच्च वेतन, वर्दी। जो वे नहीं बताते: आप शादियां, जन्मदिन, त्योहार और आपातकालीन स्थितियां मिस करेंगे। रिश्ते कठिन होते हैं। समुद्र में मानसिक स्वास्थ्य एक वास्तविक मुद्दा है।",
+    roadmapTitle: "मर्चेंट नेवी करियर गाइड और रोडमैप",
+    card1Title: "क्या यह आपके लिए है — कठिन सच",
+    card1Desc: "एकांत सहनशीलता, शारीरिक फिटनेस आवश्यकताएं, समुद्र में सफल होने वाले व्यक्तित्व लक्षण, और डेक और इंजन कैडेट्स के लिए एक यथार्थवादी दैनिक जीवन।",
+    card2Title: "प्रवेश मार्ग — DNS बनाम B.Sc बनाम B.Tech",
+    card2Desc: "DNS (सबसे तेज, 1 वर्ष), B.Sc नॉटिकल साइंस (3 वर्ष), और B.Tech मरीन इंजीनियरिंग (4 वर्ष) की पूर्ण तुलना। लागत, ROI, और कौन सा मार्ग आपकी पृष्ठभूमि के अनुकूल है।",
+    card3Title: "कॉलेज और DG शिपिंग अनुमोदन",
+    card3Desc: "एकमात्र सूची जो मायने रखती है: DG शिपिंग-अनुमोदित संस्थान। शुल्क संरचना, प्लेसमेंट दरें, परिसर स्थान, और कौन से वास्तव में निवेश के लायक हैं।",
+    card4Title: "वेतन, रैंक और करियर प्रगति",
+    card4Desc: "ट्रेनी कैडेट से कैप्टन/चीफ इंजीनियर तक। रैंक-दर-रैंक वेतन विवरण, CDC आवश्यकताएं, योग्यता परीक्षाएं (MEO/Mate), और शिपिंग में 20 साल का करियर आर्क।",
+    badgeComingSoon: "जल्द आ रहा है",
+    imucetExamLinkText: "संबद्ध परीक्षा गाइड: IMU CET (मैरीटाइम प्रवेश)"
+  }
+};
+
+export default function MerchantNavyCareerHubPage() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  return (
+    <main className="flex-grow flex flex-col bg-slate-50">
+      {/* PAGE HEADER */}
+      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="merchant-navy-hub-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ea580c" strokeWidth="1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#merchant-navy-hub-grid)" />
+          </svg>
+          <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-orange-500/5 rounded-full blur-[80px]" />
+          <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-sky-500/5 rounded-full blur-[60px]" />
+        </div>
+
+        <div className="max-w-4xl mx-auto w-full px-6 lg:px-12 relative z-10">
+          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+            <Link href="/" className="hover:text-primary transition-colors">{t.breadcrumbsHome}</Link>
+            <span>›</span>
+            <Link href="/careers" className="hover:text-primary transition-colors">{t.breadcrumbsCareers}</Link>
+            <span>›</span>
+            <span className="text-orange-600">{t.breadcrumbsMerchantNavy}</span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-neutral-dark">
+            {t.title}
+          </h1>
+
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium mb-6">
+            {t.subtitle}
+          </p>
+
+          <div className="text-sm font-bold text-slate-400">
+            {t.lastReviewed}
+          </div>
+        </div>
+      </section>
+
+      <div className="px-6 lg:px-12 pb-20 md:pb-32 max-w-4xl mx-auto w-full space-y-20 mt-12">
+        {/* STAT BAR */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4 shadow-sm">
+          <div className="flex flex-col">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat1Label}</span>
+            <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat1Val}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat2Label}</span>
+            <span className="text-2xl md:text-3xl font-black text-orange-600">{t.stat2Val}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat3Label}</span>
+            <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat3Val}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat4Label}</span>
+            <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat4Val}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat5Label}</span>
+            <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat5Val}</span>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat6Label}</span>
+            <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat6Val}</span>
+          </div>
+        </div>
+
+        {/* RELATED EXAM LINK */}
+        <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+          <div className="flex items-center gap-3">
+            <Icon icon="solar:document-bold-duotone" className="w-8 h-8 text-orange-600" />
+            <span className="font-bold text-neutral-dark text-sm md:text-base">{t.imucetExamLinkText}</span>
+          </div>
+          <Link href="/exams/imu-cet" className="bg-orange-600 hover:bg-orange-700 text-white font-extrabold text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-sm">
+            Read Exam Guide
+          </Link>
+        </div>
+
+        {/* WHAT IS MERCHANT NAVY */}
+        <section>
+          <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b-2 border-slate-200 pb-4 mb-8">
+            {t.sectionTitle}
+          </h2>
+
+          <div className="space-y-6 text-lg text-slate-700 leading-relaxed font-medium mb-12">
+            <p>{t.descParagraph1}</p>
+            <p>{t.descParagraph2}</p>
+            <p>{t.descParagraph3}</p>
+          </div>
+
+          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl">
+            <p className="text-slate-800 leading-relaxed font-medium">
+              <strong className="font-black text-orange-700">{t.warningTitle} </strong>
+              {t.warningText}
+            </p>
+          </div>
+        </section>
+
+        {/* CAREER GUIDES */}
+        <section>
+          <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b-2 border-slate-200 pb-4 mb-8">
+            {t.roadmapTitle}
+          </h2>
+
+          <div className="space-y-4">
+            {/* Card 1 */}
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
+              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">01</div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">{t.card1Title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card1Desc}</p>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">{t.badgeComingSoon}</span>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
+              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">02</div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">{t.card2Title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card2Desc}</p>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">{t.badgeComingSoon}</span>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
+              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">03</div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">{t.card3Title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card3Desc}</p>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">{t.badgeComingSoon}</span>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
+              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">04</div>
+              <div className="flex-1">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">{t.card4Title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card4Desc}</p>
+                <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">{t.badgeComingSoon}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+}

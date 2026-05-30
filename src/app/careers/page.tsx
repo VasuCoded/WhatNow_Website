@@ -130,7 +130,8 @@ const CAREERS_DATA = {
       salary: "₹80,000 - ₹3,00,000/mo (Tax-Free)",
       colleges: "IMU Campuses, Top Marine Institutes",
       exitRisk: "High Sea-Time Risk / Niche Exit",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/careers/merchant-navy",
       colorClass: {
         badge: "bg-orange-550 text-orange-600 border-orange-100",
         text: "text-orange-600",
@@ -242,7 +243,8 @@ const CAREERS_DATA = {
       salary: "₹80,000 - ₹3,00,000/माह (कर-मुक्त)",
       colleges: "IMU परिसर, शीर्ष समुद्री संस्थान",
       exitRisk: "उच्च समुद्री समय जोखिम / विशिष्ट निकास",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/careers/merchant-navy",
       colorClass: {
         badge: "bg-orange-50 text-orange-600 border-orange-100",
         text: "text-orange-600",
