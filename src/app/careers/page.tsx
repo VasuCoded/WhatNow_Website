@@ -359,6 +359,10 @@ export default function CareersPage() {
     (career) => selectedCategory === "All" || career.category === selectedCategory
   );
 
+  const handleSearchTrigger = () => {
+    window.dispatchEvent(new CustomEvent("open-search"));
+  };
+
   return (
     <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
       {/* HERO / HEADER */}
@@ -380,20 +384,75 @@ export default function CareersPage() {
         </div>
 
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
-          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 mb-8">
-            <Link href="/" className="hover:text-primary transition-colors">{t.home}</Link>
-            <span>›</span>
-            <span className="text-primary">{t.careers}</span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 mb-8">
+                <Link href="/" className="hover:text-primary transition-colors">{t.home}</Link>
+                <span>›</span>
+                <span className="text-primary">{t.careers}</span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
+                {t.heroHeadline}<br />
+                <span className="text-primary">{t.heroHeadlineSub}</span>
+              </h1>
+              <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
+                {t.heroDesc}
+              </p>
+            </div>
 
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
-              {t.heroHeadline}<br />
-              <span className="text-primary">{t.heroHeadlineSub}</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
-              {t.heroDesc}
-            </p>
+            <div className="lg:col-span-5 relative mt-6 lg:mt-0">
+              {/* Glassmorphic dashboard stats & search block */}
+              <motion.div 
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="relative overflow-hidden bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-[2.5rem] p-8 shadow-xl shadow-slate-100/50"
+              >
+                {/* Subtle top primary highlight bar */}
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-secondary" />
+
+                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                  <Icon icon="solar:compass-bold-duotone" className="w-4 h-4 text-primary" />
+                  <span>{language === 'hi' ? 'करियर निर्देशिका' : 'Careers Directory'}</span>
+                </h3>
+
+                <button
+                  onClick={handleSearchTrigger}
+                  className="group flex items-center justify-between bg-slate-50 hover:bg-slate-100/80 border border-slate-200/60 rounded-2xl px-5 py-4 w-full text-left text-slate-550 text-sm font-medium transition-all shadow-xs cursor-pointer mb-6"
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400" />
+                    <span>{language === 'hi' ? 'खोजें (जैसे: design, law)...' : 'Search (e.g. design, law)...'}</span>
+                  </div>
+                  <kbd className="hidden sm:inline-block border border-slate-250 bg-white rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400">
+                    Ctrl+K
+                  </kbd>
+                </button>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
+                    <span className="text-3xl font-black text-neutral-dark block mb-0.5 leading-none">5</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 leading-none">{language === 'hi' ? 'सक्रिय गाइड' : 'Active Guides'}</span>
+                  </div>
+                  
+                  <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
+                    <span className="text-3xl font-black text-primary block mb-0.5 leading-none">12+</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 leading-none">{language === 'hi' ? 'जल्द आ रहे हैं' : 'Coming Soon'}</span>
+                  </div>
+
+                  <div className="bg-emerald-50/60 border border-emerald-100/50 rounded-2xl p-4 col-span-2 flex items-center gap-3">
+                    <div className="h-8 w-8 rounded-lg bg-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0">
+                      <Icon icon="solar:shield-check-bold" className="w-4.5 h-4.5" />
+                    </div>
+                    <div>
+                      <span className="text-[11px] font-black text-emerald-800 block mb-0.5 leading-tight">{language === 'hi' ? '100% निष्पक्ष और स्वतंत्र' : '100% Unbiased & Independent'}</span>
+                      <span className="text-[9px] font-bold text-emerald-600/90 uppercase tracking-wide leading-none">{language === 'hi' ? 'कोई कोचिंग संबद्धता नहीं' : 'No coaching sponsors or agenda'}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
