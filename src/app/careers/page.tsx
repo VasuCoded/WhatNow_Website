@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { useLanguage } from "@/context/LanguageContext";
+import { SEARCH_INDEX } from "@/data/searchIndex";
 
 interface CareerItem {
   id: string;
@@ -359,8 +361,71 @@ export default function CareersPage() {
     (career) => selectedCategory === "All" || career.category === selectedCategory
   );
 
-  const handleSearchTrigger = () => {
-    window.dispatchEvent(new CustomEvent("open-search"));
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [searchSelectedIndex, setSearchSelectedIndex] = useState(0);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Ctrl+K to focus search input
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+        setIsSearchFocused(true);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Filter SEARCH_INDEX
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase().trim();
+    return SEARCH_INDEX.filter(item => {
+      const matchTitle = item.title.toLowerCase().includes(q);
+      const matchDesc = item.description.toLowerCase().includes(q);
+      const matchKw = item.keywords.some(kw => kw.toLowerCase().includes(q));
+      return matchTitle || matchDesc || matchKw;
+    }).slice(0, 5); // limit to 5 results for clean dropdown height
+  }, [searchQuery]);
+
+  // Handle keyboard navigation inside search dropdown
+  const handleSearchKeyDown = (e: React.KeyboardEvent) => {
+    if (searchResults.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSearchSelectedIndex((prev) => (prev + 1) % searchResults.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSearchSelectedIndex((prev) => (prev - 1 + searchResults.length) % searchResults.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      const activeItem = searchResults[searchSelectedIndex];
+      if (activeItem && activeItem.status !== "coming-soon") {
+        router.push(activeItem.href);
+        setIsSearchFocused(false);
+      }
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      setIsSearchFocused(false);
+      searchInputRef.current?.blur();
+    }
   };
 
   return (
@@ -417,18 +482,123 @@ export default function CareersPage() {
                   <span>{language === 'hi' ? 'करियर निर्देशिका' : 'Careers Directory'}</span>
                 </h3>
 
-                <button
-                  onClick={handleSearchTrigger}
-                  className="group flex items-center justify-between bg-slate-50 hover:bg-slate-100/80 border border-slate-200/60 rounded-2xl px-5 py-4 w-full text-left text-slate-550 text-sm font-medium transition-all shadow-xs cursor-pointer mb-6"
-                >
-                  <div className="flex items-center gap-3">
-                    <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400" />
-                    <span>{language === 'hi' ? 'खोजें (जैसे: design, law)...' : 'Search (e.g. design, law)...'}</span>
+                {/* Inline Search Bar with Dropdown */}
+                <div ref={searchContainerRef} className="relative mb-6">
+                  <div className="flex items-center gap-3 bg-slate-50 border border-slate-200/60 rounded-2xl px-5 py-4 w-full text-slate-550 text-sm font-medium transition-all shadow-xs focus-within:border-primary focus-within:bg-white">
+                    <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400 shrink-0" />
+                    <input
+                      ref={searchInputRef}
+                      type="text"
+                      placeholder={language === 'hi' ? 'खोजें (जैसे: design, law)...' : 'Search (e.g. design, law)...'}
+                      value={searchQuery}
+                      onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                        setSearchSelectedIndex(0);
+                      }}
+                      onFocus={() => setIsSearchFocused(true)}
+                      onKeyDown={handleSearchKeyDown}
+                      className="w-full text-neutral-dark placeholder-slate-400 bg-transparent focus:outline-none font-semibold text-sm"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => {
+                          setSearchQuery("");
+                          setSearchSelectedIndex(0);
+                        }}
+                        className="p-1 rounded-full text-slate-400 hover:text-neutral-dark hover:bg-slate-200/50 transition-colors cursor-pointer shrink-0"
+                      >
+                        <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
+                      </button>
+                    )}
+                    <kbd className="hidden sm:inline-block border border-slate-250 bg-white rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400 shrink-0">
+                      Ctrl+K
+                    </kbd>
                   </div>
-                  <kbd className="hidden sm:inline-block border border-slate-250 bg-white rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400">
-                    Ctrl+K
-                  </kbd>
-                </button>
+
+                  {/* Dropdown Menu */}
+                  <AnimatePresence>
+                    {isSearchFocused && searchResults.length > 0 && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 4, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-2xl shadow-slate-900/10 max-h-[300px] overflow-y-auto p-2 space-y-1"
+                      >
+                        {searchResults.map((item, idx) => {
+                          const isSelected = idx === searchSelectedIndex;
+                          const isComingSoon = item.status === 'coming-soon';
+                          return (
+                            <div
+                              key={item.href}
+                              onClick={() => {
+                                if (!isComingSoon) {
+                                  router.push(item.href);
+                                  setIsSearchFocused(false);
+                                }
+                              }}
+                              onMouseEnter={() => setSearchSelectedIndex(idx)}
+                              className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer select-none transition-all ${
+                                isSelected 
+                                  ? "bg-slate-50 border border-slate-100" 
+                                  : "bg-transparent border border-transparent"
+                              } ${isComingSoon ? "opacity-60 cursor-not-allowed" : ""}`}
+                            >
+                              <div className={`h-8 w-8 rounded-lg flex items-center justify-center shrink-0 border ${
+                                item.category === 'Careers' 
+                                  ? 'text-secondary bg-secondary/5 border-secondary/10' 
+                                  : item.category === 'Exams' 
+                                  ? 'text-primary bg-primary/5 border-primary/10' 
+                                  : 'text-accent bg-accent/5 border-accent/10'
+                              }`}>
+                                <Icon 
+                                  icon={
+                                    item.category === 'Careers' 
+                                      ? "solar:compass-bold-duotone" 
+                                      : item.category === 'Exams' 
+                                      ? "solar:document-text-bold-duotone" 
+                                      : "solar:book-bookmark-bold-duotone"
+                                  } 
+                                  className="w-4 h-4" 
+                                />
+                              </div>
+                              <div className="flex-1 min-w-0 pr-1">
+                                <div className="flex items-center gap-1.5 flex-wrap">
+                                  <span className="text-xs font-black text-neutral-dark truncate">{item.title}</span>
+                                  {isComingSoon && (
+                                    <span className="text-[8px] font-black uppercase bg-orange-50 text-orange-500 border border-orange-100 px-1 py-0.2 rounded-sm tracking-wider">
+                                      Soon
+                                    </span>
+                                  )}
+                                </div>
+                                <span className="text-[10px] text-slate-450 line-clamp-1 leading-tight">{item.description}</span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Empty state dropdown if query doesn't match */}
+                  <AnimatePresence>
+                    {isSearchFocused && searchQuery.trim() && searchResults.length === 0 && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 4 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200/80 rounded-2xl shadow-xl p-6 text-center"
+                      >
+                        <span className="text-xs font-bold text-slate-400 block mb-1">
+                          {language === 'hi' ? 'कोई परिणाम नहीं मिला' : 'No results found'}
+                        </span>
+                        <span className="text-[10px] text-slate-400 block">
+                          {language === 'hi' ? 'सक्रिय करियर या परीक्षाओं की खोज करें।' : 'Try searching for active guides.'}
+                        </span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
