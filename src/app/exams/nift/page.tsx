@@ -1,5 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const niftAnalyticsData = {
+  trends: [
+    { year: 2022, applicants: 17000, seats: 2600 },
+    { year: 2023, applicants: 18500, seats: 2700 },
+    { year: 2024, applicants: 20000, seats: 2800 },
+    { year: 2025, applicants: 20000, seats: 2800 },
+    { year: 2026, applicants: 22000, seats: 2800 }
+  ],
+  seatFunnel: {
+    applicants: 22000,
+    seats: 2800
+  }
+};
 
 export const metadata = {
   title: 'NIFT Entrance — Fashion Design at India\'s Premier Institutes | WhatNow',
@@ -109,6 +124,9 @@ export default function NiftHubPage() {
             View Career
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="exam" data={niftAnalyticsData} colorTheme="pink" />
 
         {/* ─── WHAT IS NIFT ─── */}
         <section>

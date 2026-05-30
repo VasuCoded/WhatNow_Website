@@ -2,6 +2,23 @@
 
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const designAnalyticsData = {
+  jobs: [
+    { year: 2022, openings: 15000 },
+    { year: 2023, openings: 18000 },
+    { year: 2024, openings: 22000 },
+    { year: 2025, openings: 26000 },
+    { year: 2026, openings: 32000 }
+  ],
+  salaries: [
+    { level: "Entry", levelHi: "शुरुआती", amount: "₹50K - ₹1.2L/माह", numericAmount: 70000 },
+    { level: "Mid", levelHi: "मध्यम", amount: "₹1.2L - ₹2.5L/माह", numericAmount: 180000 },
+    { level: "Senior", levelHi: "वरिष्ठ", amount: "₹2.5L - ₹4L/माह", numericAmount: 320000 },
+    { level: "Director", levelHi: "निदेशक", amount: "₹4L - ₹8L/माह", numericAmount: 500000 }
+  ]
+};
 import { Icon } from '@iconify/react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -165,6 +182,9 @@ export default function DesignCareerHubPage() {
             Read Exam Guide
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="career" data={designAnalyticsData} colorTheme="indigo" />
 
         {/* WHAT IS DESIGN */}
         <section>

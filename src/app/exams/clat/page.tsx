@@ -1,5 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const clatAnalyticsData = {
+  trends: [
+    { year: 2022, applicants: 58000, seats: 2800 },
+    { year: 2023, applicants: 62000, seats: 3000 },
+    { year: 2024, applicants: 68000, seats: 3200 },
+    { year: 2025, applicants: 75000, seats: 3200 },
+    { year: 2026, applicants: 82000, seats: 3200 }
+  ],
+  seatFunnel: {
+    applicants: 82000,
+    seats: 3200
+  }
+};
 
 export const metadata = {
   title: 'CLAT — Law Entrance Exam | WhatNow',
@@ -106,6 +121,9 @@ export default function ClatHubPage() {
             View Career
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="exam" data={clatAnalyticsData} colorTheme="emerald" />
 
         {/* ─── WHAT IS CLAT ─── */}
         <section>

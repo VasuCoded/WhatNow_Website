@@ -2,6 +2,23 @@
 
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const navyAnalyticsData = {
+  jobs: [
+    { year: 2022, openings: 8000 },
+    { year: 2023, openings: 9000 },
+    { year: 2024, openings: 10000 },
+    { year: 2025, openings: 10000 },
+    { year: 2026, openings: 11000 }
+  ],
+  salaries: [
+    { level: "Cadet", levelHi: "कैडेट", amount: "₹25K - ₹50K/माह", numericAmount: 35000 },
+    { level: "3rd/4th Off", levelHi: "तृतीय/चतुर्थ अधिकारी", amount: "₹80K - ₹1.5L/माह", numericAmount: 115000 },
+    { level: "2nd Off/Chief", levelHi: "द्वितीय अधिकारी/मुख्य", amount: "₹1.5L - ₹3L/माह", numericAmount: 220000 },
+    { level: "Captain/Chief", levelHi: "कैप्टन/चीफ इंजीनियर", amount: "₹3L - ₹8L/माह", numericAmount: 550000 }
+  ]
+};
 import { Icon } from '@iconify/react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -165,6 +182,9 @@ export default function MerchantNavyCareerHubPage() {
             Read Exam Guide
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="career" data={navyAnalyticsData} colorTheme="orange" />
 
         {/* WHAT IS MERCHANT NAVY */}
         <section>

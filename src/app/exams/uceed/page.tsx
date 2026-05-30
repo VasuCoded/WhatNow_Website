@@ -1,9 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
 
 export const metadata = {
   title: 'UCEED — Design at an IIT | WhatNow',
   description: 'The one exam that gets you into the Bachelor of Design (B.Des) programs at IIT Bombay, IIT Delhi, IIT Guwahati, and four other IITs.',
+};
+
+const uceedAnalyticsData = {
+  trends: [
+    { year: 2022, applicants: 12100, seats: 205 },
+    { year: 2023, applicants: 13500, seats: 205 },
+    { year: 2024, applicants: 14200, seats: 225 },
+    { year: 2025, applicants: 15000, seats: 245 },
+    { year: 2026, applicants: 16200, seats: 245 }
+  ],
+  seatFunnel: {
+    applicants: 16200,
+    seats: 245
+  }
 };
 
 export default function UceedHubPage() {
@@ -96,6 +111,9 @@ export default function UceedHubPage() {
             <span className="text-2xl md:text-3xl font-black text-neutral-dark">~15K</span>
           </div>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="exam" data={uceedAnalyticsData} colorTheme="indigo" />
 
         {/* ─── WHAT IS UCEED ─── */}
         <section>

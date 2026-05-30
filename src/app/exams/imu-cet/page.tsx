@@ -1,5 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const imucetAnalyticsData = {
+  trends: [
+    { year: 2022, applicants: 18000, seats: 2500 },
+    { year: 2023, applicants: 20000, seats: 2800 },
+    { year: 2024, applicants: 22000, seats: 3000 },
+    { year: 2025, applicants: 25000, seats: 3000 },
+    { year: 2026, applicants: 27000, seats: 3000 }
+  ],
+  seatFunnel: {
+    applicants: 27000,
+    seats: 3000
+  }
+};
 
 export const metadata = {
   title: 'IMU CET — Merchant Navy Entrance Exam | WhatNow',
@@ -106,6 +121,9 @@ export default function ImuCetHubPage() {
             View Career
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="exam" data={imucetAnalyticsData} colorTheme="orange" />
 
         {/* ─── WHAT IS IMU CET ─── */}
         <section>

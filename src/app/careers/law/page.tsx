@@ -2,6 +2,23 @@
 
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const lawAnalyticsData = {
+  jobs: [
+    { year: 2022, openings: 20000 },
+    { year: 2023, openings: 22000 },
+    { year: 2024, openings: 25000 },
+    { year: 2025, openings: 28000 },
+    { year: 2026, openings: 32000 }
+  ],
+  salaries: [
+    { level: "Entry", levelHi: "शुरुआती", amount: "₹40K - ₹1.5L/माह", numericAmount: 70000 },
+    { level: "Mid", levelHi: "मध्यम", amount: "₹1.5L - ₹3L/माह", numericAmount: 180000 },
+    { level: "Senior Partner", levelHi: "वरिष्ठ भागीदार", amount: "₹3L - ₹6L/माह", numericAmount: 350000 },
+    { level: "Managing Partner", levelHi: "प्रबंध भागीदार", amount: "₹6L - ₹15L/माह", numericAmount: 850000 }
+  ]
+};
 import { Icon } from '@iconify/react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -165,6 +182,9 @@ export default function LawCareerHubPage() {
             Read Exam Guide
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="career" data={lawAnalyticsData} colorTheme="emerald" />
 
         {/* WHAT IS LAW */}
         <section>

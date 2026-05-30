@@ -2,6 +2,23 @@
 
 import React from 'react';
 import Link from 'next/link';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const fashionAnalyticsData = {
+  jobs: [
+    { year: 2022, openings: 28000 },
+    { year: 2023, openings: 30000 },
+    { year: 2024, openings: 32000 },
+    { year: 2025, openings: 33000 },
+    { year: 2026, openings: 35000 }
+  ],
+  salaries: [
+    { level: "Entry", levelHi: "शुरुआती", amount: "₹30K - ₹60K/माह", numericAmount: 42000 },
+    { level: "Mid", levelHi: "मध्यम", amount: "₹60K - ₹1.2L/माह", numericAmount: 85000 },
+    { level: "Senior", levelHi: "वरिष्ठ", amount: "₹1.2L - ₹2.5L/माह", numericAmount: 180000 },
+    { level: "Director", levelHi: "निदेशक", amount: "₹2.5L - ₹5L/माह", numericAmount: 350000 }
+  ]
+};
 import { Icon } from '@iconify/react';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -165,6 +182,9 @@ export default function FashionDesignCareerHubPage() {
             Read Exam Guide
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="career" data={fashionAnalyticsData} colorTheme="pink" />
 
         {/* WHAT IS FASHION DESIGN */}
         <section>

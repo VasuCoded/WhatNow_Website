@@ -4,6 +4,23 @@ import React from 'react';
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { useLanguage } from '@/context/LanguageContext';
+import VisualAnalytics from '@/components/ui/VisualAnalytics';
+
+const planningAnalyticsData = {
+  jobs: [
+    { year: 2022, openings: 3000 },
+    { year: 2023, openings: 4200 },
+    { year: 2024, openings: 5500 },
+    { year: 2025, openings: 6800 },
+    { year: 2026, openings: 8500 }
+  ],
+  salaries: [
+    { level: "Entry", levelHi: "शुरुआती", amount: "₹45K - ₹80K/माह", numericAmount: 55000 },
+    { level: "Mid", levelHi: "मध्यम", amount: "₹80K - ₹1.5L/माह", numericAmount: 110000 },
+    { level: "Senior", levelHi: "वरिष्ठ", amount: "₹1.5L - ₹2.5L/माह", numericAmount: 200000 },
+    { level: "Director", levelHi: "निदेशक", amount: "₹2.5L - ₹5L/माह", numericAmount: 350000 }
+  ]
+};
 
 const translations = {
   en: {
@@ -165,6 +182,9 @@ export default function UrbanPlanningCareerHubPage() {
             Read Exam Guide
           </Link>
         </div>
+
+        {/* ─── VISUAL ANALYTICS ─── */}
+        <VisualAnalytics type="career" data={planningAnalyticsData} colorTheme="teal" />
 
         {/* WHAT IS URBAN PLANNING */}
         <section>
