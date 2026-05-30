@@ -152,7 +152,7 @@ export default function UceedHubPage() {
             </Link>
 
             {/* Card 2 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-350 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
               <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">02</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Is It For You — Honest self-check</h3>
@@ -165,7 +165,7 @@ export default function UceedHubPage() {
             </div>
 
             {/* Card 3 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-350 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
               <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">03</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Resources — What actually helps</h3>
@@ -191,12 +191,12 @@ export default function UceedHubPage() {
             </Link>
 
             {/* Card 5 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-350 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
+            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm hover:-translate-y-0.5">
               <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">05</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Convince Your Parents — With actual data</h3>
                 <div className="text-slate-400 text-xs font-semibold font-mono mb-4">/exams/uceed/convince-parents</div>
-                <p className="text-slate-550 leading-relaxed mb-4 text-sm md:text-base">
+                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
                   Design at an IIT isn&apos;t a risk — but you&apos;ll need to explain that. This guide arms you with placement data, salary figures, career paths, and how to answer the hard questions: job security, prestige, &ldquo;is this a real IIT degree?&rdquo; Have the conversation with facts, not feeling.
                 </p>
                 <span className="inline-block bg-orange-50/50 text-orange-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-100">Coming soon</span>

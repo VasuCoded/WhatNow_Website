@@ -58,7 +58,7 @@ function GuideCard({ category, title, description, badgeClass }: GuideCardProps)
   const t = localTranslations[language];
 
   return (
-    <div className="relative bg-white/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 hover:border-slate-350 transition-all duration-500 group cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 overflow-hidden">
+    <div className="relative bg-white/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 hover:border-slate-300 transition-all duration-500 group cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 overflow-hidden">
       {/* Ambient background glow */}
       <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowColor(category)}`} />
 
@@ -72,7 +72,7 @@ function GuideCard({ category, title, description, badgeClass }: GuideCardProps)
         {title}
       </h3>
 
-      <p className="text-slate-550 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
+      <p className="text-slate-500 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
         {description}
       </p>
 

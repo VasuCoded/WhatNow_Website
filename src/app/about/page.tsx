@@ -186,8 +186,11 @@ const localTranslations = {
     problemTitle: "The Problem",
     problemHeadline: "A broken system making life's biggest decision",
     quote: "Every year, millions of Indian students pick their future paths based on outdated parent advice, coaching center marketing, or paid agents.",
+    para1Title: "Outdated Standards",
     para1: "Teachers default to standard tracks. Parents repeat what was secure twenty years ago. Private colleges run marketing campaigns disguised as suitability tests, and agencies recommend whatever campus pays the highest referral check.",
+    para2Title: "The Critical Question",
     para2: "Nobody is asking the only question that matters: Is this path actually right for you?",
+    para3Title: "Real Career Realities",
     para3: "Not \"how do you crack the entrance\" — but should you be preparing for it at all? What does a designer's day look like at 30? What is sea time really like in the merchant navy? We build roadmaps that reveal the day-to-day realities of careers, so you decide based on fit, not myth.",
     commitmentTitle: "Our Commitment",
     commitmentHeadline: "Free. Unbiased. Always.",
@@ -195,8 +198,14 @@ const localTranslations = {
     bullet2: "No prep packages or test classes sold here",
     bullet3: "No sponsor banners or editorial placement",
     bullet4: "Always open, with zero email locks",
+    commitPara1Title: "Structured Resource Index",
+    commitPara1Sub: "INDEXING",
     commitPara1: "WhatNow is a structured career resource index. We are not a coaching institution. We write resources for fields that standard career counselors skip — design, merchant navy, law, architecture, defense, and beyond.",
+    commitPara2Title: "Data-Backed Blueprints",
+    commitPara2Sub: "METHODOLOGY",
     commitPara2: "We do something very simple and very difficult: we compile clear, data-backed blueprints showing eligibility matrices, syllabus realities, cost calculations, placement details, and parenting guidance guides.",
+    commitPara3Title: "Transparent & Open Access",
+    commitPara3Sub: "OUR VISION",
     commitPara3: "We believe high-quality, transparent guidance is a right. We keep it open.",
     structureTitle: "Structure",
     structureHeadline: "Three sections. One purpose.",
@@ -251,8 +260,11 @@ const localTranslations = {
     problemTitle: "समस्या",
     problemHeadline: "एक टूटी हुई व्यवस्था जो जीवन का सबसे बड़ा निर्णय ले रही है",
     quote: "हर साल, भारत के लाखों छात्र पुराने माता-पिता की सलाह, कोचिंग सेंटर के विज्ञापन या सशुल्क एजेंटों के आधार पर अपने भविष्य के रास्ते चुनते हैं।",
-    para1: "शिक्षक सामान्य विकल्पों को ही डिफ़ॉल्ट मान लेते हैं। माता-पिता वही दोहराते हैं जो बीस साल पहले सुरक्षित था। निजी कॉलेज उपयुक्तता परीक्षणों के रूप में विज्ञापन अभियान चलाते हैं, और एजेंसियां उसी कैंपस की सिफारिश करती हैं जो सबसे अधिक कमीशन देता है।",
+    para1Title: "पुराने मापदंड",
+    para1: "शिक्षक सामान्य विकल्पों को ही डिफ़ॉपादक मान लेते हैं। माता-पिता वही दोहराते हैं जो बीस साल पहले सुरक्षित था। निजी कॉलेज उपयुक्तता परीक्षणों के रूप में विज्ञापन अभियान चलाते हैं, और एजेंसियां उसी कैंपस की सिफारिश करती हैं जो सबसे अधिक कमीशन देता है।",
+    para2Title: "महत्वपूर्ण सवाल",
     para2: "कोई भी वह एकमात्र सवाल नहीं पूछ रहा है जो वास्तव में मायने रखता है: क्या यह रास्ता वास्तव में आपके लिए सही है?",
+    para3Title: "करियर की वास्तविकताएं",
     para3: "यह नहीं कि \"प्रवेश परीक्षा कैसे क्रैक करें\" - बल्कि क्या आपको इसके लिए तैयारी करनी भी चाहिए? 30 साल की उम्र में एक डिजाइनर का दिन कैसा दिखता है? मर्चेंट नेवी में वास्तव में समुद्री समय कैसा होता है? हम ऐसे रोडमैप बनाते हैं जो करियर की वास्तविकताओं को प्रकट करते हैं, ताकि आप उपयुक्तता के आधार पर निर्णय लें, मिथक पर नहीं।",
     commitmentTitle: "हमारी प्रतिबद्धता",
     commitmentHeadline: "मुफ़्त। निष्पक्ष। हमेशा।",
@@ -260,8 +272,14 @@ const localTranslations = {
     bullet2: "यहाँ कोई तैयारी पैकेज या टेस्ट क्लास नहीं बेची जाती",
     bullet3: "कोई प्रायोजक बैनर या संपादकीय स्थान नहीं",
     bullet4: "हमेशा खुला, बिना किसी ईमेल लॉक के",
+    commitPara1Title: "व्यवस्थित संसाधन सूचकांक",
+    commitPara1Sub: "अनुक्रमणिका",
     commitPara1: "व्हाटनाव एक व्यवस्थित करियर संसाधन सूचकांक है। हम कोई कोचिंग संस्थान नहीं हैं। हम उन क्षेत्रों के लिए संसाधन लिखते हैं जिन्हें सामान्य करियर सलाहकार छोड़ देते हैं — डिज़ाइन, मर्चेंट नेवी, कानून, वास्तुकला, रक्षा और उससे आगे।",
+    commitPara2Title: "डेटा-समर्थित ब्लूप्रिंट",
+    commitPara2Sub: "कार्यप्रणाली",
     commitPara2: "हम कुछ बहुत ही सरल और बहुत कठिन काम करते हैं: हम स्पष्ट, डेटा-समर्थित ब्लूप्रिंट संकलित करते हैं जो पात्रता मैट्रिक्स, पाठ्यक्रम की वास्तविकताएं, लागत गणना, प्लेसमेंट विवरण और माता-पिता के मार्गदर्शन मार्गदर्शिकाएं दिखाते हैं।",
+    commitPara3Title: "पारदर्शी और खुली पहुंच",
+    commitPara3Sub: "हमारा दृष्टिकोण",
     commitPara3: "हम मानते हैं कि उच्च गुणवत्ता वाला, पारदर्शी मार्गदर्शन एक अधिकार है। हम इसे खुला रखते हैं।",
     structureTitle: "संरचना",
     structureHeadline: "तीन खंड। एक उद्देश्य।",
@@ -495,18 +513,47 @@ export default function AboutPage() {
               
               {/* Highlight Block Quote Card */}
               <div className="relative bg-white border-l-4 border-secondary p-8 rounded-r-3xl rounded-bl-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <p className="font-black text-xl md:text-2xl text-neutral-dark leading-relaxed">
+                <p className="font-semibold italic text-lg md:text-xl text-slate-700 leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
             </div>
 
-            <div className="flex-1 lg:pt-10 space-y-6 text-base md:text-lg text-slate-500 leading-relaxed font-medium">
-              <p>{t.para1}</p>
-              <p>
-                Nobody is asking the only question that matters: <strong className="text-neutral-dark font-extrabold">{t.para2}</strong>
-              </p>
-              <p>{t.para3}</p>
+            <div className="flex-1 lg:pt-10 space-y-8">
+              {/* Point 1: Outdated Defaults */}
+              <div className="flex gap-4 items-start bg-white border border-slate-200/60 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="p-3 bg-rose-50 text-rose-600 border border-rose-100 rounded-xl shrink-0">
+                  <Icon icon="solar:shield-warning-bold-duotone" className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-black text-neutral-dark mb-1">{t.para1Title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium">{t.para1}</p>
+                </div>
+              </div>
+
+              {/* Point 2: The Core Question (Highlighted Card) */}
+              <div className="flex gap-4 items-start bg-primary/5 border border-primary/10 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="p-3 bg-primary text-white rounded-xl shrink-0">
+                  <Icon icon="solar:help-question-bold-duotone" className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-black text-primary mb-1">{t.para2Title}</h4>
+                  <p className="text-slate-700 text-sm leading-relaxed font-semibold">
+                    {t.para2}
+                  </p>
+                </div>
+              </div>
+
+              {/* Point 3: Real Realities */}
+              <div className="flex gap-4 items-start bg-white border border-slate-200/60 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="p-3 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-xl shrink-0">
+                  <Icon icon="solar:compass-bold-duotone" className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-black text-neutral-dark mb-1">{t.para3Title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium">{t.para3}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -544,12 +591,65 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="flex-1 space-y-6 text-base md:text-lg text-slate-500 leading-relaxed font-medium lg:pt-8 border-t border-slate-100 lg:border-t-0 lg:border-l lg:border-slate-100 lg:pl-16">
-              <p>{t.commitPara1}</p>
-              <p>{t.commitPara2}</p>
-              <p className="font-extrabold text-neutral-dark">
-                {t.commitPara3}
-              </p>
+            <div className="flex-1 lg:pl-16 lg:pt-4 border-t border-slate-100 lg:border-t-0 lg:border-l lg:border-slate-200/60 relative">
+              <div className="relative space-y-12">
+                {/* Vertical connector line */}
+                <div className="absolute left-[18px] top-8 bottom-8 w-[1.5px] bg-gradient-to-b from-primary/30 via-secondary/20 to-slate-200 pointer-events-none hidden sm:block" />
+
+                {/* Node 1 */}
+                <div className="relative pl-0 sm:pl-16 group cursor-default">
+                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-white border border-slate-200 text-slate-400 font-extrabold text-xs flex items-center justify-center group-hover:border-primary group-hover:text-primary group-hover:bg-primary/5 transition-all duration-300 shadow-sm hidden sm:flex">
+                    01
+                  </div>
+                  <div className="transform group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="text-[10px] tracking-[0.2em] font-extrabold text-primary/70 uppercase block mb-1">
+                      {t.commitPara1Sub}
+                    </span>
+                    <h4 className="text-xl font-black text-neutral-dark mb-2.5 group-hover:text-primary transition-colors duration-300">
+                      {t.commitPara1Title}
+                    </h4>
+                    <p className="text-sm md:text-base text-slate-500 leading-relaxed font-semibold group-hover:text-slate-700 transition-colors duration-300">
+                      {t.commitPara1}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Node 2 */}
+                <div className="relative pl-0 sm:pl-16 group cursor-default">
+                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-white border border-slate-200 text-slate-400 font-extrabold text-xs flex items-center justify-center group-hover:border-secondary group-hover:text-secondary group-hover:bg-secondary/5 transition-all duration-300 shadow-sm hidden sm:flex">
+                    02
+                  </div>
+                  <div className="transform group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="text-[10px] tracking-[0.2em] font-extrabold text-secondary/70 uppercase block mb-1">
+                      {t.commitPara2Sub}
+                    </span>
+                    <h4 className="text-xl font-black text-neutral-dark mb-2.5 group-hover:text-secondary transition-colors duration-300">
+                      {t.commitPara2Title}
+                    </h4>
+                    <p className="text-sm md:text-base text-slate-500 leading-relaxed font-semibold group-hover:text-slate-700 transition-colors duration-300">
+                      {t.commitPara2}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Node 3 */}
+                <div className="relative pl-0 sm:pl-16 group cursor-default">
+                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-emerald-600 text-white font-extrabold text-xs flex items-center justify-center transition-all duration-300 shadow-[0_6px_20px_rgba(16,185,129,0.25)] hidden sm:flex">
+                    03
+                  </div>
+                  <div className="transform group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="text-[10px] tracking-[0.2em] font-extrabold text-emerald-600 uppercase block mb-1">
+                      {t.commitPara3Sub}
+                    </span>
+                    <h4 className="text-xl font-black text-emerald-600 mb-2.5">
+                      {t.commitPara3Title}
+                    </h4>
+                    <p className="text-base md:text-lg text-slate-800 leading-relaxed font-black tracking-tight">
+                      {t.commitPara3}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -569,7 +669,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black text-neutral-dark tracking-tight leading-tight">
               {t.structureHeadline}
             </h2>
-            <p className="text-slate-550 font-medium mt-4">
+            <p className="text-slate-500 font-medium mt-4">
               {t.structureSub}
             </p>
           </div>
@@ -589,7 +689,7 @@ export default function AboutPage() {
                   <Icon icon="solar:compass-bold-duotone" className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-black text-neutral-dark mb-4 tracking-tight group-hover:text-primary transition-colors">{t.cardCareersTitle}</h3>
-                <p className="text-slate-550 text-sm leading-relaxed mb-8">
+                <p className="text-slate-500 text-sm leading-relaxed mb-8">
                   {t.cardCareersDesc}
                 </p>
               </div>
@@ -609,7 +709,7 @@ export default function AboutPage() {
                   <Icon icon="solar:document-text-bold-duotone" className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-black text-neutral-dark mb-4 tracking-tight group-hover:text-primary transition-colors">{t.cardExamsTitle}</h3>
-                <p className="text-slate-550 text-sm leading-relaxed mb-8">
+                <p className="text-slate-500 text-sm leading-relaxed mb-8">
                   {t.cardExamsDesc}
                 </p>
               </div>
@@ -629,7 +729,7 @@ export default function AboutPage() {
                   <Icon icon="solar:book-bookmark-bold-duotone" className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-black text-neutral-dark mb-4 tracking-tight group-hover:text-primary transition-colors">{t.cardReadsTitle}</h3>
-                <p className="text-slate-550 text-sm leading-relaxed mb-8">
+                <p className="text-slate-500 text-sm leading-relaxed mb-8">
                   {t.cardReadsDesc}
                 </p>
               </div>
@@ -671,7 +771,7 @@ export default function AboutPage() {
             >
               <div className="text-slate-500 font-black text-5xl opacity-40 group-hover:opacity-85 transition-opacity duration-300 absolute -right-2 top-2 leading-none select-none">01</div>
               <h4 className="text-xl font-black mb-4 pr-12">{t.bento1Title}</h4>
-              <p className="text-slate-350 leading-relaxed text-sm">
+              <p className="text-slate-300 leading-relaxed text-sm">
                 {t.bento1Desc}
               </p>
             </motion.div>
@@ -729,7 +829,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-neutral-dark tracking-tight">
               {t.focusHeadline}
             </h2>
-            <p className="text-slate-550 font-medium leading-relaxed mb-8">
+            <p className="text-slate-500 font-medium leading-relaxed mb-8">
               {t.focusSub}
             </p>
             
@@ -768,7 +868,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black text-neutral-dark tracking-tight">
               {t.faqHeadline}
             </h2>
-            <p className="text-slate-550 font-semibold mt-4 text-sm sm:text-base">
+            <p className="text-slate-500 font-semibold mt-4 text-sm sm:text-base">
               {t.faqSub}
             </p>
           </div>
@@ -867,7 +967,7 @@ export default function AboutPage() {
                             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
                             className="overflow-hidden"
                           >
-                            <div className="p-6 pt-0 text-slate-550 text-sm leading-relaxed font-semibold border-t border-slate-100/80 mt-1">
+                            <div className="p-6 pt-0 text-slate-500 text-sm leading-relaxed font-semibold border-t border-slate-100/80 mt-1">
                               {faq.answer}
                             </div>
                           </motion.div>
@@ -883,7 +983,7 @@ export default function AboutPage() {
                 >
                   <Icon icon="solar:info-circle-bold-duotone" className="w-10 h-10 text-slate-300 mx-auto mb-4" />
                   <h4 className="text-base font-black text-neutral-dark mb-1">{t.noFaqTitle}</h4>
-                  <p className="text-slate-450 text-xs font-semibold max-w-sm mx-auto mb-4">
+                  <p className="text-slate-400 text-xs font-semibold max-w-sm mx-auto mb-4">
                     {t.noFaqDesc}
                   </p>
                   <button
@@ -921,7 +1021,7 @@ export default function AboutPage() {
         {/* Massive primary glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(85,99,237,0.15)_0%,transparent_60%)] pointer-events-none select-none"></div>
 
-        <p className="text-lg md:text-xl text-slate-350 max-w-3xl mx-auto leading-relaxed mb-12 relative z-10 font-medium">
+        <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12 relative z-10 font-medium">
           {t.closingDesc}
           <br /><br />
           <span className="font-extrabold text-white">{t.closingBold}</span>
