@@ -97,7 +97,8 @@ const EXAMS_DATA = {
       seats: "~3,200 Seats",
       applicants: "~70,000",
       date: "December 2025",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/exams/clat",
       colleges: "24 participating NLUs",
       colorClass: {
         badge: "bg-emerald-50 text-emerald-600 border-emerald-100",
@@ -254,7 +255,8 @@ const EXAMS_DATA = {
       seats: "~3,200 सीटें",
       applicants: "~70,000",
       date: "दिसंबर 2025",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/exams/clat",
       colleges: "24 भाग लेने वाले NLU",
       colorClass: {
         badge: "bg-emerald-50 text-emerald-600 border-emerald-100",

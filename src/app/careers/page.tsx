@@ -76,7 +76,8 @@ const CAREERS_DATA = {
       salary: "₹5L - ₹15L/yr Starting",
       colleges: "National Law Universities (NLUs)",
       exitRisk: "Low Risk / High Rigour",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/careers/law",
       colorClass: {
         badge: "bg-emerald-50 text-emerald-600 border-emerald-100",
         text: "text-emerald-600",
@@ -208,7 +209,8 @@ const CAREERS_DATA = {
       salary: "₹5L - ₹15L/वर्ष शुरुआती",
       colleges: "नेशनल लॉ यूनिवर्सिटीज (NLUs)",
       exitRisk: "कम जोखिम / उच्च कठोरता",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/careers/law",
       colorClass: {
         badge: "bg-emerald-50 text-emerald-600 border-emerald-100",
         text: "text-emerald-600",
