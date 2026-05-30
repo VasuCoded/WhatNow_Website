@@ -9,7 +9,7 @@ import { useLanguage } from "@/context/LanguageContext";
 interface CareerItem {
   id: string;
   title: string;
-  category: "Design" | "Fashion Design" | "Law" | "Defence" | "Management" | "Maritime";
+  category: "Design" | "Fashion Design" | "Law" | "Defence" | "Management" | "Maritime" | "Urban Planning";
   subtitle: string;
   description: string;
   duration: string;
@@ -138,6 +138,25 @@ const CAREERS_DATA = {
         border: "hover:border-orange-300",
         glow: "group-hover:shadow-orange-500/5",
       }
+    },
+    {
+      id: "urban-planning",
+      title: "Urban Planning & Development",
+      category: "Urban Planning" as const,
+      subtitle: "Cities & Infrastructure",
+      description: "Designing cities, transport systems, zoning regulations, and sustainable spaces. Merges architecture, sociology, and public policy.",
+      duration: "4 Years (B.Plan)",
+      salary: "₹5L - ₹12L/yr Starting",
+      colleges: "SPAs (Delhi/Bhopal/Vijayawada), IITs, CEPT University",
+      exitRisk: "Medium Risk / High Policy Dependency",
+      status: "ready" as const,
+      href: "/careers/urban-planning",
+      colorClass: {
+        badge: "bg-teal-50 text-teal-600 border-teal-100",
+        text: "text-teal-600",
+        border: "hover:border-teal-300",
+        glow: "group-hover:shadow-teal-500/5",
+      }
     }
   ],
   hi: [
@@ -251,6 +270,25 @@ const CAREERS_DATA = {
         border: "hover:border-orange-300",
         glow: "group-hover:shadow-orange-500/5",
       }
+    },
+    {
+      id: "urban-planning",
+      title: "शहरी नियोजन और विकास",
+      category: "Urban Planning" as const,
+      subtitle: "शहर और बुनियादी ढांचा",
+      description: "शहरों, परिवहन प्रणालियों, ज़ोनिंग नियमों और टिकाऊ स्थानों को डिजाइन करना। वास्तुकला, समाजशास्त्र और सार्वजनिक नीति का समामेलन।",
+      duration: "4 वर्ष (B.Plan)",
+      salary: "₹5L - ₹12L/वर्ष शुरुआती",
+      colleges: "SPAs (दिल्ली/भोपाल/विजयवाड़ा), IITs, CEPT विश्वविद्यालय",
+      exitRisk: "मध्यम जोखिम / उच्च नीति निर्भरता",
+      status: "ready" as const,
+      href: "/careers/urban-planning",
+      colorClass: {
+        badge: "bg-teal-50 text-teal-600 border-teal-100",
+        text: "text-teal-600",
+        border: "hover:border-teal-300",
+        glow: "group-hover:shadow-teal-500/5",
+      }
     }
   ]
 };
@@ -263,7 +301,8 @@ const CATEGORIES_TRANSLATIONS = {
     "Law": "Law",
     "Defence": "Defence",
     "Management": "Management",
-    "Maritime": "Maritime"
+    "Maritime": "Maritime",
+    "Urban Planning": "Urban Planning"
   },
   hi: {
     "All": "सभी",
@@ -272,7 +311,8 @@ const CATEGORIES_TRANSLATIONS = {
     "Law": "कानून",
     "Defence": "रक्षा",
     "Management": "प्रबंधन",
-    "Maritime": "मर्चेंट नेवी"
+    "Maritime": "मर्चेंट नेवी",
+    "Urban Planning": "शहरी नियोजन"
   }
 };
 
@@ -307,7 +347,7 @@ const localTranslations = {
 
 export default function CareersPage() {
   const { language } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<"All" | "Design" | "Fashion Design" | "Law" | "Defence" | "Management" | "Maritime">("All");
+  const [selectedCategory, setSelectedCategory] = useState<"All" | "Design" | "Fashion Design" | "Law" | "Defence" | "Management" | "Maritime" | "Urban Planning">("All");
 
   const t = localTranslations[language];
   const CAREERS = CAREERS_DATA[language] as CareerItem[];
