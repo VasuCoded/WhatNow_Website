@@ -146,13 +146,13 @@ export default function Footer() {
             <div>
               <p className="text-white/80 text-sm mb-4">{t.socialLabel}</p>
               <div className="flex items-center gap-5">
-                <Link href="https://twitter.com" className="text-white hover:text-white/80 transition-colors" aria-label="X (Twitter)">
-                  <Icon icon="ri:twitter-x-line" className="w-7 h-7" />
+                <Link href="/discord" className="text-white hover:text-white/80 transition-colors" aria-label="Discord">
+                  <Icon icon="ri:discord-fill" className="w-7 h-7" />
                 </Link>
-                <Link href="https://instagram.com" className="text-white hover:text-white/80 transition-colors" aria-label="Instagram">
+                <Link href="https://instagram.com/whatnow.in" className="text-white hover:text-white/80 transition-colors" aria-label="Instagram">
                   <Icon icon="ri:instagram-line" className="w-7 h-7" />
                 </Link>
-                <Link href="https://youtube.com" className="text-white hover:text-white/80 transition-colors" aria-label="YouTube">
+                <Link href="https://youtube.com/@whatnow_in" className="text-white hover:text-white/80 transition-colors" aria-label="YouTube">
                   <Icon icon="ri:youtube-fill" className="w-7 h-7" />
                 </Link>
               </div>
@@ -168,7 +168,7 @@ export default function Footer() {
                 <li><Link href="/careers" className="text-white/90 hover:text-white hover:underline transition-all">{t.careers}</Link></li>
                 <li><Link href="/exams" className="text-white/90 hover:text-white hover:underline transition-all">{t.exams}</Link></li>
                 <li><Link href="/reads" className="text-white/90 hover:text-white hover:underline transition-all">{t.editorialReads}</Link></li>
-                <li><Link href="/guides" className="text-white/90 hover:text-white hover:underline transition-all">{t.featuredGuides}</Link></li>
+                <li><Link href="/reads" className="text-white/90 hover:text-white hover:underline transition-all">{t.featuredGuides}</Link></li>
               </ul>
             </div>
 
@@ -177,7 +177,7 @@ export default function Footer() {
               <h3 className="text-base font-semibold text-white/70 mb-6">{t.company}</h3>
               <ul className="space-y-4">
                 <li><Link href="/about" className="text-white/90 hover:text-white hover:underline transition-all">{t.aboutUs}</Link></li>
-                <li><Link href="/contact" className="text-white/90 hover:text-white hover:underline transition-all">{t.contact}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.contact}</Link></li>
               </ul>
             </div>
 
@@ -185,9 +185,9 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold text-white/70 mb-6">{t.resources}</h3>
               <ul className="space-y-4">
-                <li><Link href="/community" className="text-white/90 hover:text-white hover:underline transition-all">{t.communityDiscord}</Link></li>
-                <li><Link href="/content-policy" className="text-white/90 hover:text-white hover:underline transition-all">{t.contentPolicy}</Link></li>
-                <li><Link href="/faq" className="text-white/90 hover:text-white hover:underline transition-all">{t.faq}</Link></li>
+                <li><Link href="/discord" className="text-white/90 hover:text-white hover:underline transition-all">{t.communityDiscord}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.contentPolicy}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.faq}</Link></li>
               </ul>
             </div>
 
@@ -195,10 +195,10 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold text-white/70 mb-6">{t.legal}</h3>
               <ul className="space-y-4">
-                <li><Link href="/privacy" className="text-white/90 hover:text-white hover:underline transition-all">{t.privacyPolicy}</Link></li>
-                <li><Link href="/terms" className="text-white/90 hover:text-white hover:underline transition-all">{t.termsOfService}</Link></li>
-                <li><Link href="/cookies" className="text-white/90 hover:text-white hover:underline transition-all">{t.cookiePolicy}</Link></li>
-                <li><Link href="/guidelines" className="text-white/90 hover:text-white hover:underline transition-all">{t.editorialGuidelines}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.privacyPolicy}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.termsOfService}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.cookiePolicy}</Link></li>
+                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.editorialGuidelines}</Link></li>
               </ul>
             </div>
           </div>

@@ -20,6 +20,14 @@ const translations = {
     join: "Join for Free",
     searchTitle: "Search (Ctrl+K)",
     searchMobile: "Search",
+    comingSoonLabel: "Coming Soon",
+    activeGuides: "Active Blueprints",
+    incubatingSection: "Future Roadmaps",
+    statusDrafting: "Curating",
+    statusWriting: "Writing",
+    statusScouting: "Scouting",
+    statusPreparing: "Preparing",
+    statusLive: "Live",
   },
   hi: {
     careers: "करियर",
@@ -33,6 +41,14 @@ const translations = {
     join: "मुफ़्त में शामिल हों",
     searchTitle: "खोजें (Ctrl+K)",
     searchMobile: "खोजें",
+    comingSoonLabel: "जल्द आ रहे हैं",
+    activeGuides: "सक्रिय ब्लूप्रिंट",
+    incubatingSection: "आगामी रोडमैप",
+    statusDrafting: "संकलन जारी",
+    statusWriting: "लेखन कार्य",
+    statusScouting: "खोज जारी",
+    statusPreparing: "तैयारी में",
+    statusLive: "सक्रिय",
   }
 };
 
@@ -53,23 +69,26 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const menuItems = [
-    { href: "/careers", label: t.careers, icon: "solar:compass-bold-duotone" },
+  const activeItems = [
     { href: "/exams", label: t.exams, icon: "solar:document-bold-duotone" },
-    { href: "/reads", label: t.reads, icon: "solar:notes-bold-duotone" },
-    { href: "/scholarships", label: t.scholarships, icon: "solar:case-minimalistic-bold-duotone", badge: t.new },
-    { href: "/convince-parents", label: t.convinceParents, icon: "solar:users-group-two-rounded-bold-duotone" },
     { href: "/about", label: t.about, icon: "solar:info-circle-bold-duotone" },
+  ];
+
+  const draftItems = [
+    { href: "/careers", label: t.careers, icon: "solar:compass-bold-duotone", status: t.statusDrafting },
+    { href: "/reads", label: t.reads, icon: "solar:notes-bold-duotone", status: t.statusWriting },
+    { href: "/scholarships", label: t.scholarships, icon: "solar:case-minimalistic-bold-duotone", status: t.statusScouting },
+    { href: "/convince-parents", label: t.convinceParents, icon: "solar:users-group-two-rounded-bold-duotone", status: t.statusPreparing },
   ];
 
   return (
     <>
       <nav className="w-full bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-20 gap-4">
             {/* Logo */}
-            <Link href="/" className="flex gap-2 items-center">
-              <div className="relative h-12 w-12">
+            <Link href="/" className="flex gap-2 items-center shrink-0">
+              <div className="relative h-10 w-10">
                 <Image
                   src="/logo.png"
                   alt="WhatNow Logo"
@@ -79,68 +98,55 @@ export default function Navbar() {
                 />
               </div>
               <div className="inline-block">
-                <span className="font-heading font-black text-2xl text-neutral-dark tracking-tight">What</span>
-                <span className="font-heading font-black text-2xl text-primary tracking-tight">Now</span>
+                <span className="font-heading font-black text-xl xl:text-2xl text-neutral-dark tracking-tight">What</span>
+                <span className="font-heading font-black text-xl xl:text-2xl text-primary tracking-tight">Now</span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-5 text-sm">
-              <Link href="/careers" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
-                {t.careers}
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-              <Link href="/exams" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
-                {t.exams}
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-              <Link href="/reads" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1">
-                {t.reads}
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
-              <Link href="/scholarships" className="font-semibold text-neutral-dark hover:text-primary transition-colors flex items-center gap-1.5">
-                {t.scholarships} <span className="bg-primary/10 text-primary text-[10px] font-extrabold px-1.5 py-0.5 rounded-sm">{t.new}</span>
-              </Link>
-              <Link href="/convince-parents" className="font-semibold text-neutral-dark hover:text-primary transition-colors">
-                {t.convinceParents}
-              </Link>
-              <Link href="/about" className="font-semibold text-neutral-dark hover:text-primary transition-colors">
-                {t.about}
-              </Link>
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 text-sm shrink-0">
+              {/* Active Links with Bottom Hover Underlines */}
+              <div className="flex items-center gap-4 xl:gap-6 shrink-0">
+                {activeItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="font-bold text-slate-650 hover:text-primary transition-all relative py-1.5 group shrink-0"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full duration-200" />
+                  </Link>
+                ))}
+              </div>
+
+              {/* Vertical line divider */}
+              <div className="h-5 w-[1.5px] bg-slate-200/80 shrink-0" />
+
+              {/* Categorized Coming Soon Capsule Widget */}
+              <div className="flex bg-slate-50 border border-slate-200/60 p-0.5 rounded-2xl items-center gap-1 xl:gap-1.5 select-none shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)] shrink-0">
+                {/* Coming Soon status pill */}
+                <span className="text-[9px] xl:text-[10px] font-black text-amber-700 bg-amber-50 border border-amber-200/50 px-2 py-1 rounded-xl flex items-center gap-1 xl:gap-1.5 uppercase tracking-wider select-none shrink-0 shadow-xs">
+                  <span className="h-1 w-1 rounded-full bg-amber-500 animate-pulse" />
+                  {t.comingSoonLabel}
+                </span>
+
+                {/* Pill links */}
+                <div className="flex items-center gap-0.5 text-[10px] xl:text-xs shrink-0">
+                  {draftItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="font-bold text-slate-500 hover:text-primary hover:bg-white hover:shadow-[0_2px_6px_rgba(0,0,0,0.03)] hover:border-slate-200/50 border border-transparent px-2.5 py-1 rounded-xl transition-all whitespace-nowrap"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Desktop Right Actions */}
-            <div className="hidden lg:flex items-center space-x-4">
-              {/* Language Switcher Pill */}
-              <div className="flex bg-slate-105 p-0.5 rounded-lg border border-slate-200/60 mr-1 select-none">
-                <button
-                  onClick={() => setLanguage("en")}
-                  className={`text-[10px] font-extrabold px-2 py-0.5 rounded transition-all cursor-pointer ${
-                    language === "en"
-                      ? "bg-white text-primary shadow-xs"
-                      : "text-slate-450 hover:text-slate-700"
-                  }`}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => setLanguage("hi")}
-                  className={`text-[10px] font-extrabold px-2 py-0.5 rounded transition-all cursor-pointer ${
-                    language === "hi"
-                      ? "bg-white text-primary shadow-xs"
-                      : "text-slate-450 hover:text-slate-700"
-                  }`}
-                >
-                  हिन्दी
-                </button>
-              </div>
-
+            <div className="hidden lg:flex items-center space-x-3 xl:space-x-4 shrink-0">
               <button 
                 onClick={() => window.dispatchEvent(new CustomEvent("open-search"))}
                 className="text-gray-600 hover:text-gray-900 transition-colors p-2 cursor-pointer flex items-center gap-1.5"
@@ -154,12 +160,6 @@ export default function Navbar() {
                   ⌘K
                 </kbd>
               </button>
-              <Link href="#" className="font-medium text-neutral-dark bg-white border border-gray-300 hover:bg-gray-50 px-4 py-2 rounded-xl transition-colors">
-                {t.login}
-              </Link>
-              <Link href="#" className="font-medium text-white bg-secondary hover:bg-secondary-hover px-4 py-2 rounded-xl transition-colors">
-                {t.join}
-              </Link>
             </div>
 
             {/* Mobile menu button and search */}
@@ -241,36 +241,74 @@ export default function Navbar() {
                     setIsOpen(false);
                     window.dispatchEvent(new CustomEvent("open-search"));
                   }}
-                  className="w-full flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-slate-400 hover:bg-slate-100 hover:border-slate-300 transition-all text-sm font-semibold mb-6 text-left cursor-pointer"
+                  className="w-full flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-slate-400 hover:bg-slate-100 hover:border-slate-350 transition-all text-sm font-semibold mb-6 text-left cursor-pointer"
                 >
                   <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400" />
                   <span>{t.searchMobile}...</span>
                 </button>
 
-                {/* Menu items */}
-                <div className="space-y-1">
-                  {menuItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between px-3.5 py-3 rounded-2xl text-base font-bold text-slate-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 group"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="p-1.5 rounded-lg bg-slate-50 border border-slate-200/50 group-hover:bg-primary/10 group-hover:border-primary/10 transition-colors">
-                          <Icon icon={item.icon} className="w-5 h-5 text-slate-500 group-hover:text-primary transition-colors" />
-                        </div>
-                        <span>{item.label}</span>
-                      </div>
-                      {item.badge ? (
-                        <span className="bg-primary/10 text-primary text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
-                          {item.badge}
-                        </span>
-                      ) : (
-                        <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-350 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                      )}
-                    </Link>
-                  ))}
+                {/* Menu items categorized */}
+                <div className="space-y-6">
+                  {/* Active Section */}
+                  <div>
+                    <span className="px-3.5 text-[10px] font-extrabold text-slate-400 tracking-wider uppercase block mb-2">
+                      {t.activeGuides}
+                    </span>
+                    <div className="space-y-1">
+                      {activeItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center justify-between px-3.5 py-3 rounded-2xl text-base font-bold text-slate-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="p-1.5 rounded-lg bg-slate-50 border border-slate-200/50 group-hover:bg-primary/10 group-hover:border-primary/10 transition-colors">
+                              <Icon icon={item.icon} className="w-5 h-5 text-slate-500 group-hover:text-primary transition-colors" />
+                            </div>
+                            <span>{item.label}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[9px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                              {t.statusLive}
+                            </span>
+                            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Incubating Section */}
+                  <div>
+                    <span className="px-3.5 text-[10px] font-extrabold text-slate-400 tracking-wider uppercase block mb-2 flex items-center justify-between">
+                      <span>{t.incubatingSection}</span>
+                      <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+                    </span>
+                    <div className="space-y-1">
+                      {draftItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center justify-between px-3.5 py-3 rounded-2xl text-base font-bold text-slate-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="p-1.5 rounded-lg bg-slate-50 border border-slate-200/50 group-hover:bg-primary/10 group-hover:border-primary/10 transition-colors">
+                              <Icon icon={item.icon} className="w-5 h-5 text-slate-500 group-hover:text-primary transition-colors" />
+                            </div>
+                            <span>{item.label}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-[9px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                              {item.status}
+                            </span>
+                            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -280,7 +318,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between p-3.5 bg-slate-50 rounded-2xl border border-slate-200/60 mb-6">
                   <div className="flex items-center gap-2">
                     <Icon icon="solar:global-bold-duotone" className="w-5 h-5 text-slate-500" />
-                    <span className="text-xs font-bold text-slate-600">भाषा / Language</span>
+                    <span className="text-xs font-bold text-slate-650">भाषा / Language</span>
                   </div>
                   <div className="flex bg-white p-0.5 rounded-lg border border-slate-200/80">
                     <button
@@ -288,7 +326,7 @@ export default function Navbar() {
                       className={`text-[10px] font-extrabold px-3 py-1 rounded transition-all cursor-pointer ${
                         language === "en"
                           ? "bg-primary text-white shadow-sm"
-                          : "text-slate-500 hover:text-slate-850"
+                          : "text-slate-500 hover:text-slate-800"
                       }`}
                     >
                       EN
@@ -298,30 +336,12 @@ export default function Navbar() {
                       className={`text-[10px] font-extrabold px-3 py-1 rounded transition-all cursor-pointer ${
                         language === "hi"
                           ? "bg-primary text-white shadow-sm"
-                          : "text-slate-500 hover:text-slate-850"
+                          : "text-slate-500 hover:text-slate-800"
                       }`}
                     >
                       हिन्दी
                     </button>
                   </div>
-                </div>
-
-                {/* Login / Signup buttons */}
-                <div className="grid grid-cols-2 gap-3">
-                  <Link 
-                    href="#" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center font-bold text-neutral-dark bg-slate-50 border border-slate-200 hover:bg-slate-100 py-3.5 rounded-xl transition-all text-sm"
-                  >
-                    {t.login}
-                  </Link>
-                  <Link 
-                    href="#" 
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center font-bold text-white bg-secondary hover:bg-secondary-hover py-3.5 rounded-xl shadow-sm transition-all text-sm"
-                  >
-                    {t.join}
-                  </Link>
                 </div>
               </div>
             </motion.div>

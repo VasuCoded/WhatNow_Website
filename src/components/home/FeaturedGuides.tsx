@@ -10,6 +10,8 @@ interface GuideCardProps {
   title: React.ReactNode;
   description: string;
   badgeClass: string;
+  status: "ready" | "coming-soon";
+  href?: string;
 }
 
 const localTranslations = {
@@ -17,11 +19,15 @@ const localTranslations = {
     readGuide: "Read Guide",
     startHere: <>Start here. Three guides<br className="hidden sm:block" /> we wish we had.</>,
     viewAll: "View all guides",
+    comingSoon: "Coming Soon",
+    inDev: "Under curation...",
   },
   hi: {
     readGuide: "गाइड पढ़ें",
     startHere: <>यहाँ से शुरू करें। तीन मार्गदर्शिकाएँ<br className="hidden sm:block" /> जो हम चाहते हैं कि हमारे पास होतीं।</>,
     viewAll: "सभी मार्गदर्शिकाएँ देखें",
+    comingSoon: "जल्द आ रहा है",
+    inDev: "तैयारी जारी है...",
   }
 };
 
@@ -38,9 +44,12 @@ const CATEGORY_TRANSLATIONS: Record<string, Record<string, string>> = {
   }
 };
 
-function GuideCard({ category, title, description, badgeClass }: GuideCardProps) {
+function GuideCard({ category, title, description, badgeClass, status, href }: GuideCardProps) {
   const { language } = useLanguage();
+  const isReady = status === "ready";
+
   const getGlowColor = (cat: string) => {
+    if (!isReady) return "bg-transparent";
     switch (cat.toLowerCase()) {
       case "design":
         return "bg-indigo-500/5 group-hover:bg-indigo-500/10";
@@ -57,30 +66,67 @@ function GuideCard({ category, title, description, badgeClass }: GuideCardProps)
   const displayCategory = CATEGORY_TRANSLATIONS[language][category.toLowerCase()] || category;
   const t = localTranslations[language];
 
+  if (isReady) {
+    return (
+      <Link
+        href={href || "#"}
+        className="relative rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 hover:border-slate-300 bg-white/80 backdrop-blur-md cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 text-left select-none group"
+      >
+        {/* Ambient background glow */}
+        <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowColor(category)}`} />
+
+        <div className="mb-6 flex items-center justify-between relative z-10 w-full">
+          <span className={`font-black text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full border shadow-sm ${badgeClass}`}>
+            {displayCategory}
+          </span>
+        </div>
+
+        <h3 className="text-2xl lg:text-[1.65rem] font-black text-neutral-dark mb-5 leading-tight tracking-tight relative z-10 transition-colors duration-300 group-hover:text-primary">
+          {title}
+        </h3>
+
+        <p className="text-slate-550 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
+          {description}
+        </p>
+
+        <div className="mt-auto flex items-center gap-2 justify-end relative z-10">
+          <span className="text-xs font-black uppercase tracking-wider text-slate-500 group-hover:text-primary transition-colors duration-300">
+            {t.readGuide}
+          </span>
+          <Icon icon="ph:arrow-right" className="w-4 h-4 text-slate-400 group-hover:text-primary transition-all transform group-hover:translate-x-1 duration-300" />
+        </div>
+      </Link>
+    );
+  }
+
   return (
-    <div className="relative bg-white/80 backdrop-blur-md rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 hover:border-slate-300 transition-all duration-500 group cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 overflow-hidden">
+    <div
+      className="relative rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/60 bg-slate-50 opacity-65 cursor-not-allowed shadow-none transition-all duration-500 text-left select-none"
+    >
       {/* Ambient background glow */}
       <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowColor(category)}`} />
 
-      <div className="mb-6 flex items-start relative z-10">
+      <div className="mb-6 flex items-center justify-between relative z-10 w-full">
         <span className={`font-black text-[10px] uppercase tracking-wider px-3.5 py-1.5 rounded-full border shadow-sm ${badgeClass}`}>
           {displayCategory}
         </span>
+        <span className="text-[10px] font-black uppercase tracking-widest text-orange-500 bg-orange-50/50 border border-orange-100 px-3 py-1 rounded-full shadow-xs">
+          {t.comingSoon}
+        </span>
       </div>
 
-      <h3 className="text-2xl lg:text-[1.65rem] font-black text-neutral-dark mb-5 leading-tight tracking-tight relative z-10 group-hover:text-primary transition-colors duration-300">
+      <h3 className="text-2xl lg:text-[1.65rem] font-black text-neutral-dark mb-5 leading-tight tracking-tight relative z-10 transition-colors duration-300">
         {title}
       </h3>
 
-      <p className="text-slate-500 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
+      <p className="text-slate-550 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
         {description}
       </p>
 
       <div className="mt-auto flex items-center gap-2 justify-end relative z-10">
-        <span className="text-xs font-black uppercase tracking-wider text-slate-500 group-hover:text-primary transition-colors duration-300">
-          {t.readGuide}
+        <span className="text-xs font-bold text-slate-400 italic">
+          {t.inDev}
         </span>
-        <Icon icon="ph:arrow-right" className="w-4 h-4 text-slate-400 group-hover:text-primary transition-all transform group-hover:translate-x-1 duration-300" />
       </div>
     </div>
   );
@@ -93,30 +139,22 @@ const GUIDES_DATA = {
       title: <>UCEED — Cracking it<br className="hidden lg:block" /> without coaching</>,
       description: "What the entrance actually tests, how seniors prepped at home, and which prep books are honestly worth your money.",
       badgeClass: "bg-indigo-50/80 text-indigo-600 border-indigo-100/50",
+      status: "ready" as const,
+      href: "/exams/uceed",
     },
     {
       category: "Defence",
       title: <>NDA — Beyond the uniform myth</>,
       description: "What life looks like after Class 12 if you pick this path. Pay, postings, exit options, and the parts recruiters skip.",
       badgeClass: "bg-emerald-50/80 text-emerald-600 border-emerald-100/50",
+      status: "coming-soon" as const,
     },
     {
       category: "Maritime",
       title: <>Merchant Navy — Salary, sea time & reality</>,
       description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
       badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-    },
-    {
-      category: "Maritime",
-      title: <>Merchant Navy — Salary, sea time & reality</>,
-      description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
-      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-    },
-    {
-      category: "Maritime",
-      title: <>Merchant Navy — Salary, sea time & reality</>,
-      description: "From DG Shipping to your first contract. What cadets earn, what they don't tell you, and how to actually break in.",
-      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+      status: "coming-soon" as const,
     }
   ],
   hi: [
@@ -125,30 +163,22 @@ const GUIDES_DATA = {
       title: <>UCEED — बिना कोचिंग के<br className="hidden lg:block" /> क्रैक करना</>,
       description: "प्रवेश परीक्षा वास्तव में क्या परीक्षण करती है, सीनियर छात्रों ने घर पर कैसे तैयारी की, और कौन सी तैयारी की किताबें वास्तव में आपके पैसे के लायक हैं।",
       badgeClass: "bg-indigo-50/80 text-indigo-600 border-indigo-100/50",
+      status: "ready" as const,
+      href: "/exams/uceed",
     },
     {
       category: "Defence",
       title: <>NDA — वर्दी के मिथक से परे</>,
       description: "यदि आप इस मार्ग को चुनते हैं तो कक्षा 12 के बाद जीवन कैसा दिखता है। वेतन, पोस्टिंग, बाहर निकलने के विकल्प, और वे हिस्से जिन्हें भर्ती करने वाले छोड़ देते हैं।",
       badgeClass: "bg-emerald-50/80 text-emerald-600 border-emerald-100/50",
+      status: "coming-soon" as const,
     },
     {
       category: "Maritime",
       title: <>मर्चेंट नेवी — वेतन, समुद्री समय और वास्तविकता</>,
       description: "डीजी शिपिंग से लेकर आपके पहले अनुबंध तक। कैडेट्स क्या कमाते हैं, वे आपको क्या नहीं बताते हैं, और वास्तव में प्रवेश कैसे करें।",
       badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-    },
-    {
-      category: "Maritime",
-      title: <>मर्चेंट नेवी — वेतन, समुद्री समय और वास्तविकता</>,
-      description: "डीजी शिपिंग से लेकर आपके पहले अनुबंध तक। कैडेट्स क्या कमाते हैं, वे आपको क्या नहीं बताते हैं, और वास्तव में प्रवेश कैसे करें।",
-      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
-    },
-    {
-      category: "Maritime",
-      title: <>मर्चेंट नेवी — वेतन, समुद्री समय और वास्तविकता</>,
-      description: "डीजी शिपिंग से लेकर आपके पहले अनुबंध तक। कैडेट्स क्या कमाते हैं, वे आपको क्या नहीं बताते हैं, और वास्तव में प्रवेश कैसे करें।",
-      badgeClass: "bg-orange-50/80 text-orange-600 border-orange-100/50",
+      status: "coming-soon" as const,
     }
   ]
 };
@@ -170,7 +200,6 @@ export default function FeaturedGuides() {
     const lastCardRect = lastCardRef.current.getBoundingClientRect();
 
     setShowLeft(firstCardRect.left < containerRect.left - 10);
-
     setShowRight(lastCardRect.right > containerRect.right + 10);
   };
 
@@ -204,7 +233,7 @@ export default function FeaturedGuides() {
           </div>
 
           <Link
-            href="/guides"
+            href="/reads"
             className="group flex items-center gap-2 font-medium text-neutral-500 hover:text-neutral-800 transition-colors w-fit pb-2"
           >
             <span>{t.viewAll}</span>
@@ -215,24 +244,24 @@ export default function FeaturedGuides() {
         {/* Guides Slider */}
         <div className="relative w-full mt-10">
 
-          {/* Left Gradient & Button */}
+          {/* Left Arrow Button */}
           <div className={`hidden md:flex absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-[#F8F8F6] via-[#F8F8F6]/90 to-transparent z-10 items-center justify-start pointer-events-none transition-opacity duration-300 ${showLeft ? "opacity-100" : "opacity-0"}`}>
             <button
               onClick={() => scroll("left")}
               disabled={!showLeft}
-              className="pointer-events-auto p-2 ml-2 lg:ml-6 text-neutral-300 hover:text-neutral-800 transition-colors cursor-pointer disabled:cursor-default"
+              className="pointer-events-auto p-2 ml-2 lg:ml-6 text-slate-350 hover:text-neutral-800 transition-colors cursor-pointer disabled:cursor-default"
               aria-label="Scroll left"
             >
               <Icon icon="weui:arrow-filled" className="w-14 h-14 lg:w-[4.5rem] lg:h-[4.5rem] rotate-180" />
             </button>
           </div>
 
-          {/* Right Gradient & Button */}
+          {/* Right Arrow Button */}
           <div className={`hidden md:flex absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-[#F8F8F6] via-[#F8F8F6]/90 to-transparent z-10 items-center justify-end pointer-events-none transition-opacity duration-300 ${showRight ? "opacity-100" : "opacity-0"}`}>
             <button
               onClick={() => scroll("right")}
               disabled={!showRight}
-              className="pointer-events-auto p-2 mr-2 lg:mr-6 text-neutral-300 hover:text-neutral-800 transition-colors cursor-pointer disabled:cursor-default"
+              className="pointer-events-auto p-2 mr-2 lg:mr-6 text-slate-350 hover:text-neutral-800 transition-colors cursor-pointer disabled:cursor-default"
               aria-label="Scroll right"
             >
               <Icon icon="weui:arrow-filled" className="w-14 h-14 lg:w-[4.5rem] lg:h-[4.5rem]" />
@@ -255,6 +284,8 @@ export default function FeaturedGuides() {
                   title={guide.title}
                   description={guide.description}
                   badgeClass={guide.badgeClass}
+                  status={guide.status}
+                  href={guide.href}
                 />
               </div>
             ))}

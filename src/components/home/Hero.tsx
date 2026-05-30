@@ -14,7 +14,7 @@ const translations = {
     title4: "right one.",
     subtitle: "Unbiased guides, real stories, and clear roadmaps for every stage of your journey.",
     explore: "Explore Careers",
-    browse: "Browse Exams",
+    browse: "About WhatNow",
     alt: "Student making career choices",
   },
   hi: {
@@ -24,7 +24,7 @@ const translations = {
     title4: "मदद करते हैं।",
     subtitle: "आपकी यात्रा के हर चरण के लिए निष्पक्ष मार्गदर्शिकाएँ, सच्ची कहानियाँ और स्पष्ट रोडमैप।",
     explore: "करियर खोजें",
-    browse: "परीक्षाएं देखें",
+    browse: "व्हाटनाव के बारे में",
     alt: "करियर का चुनाव करता छात्र",
   }
 };
@@ -71,7 +71,7 @@ export default function Hero() {
                                 {t.explore}
                             </Button>
                         </Link>
-                        <Link href="/exams">
+                        <Link href="/about">
                             <Button variant="outline">
                                 {t.browse}
                             </Button>

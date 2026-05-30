@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SearchModal from "@/components/SearchModal";
+import ContextMenu from "@/components/ContextMenu";
 import { Geist, Mukta } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
@@ -37,6 +38,7 @@ export default function RootLayout({
           
           <Footer />
           <SearchModal />
+          <ContextMenu />
         </LanguageProvider>
       </body>
     </html>

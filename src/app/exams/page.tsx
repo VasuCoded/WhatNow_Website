@@ -9,7 +9,7 @@ import { useLanguage, Language } from "@/context/LanguageContext";
 interface ExamItem {
   id: string;
   title: string;
-  category: "Design" | "Law" | "Defense" | "Maritime";
+  category: "Design" | "Law" | "Defense" | "Maritime" | "Engineering" | "Medical";
   subtitle: string;
   description: string;
   seats: string;
@@ -143,6 +143,44 @@ const EXAMS_DATA = {
         glow: "group-hover:shadow-orange-500/5",
         iconBg: "bg-orange-50 text-orange-600 border-orange-100/50"
       }
+    },
+    {
+      id: "jee",
+      title: "JEE Main & Advanced",
+      category: "Engineering" as const,
+      subtitle: "Engineering Entrance",
+      description: "The gateway to IITs, NITs, IIITs, and other premier engineering institutes in India.",
+      seats: "~57,000 Seats (IIT/NIT/IIIT)",
+      applicants: "~12,00,000",
+      date: "Jan & April / May",
+      status: "coming-soon" as const,
+      colleges: "IITs, NITs, IIITs & GFTIs",
+      colorClass: {
+        badge: "bg-blue-50 text-blue-600 border-blue-100",
+        text: "text-blue-600",
+        border: "hover:border-blue-300",
+        glow: "group-hover:shadow-blue-500/5",
+        iconBg: "bg-blue-50 text-blue-600 border-blue-100/50"
+      }
+    },
+    {
+      id: "neet",
+      title: "NEET UG",
+      category: "Medical" as const,
+      subtitle: "Medical Entrance",
+      description: "Single entrance test for MBBS, BDS, AYUSH, and other medical courses in all medical colleges across India.",
+      seats: "~1,09,000 MBBS Seats",
+      applicants: "~24,00,000",
+      date: "May 2026",
+      status: "coming-soon" as const,
+      colleges: "AIIMS, JIPMER, Govt & Private Medical Colleges",
+      colorClass: {
+        badge: "bg-rose-50 text-rose-600 border-rose-100",
+        text: "text-rose-600",
+        border: "hover:border-rose-300",
+        glow: "group-hover:shadow-rose-500/5",
+        iconBg: "bg-rose-50 text-rose-600 border-rose-100/50"
+      }
     }
   ],
   hi: [
@@ -260,6 +298,44 @@ const EXAMS_DATA = {
         glow: "group-hover:shadow-orange-500/5",
         iconBg: "bg-orange-50 text-orange-600 border-orange-100/50"
       }
+    },
+    {
+      id: "jee",
+      title: "JEE Main & Advanced",
+      category: "Engineering" as const,
+      subtitle: "इंजीनियरिंग प्रवेश परीक्षा",
+      description: "भारत में IIT, NIT, IIIT और अन्य प्रमुख इंजीनियरिंग संस्थानों का प्रवेश द्वार।",
+      seats: "~57,000 सीटें (IIT/NIT/IIIT)",
+      applicants: "~12,00,000",
+      date: "जनवरी और अप्रैल / मई",
+      status: "coming-soon" as const,
+      colleges: "IITs, NITs, IIITs और GFTIs",
+      colorClass: {
+        badge: "bg-blue-50 text-blue-600 border-blue-100",
+        text: "text-blue-600",
+        border: "hover:border-blue-300",
+        glow: "group-hover:shadow-blue-500/5",
+        iconBg: "bg-blue-50 text-blue-600 border-blue-100/50"
+      }
+    },
+    {
+      id: "neet",
+      title: "NEET UG",
+      category: "Medical" as const,
+      subtitle: "मेडिकल प्रवेश परीक्षा",
+      description: "भारत भर के सभी मेडिकल कॉलेजों में MBBS, BDS, AYUSH और अन्य मेडिकल पाठ्यक्रमों के लिए एकल प्रवेश परीक्षा।",
+      seats: "~1,09,000 MBBS सीटें",
+      applicants: "~24,00,000",
+      date: "मई 2026",
+      status: "coming-soon" as const,
+      colleges: "AIIMS, JIPMER, सरकारी और निजी मेडिकल कॉलेज",
+      colorClass: {
+        badge: "bg-rose-50 text-rose-600 border-rose-100",
+        text: "text-rose-600",
+        border: "hover:border-rose-300",
+        glow: "group-hover:shadow-rose-500/5",
+        iconBg: "bg-rose-50 text-rose-600 border-rose-100/50"
+      }
     }
   ]
 };
@@ -270,14 +346,18 @@ const CATEGORIES_TRANSLATIONS = {
     "Design": "Design",
     "Law": "Law",
     "Defense": "Defense",
-    "Maritime": "Maritime"
+    "Maritime": "Maritime",
+    "Engineering": "Engineering",
+    "Medical": "Medical"
   },
   hi: {
     "All": "सभी",
     "Design": "डिज़ाइन",
     "Law": "कानून",
     "Defense": "रक्षा",
-    "Maritime": "मर्चेंट नेवी"
+    "Maritime": "मर्चेंट नेवी",
+    "Engineering": "इंजीनियरिंग",
+    "Medical": "मेडिकल"
   }
 };
 
@@ -360,7 +440,7 @@ const localTranslations = {
 
 export default function ExamsPage() {
   const { language } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<"All" | "Design" | "Law" | "Defense" | "Maritime">("All");
+  const [selectedCategory, setSelectedCategory] = useState<"All" | "Design" | "Law" | "Defense" | "Maritime" | "Engineering" | "Medical">("All");
 
   const t = localTranslations[language];
   const EXAMS = EXAMS_DATA[language] as ExamItem[];
@@ -503,7 +583,7 @@ export default function ExamsPage() {
       <section className="py-16 md:py-24 container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         {/* Category Filters */}
         <div className="flex items-center gap-8 overflow-x-auto pb-0 mb-12 scrollbar-none border-b border-slate-200/50">
-          {(["All", "Design", "Law", "Defense", "Maritime"] as const).map((category) => {
+          {(["All", "Design", "Law", "Defense", "Maritime", "Engineering", "Medical"] as const).map((category) => {
             const isActive = selectedCategory === category;
             return (
               <button
@@ -551,6 +631,10 @@ export default function ExamsPage() {
                     return "bg-sky-500/5 group-hover:bg-sky-500/10";
                   case "maritime":
                     return "bg-orange-500/5 group-hover:bg-orange-500/10";
+                  case "engineering":
+                    return "bg-blue-500/5 group-hover:bg-blue-500/10";
+                  case "medical":
+                    return "bg-rose-500/5 group-hover:bg-rose-500/10";
                   default:
                     return "bg-slate-500/5 group-hover:bg-slate-500/10";
                 }
