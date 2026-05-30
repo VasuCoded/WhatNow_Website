@@ -41,3 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 ref/
+
+
+#misc
+webplan.pdf
+message.txt
