@@ -77,7 +77,8 @@ const EXAMS_DATA = {
       seats: "~5,200 Seats",
       applicants: "~30,000",
       date: "February 2026",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/exams/nift",
       colleges: "18 Campuses nationwide",
       colorClass: {
         badge: "bg-purple-50 text-purple-600 border-purple-100",
@@ -232,7 +233,8 @@ const EXAMS_DATA = {
       seats: "~5,200 सीटें",
       applicants: "~30,000",
       date: "फरवरी 2026",
-      status: "coming-soon" as const,
+      status: "ready" as const,
+      href: "/exams/nift",
       colleges: "18 परिसर देश भर में",
       colorClass: {
         badge: "bg-purple-50 text-purple-600 border-purple-100",
