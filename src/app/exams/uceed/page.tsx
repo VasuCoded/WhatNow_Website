@@ -112,6 +112,19 @@ export default function UceedHubPage() {
           </div>
         </div>
 
+        {/* ─── RELATED CAREER LINK ─── */}
+        <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+          <div className="flex items-center gap-3">
+            <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span className="font-bold text-neutral-dark text-sm md:text-base">Related Career Guide: Product & UX Design</span>
+          </div>
+          <Link href="/careers/design" className="bg-primary hover:bg-indigo-700 text-white font-extrabold text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-sm">
+            View Career
+          </Link>
+        </div>
+
         {/* ─── VISUAL ANALYTICS ─── */}
         <VisualAnalytics type="exam" data={uceedAnalyticsData} colorTheme="indigo" />
 
