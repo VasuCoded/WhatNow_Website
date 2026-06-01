@@ -2,10 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "UCEED — Resources | WhatNow",
+  title: "UCEED — Resources & Prep Plan | WhatNow",
+  description: "Curated self-study guides, recommended design books, previous year papers, and Part A & Part B prep strategies without expensive coaching.",
 };
-
-// --- Components ---
 
 const PageHeader = ({
   title,
@@ -27,7 +26,6 @@ const PageHeader = ({
       <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-[#5563ED]/5 rounded-full blur-[80px]" />
       <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-[#ff5a1f]/5 rounded-full blur-[60px]" />
       
-      {/* Smooth vector paths */}
       <svg className="absolute right-0 bottom-0 w-full h-full min-w-[1200px]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
           <linearGradient id="uceed-wii-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -82,57 +80,92 @@ const Section = ({
   </section>
 );
 
-const InfoBox = ({
-  children,
-  type = "info",
-}: {
-  children: React.ReactNode;
-  type?: "info" | "warning";
-}) => (
-  <div
-    className={`p-6 md:p-8 my-8 rounded-2xl border-l-4 ${type === "info" ? "bg-indigo-50 border-primary" : "bg-orange-50 border-accent"}`}
-  >
-    {children}
-  </div>
-);
-
 export default function UceedResourcesPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
       <PageHeader
-        title="UCEED — Resources"
+        title="UCEED — Prep Plan & Study Material"
         breadcrumbs={
           <>
-            <Link
-              href="/exams"
-              className="hover:text-primary transition-colors"
-            >
+            <Link href="/exams" className="hover:text-primary transition-colors">
               Exams
             </Link>{" "}
             <span>›</span>
-            <Link
-              href="/exams/uceed"
-              className="hover:text-primary transition-colors"
-            >
+            <Link href="/exams/uceed" className="hover:text-primary transition-colors">
               UCEED
             </Link>{" "}
             <span>›</span>
-            <span className="text-primary">Resources</span>
+            <span className="text-primary">Resources & Prep</span>
           </>
         }
       />
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
-        <Section number="01" title="Prep Materials & Books">
+        <Section number="01" title="Books Actually Worth Your Money">
           <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
-            This section will outline the exact books, study guides, sketching pads, and online tutorials that top-ranked seniors actually used to clear the entrance exam.
+            You do not need ₹1L coaching packages to clear UCEED. In fact, most standard coaching study modules recycle standard aptitude questions. Invest in these three foundational books instead:
           </p>
-          <InfoBox type="info">
-            <h4 className="font-black mb-2">Curation in Progress</h4>
-            <p className="text-slate-750 font-medium">
-              We are working hard with design graduates from IIT Bombay and IIT Delhi to bring you a realistic, hype-free suitability guide. Check back shortly for the final content.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-xs">
+              <span className="text-xs font-black uppercase tracking-wider text-primary block mb-2">Visual & Sketching</span>
+              <h4 className="font-black text-lg text-neutral-dark mb-2">Design Drawing</h4>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                By Francis D.K. Ching. The absolute gold standard for learning perspective, orthographic projection, volumetric layouts, and line weights.
+              </p>
+            </div>
+            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-xs">
+              <span className="text-xs font-black uppercase tracking-wider text-primary block mb-2">Cognitive Design</span>
+              <h4 className="font-black text-lg text-neutral-dark mb-2">The Design of Everyday Things</h4>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                By Don Norman. Essential reading for understanding industrial logic, human-centered design, mapping, and product feedback systems.
+              </p>
+            </div>
+            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-xs">
+              <span className="text-xs font-black uppercase tracking-wider text-primary block mb-2">Visual Aptitude</span>
+              <h4 className="font-black text-lg text-neutral-dark mb-2">Universal Principles of Design</h4>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                By William Lidwell. Provides a clear breakdown of composition rules, gestalt laws, and structural ratios tested in Part A.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section number="02" title="Part A & Part B Self-Study Timeline">
+          <div className="space-y-6">
+            <div className="border-l-4 border-primary pl-6">
+              <h4 className="font-black text-lg text-neutral-dark mb-2">Part A Preparation Strategy (Computer Based)</h4>
+              <p className="text-slate-650 leading-relaxed font-semibold mb-3">
+                Part A carries 240 marks and acts as the screening filter. Focus heavily on:
+              </p>
+              <ul className="list-disc list-inside text-sm text-slate-600 font-semibold space-y-1">
+                <li>**Spatial Visualization**: Practice folding/unfolding 3D cubes, paper cutting patterns, and identifying mirror projections.</li>
+                <li>**Gestalt Laws & Typography**: Study visual composition, font weights, tracking/kerning principles, and color models (RGB vs CMYK).</li>
+                <li>**Mock Analysis**: Attempt at least 15 previous years question papers under timed conditions to get used to the negative marking scheme.</li>
+              </ul>
+            </div>
+            <div className="border-l-4 border-orange-500 pl-6">
+              <h4 className="font-black text-lg text-neutral-dark mb-2">Part B Preparation Strategy (Sketching)</h4>
+              <p className="text-slate-650 leading-relaxed font-semibold mb-3">
+                Part B carries 60 marks and is evaluated only if you clear the Part A cutoff. Focus on:
+              </p>
+              <ul className="list-disc list-inside text-sm text-slate-600 font-semibold space-y-1">
+                <li>**Perspective Drawing**: Master 1-point, 2-point, and 3-point perspectives. Practice drawing everyday household scenes (kitchens, street views).</li>
+                <li>**Human Figures**: Practice basic anatomy ratios (8-head rule) and posture sketching. Do not use coloring; keep sketches clean with pencil shading and linework.</li>
+              </ul>
+            </div>
+          </div>
+        </Section>
+
+        <Section number="03" title="Free Online Material">
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+            <h3 className="text-lg font-black text-neutral-dark mb-4">Official Question Papers & Tutorials</h3>
+            <p className="text-slate-650 leading-relaxed font-semibold mb-4">
+              The official IIT Bombay UCEED website offers past papers dating back to 2015. Download all of them. Use free YouTube channels (like *Stuff You Look At* or *Kaphal Studio*) to learn perspective basics and watch mock paper solutions.
             </p>
-          </InfoBox>
+            <Link href="https://www.uceed.iitb.ac.in" className="inline-block bg-primary hover:bg-primary/95 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-xl shadow-md transition-all">
+              Download Official Papers
+            </Link>
+          </div>
         </Section>
       </div>
     </main>

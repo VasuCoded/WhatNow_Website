@@ -31,7 +31,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     description: "Arm yourself with placement stats, average salary data, and logical arguments for non-traditional careers.",
     href: "/convince-parents",
     keywords: ["parents", "convince", "family", "career choice", "job security", "prestige", "talking points"],
-    status: "coming-soon"
+    status: "ready"
   },
   {
     title: "Scholarships Database",
@@ -39,7 +39,7 @@ export const SEARCH_INDEX: SearchItem[] = [
     description: "Institute-wise fee waivers, MCM schemes, and state scholarships for professional degrees.",
     href: "/scholarships",
     keywords: ["scholarships", "financial aid", "fees", "loans", "waiver", "funding"],
-    status: "coming-soon"
+    status: "ready"
   },
 
   // --- EXAMS ---
@@ -140,6 +140,14 @@ export const SEARCH_INDEX: SearchItem[] = [
     status: "ready"
   },
   {
+    title: "NIFT — Convince Your Parents",
+    category: "Exams",
+    description: "Equipping students with retail industry placements statistics, career stability metrics, and talking points to align parents on fashion careers.",
+    href: "/exams/nift/convince-parents",
+    keywords: ["nift", "parents", "convince", "family", "career security", "placements", "salary"],
+    status: "ready"
+  },
+  {
     title: "NDA — National Defence Academy",
     category: "Exams",
     description: "Entry exam for army, navy, and air force officers after Class 12. SSB interview and physical standards.",
@@ -153,7 +161,47 @@ export const SEARCH_INDEX: SearchItem[] = [
     description: "Entrance for five-year integrated law degrees (BA LLB, BBA LLB) at India's National Law Universities.",
     href: "/exams/clat",
     keywords: ["clat", "law", "nlu", "legal", "bar council", "llb", "advocate"],
-    status: "coming-soon"
+    status: "ready"
+  },
+  {
+    title: "CLAT — Exam Pattern & Sectional Weightage",
+    category: "Exams",
+    description: "Detailed guide to the Common Law Admission Test (CLAT) syllabus, questions distribution, marking scheme, and time management.",
+    href: "/exams/clat/what-it-is",
+    keywords: ["clat", "pattern", "syllabus", "marking", "weightage", "english", "logic", "legal", "reasoning"],
+    status: "ready"
+  },
+  {
+    title: "CLAT — NLU Seat Matrix, Fees & Scholarships",
+    category: "Exams",
+    description: "NLU-by-NLU seat allocation, reservation policies, domicile quotas, and historical opening/closing ranks.",
+    href: "/exams/clat/scholarships",
+    keywords: ["clat", "seats", "cutoff", "fees", "scholarships", "nlsiu", "nalsar", "nujs"],
+    status: "ready"
+  },
+  {
+    title: "CLAT — Self-Study Plan & Mock Strategy",
+    category: "Exams",
+    description: "Preparation strategy, best books, mock test resources, and planning strategy for self-study candidates.",
+    href: "/exams/clat/resources",
+    keywords: ["clat", "self study", "mock tests", "preparation", "books", "strategy"],
+    status: "ready"
+  },
+  {
+    title: "CLAT — Is It For You? & AILET Comparison",
+    category: "Exams",
+    description: "Honest self-check for suitability, NLU Delhi AILET comparison, and corporate desk vs litigation realities.",
+    href: "/exams/clat/is-it-for-you",
+    keywords: ["clat", "ailet", "suitability", "career path", "corporate law", "litigation"],
+    status: "ready"
+  },
+  {
+    title: "CLAT — Convince Your Parents",
+    category: "Exams",
+    description: "Equipping students with corporate law firm placements statistics, career stability metrics, and talking points to align parents on legal careers.",
+    href: "/exams/clat/convince-parents",
+    keywords: ["clat", "parents", "convince", "family", "career security", "placements", "salary"],
+    status: "ready"
   },
   {
     title: "IMU CET — Indian Maritime University Common Entrance Test",
@@ -161,7 +209,95 @@ export const SEARCH_INDEX: SearchItem[] = [
     description: "Entrance exam for B.Sc Nautical Science, B.Tech Marine Engineering, and Diploma in Nautical Science programs at IMU.",
     href: "/exams/imu-cet",
     keywords: ["imu cet", "imu", "cet", "merchant navy", "marine engineering", "nautical science", "dns", "bsc", "btech", "maritime"],
-    status: "coming-soon"
+    status: "ready"
+  },
+  {
+    title: "IMU CET — Full Exam Breakdown",
+    category: "Exams",
+    description: "Syllabus breakdown, Physics, Chemistry, Maths, English, and Aptitude distribution, registration, and counselling.",
+    href: "/exams/imu-cet/what-it-is",
+    keywords: ["imu cet", "syllabus", "pattern", "subjects", "registration", "counselling"],
+    status: "ready"
+  },
+  {
+    title: "IMU CET — DNS vs B.Sc vs B.Tech paths",
+    category: "Exams",
+    description: "Duration, fees, sea-time, sponsorships, placements, and earning potential compared across all three maritime paths.",
+    href: "/exams/imu-cet/scholarships",
+    keywords: ["imu cet", "dns", "bsc", "btech", "nautical science", "marine engineering", "fees", "sponsorship"],
+    status: "ready"
+  },
+  {
+    title: "IMU CET — Preparation Strategy",
+    category: "Exams",
+    description: "Subject-wise preparation strategy, best books, mock test resources, previous year papers, and study roadmap.",
+    href: "/exams/imu-cet/resources",
+    keywords: ["imu cet", "preparation", "books", "mocks", "study plan", "roadmap"],
+    status: "ready"
+  },
+  {
+    title: "IMU CET — Medical Fitness & DG Shipping Norms",
+    category: "Exams",
+    description: "Complete guide to the mandatory medical fitness test: vision rules (6/6 eye sight), colour blindness, and BMI.",
+    href: "/exams/imu-cet/is-it-for-you",
+    keywords: ["imu cet", "medical fitness", "eyesight", "vision", "colour blindness", "bmi", "dg shipping"],
+    status: "ready"
+  },
+  {
+    title: "IMU CET — Convince Your Parents",
+    category: "Exams",
+    description: "Addressing merchant navy risk concerns, lonely life myths, high USD tax-free salaries, and cadet rotation structures.",
+    href: "/exams/imu-cet/convince-parents",
+    keywords: ["imu cet", "parents", "convince", "family", "career security", "salary", "risk"],
+    status: "ready"
+  },
+  {
+    title: "JEE Main Paper 3 — B.Planning Entrance",
+    category: "Exams",
+    description: "Exclusive national entrance for B.Plan courses at SPA Delhi, Bhopal, Vijayawada and top NITs.",
+    href: "/exams/jee-paper3",
+    keywords: ["jee paper 3", "bplanning", "bplan", "spa", "spa delhi", "spa bhopal", "spa vijayawada", "entrance"],
+    status: "ready"
+  },
+  {
+    title: "JEE Main Paper 3 — Exam Pattern & Syllabus",
+    category: "Exams",
+    description: "Detailed syllabus breakdown of JEE B.Planning: Mathematics, general aptitude, and planning-specific questions.",
+    href: "/exams/jee-paper3/what-it-is",
+    keywords: ["jee paper 3", "syllabus", "pattern", "planning questions", "part iii", "marking"],
+    status: "ready"
+  },
+  {
+    title: "JEE Main Paper 3 — SPA Fees, Seats & ROI",
+    category: "Exams",
+    description: "JoSAA seat matrix, reservation policies, tuition fees at School of Planning and Architecture campuses.",
+    href: "/exams/jee-paper3/scholarships",
+    keywords: ["jee paper 3", "fees", "seats", "spa fees", "josaa", "cutoff", "roi"],
+    status: "ready"
+  },
+  {
+    title: "JEE Main Paper 3 — Study Material & Prep Guides",
+    category: "Exams",
+    description: "Self-prep blueprints, Part III planning guides, free mock resources, and official syllabus guidelines.",
+    href: "/exams/jee-paper3/resources",
+    keywords: ["jee paper 3", "books", "study material", "preparation", "mocks", "self study"],
+    status: "ready"
+  },
+  {
+    title: "JEE Main Paper 3 — B.Plan Suitability",
+    category: "Exams",
+    description: "Honest check on whether urban planning is the right fit. B.Plan vs B.Arch vs Civil Engineering comparison.",
+    href: "/exams/jee-paper3/is-it-for-you",
+    keywords: ["jee paper 3", "bplan vs barch", "suitability", "urban planner", "career choice"],
+    status: "ready"
+  },
+  {
+    title: "JEE Main Paper 3 — Convince Your Parents",
+    category: "Exams",
+    description: "Equipping students with real-world urban planning placement statistics, career stability metrics, and talking points to align parents on B.Plan decisions.",
+    href: "/exams/jee-paper3/convince-parents",
+    keywords: ["jee paper 3", "parents", "convince", "family", "career security", "placements", "salary"],
+    status: "ready"
   },
 
   // --- CAREERS ---
@@ -240,35 +376,27 @@ export const SEARCH_INDEX: SearchItem[] = [
 
   // --- READS / GUIDES ---
   {
-    title: "Should you move to a metro city?",
+    title: "Is an IIT brand name worth a drop year?",
     category: "Reads",
-    description: "An honest check on whether moving to a tier-1 city like Bangalore or Mumbai is worth the rent and cost of living.",
-    href: "/reads/moving-to-metro",
-    keywords: ["metro", "city", "bangalore", "mumbai", "delhi", "rent", "cost of living", "exposure", "networking"],
-    status: "coming-soon"
+    description: "An honest breakdown of the IIT tag value, return on investment of a gap year, and the mental tax no one warns you about before you drop.",
+    href: "/reads/iit-drop-year",
+    keywords: ["iit", "drop", "gap year", "jee", "advanced", "career cost", "roi", "mental health"],
+    status: "ready"
   },
   {
-    title: "Is the IIT brand value actually worth it?",
+    title: "How to talk creative fields with engineering parents?",
     category: "Reads",
-    description: "Comparing the IIT tag and network with other universities, and seeing when it matters versus when it doesn't.",
-    href: "/reads/iit-brand-value",
-    keywords: ["iit", "brand", "tag", "prestige", "jobs", "placements", "network", "alumni"],
-    status: "coming-soon"
+    description: "A step-by-step communication playbook for students pitching design, film, or writing to parents who only understand engineering and medicine.",
+    href: "/reads/talk-creative-fields",
+    keywords: ["parents", "creative", "family", "convince", "pitch", "design", "fashion", "engineering"],
+    status: "ready"
   },
   {
-    title: "What does it actually mean to 'follow your passion'?",
+    title: "Transitioning cities for work: Guide for juniors",
     category: "Reads",
-    description: "A reality check on separating hobbies from sustainable career paths that pay the bills.",
-    href: "/reads/following-passion",
-    keywords: ["passion", "dream job", "hobbies", "career advice", "stability", "skills", "market demand"],
-    status: "coming-soon"
-  },
-  {
-    title: "JEE Overwhelm: A Rational Guide to Drop-Years",
-    category: "Reads",
-    description: "Easing the pressure of JEE preparation, dealing with drop years rationally, and understanding alternative career routes.",
-    href: "/reads/jee-drop-year",
-    keywords: ["jee", "drop year", "pressure", "overwhelm", "mental health", "coaching", "failure", "stress", "alternatives"],
-    status: "coming-soon"
+    description: "Real, raw advice on finding PG hostels, budgeting for food, managing commutes, and surviving your first six months in a new Indian metro.",
+    href: "/reads/transitioning-cities",
+    keywords: ["city", "move", "pg", "flat", "budget", "commute", "survival", "metro", "junior"],
+    status: "ready"
   }
 ];

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import VisualAnalytics from '@/components/ui/VisualAnalytics';
+import { Icon } from '@iconify/react';
 
 const clatAnalyticsData = {
   trends: [
@@ -167,52 +168,73 @@ export default function ClatHubPage() {
           <div className="space-y-4">
 
             {/* Card 1 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
-              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">01</div>
+            <Link href="/exams/clat/what-it-is" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-emerald-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-emerald-500/5 hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-black text-emerald-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">01</div>
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">Exam Pattern & Sectional Weightage</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-emerald-600 transition-colors duration-300">Exam Pattern & Sectional Weightage</h3>
+                <div className="text-emerald-600 text-xs font-semibold font-mono mb-4">/exams/clat/what-it-is</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
                   Deep dive into the 120-question format: Sectional breakdowns, sample passage types, marking scheme, and time management strategies for the 2-hour window.
                 </p>
-                <span className="inline-block bg-emerald-50 text-emerald-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">Coming soon</span>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">✓ Shell Ready</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 2 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
-              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">02</div>
+            <Link href="/exams/clat/scholarships" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-emerald-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-emerald-500/5 hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-black text-emerald-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">02</div>
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">NLU Seat Matrix & Expected Cutoffs</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-emerald-600 transition-colors duration-300">NLU Seat Matrix & Expected Cutoffs</h3>
+                <div className="text-emerald-600 text-xs font-semibold font-mono mb-4">/exams/clat/scholarships</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
                   NLU-by-NLU seat allocation, reservation policies, domicile quotas, and historical opening/closing ranks for NLSIU, NALSAR, and other premium colleges.
                 </p>
-                <span className="inline-block bg-emerald-50 text-emerald-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">Coming soon</span>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">✓ Ready to read</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 3 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
-              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">03</div>
+            <Link href="/exams/clat/resources" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-emerald-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-emerald-500/5 hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-black text-emerald-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">03</div>
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">CLAT Self-Study Plan & Mock Strategy</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-emerald-600 transition-colors duration-300">CLAT Self-Study Plan & Mock Strategy</h3>
+                <div className="text-emerald-600 text-xs font-semibold font-mono mb-4">/exams/clat/resources</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
                   How to prep without ₹1L coaching packages. Editorial reading list, critical reasoning resources, and how to analyze mocks to cross the 90+ score barrier.
                 </p>
-                <span className="inline-block bg-emerald-50 text-emerald-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">Coming soon</span>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">✓ Ready to read</span>
               </div>
-            </div>
+            </Link>
 
             {/* Card 4 */}
-            <div className="group flex flex-col md:flex-row gap-6 bg-white/60 backdrop-blur-sm border border-slate-200/80 rounded-[2rem] p-6 md:p-8 hover:border-slate-300 hover:bg-white/80 transition-all duration-300 shadow-sm">
-              <div className="text-4xl md:text-5xl font-black text-slate-300 leading-none">04</div>
+            <Link href="/exams/clat/is-it-for-you" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-emerald-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-emerald-500/5 hover:-translate-y-1">
+              <div className="text-4xl md:text-5xl font-black text-emerald-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">04</div>
               <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1">AILET vs CLAT — NLU Delhi entrance</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-emerald-600 transition-colors duration-300">AILET vs CLAT — NLU Delhi entrance</h3>
+                <div className="text-emerald-600 text-xs font-semibold font-mono mb-4">/exams/clat/is-it-for-you</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
                   Why NLU Delhi does not accept CLAT. Comparing AILET pattern, difficulty level, seat matrix, and preparation strategy with the standard CLAT exam.
                 </p>
-                <span className="inline-block bg-emerald-50 text-emerald-600 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">Coming soon</span>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100/50">✓ Ready to read</span>
               </div>
-            </div>
+            </Link>
+
+            {/* Card 5 */}
+            <Link href="/exams/clat/convince-parents" className="group flex flex-col md:flex-row gap-6 bg-amber-50/40 backdrop-blur-sm border border-amber-200/60 rounded-[2rem] p-6 md:p-8 hover:border-amber-400/50 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-amber-500/5 hover:-translate-y-1 relative overflow-hidden">
+              <Icon 
+                icon="solar:users-group-two-rounded-bold-duotone" 
+                className="absolute -right-6 -bottom-6 w-36 h-36 text-amber-500 opacity-[0.15] -rotate-12 pointer-events-none select-none" 
+              />
+              <div className="text-4xl md:text-5xl font-black text-amber-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300 relative z-10">05</div>
+              <div className="flex-1 relative z-10">
+                <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-amber-600 transition-colors duration-300">Convince Your Parents — With actual data</h3>
+                <div className="text-amber-600 text-xs font-semibold font-mono mb-4">/exams/clat/convince-parents</div>
+                <p className="text-slate-600 leading-relaxed mb-4 text-sm md:text-base">
+                  NLU corporate placements are highly secure, but parents need the figures. Access talking points on starting salaries, and how to counter objections.
+                </p>
+                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 shadow-sm">✓ Ready to read</span>
+              </div>
+            </Link>
 
           </div>
         </section>

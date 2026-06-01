@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "UCEED — Convince Parents | WhatNow",
-  description: "Equipping students with real IIT placement statistics, average starting packages, and logical arguments to convince parents about design careers.",
+  title: "NIFT — Convince Parents | WhatNow",
+  description: "Equipping students with retail industry placements statistics, career stability metrics, and logical talking points to align parents on fashion careers.",
 };
 
 const PageHeader = ({
@@ -17,30 +17,30 @@ const PageHeader = ({
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="uceed-convince-parents-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ff5a1f" strokeWidth="1" />
+          <pattern id="nift-convince-parents-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ec4899" strokeWidth="1" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#uceed-convince-parents-grid)" />
+        <rect width="100%" height="100%" fill="url(#nift-convince-parents-grid)" />
       </svg>
-      <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-[#ff5a1f]/5 rounded-full blur-[80px]" />
-      <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[60px]" />
+      <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-pink-500/5 rounded-full blur-[80px]" />
+      <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-pink-500/5 rounded-full blur-[60px]" />
       
       <svg className="absolute right-0 bottom-0 w-full h-full min-w-[1200px]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="uceed-cp-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ff5a1f" stopOpacity="0.04" />
+          <linearGradient id="nift-cp-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ec4899" stopOpacity="0.04" />
+            <stop offset="100%" stopColor="#ec4899" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="nift-cp-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ff5a1f" stopOpacity="0.02" />
             <stop offset="100%" stopColor="#ff5a1f" stopOpacity="0" />
           </linearGradient>
-          <linearGradient id="uceed-cp-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d97706" stopOpacity="0.02" />
-            <stop offset="100%" stopColor="#d97706" stopOpacity="0" />
-          </linearGradient>
         </defs>
-        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80 L1440,320 L0,320 Z" fill="url(#uceed-cp-wave-grad-1)" />
-        <path d="M0,240 C480,120 960,320 1440,160 L1440,320 L0,320 Z" fill="url(#uceed-cp-wave-grad-2)" />
-        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80" stroke="#ff5a1f" strokeWidth="1.5" strokeOpacity="0.1" />
-        <path d="M0,240 C480,120 960,320 1440,160" stroke="#d97706" strokeWidth="1.5" strokeOpacity="0.05" strokeDasharray="6 6" />
+        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80 L1440,320 L0,320 Z" fill="url(#nift-cp-wave-grad-1)" />
+        <path d="M0,240 C480,120 960,320 1440,160 L1440,320 L0,320 Z" fill="url(#nift-cp-wave-grad-2)" />
+        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80" stroke="#ec4899" strokeWidth="1.5" strokeOpacity="0.1" />
+        <path d="M0,240 C480,120 960,320 1440,160" stroke="#ff5a1f" strokeWidth="1.5" strokeOpacity="0.05" strokeDasharray="6 6" />
       </svg>
     </div>
 
@@ -69,7 +69,7 @@ const Section = ({
       {number}
     </div>
     <div className="relative z-10">
-      <div className="text-orange-600 font-black text-sm uppercase tracking-widest mb-4">
+      <div className="text-pink-600 font-black text-sm uppercase tracking-widest mb-4">
         Section {number}
       </div>
       <h2 className="text-3xl md:text-4xl font-black mb-8 text-neutral-dark tracking-tight">
@@ -80,90 +80,90 @@ const Section = ({
   </section>
 );
 
-export default function UceedConvinceParentsPage() {
+export default function NiftConvinceParentsPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
       <PageHeader
-        title="UCEED — Talking to Your Parents"
+        title="NIFT — Talking to Your Parents"
         breadcrumbs={
           <>
-            <Link href="/exams" className="hover:text-primary transition-colors">
+            <Link href="/exams" className="hover:text-pink-600 transition-colors">
               Exams
             </Link>{" "}
             <span>›</span>
-            <Link href="/exams/uceed" className="hover:text-primary transition-colors">
-              UCEED
+            <Link href="/exams/nift" className="hover:text-pink-600 transition-colors">
+              NIFT
             </Link>{" "}
             <span>›</span>
-            <span className="text-primary">Convince Parents</span>
+            <span className="text-pink-600">Convince Parents</span>
           </>
         }
       />
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
-        <Section number="01" title="Objection 1: 'Design is not a stable career'">
+        <Section number="01" title="Objection 1: 'Fashion has no job security'">
           <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
-            Many parents associate the word "design" with boutique dressmakers or sketching logos. You must frame it as **Creative Technology (UI/UX)**.
+            Many parents associate fashion design with boutique tailor shops. Highlight the size of the **Indian Apparel Export and Retail sectors**.
           </p>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 space-y-4 mb-6">
             <h4 className="font-black text-xl text-neutral-dark">The Counter-Argument:</h4>
             <p className="text-slate-650 leading-relaxed font-semibold">
-              Every app, software, banking portal, and website requires digital designers to function. It is a core tech job. Frame it as "software engineering for the user interface." UI/UX design is one of the highest-paying and fastest-growing segments in the Indian IT sector.
+              India is the world's second-largest textile exporter. NIFT is an institute set up under the Act of Parliament (Ministry of Textiles). Brand groups like Reliance Retail, Aditya Birla Fashion, Landmark, and Shahi Exports operate multi-billion dollar retail logistics chains that depend on NIFT graduates to manage merchandising, purchasing, and production.
             </p>
           </div>
         </Section>
 
-        <Section number="02" title="Objection 2: 'Why not B.Tech instead?'">
+        <Section number="02" title="Objection 2: 'Is the pay too low?'">
           <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
-            In India, the IIT brand is highly prestigious. Parents feel B.Tech is the only "real" degree offered by IITs.
+            Parents worry starting packages are too low to sustain metro city living.
           </p>
           <div className="overflow-x-auto border border-slate-200 rounded-xl my-8">
             <table className="w-full text-left border-collapse min-w-[600px] bg-white">
               <thead className="bg-slate-50">
                 <tr>
                   <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
-                    Metric
+                    Role at Brand / Export House
                   </th>
                   <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
-                    IIT B.Des (Design)
+                    Starting Salary Range
                   </th>
                   <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
-                    Average B.Tech (Mid-Tier)
+                    Mid-Career Salary (5 Yrs Exp)
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td className="p-4 text-slate-700 border-b border-slate-100 font-black">
-                    Starting Salary Range
+                    Fashion Merchandiser / Buyer
                   </td>
                   <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
-                    ₹10L - ₹18L per annum
+                    ₹4.5L - ₹7.0L/yr
                   </td>
                   <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">
-                    ₹6L - ₹10L per annum
+                    ₹9.0L - ₹15.0L/yr
                   </td>
                 </tr>
                 <tr>
                   <td className="p-4 text-slate-700 border-b border-slate-100 font-black">
-                    Brand Value
+                    Apparel Production Manager
                   </td>
                   <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
-                    Identical "IIT Graduate" Tag
+                    ₹4.0L - ₹6.5L/yr
                   </td>
                   <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">
-                    State/Private college tag
+                    ₹8.0L - ₹12.0L/yr
                   </td>
                 </tr>
                 <tr>
                   <td className="p-4 text-slate-700 font-black">
-                    Major Recruiters
+                    Visual Merchandiser / Retail Planner
                   </td>
                   <td className="p-4 text-emerald-600 font-black">
-                    Google, Microsoft, Samsung, Adobe
+                    ₹3.5L - ₹5.5L/yr
                   </td>
                   <td className="p-4 text-slate-600 font-medium">
-                    TCS, Infosys, Cognizant
+                    ₹7.5L - ₹11.5L/yr
                   </td>
                 </tr>
               </tbody>
@@ -171,16 +171,16 @@ export default function UceedConvinceParentsPage() {
           </div>
         </Section>
 
-        <Section number="03" title="Objection 3: 'Is B.Des a real degree?'">
+        <Section number="03" title="Frame it as Retail Management">
           <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50">
             <h3 className="text-xl font-black text-neutral-dark mb-4">
-              Providing Institutional Security
+              Talking about career longevity
             </h3>
             <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
-              Show your parents the official IIT placements portals. Highlight that B.Des students share the **same hostel rooms, same placement office, and same alumni network** as B.Tech computer science students.
+              Objection-handling tip: Frame your course selection (especially B.FTech or Fashion Management/Merchandising) as a **Retail Operations & Logistics** degree. Explain that you will be managing material flow, vendor negotiation, and purchase planning.
             </p>
             <p className="text-lg text-slate-750 font-medium leading-relaxed">
-              If they qualify for fee concessions based on family income, the same rules apply. Pursuing a B.Des at an IIT is a safe, high-paying, and prestigious career choice that offers immediate entry into top tech firms.
+              If you study at a premier campus (NIFT Delhi, Mumbai, Bengaluru), campus placements are highly institutionalized, offering security and a clear corporate growth trajectory.
             </p>
           </div>
         </Section>

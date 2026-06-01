@@ -2,10 +2,9 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "NIFT Entrance — Is It For You? | WhatNow",
+  title: "NIFT — Is It For You? | WhatNow",
+  description: "An honest check to see if pursuing a career in fashion design, apparel production, or merchandising at NIFT fits your interests and work style.",
 };
-
-// --- Components ---
 
 const PageHeader = ({
   title,
@@ -27,7 +26,6 @@ const PageHeader = ({
       <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-pink-500/5 rounded-full blur-[80px]" />
       <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-[#ff5a1f]/5 rounded-full blur-[60px]" />
       
-      {/* Smooth vector paths */}
       <svg className="absolute right-0 bottom-0 w-full h-full min-w-[1200px]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
           <linearGradient id="nift-wii-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -82,25 +80,11 @@ const Section = ({
   </section>
 );
 
-const InfoBox = ({
-  children,
-  type = "info",
-}: {
-  children: React.ReactNode;
-  type?: "info" | "warning";
-}) => (
-  <div
-    className={`p-6 md:p-8 my-8 rounded-2xl border-l-4 ${type === "info" ? "bg-pink-50 border-pink-500" : "bg-orange-50 border-accent"}`}
-  >
-    {children}
-  </div>
-);
-
 export default function NiftIsItForYouPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
       <PageHeader
-        title="NIFT — Is It For You?"
+        title="NIFT — Is Fashion For You?"
         breadcrumbs={
           <>
             <Link href="/exams" className="hover:text-pink-600 transition-colors">
@@ -117,16 +101,56 @@ export default function NiftIsItForYouPage() {
       />
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
-        <Section number="01" title="Suitability Check">
+        <Section number="01" title="Runway Glamour vs Industrial Realities">
           <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
-            This section will contain a curated self-assessment blueprint to help you figure out if fashion design, technology, or merchandising at NIFT aligns with your core interests, career expectations, and creative output.
+            Most students target NIFT dreaming of fashion weeks, celebrity styling, and luxury boutique launches. The reality: **95% of the fashion industry is raw manufacturing, sourcing, and logistics**.
           </p>
-          <InfoBox type="info">
-            <h4 className="font-black mb-2">Curation in Progress</h4>
-            <p className="text-slate-750 font-medium">
-              We are working hard with design graduates from NIFT Delhi and NIFT Mumbai to bring you a realistic, hype-free suitability guide. Check back shortly for the final content.
+          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 space-y-4 mb-6">
+            <h3 className="font-black text-xl text-neutral-dark">The Back-End Grind</h3>
+            <p className="text-slate-650 leading-relaxed font-semibold">
+              Daily tasks as a retail merchandiser or fashion technologist involve checking yarn count, auditing garment stitches, managing fabric shipments from mills, calculating material costs, and negotiating with export houses. If you think design is only drawing pretty garments, the day-to-day operations can be a rude awakening.
             </p>
-          </InfoBox>
+          </div>
+        </Section>
+
+        <Section number="02" title="The Suitability Self-Check">
+          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+            Answer these questions honestly before enrolling:
+          </p>
+          <div className="space-y-6">
+            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+              <h4 className="font-black text-lg text-neutral-dark mb-2">1. Are you okay with physical labor and long standing hours?</h4>
+              <p className="text-slate-600 font-semibold leading-relaxed">
+                NIFT classes require hours of pattern-making, garment stitching, fabric draping, and dyeing. In export houses and retail sectors, you will spend long days standing on factory floors auditing quality control.
+              </p>
+            </div>
+            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+              <h4 className="font-black text-lg text-neutral-dark mb-2">2. Do you have a head for numbers?</h4>
+              <p className="text-slate-600 font-semibold leading-relaxed">
+                Fashion Merchandising requires analyzing sales numbers, forecasting demand trends, planning purchase budgets, and pricing products. It is as much a mathematical and logical role as a creative one.
+              </p>
+            </div>
+            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+              <h4 className="font-black text-lg text-neutral-dark mb-2">3. Can you handle fast-paced, high-pressure environments?</h4>
+              <p className="text-slate-600 font-semibold leading-relaxed">
+                Fashion seasons change every few months. Tight deadlines, delay penalties in export shipments, and quick client reviews are standard stress-points.
+              </p>
+            </div>
+          </div>
+        </Section>
+
+        <Section number="03" title="The Career Payoff">
+          <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50">
+            <h3 className="text-xl font-black text-neutral-dark mb-4">
+              Starting Salaries & Growth
+            </h3>
+            <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
+              Starting salaries for NIFT graduates average **₹3.5L to ₹6.0L per annum** for design, and **₹4L to ₹7L** for apparel technology and management. Growth is highly portfolio-driven: as you build industry relations, transition to buying houses (e.g. Li & Fung) or major brands (Zara, Aditya Birla Fashion, Reliance Retail), salaries can cross ₹12L-₹15L in 5 years.
+            </p>
+            <p className="text-lg text-slate-750 font-medium leading-relaxed">
+              If you have a strong entrepreneurial drive, NIFT equips you with the technical manufacturing skills needed to launch your own brand. Make sure you align with the operational realities before committing.
+            </p>
+          </div>
         </Section>
       </div>
     </main>

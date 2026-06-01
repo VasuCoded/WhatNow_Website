@@ -11,7 +11,7 @@ import { SEARCH_INDEX } from "@/data/searchIndex";
 interface ExamItem {
   id: string;
   title: string;
-  category: "Design" | "Law" | "Defense" | "Maritime" | "Engineering" | "Medical";
+  category: "Design" | "Law" | "Defense" | "Maritime" | "Engineering" | "Medical" | "Planning";
   subtitle: string;
   description: string;
   seats: string;
@@ -186,6 +186,26 @@ const EXAMS_DATA = {
         glow: "group-hover:shadow-rose-500/5",
         iconBg: "bg-rose-50 text-rose-600 border-rose-100/50"
       }
+    },
+    {
+      id: "jee-paper3",
+      title: "JEE Main Paper 3",
+      category: "Planning" as const,
+      subtitle: "B.Planning Entrance",
+      description: "Gateway to B.Plan programs at SPA Delhi, Bhopal, Vijayawada and top NITs. Math in Class XII is the only key requirement.",
+      seats: "~950 Seats",
+      applicants: "~30,000",
+      date: "January & April 2026",
+      status: "ready" as const,
+      href: "/exams/jee-paper3",
+      colleges: "SPAs, NITs & GFTIs",
+      colorClass: {
+        badge: "bg-teal-50 text-teal-600 border-teal-100",
+        text: "text-teal-600",
+        border: "hover:border-teal-300",
+        glow: "group-hover:shadow-teal-500/5",
+        iconBg: "bg-teal-50 text-teal-600 border-teal-100/50"
+      }
     }
   ],
   hi: [
@@ -344,6 +364,26 @@ const EXAMS_DATA = {
         glow: "group-hover:shadow-rose-500/5",
         iconBg: "bg-rose-50 text-rose-600 border-rose-100/50"
       }
+    },
+    {
+      id: "jee-paper3",
+      title: "JEE Main पेपर 3",
+      category: "Planning" as const,
+      subtitle: "B.Planning प्रवेश परीक्षा",
+      description: "SPA दिल्ली, भोपाल, विजयवाड़ा और शीर्ष NITs में B.Plan कार्यक्रमों का प्रवेश द्वार। कक्षा 12 में गणित एकमात्र मुख्य आवश्यकता है।",
+      seats: "~950 सीटें",
+      applicants: "~30,000",
+      date: "जनवरी और अप्रैल 2026",
+      status: "ready" as const,
+      href: "/exams/jee-paper3",
+      colleges: "SPAs, NITs और GFTIs",
+      colorClass: {
+        badge: "bg-teal-50 text-teal-600 border-teal-100",
+        text: "text-teal-600",
+        border: "hover:border-teal-300",
+        glow: "group-hover:shadow-teal-500/5",
+        iconBg: "bg-teal-50 text-teal-600 border-teal-100/50"
+      }
     }
   ]
 };
@@ -356,7 +396,8 @@ const CATEGORIES_TRANSLATIONS = {
     "Defense": "Defense",
     "Maritime": "Maritime",
     "Engineering": "Engineering",
-    "Medical": "Medical"
+    "Medical": "Medical",
+    "Planning": "Planning"
   },
   hi: {
     "All": "सभी",
@@ -365,7 +406,8 @@ const CATEGORIES_TRANSLATIONS = {
     "Defense": "रक्षा",
     "Maritime": "मर्चेंट नेवी",
     "Engineering": "इंजीनियरिंग",
-    "Medical": "मेडिकल"
+    "Medical": "मेडिकल",
+    "Planning": "प्लानिंग"
   }
 };
 
@@ -448,7 +490,7 @@ const localTranslations = {
 
 export default function ExamsPage() {
   const { language } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState<"All" | "Design" | "Law" | "Defense" | "Maritime" | "Engineering" | "Medical">("All");
+  const [selectedCategory, setSelectedCategory] = useState<"All" | "Design" | "Law" | "Defense" | "Maritime" | "Engineering" | "Medical" | "Planning">("All");
 
   const t = localTranslations[language];
   const EXAMS = EXAMS_DATA[language] as ExamItem[];

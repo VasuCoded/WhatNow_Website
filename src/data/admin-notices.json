@@ -1,0 +1,86 @@
+[
+  {
+    "id": "010",
+    "type": "announcement",
+    "title": "🚧 Site is Under Review — Not Publicly Launched",
+    "body": "WhatNow is currently in internal testing and review phase. Content, features, and design are being actively evaluated before public launch. If you're viewing this, you're part of the early access review.",
+    "date": "2026-06-01",
+    "isNew": true
+  },
+  {
+    "id": "009",
+    "type": "feature",
+    "title": "Admin Notice Board Added",
+    "body": "This panel is now live — the WhatNow team will use this to communicate site updates, new guides, feature rollouts, and important announcements directly to reviewers and early users.",
+    "date": "2026-06-01",
+    "isNew": true
+  },
+  {
+    "id": "008",
+    "type": "feature",
+    "title": "Live Exam Notice Board Added 🔔",
+    "body": "A real-time exam alert panel now fetches the latest results, registration deadlines, and exam news from national education feeds. Click the bell icon in the navbar to open it.",
+    "date": "2026-06-01",
+    "isNew": true
+  },
+  {
+    "id": "007",
+    "type": "feature",
+    "title": "Vibe Theme Switcher — 5 Colour Palettes",
+    "body": "Users can now pick their colour vibe — Default Indigo, Lavender Breeze, Fresh Mint, Sweet Peach, or Soft Rose. The palette icon sits in the top-right of the navbar. Preference is saved across sessions.",
+    "date": "2026-06-01",
+    "isNew": false
+  },
+  {
+    "id": "006",
+    "type": "new",
+    "title": "JEE Paper 3 (B.Planning) Full Guide Live",
+    "body": "Complete guide for JEE B.Planning (Paper 3) is published — all 5 sub-pages including What It Is, Is It For You, Scholarships, Convince Your Parents, and Free Resources.",
+    "date": "2026-06-01",
+    "link": "/exams/jee-paper3",
+    "isNew": false
+  },
+  {
+    "id": "005",
+    "type": "new",
+    "title": "IMU CET Full Guide Published",
+    "body": "The IMU CET guide is live — covering Merchant Navy as a career, DG Shipping registration, cadet life, realistic salary expectations, and how to address parental concerns.",
+    "date": "2026-06-01",
+    "link": "/exams/imu-cet",
+    "isNew": false
+  },
+  {
+    "id": "004",
+    "type": "new",
+    "title": "NIFT, CLAT & UCEED Guides Published",
+    "body": "Three exam blueprints are now live — NIFT Entrance, CLAT (law), and UCEED (IIT design). Each guide covers all 5 sections: What It Is, Is It For You, Scholarships, Convince Your Parents, and Resources.",
+    "date": "2026-06-01",
+    "link": "/exams",
+    "isNew": false
+  },
+  {
+    "id": "003",
+    "type": "new",
+    "title": "5 Career Guides Published",
+    "body": "Detailed career guides for Product & UX Design, Fashion Design, Corporate & Litigation Law, Merchant Navy Deck Officer, and Urban Planning are now available under the Careers section.",
+    "date": "2026-06-01",
+    "link": "/careers",
+    "isNew": false
+  },
+  {
+    "id": "002",
+    "type": "update",
+    "title": "Hindi Language Support Added",
+    "body": "Full Hindi translation is now available across the entire website — all guide content, navigation menus, hero text, and section labels. Switch from the language toggle in the bottom-right corner.",
+    "date": "2026-06-01",
+    "isNew": false
+  },
+  {
+    "id": "001",
+    "type": "announcement",
+    "title": "WhatNow Website Build Started",
+    "body": "Development of WhatNow.in has officially started. The goal: a free, unbiased career and exam guide platform for Indian students after Class 10 & 12 — no paywalls, no coaching agenda.",
+    "date": "2026-06-01",
+    "isNew": false
+  }
+]

@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "UCEED — Convince Parents | WhatNow",
-  description: "Equipping students with real IIT placement statistics, average starting packages, and logical arguments to convince parents about design careers.",
+  title: "CLAT — Convince Parents | WhatNow",
+  description: "Equipping students with NLU placement statistics, corporate recruiter list, and logical arguments to align parents on corporate law careers.",
 };
 
 const PageHeader = ({
@@ -17,30 +17,30 @@ const PageHeader = ({
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="uceed-convince-parents-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ff5a1f" strokeWidth="1" />
+          <pattern id="clat-convince-parents-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10b981" strokeWidth="1" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#uceed-convince-parents-grid)" />
+        <rect width="100%" height="100%" fill="url(#clat-convince-parents-grid)" />
       </svg>
-      <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-[#ff5a1f]/5 rounded-full blur-[80px]" />
-      <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-amber-500/5 rounded-full blur-[60px]" />
+      <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px]" />
+      <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-teal-500/5 rounded-full blur-[60px]" />
       
       <svg className="absolute right-0 bottom-0 w-full h-full min-w-[1200px]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="uceed-cp-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#ff5a1f" stopOpacity="0.04" />
-            <stop offset="100%" stopColor="#ff5a1f" stopOpacity="0" />
+          <linearGradient id="clat-cp-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.04" />
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
           </linearGradient>
-          <linearGradient id="uceed-cp-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#d97706" stopOpacity="0.02" />
-            <stop offset="100%" stopColor="#d97706" stopOpacity="0" />
+          <linearGradient id="clat-cp-wave-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.02" />
+            <stop offset="100%" stopColor="#14b8a6" stopOpacity="0" />
           </linearGradient>
         </defs>
-        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80 L1440,320 L0,320 Z" fill="url(#uceed-cp-wave-grad-1)" />
-        <path d="M0,240 C480,120 960,320 1440,160 L1440,320 L0,320 Z" fill="url(#uceed-cp-wave-grad-2)" />
-        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80" stroke="#ff5a1f" strokeWidth="1.5" strokeOpacity="0.1" />
-        <path d="M0,240 C480,120 960,320 1440,160" stroke="#d97706" strokeWidth="1.5" strokeOpacity="0.05" strokeDasharray="6 6" />
+        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80 L1440,320 L0,320 Z" fill="url(#clat-cp-wave-grad-1)" />
+        <path d="M0,240 C480,120 960,320 1440,160 L1440,320 L0,320 Z" fill="url(#clat-cp-wave-grad-2)" />
+        <path d="M0,160 C320,280 640,60 960,180 C1280,300 1376,140 1440,80" stroke="#10b981" strokeWidth="1.5" strokeOpacity="0.1" />
+        <path d="M0,240 C480,120 960,320 1440,160" stroke="#14b8a6" strokeWidth="1.5" strokeOpacity="0.05" strokeDasharray="6 6" />
       </svg>
     </div>
 
@@ -69,7 +69,7 @@ const Section = ({
       {number}
     </div>
     <div className="relative z-10">
-      <div className="text-orange-600 font-black text-sm uppercase tracking-widest mb-4">
+      <div className="text-emerald-600 font-black text-sm uppercase tracking-widest mb-4">
         Section {number}
       </div>
       <h2 className="text-3xl md:text-4xl font-black mb-8 text-neutral-dark tracking-tight">
@@ -80,42 +80,42 @@ const Section = ({
   </section>
 );
 
-export default function UceedConvinceParentsPage() {
+export default function ClatConvinceParentsPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
       <PageHeader
-        title="UCEED — Talking to Your Parents"
+        title="CLAT — Talking to Your Parents"
         breadcrumbs={
           <>
-            <Link href="/exams" className="hover:text-primary transition-colors">
+            <Link href="/exams" className="hover:text-emerald-600 transition-colors">
               Exams
             </Link>{" "}
             <span>›</span>
-            <Link href="/exams/uceed" className="hover:text-primary transition-colors">
-              UCEED
+            <Link href="/exams/clat" className="hover:text-emerald-600 transition-colors">
+              CLAT
             </Link>{" "}
             <span>›</span>
-            <span className="text-primary">Convince Parents</span>
+            <span className="text-emerald-600">Convince Parents</span>
           </>
         }
       />
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
-        <Section number="01" title="Objection 1: 'Design is not a stable career'">
+        <Section number="01" title="Objection 1: 'Lawyers only succeed if they have family connections'">
           <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
-            Many parents associate the word "design" with boutique dressmakers or sketching logos. You must frame it as **Creative Technology (UI/UX)**.
+            This is true for traditional courtroom practice, but entirely false for **Corporate Law Firms**.
           </p>
           <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 space-y-4 mb-6">
             <h4 className="font-black text-xl text-neutral-dark">The Counter-Argument:</h4>
             <p className="text-slate-650 leading-relaxed font-semibold">
-              Every app, software, banking portal, and website requires digital designers to function. It is a core tech job. Frame it as "software engineering for the user interface." UI/UX design is one of the highest-paying and fastest-growing segments in the Indian IT sector.
+              Corporate firms function like multinational companies (MNCs). Hiring is purely meritocratic based on your NLU grades, internships, and moot performance. No family background or courtroom connections are needed to secure placements. Top firms recruit 70-80% of their associates directly from campus drives.
             </p>
           </div>
         </Section>
 
-        <Section number="02" title="Objection 2: 'Why not B.Tech instead?'">
+        <Section number="02" title="Objection 2: 'Do NLUs offer job security?'">
           <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
-            In India, the IIT brand is highly prestigious. Parents feel B.Tech is the only "real" degree offered by IITs.
+            Parents compare law with software engineering B.Tech degrees for safety.
           </p>
           <div className="overflow-x-auto border border-slate-200 rounded-xl my-8">
             <table className="w-full text-left border-collapse min-w-[600px] bg-white">
@@ -125,7 +125,7 @@ export default function UceedConvinceParentsPage() {
                     Metric
                   </th>
                   <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
-                    IIT B.Des (Design)
+                    Tier-1 NLU B.A. LL.B.
                   </th>
                   <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
                     Average B.Tech (Mid-Tier)
@@ -138,7 +138,7 @@ export default function UceedConvinceParentsPage() {
                     Starting Salary Range
                   </td>
                   <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
-                    ₹10L - ₹18L per annum
+                    ₹12L - ₹18L per annum
                   </td>
                   <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">
                     ₹6L - ₹10L per annum
@@ -146,24 +146,24 @@ export default function UceedConvinceParentsPage() {
                 </tr>
                 <tr>
                   <td className="p-4 text-slate-700 border-b border-slate-100 font-black">
-                    Brand Value
+                    Recruiter Quality
                   </td>
                   <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
-                    Identical "IIT Graduate" Tag
+                    Cyril Amarchand, Trilegal, Khaitan & Co.
                   </td>
                   <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">
-                    State/Private college tag
+                    TCS, Infosys, Cognizant
                   </td>
                 </tr>
                 <tr>
                   <td className="p-4 text-slate-700 font-black">
-                    Major Recruiters
+                    Career Longevity
                   </td>
                   <td className="p-4 text-emerald-600 font-black">
-                    Google, Microsoft, Samsung, Adobe
+                    High. Legal expertise is rare and non-replaceable by AI.
                   </td>
                   <td className="p-4 text-slate-600 font-medium">
-                    TCS, Infosys, Cognizant
+                    Medium. Tech layoffs and AI tools impact entry coding.
                   </td>
                 </tr>
               </tbody>
@@ -171,16 +171,16 @@ export default function UceedConvinceParentsPage() {
           </div>
         </Section>
 
-        <Section number="03" title="Objection 3: 'Is B.Des a real degree?'">
+        <Section number="03" title="Frame Top NLUs as the 'IITs of Law'">
           <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50">
             <h3 className="text-xl font-black text-neutral-dark mb-4">
-              Providing Institutional Security
+              Talking about status and prestige
             </h3>
             <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
-              Show your parents the official IIT placements portals. Highlight that B.Des students share the **same hostel rooms, same placement office, and same alumni network** as B.Tech computer science students.
+              Explain that the top NLUs (like NLSIU Bangalore, NALSAR Hyderabad, and NUJS Kolkata) enjoy the same elite institutional status under Indian law as IITs and IIMs.
             </p>
             <p className="text-lg text-slate-750 font-medium leading-relaxed">
-              If they qualify for fee concessions based on family income, the same rules apply. Pursuing a B.Des at an IIT is a safe, high-paying, and prestigious career choice that offers immediate entry into top tech firms.
+              Admission is extremely competitive (top 1% of ~70,000 aspirants). Clearing CLAT and entering a top-5 NLU is a highly respected achievement, guaranteeing immediate social standing, family pride, and strong financial outcomes.
             </p>
           </div>
         </Section>

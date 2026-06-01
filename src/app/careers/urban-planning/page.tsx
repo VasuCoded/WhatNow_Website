@@ -182,7 +182,7 @@ export default function UrbanPlanningCareerHubPage() {
             <Icon icon="solar:document-bold-duotone" className="w-8 h-8 text-teal-600" />
             <span className="font-bold text-neutral-dark text-sm md:text-base">{t.examLinkText}</span>
           </div>
-          <Link href="/coming-soon" className="bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-sm">
+          <Link href="/exams/jee-paper3" className="bg-teal-600 hover:bg-teal-700 text-white font-extrabold text-xs uppercase tracking-wider px-4 py-2 rounded-xl transition-all shadow-sm">
             Read Exam Guide
           </Link>
         </div>
