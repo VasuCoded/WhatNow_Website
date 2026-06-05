@@ -4,8 +4,29 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { useLanguage } from "@/context/LanguageContext";
+
+const translations = {
+  en: {
+    status: "Error 404",
+    title: "This page is off the grid.",
+    message: "We couldn't connect you to the requested URL. The link might be broken, or this roadmap has been permanently relocated.",
+    returnHome: "Return Home",
+    searchResource: "Search Resource",
+  },
+  hi: {
+    status: "त्रुटि 404",
+    title: "यह पृष्ठ उपलब्ध नहीं है।",
+    message: "हम अनुरोधित URL से कनेक्ट नहीं कर सके। लिंक टूटा हो सकता है, या यह मार्गदर्शिका स्थायी रूप से स्थानांतरित हो चुकी है।",
+    returnHome: "होम पर वापस जाएं",
+    searchResource: "संसाधन खोजें",
+  },
+};
 
 export default function NotFound() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const handleSearchTrigger = () => {
     window.dispatchEvent(new CustomEvent("open-search"));
   };
@@ -198,16 +219,16 @@ export default function NotFound() {
 
         {/* Status Code */}
         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500 bg-red-50 border border-red-100 px-4 py-1.5 rounded-full mb-6">
-          Error 404
+          {t.status}
         </span>
 
         {/* Content */}
         <h1 className="text-3xl sm:text-4xl font-black text-neutral-dark mb-4 tracking-tight leading-tight">
-          This page is off the grid.
+          {t.title}
         </h1>
-        
+
         <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium mb-10 max-w-sm">
-          We couldn&apos;t connect you to the requested URL. The link might be broken, or this roadmap has been permanently relocated.
+          {t.message}
         </p>
 
         {/* Action buttons */}
@@ -217,7 +238,7 @@ export default function NotFound() {
             className="group flex items-center justify-center gap-2 bg-neutral-dark hover:bg-neutral-dark/95 border border-neutral-dark text-white rounded-2xl px-6 py-4 w-full text-sm font-black uppercase tracking-wider transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
           >
             <Icon icon="solar:home-2-linear" className="w-5 h-5" />
-            <span>Return Home</span>
+            <span>{t.returnHome}</span>
           </Link>
 
           <button
@@ -225,7 +246,7 @@ export default function NotFound() {
             className="group flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 hover:text-slate-800 rounded-2xl px-6 py-4 w-full text-sm font-black uppercase tracking-wider transition-all shadow-sm cursor-pointer"
           >
             <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors" />
-            <span>Search Resource</span>
+            <span>{t.searchResource}</span>
           </button>
         </div>
       </div>
