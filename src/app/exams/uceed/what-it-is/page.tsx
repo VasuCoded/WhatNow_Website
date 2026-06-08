@@ -314,13 +314,439 @@ export default function UceedWhatItIsPage() {
           </div>
         </Section>
 
-        {/* TODO: Section 05 — Syllabus: what actually appears */}
-        {/* TODO: Section 06 — The cutoff system: two walls, not one */}
-        {/* TODO: Section 07 — The seven institutes: what each one actually is */}
-        {/* TODO: Section 08 — Seat matrix: category-wise breakdown */}
-        {/* TODO: Section 09 — Important dates: UCEED 2026 timeline */}
-        {/* TODO: Section 10 — Counselling: how seats get allocated */}
-        {/* TODO: Section 11 — Exam day: what to bring and expect */}
+        <Section number="05" title="Syllabus — what actually appears">
+          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+            IIT Bombay explicitly states that the syllabus is &ldquo;exhaustive and indicative&rdquo; — meaning nothing outside these topics will appear, but not all topics are tested every year.
+          </p>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-8 mb-4">Part A topics</h3>
+          <div className="overflow-x-auto border border-slate-200 rounded-xl my-4">
+            <table className="w-full text-left border-collapse min-w-[600px] bg-white">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Topic area</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">What it actually tests</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Visualization and Spatial Reasoning</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Rotating and transforming 2D shapes and 3D objects mentally. Folding/unfolding, mirror images, pattern completion, spatial relationships.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Practical and Scientific Knowledge</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">How everyday objects work — mechanisms, materials, physics of daily life. Basic engineering and science intuition, not textbook formulae.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Observation and Design Sensitivity</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Noticing what most people tune out. Visual hierarchies, anomalies in images, &ldquo;what&apos;s wrong here,&rdquo; attention to detail. This is developed through habit, not mugging.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Environment and Society</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">General awareness of how design intersects with environmental issues, culture, and society. Indian crafts, sustainability, socially relevant design.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Analytical and Logical Reasoning</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Verbal and non-verbal reasoning, sequences, pattern recognition, quantitative reasoning.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Language</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Reading and understanding standard English. Comprehension passages, vocabulary in context.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 font-black align-top">Creativity</td>
+                  <td className="p-4 text-slate-600 font-medium">Analogies (verbal and non-verbal), metaphors, signs and symbols. Lateral thinking and novel associations.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-10 mb-4">Part B topics</h3>
+          <div className="overflow-x-auto border border-slate-200 rounded-xl my-4">
+            <table className="w-full text-left border-collapse min-w-[500px] bg-white">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Sub-section</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">What it tests in practice</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black align-top">Drawing</td>
+                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Draw products, people, or scenes in proportion. Tests line quality, composition, perspective, shading, and your ability to communicate visually. Annotation matters — explain what you&apos;re drawing and why. A clean, labelled, well-composed drawing will outscore a technically polished one that&apos;s poorly explained.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-slate-700 font-black align-top">Design Aptitude</td>
+                  <td className="p-4 text-slate-600 font-medium">A structured design problem. You&apos;re asked to identify a real-world issue, propose a solution, and justify your thinking. Think about: user, context, materials, ergonomics, feasibility. Drawing quality matters less here than structured reasoning. This section is worth 50 marks and significantly underprepped by most students.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Section>
+
+        <Section number="06" title="The cutoff system — two walls, not one">
+          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+            Most students think &ldquo;cutoff&rdquo; means the rank you need to get into an IIT. There are actually two separate cutoffs. Failing the first one means your Part B drawing never even gets evaluated.
+          </p>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-8 mb-4">Wall 1 — Part A qualifying cutoff</h3>
+          <p className="text-slate-600 font-medium leading-relaxed mb-4">
+            After Part A is scored, IIT Bombay calculates a qualifying cutoff using the mean and standard deviation of all Part A scores. Only candidates who clear this mark have their Part B evaluated and receive a rank.
+          </p>
+          <InfoBox type="info">
+            <p className="font-black text-neutral-dark mb-2">UCEED 2026 Part A stats (official, released February 5, 2026):</p>
+            <p className="text-slate-700 font-medium mb-1">Mean score: <strong>70.86</strong> &nbsp;·&nbsp; Standard deviation: <strong>25.77</strong></p>
+            <p className="text-slate-700 font-medium mb-3">Formula: Cutoff (δ) = mean (μ) + 0.5 × standard deviation (σ)</p>
+            <p className="text-slate-700 font-medium">
+              General cutoff — <strong>83.74 marks</strong> out of 200<br />
+              OBC-NCL / EWS: 0.9 × δ &nbsp;|&nbsp; SC / ST / PwD: 0.5 × δ
+            </p>
+          </InfoBox>
+          <p className="text-slate-600 font-medium leading-relaxed mb-8">
+            In 2025, approximately 15,986 students appeared, and only around 5,703 — roughly 36% — cleared the Part A cutoff and received a rank. If you don&apos;t clear Part A, your Part B answer booklet isn&apos;t evaluated and your scorecard only shows Part A marks.
+          </p>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-8 mb-4">Wall 2 — Admission closing ranks</h3>
+          <p className="text-slate-600 font-medium leading-relaxed mb-4">
+            Getting a rank doesn&apos;t guarantee admission. Seats are filled in five counselling rounds based on All India Rank. The table below shows approximate closing ranks (General/Open category) based on 2026 Round 1 data and historical trends.
+          </p>
+          <div className="overflow-x-auto border border-slate-200 rounded-xl my-4">
+            <table className="w-full text-left border-collapse min-w-[500px] bg-white">
+              <thead className="bg-slate-50">
+                <tr>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Institute</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Approx. closing rank (Open, 2026)</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Seats (Open)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["IIT Bombay", "~14 (Round 1, 2026)", "14"],
+                  ["IIT Delhi", "~30–40", "8"],
+                  ["IIT Hyderabad", "~40–55", "11"],
+                  ["IIT Guwahati", "~70–80", "22"],
+                  ["IIT Roorkee", "~90–110", "8"],
+                  ["IIT Indore", "~100–130", "6"],
+                  ["IIITDM Jabalpur", "~150–200", "25"],
+                ].map(([inst, rank, seats], i, arr) => (
+                  <tr key={inst}>
+                    <td className={`p-4 text-slate-700 font-black ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{inst}</td>
+                    <td className={`p-4 text-primary font-black ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{rank}</td>
+                    <td className={`p-4 text-slate-600 font-medium ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{seats}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <InfoBox type="info">
+            <p className="text-slate-700 font-medium">
+              <strong className="font-black">Note:</strong> These are General/Open category closing ranks. SC, ST, OBC-NCL, EWS, and PwD candidates have separate rank lists with different cutoffs — generally more accessible. Always plan around your own category rank, not just AIR.
+            </p>
+          </InfoBox>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-8 mb-4">Score-to-outcome rough guide</h3>
+          <div className="border border-slate-200 rounded-2xl overflow-hidden my-4">
+            {[
+              { range: "200+", outcome: "Serious IIT Bombay territory. The 2025 topper scored 230.16 out of 300.", dark: false },
+              { range: "170–200", outcome: "IIT Delhi to IIT Guwahati range. Competitive for any top program outside Bombay.", dark: true },
+              { range: "150–170", outcome: "IIT Hyderabad, IIT Roorkee, IIT Indore, IIITDM Jabalpur in reach.", dark: false },
+              { range: "120–150", outcome: "May qualify Part A; IIITDM Jabalpur possible. Also look at result-sharing institutes.", dark: true },
+            ].map(({ range, outcome, dark }, i, arr) => (
+              <div key={range} className={`flex items-center gap-6 p-5 ${i < arr.length - 1 ? "border-b border-slate-100" : ""} ${dark ? "bg-slate-50" : "bg-white"}`}>
+                <div className="text-2xl font-black text-neutral-dark min-w-[110px] shrink-0">{range}</div>
+                <div className="text-slate-600 font-medium">{outcome}</div>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        <Section number="07" title="The seven institutes — what each one actually is">
+          <div className="space-y-6">
+            {[
+              {
+                name: "IIT Bombay",
+                seats: "37 seats",
+                dept: "IDC School of Design, Mumbai",
+                paras: [
+                  "The oldest and most recognised design program in the country. IDC — Industrial Design Centre — has been running since 1969 and has built the strongest alumni network in Indian design. The B.Des program runs eight semesters with heavy project-based learning. In year three, students can choose to shift to a five-year dual-degree B.Des + M.Des.",
+                  "Specialisations available at IDC include Industrial Design, Communication Design, Animation Design, Interaction Design, and Mobility and Vehicle Design.",
+                ],
+                note: "Stream restriction: All streams eligible · Fees: ~₹8.83 lakhs total (4 years)",
+                noteRed: false,
+                accent: false,
+              },
+              {
+                name: "IIT Delhi",
+                seats: "20 seats",
+                dept: "Department of Design, New Delhi",
+                paras: [
+                  "The capital gives IIT Delhi a location advantage no other institute has — direct access to government, policy, and every major consultancy and firm in India. The B.Des program is explicitly human-centred: studio-based learning, multidisciplinary collaborations, and strong industry interface.",
+                  "Small intake (20 seats) means intense peer competition and close faculty attention. Open category closes around rank 15–40 consistently — it's the second most competitive design program in India.",
+                ],
+                note: "Stream restriction: All streams eligible",
+                noteRed: false,
+                accent: false,
+              },
+              {
+                name: "IIT Guwahati",
+                seats: "56 seats",
+                dept: "Department of Design, Guwahati",
+                paras: [
+                  "The largest seat pool among the participating IITs — 56 seats — which makes it a strong destination for students in the rank range of 50–100. The program focuses on the intersection of technology and experience design, with interdisciplinary research cutting across engineering, design, and social sciences. Located on the Brahmaputra, the campus environment is unlike any urban IIT.",
+                ],
+                note: "Stream restriction: Physics, Chemistry, Mathematics required — Arts/Commerce students NOT eligible",
+                noteRed: true,
+                accent: false,
+              },
+              {
+                name: "IIT Hyderabad",
+                seats: "30 seats",
+                dept: "Department of Design, Hyderabad",
+                paras: [
+                  "Established in 2014 with an interdisciplinary approach at its core. The B.Des curriculum is structured in four levels — broad foundation in year one to specialisation by year three. Students can specialise in Product Design, Visual Design, Interaction Design, UX Design, or Film and Animation.",
+                  "Hyderabad as a city is increasingly relevant for design — strong startup ecosystem, major tech firms, and a growing creative industry.",
+                ],
+                note: "Stream restriction: All streams eligible",
+                noteRed: false,
+                accent: false,
+              },
+              {
+                name: "IIT Indore",
+                seats: "16 seats",
+                dept: "School of Innovation, Indore",
+                paras: [
+                  "The newest program in this list — first batch joined in 2025. IIT Indore frames design through innovation, with four specialisation areas: Urban System Innovation, Educational Technologies, Healthcare Systems, and Sustainable Energy Systems. Less traditional design school, more innovation-focused — which suits students who want to work on large systems problems.",
+                  "Only 16 seats makes this a smaller, tighter cohort. Given how new it is, there's limited alumni data on placements — factor this in.",
+                ],
+                note: "Stream restriction: All streams eligible · Program started 2025 — placement data limited",
+                noteRed: false,
+                accent: false,
+              },
+              {
+                name: "IIT Roorkee",
+                seats: "20 seats",
+                dept: "Department of Design, Roorkee",
+                paras: [
+                  "India's oldest technical institution (1847) now offering design. The B.Des curriculum combines design with computing, engineering, and manufacturing — covering product design, user experience, materials, ergonomics, and sustainability. More industrially grounded than most other IIT design programs.",
+                ],
+                note: "Stream restriction: Physics, Chemistry, Mathematics required — Arts/Commerce students NOT eligible",
+                noteRed: true,
+                accent: false,
+              },
+              {
+                name: "IIITDM Jabalpur",
+                seats: "66 seats",
+                dept: "Design Discipline, Jabalpur",
+                paras: [
+                  "The largest seat count of any participating institute — 66 seats — and consistently the most accessible in terms of closing rank (~150–200 for Open category). The curriculum covers multiple design areas in initial semesters before specialising in product, space, or communication design.",
+                  "Not an IIT — it's an IIITDM (Indian Institute of Information Technology Design and Manufacturing). The distinction matters when comparing prestige and alumni networks, but the program quality is solid. It also conducts spot admission rounds if seats remain vacant after counselling, unlike the IITs.",
+                ],
+                note: "Stream restriction: Physics, Chemistry, Mathematics or Biology required",
+                noteRed: true,
+                accent: true,
+              },
+            ].map(({ name, seats, dept, paras, note, noteRed, accent }) => (
+              <div key={name} className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+                <div className="flex justify-between items-start mb-3 gap-4">
+                  <h3 className="text-xl font-black text-neutral-dark">{name}</h3>
+                  <span className={`text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-lg shrink-0 ${accent ? "bg-accent" : "bg-primary"}`}>{seats}</span>
+                </div>
+                <p className="text-sm text-slate-500 font-semibold italic mb-4">{dept}</p>
+                {paras.map((para, i) => (
+                  <p key={i} className="text-slate-600 font-medium leading-relaxed mb-3 last:mb-4">{para}</p>
+                ))}
+                <div className={`border-t border-slate-100 pt-4 text-sm font-semibold ${noteRed ? "text-red-500 font-black" : "text-slate-500"}`}>{note}</div>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        <Section number="08" title="Seat matrix — category-wise breakdown">
+          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+            245 total seats. The table below is from the UCEED 2026 seat matrix.
+          </p>
+          <div className="overflow-x-auto border border-slate-200 rounded-xl my-4">
+            <table className="w-full text-left border-collapse min-w-[700px] bg-white">
+              <thead className="bg-slate-50">
+                <tr>
+                  {["Institute", "Open", "EWS", "OBC-NCL", "SC", "ST", "PwD*", "Total"].map((h) => (
+                    <th key={h} className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["IIT Bombay",      "14", "4",  "9",  "5",  "3", "2", "37"],
+                  ["IIT Delhi",       "8",  "2",  "5",  "3",  "1", "1", "20"],
+                  ["IIT Guwahati",    "22", "6",  "15", "7",  "3", "3", "56"],
+                  ["IIT Hyderabad",   "11", "3",  "8",  "4",  "2", "2", "30"],
+                  ["IIT Indore",      "6",  "2",  "4",  "2",  "1", "1", "16"],
+                  ["IIT Roorkee",     "8",  "2",  "4",  "3",  "2", "1", "20"],
+                  ["IIITDM Jabalpur", "25", "6",  "18", "10", "4", "3", "66"],
+                ].map(([inst, ...cols]) => (
+                  <tr key={inst}>
+                    <td className="p-4 text-slate-700 border-b border-slate-100 font-black">{inst}</td>
+                    {cols.slice(0, -1).map((v, i) => (
+                      <td key={i} className="p-4 text-slate-600 border-b border-slate-100 font-medium">{v}</td>
+                    ))}
+                    <td className="p-4 text-primary border-b border-slate-100 font-black">{cols[cols.length - 1]}</td>
+                  </tr>
+                ))}
+                <tr className="bg-slate-900 text-white">
+                  <td className="p-4 font-black">Total</td>
+                  {["94", "25", "63", "34", "17", "13"].map((v) => (
+                    <td key={v} className="p-4 font-black">{v}</td>
+                  ))}
+                  <td className="p-4 text-accent font-black">245</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-sm text-slate-500 font-medium mt-3 leading-relaxed">
+            *PwD seats are horizontal — distributed within each category (Open, EWS, OBC-NCL, SC, ST), not separate from them. EWS certificates issued on or after April 1, 2026 are accepted. OBC-NCL certificates must also be dated April 1, 2026 or later.
+          </p>
+        </Section>
+
+        <Section number="09" title="Important dates — UCEED 2026 timeline">
+          <div className="mt-4 space-y-0">
+            {[
+              { date: "Oct 1, 2025",     event: "Registration opens",                  detail: "Online at uceed.iitb.ac.in (1:00 PM onwards)" },
+              { date: "Nov 5, 2025",     event: "Regular registration closes",          detail: "Late fee period: Nov 5–10" },
+              { date: "Nov 10, 2025",    event: "Late registration closes",             detail: "5:00 PM. Portal shuts automatically." },
+              { date: "Jan 2, 2026",     event: "Admit card available",                 detail: "Download from candidate portal" },
+              { date: "Jan 8, 2026",     event: "Last date to report discrepancies",    detail: "In admit card (5:00 PM)" },
+              { date: "Jan 18, 2026",    event: "UCEED 2026 exam",                      detail: "Sunday, 9:00 AM to 12:00 noon. Reporting from 7:00 AM." },
+              { date: "Jan 20, 2026",    event: "Draft answer key released",            detail: "Part A responses also available for download until results" },
+              { date: "Feb 5, 2026",     event: "Part A cutoff announced",              detail: "Mean and standard deviation released" },
+              { date: "Mar 6, 2026",     event: "Results declared",                     detail: "Rank list published" },
+              { date: "Mar 14 – Apr 10", event: "B.Des application window",             detail: "Apply separately for institute admission" },
+              { date: "Apr 21, 2026",    event: "Round 1 seat allotment",               detail: "" },
+              { date: "Jul 31, 2026",    event: "Last date to download scorecard",      detail: "" },
+            ].map(({ date, event, detail }, i) => (
+              <div key={i} className="flex gap-6 pb-6 last:pb-0">
+                <div className="min-w-[140px] text-sm font-black text-primary pt-1 shrink-0">{date}</div>
+                <div className="border-l-2 border-slate-200 pl-6 pb-2">
+                  <p className="font-black text-neutral-dark text-base">{event}</p>
+                  {detail && <p className="text-slate-500 font-medium text-sm mt-1">{detail}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+          <InfoBox type="info">
+            <p className="text-slate-700 font-medium">
+              <strong className="font-black">Important:</strong> UCEED and B.Des admission are two separate processes. Qualifying the exam and getting a rank does not automatically enrol you. You must separately apply for B.Des admission through the IIT Bombay Admissions Portal between March 14 and April 10. Application processing fee: ₹4,000 (non-refundable).
+            </p>
+          </InfoBox>
+        </Section>
+
+        <Section number="10" title="Counselling — how seats get allocated">
+          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+            Five rounds of seat allotment. Based on your AIR, your category, and the order of institutes you listed in your preference. You will receive allotment letters by email. Each round has a payment deadline — missing it cancels your seat.
+          </p>
+          <div className="space-y-6">
+            {[
+              {
+                num: "1",
+                title: "Apply for admission",
+                desc: "After results, apply separately via the IIT Bombay Admissions Portal (March 14 – April 10). Fill your institute preferences in order. You can edit until the deadline — your final submission is locked.",
+              },
+              {
+                num: "2",
+                title: "Round 1 allotment (April 21)",
+                desc: "You receive a provisional allotment. If you get your first-choice institute: ACCEPT (freeze) or DECLINE. If you get a lower-preference institute: ACCEPT and FREEZE, or ACCEPT and FLOAT.",
+              },
+              {
+                num: "3",
+                title: "Freeze or Float",
+                desc: "Freeze = accept the current allotment, exit the process. Float = accept the current allotment but stay in the pool for subsequent rounds. If a higher-preference seat becomes available in a later round, it is automatically allocated to you and you lose the earlier one. Float is active until Round 4.",
+              },
+              {
+                num: "4",
+                title: "Pay the Seat Acceptance Fee",
+                desc: "₹60,000 for General/EWS/OBC-NCL. ₹15,000 for SC/ST/PwD. Pay only once — it's adjusted against institute fees at joining. Miss the payment window and your seat is cancelled; you're out of all further rounds.",
+              },
+              {
+                num: "5",
+                title: "Rounds 2–5 (May–July)",
+                desc: "Vacant seats from declined or forfeited allotments are redistributed. Rounds 3–5 fill residual vacancies. If you paid in Round 1 and chose Float, you may be upgraded in later rounds automatically.",
+              },
+            ].map(({ num, title, desc }) => (
+              <div key={num} className="flex gap-5 items-start">
+                <div className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-black text-sm shrink-0 mt-1">{num}</div>
+                <div>
+                  <h4 className="font-black text-neutral-dark text-base mb-1">{title}</h4>
+                  <p className="text-slate-600 font-medium leading-relaxed text-sm">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <InfoBox type="warning">
+            <p className="text-slate-800 font-medium leading-relaxed">
+              <strong className="font-black text-accent">On withdrawals:</strong> Candidates who accepted seats in Rounds 1 or 2 can withdraw before the Round 2 withdrawal deadline for a partial refund (₹55,000 back for General; ₹10,000 back for SC/ST/PwD — ₹5,000 cancellation charge is deducted). After the Round 2 withdrawal deadline, fees from Rounds 3–5 are non-refundable.
+            </p>
+          </InfoBox>
+        </Section>
+
+        <Section number="11" title="Exam day — what to bring and expect">
+          <h3 className="text-xl font-black text-neutral-dark mt-2 mb-3">Reporting and entry</h3>
+          <p className="text-slate-600 font-medium leading-relaxed mb-6">
+            Reporting from 7:00 AM. Exam starts at 9:00 AM sharp — no entry after that. Bring a printed copy of your admit card and an original photo ID. Biometric data (thumb impression, photo) is captured on exam day and may be re-verified at admission.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6">
+              <h4 className="font-black text-neutral-dark mb-4">What you can bring</h4>
+              <ul className="space-y-3">
+                {[
+                  "Pencils (black shades only) in a transparent packet",
+                  "A writing board of A4 size (optional but useful for Part B)",
+                  "Admit card (printed)",
+                  "Original photo ID",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3 text-sm text-slate-600 font-medium items-start">
+                    <span className="text-emerald-600 font-black shrink-0 mt-0.5">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
+              <h4 className="font-black text-neutral-dark mb-4">What you cannot bring</h4>
+              <ul className="space-y-3">
+                {[
+                  "Mobile phones, smartwatches, or any electronic device",
+                  "Sketch pens, colour pencils, poster colours, or any colouring material",
+                  "Geometry boxes, log books, calculators",
+                  "Any study material of any kind",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3 text-sm text-slate-600 font-medium items-start">
+                    <span className="text-red-500 font-black shrink-0 mt-0.5">✕</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-8 mb-3">Part A logistics</h3>
+          <p className="text-slate-600 font-medium leading-relaxed mb-6">
+            Computer-based. The exam interface is the same system IIT Bombay uses for other CBT exams — practise it beforehand using the official sample interface at uceed.iitb.ac.in. Technical issues are handled by invigilators and time lost to technical problems is automatically compensated. You cannot leave during the exam.
+          </p>
+
+          <h3 className="text-xl font-black text-neutral-dark mt-6 mb-3">Part B logistics</h3>
+          <p className="text-slate-600 font-medium leading-relaxed mb-6">
+            The questions appear on your computer screen. You draw and write answers in the physical answer booklet provided by the invigilator. Booklets are collected at the end of the examination. Do not leave early — you must remain in the hall for the full three hours.
+          </p>
+
+          <InfoBox type="info">
+            <p className="text-slate-700 font-medium mb-2">
+              <strong className="font-black">Exam cities (27 in 2026):</strong> Ahmedabad, Bengaluru, Bhopal, Bhubaneswar, Chandigarh/Mohali, Chennai, Coimbatore, Dehradun, Delhi, Ernakulam, Guwahati, Hubballi, Hyderabad, Jaipur, Kolkata, Kozhikode, Lucknow, Mumbai, Nagpur, Noida, Panaji, Patna, Pune, Raipur, Thiruvananthapuram, Thrissur, Visakhapatnam.
+            </p>
+            <p className="text-slate-700 font-medium">
+              Pick three cities in preference order at registration. City change requests are not accepted after registration is complete.
+            </p>
+          </InfoBox>
+        </Section>
       </div>
     </main>
   );
