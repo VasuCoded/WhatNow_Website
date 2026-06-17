@@ -53,7 +53,7 @@ export default function TermsPage() {
       <h2>Changes &amp; contact</h2>
       <p>
         We may update these terms; the &ldquo;last updated&rdquo; date reflects the latest version. Questions:
-        <a href="/contact"> contact us</a>. Operated by <strong>[Entity / individual name — to be confirmed]</strong>,
+        <a href="/contact"> contact us</a>. Operated by <strong>the WhatNow team</strong>,
         India. Governing law: India.
       </p>
     </LegalPage>

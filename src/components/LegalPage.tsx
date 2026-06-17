@@ -52,8 +52,8 @@ export default function LegalPage({ titleEn, titleHi, updated, draft = true, chi
           <Icon icon="solar:info-circle-bold-duotone" className="w-5 h-5 shrink-0 mt-0.5 text-amber-500" />
           <span className="font-medium leading-relaxed">
             {isHi
-              ? "यह एक कार्यशील मसौदा है, जो प्रकाशन से पहले मानवीय/कानूनी समीक्षा की प्रतीक्षा में है। संस्था का नाम और संपर्क विवरण प्लेसहोल्डर हैं।"
-              : "This is a working draft, pending human/legal review before publication. Entity name and contact details are placeholders."}
+              ? "यह एक कार्यशील मसौदा है, जो प्रकाशन से पहले मानवीय/कानूनी समीक्षा की प्रतीक्षा में है।"
+              : "This is a working draft, pending human/legal review before publication."}
           </span>
         </div>
       )}

@@ -51,8 +51,8 @@ export default function PrivacyPage() {
       <h2>Changes &amp; contact</h2>
       <p>
         We&rsquo;ll post any material changes on this page with a new &ldquo;last updated&rdquo; date.
-        Questions or data requests: <a href="/contact">reach out to us</a> (placeholder contact:
-        <strong> privacy@[your-domain]</strong>). The data fiduciary is <strong>[Entity / individual name — to be confirmed]</strong>.
+        Questions or data requests: <a href="/contact">reach out to us</a> at
+        <strong> indiawhatnow@gmail.com</strong>. The data fiduciary is <strong>the WhatNow team</strong>.
       </p>
     </LegalPage>
   );

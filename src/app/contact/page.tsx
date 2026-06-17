@@ -19,7 +19,7 @@ export default function ContactPage() {
       <h2>Email</h2>
       <p>
         For corrections, contributions, or anything private:
-        <strong> hello@[your-domain]</strong> (placeholder — confirm the real address before launch).
+        <strong> indiawhatnow@gmail.com</strong>.
       </p>
 
       <h2>Social</h2>
