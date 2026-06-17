@@ -108,7 +108,7 @@ export default function Footer() {
               <h3 className="text-base font-semibold text-white/70 mb-6">{t.company}</h3>
               <ul className="space-y-4">
                 <li><Link href="/about" className="text-white/90 hover:text-white hover:underline transition-all">{t.aboutUs}</Link></li>
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.contact}</Link></li>
+                <li><Link href="/contact" className="text-white/90 hover:text-white hover:underline transition-all">{t.contact}</Link></li>
               </ul>
             </div>
 
@@ -117,8 +117,8 @@ export default function Footer() {
               <h3 className="text-base font-semibold text-white/70 mb-6">{t.resources}</h3>
               <ul className="space-y-4">
                 <li><Link href="/discord" className="text-white/90 hover:text-white hover:underline transition-all">{t.communityDiscord}</Link></li>
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.contentPolicy}</Link></li>
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.faq}</Link></li>
+                <li><Link href="/content-policy" className="text-white/90 hover:text-white hover:underline transition-all">{t.contentPolicy}</Link></li>
+                <li><Link href="/faq" className="text-white/90 hover:text-white hover:underline transition-all">{t.faq}</Link></li>
               </ul>
             </div>
 
@@ -126,10 +126,10 @@ export default function Footer() {
             <div>
               <h3 className="text-base font-semibold text-white/70 mb-6">{t.legal}</h3>
               <ul className="space-y-4">
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.privacyPolicy}</Link></li>
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.termsOfService}</Link></li>
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.cookiePolicy}</Link></li>
-                <li><Link href="/coming-soon" className="text-white/90 hover:text-white hover:underline transition-all">{t.editorialGuidelines}</Link></li>
+                <li><Link href="/privacy" className="text-white/90 hover:text-white hover:underline transition-all">{t.privacyPolicy}</Link></li>
+                <li><Link href="/terms" className="text-white/90 hover:text-white hover:underline transition-all">{t.termsOfService}</Link></li>
+                <li><Link href="/cookie-policy" className="text-white/90 hover:text-white hover:underline transition-all">{t.cookiePolicy}</Link></li>
+                <li><Link href="/editorial-guidelines" className="text-white/90 hover:text-white hover:underline transition-all">{t.editorialGuidelines}</Link></li>
               </ul>
             </div>
           </div>

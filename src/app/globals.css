@@ -3,8 +3,11 @@
 @theme {
   --color-background: #ffffff;
   --color-foreground: #111827;
+  /* Body stays on Geist (clean, distinctive). Headings use Fraunces, a
+     characterful editorial serif — the "senior who reads" voice. */
   --font-sans: var(--font-geist-sans), sans-serif;
-  --font-heading: var(--font-geist-sans), sans-serif;
+  --font-heading: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --color-primary: #4F46E5;
   --color-primary-hover: #4338ca;
   --color-secondary: #0A8B74;
@@ -14,6 +17,21 @@
   --color-neutral-dark: #0D1B3D;
   --color-bg-tint: #F8F8F6;
   --color-bg-tint2: #F1F5F9;
+  /* One real card shadow (not a default blur) */
+  --shadow-card: 0 8px 30px -12px rgba(13, 27, 61, 0.12);
+}
+
+/* Type scale (1.25 — major third) as referenceable custom properties.
+   Use via the .text-step-* helpers below or var() in components. */
+:root {
+  --step--1: 0.8rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.563rem;
+  --step-3: 1.953rem;
+  --step-4: 2.441rem;
+  --step-5: 3.052rem;
+  --step-6: 3.815rem;
 }
 
 body {
@@ -25,19 +43,60 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* Tighten tracking on display-scale headings — Fraunces reads best slightly
+   negative at large sizes. (Hindi/Mukta keeps default tracking below.) */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
 /* Hindi Font Override */
 html.lang-hi body {
   font-family: var(--font-mukta), sans-serif;
 }
 
-html.lang-hi h1, 
-html.lang-hi h2, 
-html.lang-hi h3, 
-html.lang-hi h4, 
-html.lang-hi h5, 
+html.lang-hi h1,
+html.lang-hi h2,
+html.lang-hi h3,
+html.lang-hi h4,
+html.lang-hi h5,
 html.lang-hi h6 {
   font-family: var(--font-mukta), sans-serif;
+  letter-spacing: normal;
 }
+
+/* Fraunces italic is a display flourish (EN only) — Mukta has no true italic,
+   so don't fake-slant the Hindi highlight. */
+html.lang-hi .hero-highlight {
+  font-style: normal;
+}
+
+/* Legal / policy page prose. Body stays Geist; section headings use Fraunces
+   via the global h2/h3 rule above. */
+.legal-body {
+  color: #374151;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.legal-body h2 {
+  font-size: var(--step-2);
+  font-weight: 800;
+  color: var(--color-neutral-dark);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.legal-body h3 {
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--color-neutral-dark);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.legal-body p { margin: 0 0 1rem; }
+.legal-body ul { margin: 0 0 1rem; padding-left: 1.25rem; list-style: disc; }
+.legal-body li { margin-bottom: 0.4rem; }
+.legal-body a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 2px; }
+.legal-body a:hover { color: var(--color-primary-hover); }
+.legal-body strong { color: var(--color-neutral-dark); font-weight: 700; }
 
 /* Modern, Formal and Less Visible Global Scrollbar Styles */
 * {

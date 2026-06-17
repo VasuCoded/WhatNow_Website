@@ -5,13 +5,23 @@ import SearchModal from "@/components/SearchModal";
 import ContextMenu from "@/components/ContextMenu";
 import NoticeBoard from "@/components/NoticeBoard";
 import AdminNoticeBoard from "@/components/AdminNoticeBoard";
-import { Geist, Mukta } from "next/font/google";
+import { Geist, Mukta, Fraunces } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+// Display face — characterful editorial serif for headings ("senior who reads"
+// voice). Latin only; Hindi headings stay on Mukta (see globals.css).
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const mukta = Mukta({
@@ -34,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${mukta.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${fraunces.variable} ${mukta.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 font-medium pt-20">
         <LanguageProvider>
           <Navbar />
