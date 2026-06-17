@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatNow — Operations &amp; Production Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15181E;
+    --ink-soft:#2A2F3A;
+    --slate:#525B6B;
+    --slate-light:#8A93A1;
+    --paper:#F4F5F7;
+    --card:#FFFFFF;
+    --line:#E2E5EC;
+    --line-soft:#EDEFF3;
+    --accent:#2348E8;
+    --accent-deep:#152F9E;
+    --accent-wash:#EDF0FE;
+    --alert:#D8352A;
+    --alert-wash:#FCEBEA;
+    --ok:#16774A;
+    --ok-wash:#E9F4EE;
+    --display:"Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --sans:"Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --maxw:820px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16.5px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* ---------- Layout ---------- */
+  .layout{display:flex; align-items:flex-start;}
+  .sidebar{
+    width:286px;
+    flex:0 0 286px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+    background:var(--ink);
+    color:#C7CCD6;
+    padding:34px 26px 40px;
+    border-right:1px solid #000;
+  }
+  .content{flex:1 1 auto; min-width:0; padding:0 clamp(20px,5vw,70px) 120px;}
+  .wrap{max-width:var(--maxw); margin:0 auto;}
+
+  /* ---------- Sidebar nav ---------- */
+  .brandmark{font-family:var(--mono); font-size:11px; letter-spacing:.18em; color:var(--slate-light); text-transform:uppercase;}
+  .brandmark b{color:#fff; font-weight:600;}
+  .sidebar h1{
+    font-family:var(--display); font-weight:700; color:#fff;
+    font-size:22px; line-height:1.15; margin:14px 0 4px; letter-spacing:-.01em;
+  }
+  .sidebar .sub{font-size:12.5px; color:var(--slate-light); margin-bottom:26px; line-height:1.5;}
+  .toc{border:0;}
+  .toc > summary{display:none; list-style:none;}
+  .toc ol{list-style:none; margin:0; padding:0; counter-reset:none;}
+  .toc a{
+    display:flex; gap:12px; align-items:baseline;
+    text-decoration:none; color:#AEB5C1;
+    padding:7px 10px; border-radius:7px; margin:1px 0;
+    font-size:14px; line-height:1.3;
+    transition:background .15s ease, color .15s ease;
+  }
+  .toc a .num{font-family:var(--mono); font-size:11px; color:var(--slate-light); min-width:20px;}
+  .toc a:hover{background:#21262F; color:#fff;}
+  .toc a:hover .num{color:#7d8aff;}
+  .toc a.is-active{background:var(--accent); color:#fff;}
+  .toc a.is-active .num{color:#dfe4ff;}
+  .sidebar .foot{margin-top:28px; padding-top:18px; border-top:1px solid #262B34; font-family:var(--mono); font-size:10.5px; letter-spacing:.05em; color:#6B7480; line-height:1.7;}
+
+  /* ---------- Cover ---------- */
+  .cover{
+    background:var(--ink);
+    color:#fff;
+    margin:0 calc(-1*clamp(20px,5vw,70px));
+    padding:84px clamp(20px,5vw,70px) 70px;
+    border-bottom:3px solid var(--accent);
+  }
+  .cover .inner{max-width:var(--maxw); margin:0 auto;}
+  .eyebrow-top{font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#7d8aff;}
+  .cover h1{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(38px,7vw,68px); line-height:1.02; letter-spacing:-.025em;
+    margin:20px 0 0;
+  }
+  .cover .lede{font-size:clamp(16px,2.4vw,20px); color:#C7CCD6; max-width:60ch; margin:22px 0 0; line-height:1.55;}
+  .prompt{
+    font-family:var(--mono); font-size:clamp(13px,2vw,15.5px);
+    background:#0D1015; border:1px solid #272C35; border-radius:10px;
+    padding:16px 18px; margin:34px 0 0; color:#9BA3AF; overflow-x:auto; white-space:nowrap;
+  }
+  .prompt .pfx{color:#7d8aff;}
+  .prompt .cmd{color:#fff;}
+  .cursor{display:inline-block; width:9px; height:1.05em; background:var(--accent); margin-left:3px; transform:translateY(2px); animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .metarow{display:flex; flex-wrap:wrap; gap:8px 26px; margin:30px 0 0; font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; color:#7C8694;}
+  .metarow b{color:#C7CCD6; font-weight:500;}
+
+  .glance{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:40px 0 0; background:#272C35; border:1px solid #272C35; border-radius:12px; overflow:hidden;}
+  .glance .cell{background:#0D1015; padding:16px 16px 18px;}
+  .glance .k{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:#7d8aff;}
+  .glance .v{font-family:var(--display); font-weight:600; font-size:16px; margin-top:6px; color:#fff;}
+  .glance .d{font-size:12px; color:#838C99; margin-top:3px; line-height:1.4;}
+
+  /* ---------- Sections ---------- */
+  section{padding-top:74px; scroll-margin-top:18px;}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;}
+  h2{font-family:var(--display); font-weight:700; font-size:clamp(26px,4vw,36px); line-height:1.1; letter-spacing:-.02em; margin:0 0 6px; color:var(--ink);}
+  h3{font-family:var(--display); font-weight:600; font-size:20px; line-height:1.25; letter-spacing:-.01em; margin:38px 0 10px; color:var(--ink);}
+  h4{font-family:var(--display); font-weight:600; font-size:15.5px; margin:26px 0 8px; color:var(--ink-soft);}
+  p{margin:0 0 15px;}
+  a{color:var(--accent-deep); text-decoration:none; border-bottom:1px solid #c3ccf5;}
+  a:hover{border-bottom-color:var(--accent-deep);}
+  strong{font-weight:600;}
+  .lead-p{font-size:18px; color:var(--ink-soft); line-height:1.6;}
+  .divider{height:1px; background:var(--line); border:0; margin:0;}
+  code, .mono{font-family:var(--mono); font-size:.86em; background:var(--line-soft); padding:1.5px 6px; border-radius:5px; color:var(--ink-soft); white-space:nowrap;}
+
+  ul,ol{margin:0 0 16px; padding-left:1.25em;}
+  li{margin:6px 0;}
+  ul.tight li, ol.tight li{margin:3px 0;}
+
+  /* ---------- Callouts ---------- */
+  .callout{border-radius:10px; padding:16px 18px 16px 20px; margin:22px 0; border:1px solid var(--line); background:var(--card);}
+  .callout .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; font-weight:600; display:block; margin-bottom:7px;}
+  .callout p:last-child{margin-bottom:0;}
+  .principle{border-left:4px solid var(--accent); background:var(--accent-wash); border-color:#d6ddfb;}
+  .principle .tag{color:var(--accent-deep);}
+  .warn{border-left:4px solid var(--alert); background:var(--alert-wash); border-color:#f4d2cf;}
+  .warn .tag{color:var(--alert);}
+  .note{border-left:4px solid var(--slate-light); background:#fff;}
+  .note .tag{color:var(--slate);}
+
+  /* ---------- Tables ---------- */
+  .table-wrap{overflow-x:auto; margin:20px 0 24px; border:1px solid var(--line); border-radius:10px;}
+  table{width:100%; border-collapse:collapse; font-size:14px; background:var(--card); min-width:540px;}
+  th{
+    text-align:left; font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:#fff; background:var(--ink); padding:11px 14px; font-weight:600; vertical-align:bottom;
+  }
+  td{padding:11px 14px; border-top:1px solid var(--line); vertical-align:top; line-height:1.5;}
+  tbody tr:nth-child(even) td{background:#FAFBFC;}
+  td .mono, th .mono{background:transparent; padding:0;}
+  .nowrap{white-space:nowrap;}
+  .pill{display:inline-block; font-family:var(--mono); font-size:11px; padding:2px 8px; border-radius:20px; background:var(--accent-wash); color:var(--accent-deep); border:1px solid #d6ddfb; white-space:nowrap;}
+  .pill.green{background:var(--ok-wash); color:var(--ok); border-color:#cfe6da;}
+  .pill.grey{background:var(--line-soft); color:var(--slate); border-color:var(--line);}
+
+  /* ---------- Checklists ---------- */
+  ul.check{list-style:none; padding-left:0; margin:14px 0 18px;}
+  ul.check li{position:relative; padding-left:30px; margin:8px 0;}
+  ul.check li::before{
+    content:""; position:absolute; left:0; top:3px; width:16px; height:16px;
+    border:1.5px solid var(--accent); border-radius:4px;
+  }
+
+  /* ---------- Pipeline stages ---------- */
+  .stage{display:flex; gap:16px; padding:16px 0; border-top:1px solid var(--line);}
+  .stage:first-of-type{border-top:0;}
+  .stage .n{
+    flex:0 0 34px; height:34px; width:34px; border-radius:8px;
+    background:var(--ink); color:#fff; font-family:var(--mono); font-weight:600; font-size:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .stage .body{flex:1; min-width:0;}
+  .stage .body .st{font-family:var(--display); font-weight:600; font-size:16px; color:var(--ink); margin-bottom:2px;}
+  .stage .body .owner{font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--accent-deep); text-transform:uppercase;}
+  .stage .body .done{font-size:14px; color:var(--slate); margin-top:6px;}
+  .stage .body .done b{color:var(--ink-soft); font-weight:600;}
+
+  /* ---------- Channel / folder trees ---------- */
+  .tree{font-family:var(--mono); font-size:13px; line-height:1.85; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin:18px 0 22px; overflow-x:auto; color:var(--ink-soft);}
+  .tree .cat{color:var(--ink); font-weight:600;}
+  .tree .priv{color:var(--alert);}
+  .tree .cmt{color:var(--slate-light);}
+
+  .cardgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:20px 0;}
+  .minicard{border:1px solid var(--line); border-radius:10px; padding:16px 18px; background:var(--card);}
+  .minicard h4{margin:0 0 6px;}
+  .minicard p{font-size:13.5px; color:var(--slate); margin:0;}
+
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--slate-light); margin:0 0 4px;}
+
+  footer.docfoot{margin-top:90px; padding-top:26px; border-top:1px solid var(--line); font-family:var(--mono); font-size:12px; color:var(--slate-light); line-height:1.7;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px){
+    .layout{flex-direction:column;}
+    .sidebar{position:static; height:auto; width:100%; flex-basis:auto; padding:22px 22px 18px; border-right:0; border-bottom:1px solid #000;}
+    .toc > summary{display:block; cursor:pointer; font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#7d8aff; padding:6px 0;}
+    .toc[open] > summary{margin-bottom:6px;}
+    .glance{grid-template-columns:repeat(2,1fr);}
+    .content{padding:0 20px 90px;}
+    body{font-size:16px;}
+  }
+  @media (max-width: 460px){
+    .glance{grid-template-columns:1fr;}
+    .metarow{gap:6px 18px;}
+  }
+
+  /* ---------- Print ---------- */
+  @media print{
+    .sidebar{display:none;}
+    body{background:#fff; font-size:11pt;}
+    .content{padding:0;}
+    .cover{margin:0; padding:0 0 24px; border-bottom:2px solid #000; color:#000; background:#fff;}
+    .cover h1,.cover .lede,.eyebrow-top{color:#000;}
+    .prompt,.glance{display:none;}
+    section{padding-top:26px; page-break-inside:avoid;}
+    h2,h3{page-break-after:avoid;}
+    .table-wrap,.stage,.callout,.tree{page-break-inside:avoid;}
+    a{color:#000; border:0;}
+    th{background:#000 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <nav class="sidebar">
+    <div class="brandmark"><b>WhatNow</b> · internal</div>
+    <h1>Operations &amp; Production Manual</h1>
+    <div class="sub">The system every contributor runs on. Read once, reference forever.</div>
+    <details class="toc" open>
+      <summary>Contents</summary>
+      <ol>
+        <li><a href="#use"><span class="num">00</span><span>How to use this manual</span></a></li>
+        <li><a href="#stack"><span class="num">01</span><span>The operating stack</span></a></li>
+        <li><a href="#roles"><span class="num">02</span><span>Roles &amp; responsibilities</span></a></li>
+        <li><a href="#discord"><span class="num">03</span><span>The Discord staff server</span></a></li>
+        <li><a href="#hub"><span class="num">04</span><span>The coordination hub</span></a></li>
+        <li><a href="#files"><span class="num">05</span><span>Files &amp; asset management</span></a></li>
+        <li><a href="#pipelines"><span class="num">06</span><span>The production pipelines</span></a></li>
+        <li><a href="#sops"><span class="num">07</span><span>SOPs, templates &amp; checklists</span></a></li>
+        <li><a href="#cadence"><span class="num">08</span><span>Cadence &amp; rituals</span></a></li>
+        <li><a href="#tools"><span class="num">09</span><span>The free tool stack</span></a></li>
+        <li><a href="#onboarding"><span class="num">10</span><span>Onboarding a contributor</span></a></li>
+        <li><a href="#maintain"><span class="num">11</span><span>Maintaining the system</span></a></li>
+      </ol>
+    </details>
+    <div class="foot">DOC: OPS-MANUAL<br>OWNER: TEAM LEAD<br>REVIEW: QUARTERLY</div>
+  </nav>
+
+  <!-- ===================== CONTENT ===================== -->
+  <main class="content">
+
+    <!-- COVER -->
+    <header class="cover">
+      <div class="inner">
+        <div class="eyebrow-top">Internal handbook · all contributors</div>
+        <h1>Operations &amp;<br>Production Manual</h1>
+        <p class="lede">How we communicate, plan, produce, and ship. One source of truth so nobody has to chase status, hunt for a file, or ask "who's doing what?"</p>
+        <div class="prompt"><span class="pfx">whatnow:ops $</span> <span class="cmd">answer "who owns it · what's its status · where does it live"</span><span class="cursor"></span></div>
+        <div class="metarow">
+          <span>OWNER&nbsp; <b>Team Lead</b></span>
+          <span>SCOPE&nbsp; <b>All contributors</b></span>
+          <span>REVIEW&nbsp; <b>Quarterly</b></span>
+          <span>COST&nbsp; <b>100% free tools</b></span>
+        </div>
+        <div class="glance">
+          <div class="cell"><div class="k">Communicate</div><div class="v">Discord</div><div class="d">Chat, voice, async updates</div></div>
+          <div class="cell"><div class="k">Coordinate</div><div class="v">Google Sheets + Docs</div><div class="d">The single source of truth</div></div>
+          <div class="cell"><div class="k">Store</div><div class="v">Google Drive</div><div class="d">Files, exports, brand kit</div></div>
+          <div class="cell"><div class="k">Produce</div><div class="v">Resolve · Canva · OBS</div><div class="d">Free production stack</div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+
+      <!-- 00 -->
+      <section id="use">
+        <div class="eyebrow">00 · Orientation</div>
+        <h2>How to use this manual</h2>
+        <p class="lead-p">This is the reference for how the team operates. It does not describe what is happening this week — it describes the system that holds no matter who is on the team or what is in production. Roster, schedules, and current projects live in the tools; the rules for using them live here.</p>
+        <p>Every contributor reads this once during onboarding, then returns to it whenever they are unsure where something goes or how a process runs. It is maintained by the Lead (or a delegated ops owner) and reviewed every quarter. When the team changes how it works, the change is made <em>here first</em>, then announced — not the other way around.</p>
+        <div class="callout principle">
+          <span class="tag">The one rule</span>
+          <p>Every piece of work has <strong>one owner</strong>, <strong>one status</strong>, and <strong>one home</strong> (a link). If you cannot answer "who owns this, what's its status, where does it live?" then the system has a gap — and closing that gap is the work. Almost everything in this manual exists to make those three questions instantly answerable.</p>
+        </div>
+        <p>If you read nothing else: communication happens in <strong>Discord</strong> (§03), the truth about who-owns-what and where-it-stands lives in the <strong>tracker</strong> (§04), and files live in <strong>Drive</strong> (§05). The pipelines (§06) connect them. Everything else is detail.</p>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 01 -->
+      <section id="stack">
+        <div class="eyebrow">01 · Foundations</div>
+        <h2>The operating stack</h2>
+        <p class="lead-p">Three layers, each with one job. Keeping them separate is deliberate: when chat, tracking, and storage are three distinct places, each does its job well and nothing important hides inside a chat scroll.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Layer</th><th>Tool</th><th>What it's for</th><th>What it's NOT for</th></tr></thead>
+            <tbody>
+              <tr><td class="nowrap"><strong>Communicate</strong></td><td class="nowrap">Discord</td><td>Conversation, questions, async daily updates, voice calls, screen-sharing, announcements.</td><td>Storing the record of truth. Chat scrolls away — decisions and status must land in the tracker.</td></tr>
+              <tr><td class="nowrap"><strong>Coordinate</strong></td><td class="nowrap">Google&nbsp;Sheets + Docs</td><td>The single source of truth: what's in the pipeline, who owns it, its status, its links. Scripts, briefs, and SOPs.</td><td>Real-time chatter, or storing large media files.</td></tr>
+              <tr><td class="nowrap"><strong>Store</strong></td><td class="nowrap">Google&nbsp;Drive</td><td>Finished exports, thumbnails, brand kit, templates, light assets. The "home" links in the tracker point here.</td><td>Heavy raw footage on the free tier (see §05) — that stays local / on an SSD.</td></tr>
+              <tr><td class="nowrap"><strong>Produce</strong></td><td class="nowrap">Resolve, Canva, OBS, etc.</td><td>The craft tools that actually make the content (full list in §09).</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Why Google Sheets/Docs and not Notion</h3>
+        <p>Notion gets recommended a lot, and it is a genuinely better-designed product than a spreadsheet for this kind of work. But it does not fit a free, multi-person team, and that disqualifies it for now. Here is the honest reasoning:</p>
+        <ul>
+          <li><strong>Notion's free plan is built for one editor.</strong> On a free workspace, additional people join as <em>guests</em>, and guests can only view and comment — they cannot edit pages. The moment you want a second person updating statuses, you are pushed to the paid Plus plan (~$10 per editor / month).</li>
+          <li><strong>Multi-member free workspaces hit a collaborative-block limit</strong> and a 5&nbsp;MB per-file upload cap. Neither problem exists with Google Docs/Sheets.</li>
+          <li><strong>Google Docs &amp; Sheets allow unlimited editors for free, forever.</strong> Everyone already has a Google account, the learning curve is near zero, and a Sheet with dropdowns and colour rules gives you a perfectly good board (§04).</li>
+        </ul>
+        <div class="callout principle">
+          <span class="tag">Decision</span>
+          <p>Start free with <strong>Google Sheets + Docs + Drive</strong> and <strong>Discord</strong>. Revisit Notion only if the team later has a budget — at ~$10/editor/month, Notion Plus becomes the nicer hub and a migration is worth planning then (a skeleton structure is in §04 so the option stays open).</p>
+        </div>
+
+        <h4>Quick comparison, for the record</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>For our use case</th><th>Google Workspace (free)</th><th>Notion (free)</th><th>Notion Plus (paid)</th></tr></thead>
+            <tbody>
+              <tr><td>Editors at no cost</td><td><span class="pill green">Unlimited</span></td><td><span class="pill grey">View-only guests</span></td><td>Per-seat $</td></tr>
+              <tr><td>Learning curve</td><td>Near zero</td><td>Moderate</td><td>Moderate</td></tr>
+              <tr><td>Board / table / calendar views</td><td>Buildable (tabs + filters)</td><td>Native, excellent</td><td>Native, excellent</td></tr>
+              <tr><td>Linking docs &amp; media</td><td>Good (hyperlink cells)</td><td>Excellent (relations)</td><td>Excellent (relations)</td></tr>
+              <tr><td>File uploads</td><td>15&nbsp;GB/account; Docs free</td><td>5&nbsp;MB/file cap</td><td>Large</td></tr>
+              <tr><td>Verdict</td><td><strong>Use now</strong></td><td>Not for teams</td><td>Later, with budget</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 02 -->
+      <section id="roles">
+        <div class="eyebrow">02 · People</div>
+        <h2>Roles &amp; responsibilities</h2>
+        <p class="lead-p">Roles are defined by function, not by person. Someone can hold more than one role, and roles can be reassigned — but every role below always has exactly one accountable owner at a time. This is what kills the "I thought you were handling it" failure.</p>
+
+        <div class="callout principle">
+          <span class="tag">Single-owner principle</span>
+          <p>Every task and every content piece names <strong>one owner</strong> — the person accountable for it moving forward. Others can help, but the owner is who you ask for status and who is responsible if it stalls. "Shared ownership" means no ownership.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Role</th><th>Owns</th><th>Accountable for</th><th>Hands off to</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="nowrap"><strong>Lead</strong></td>
+                <td>Direction, priorities, final sign-off, the system itself.</td>
+                <td>Deciding what gets made and in what order; unblocking people; keeping this manual current.</td>
+                <td>Delegates execution to every other role.</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Outreach &amp; Marketing</strong></td>
+                <td>Audience growth, distribution, and guest acquisition.</td>
+                <td>Finding &amp; booking guests; promoting published content; managing social posting and community.</td>
+                <td>Booked guest → Interview Host. Published video → repurposing.</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Core Developer</strong></td>
+                <td>Day-to-day build of the product/site.</td>
+                <td>Shipping features and fixes; keeping the codebase healthy; routine reviews.</td>
+                <td>Escalates architecture / hard problems to Advisory Dev.</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Advisory Developer</strong> <span class="pill grey">on request</span></td>
+                <td>High-leverage technical judgement.</td>
+                <td>Architecture decisions, hard bugs, code review of risky changes, mentoring — consulted, not on the daily rota.</td>
+                <td>Returns decisions/reviews to Core Dev.</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Design &amp; Short-Form Media</strong></td>
+                <td>Visual identity and short-form output.</td>
+                <td>Thumbnails, graphics, brand assets, reels and shorts (cut &amp; published).</td>
+                <td>Final thumbnail/graphics → publishing. Brand kit → everyone.</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Long-Form Video Editor</strong></td>
+                <td>The flagship long-form edit.</td>
+                <td>Turning interview/long footage into a finished, on-brand video to spec; delivering review cuts.</td>
+                <td>Review cut → Lead. Approved cut → packaging/publishing.</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Interview Host</strong></td>
+                <td>The on-camera/on-mic conversation.</td>
+                <td>Running interviews; preparing with the question doc; managing the recording session and good audio.</td>
+                <td>Raw footage → Editor (via the handoff in §06).</td>
+              </tr>
+              <tr>
+                <td class="nowrap"><strong>Contributor</strong> <span class="pill grey">limited</span></td>
+                <td>A specific, scoped task.</td>
+                <td>Whatever they were brought on for — nothing more.</td>
+                <td>Their deliverable → the role that brought them on.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note">
+          <span class="tag">Adding capacity</span>
+          <p>When a role is overloaded, don't just pile work on a person — split the function into a new role and define it in this table. The <strong>Advisory</strong> pattern (a skilled specialist consulted on request rather than rostered daily) is the template for any "available sometimes" contributor: give them a clear trigger for when they're pulled in, and don't make the pipeline depend on their daily presence.</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 03 -->
+      <section id="discord">
+        <div class="eyebrow">03 · Communication</div>
+        <h2>The Discord staff server</h2>
+        <p class="lead-p">The staff server is the internal workspace — separate from any public/audience community. It is where the team and trusted contributors talk, coordinate, and hold voice calls. Keeping it lean matters more than making it impressive: a server with twenty dead channels feels abandoned. Start small, add channels only when an existing one gets noisy.</p>
+
+        <div class="callout principle">
+          <span class="tag">Public vs staff</span>
+          <p>Never run internal work inside a public community server. The <strong>staff server</strong> is invite-only and holds planning, drafts, and anything sensitive. A public/audience server (if one exists) is a separate place entirely. Mixing them leaks plans and confuses both audiences.</p>
+        </div>
+
+        <h3>Role hierarchy &amp; permission philosophy</h3>
+        <p>Roles do two jobs: they grant access and they signal who someone is. Keep the set small (a server this size needs well under a dozen roles) and set permissions <strong>at the role level</strong>, using per-channel overrides only for the few private areas. The golden rule of Discord permissions: <strong>a deny always beats an allow</strong>, so build "private by default, open by exception."</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Role</th><th>Tier</th><th>Can do / see</th></tr></thead>
+            <tbody>
+              <tr><td class="nowrap"><strong>Owner</strong></td><td>Admin</td><td>Everything. One person. Holds the server.</td></tr>
+              <tr><td class="nowrap"><strong>Admin</strong></td><td>Admin</td><td>Manage channels, roles, bots, members. One or two trusted people maximum.</td></tr>
+              <tr><td class="nowrap"><strong>Core</strong></td><td>Staff</td><td>Full member of the team. Sees all working categories incl. planning. Cannot manage the server.</td></tr>
+              <tr><td class="nowrap"><strong>Dev / Marketing / Media / Editorial</strong></td><td>Access</td><td>Department tags that grant visibility to that department's channels and let you @mention a whole function.</td></tr>
+              <tr><td class="nowrap"><strong>Contributor</strong></td><td>Access</td><td>Scoped access — sees only the specific channels relevant to their task. <strong>Cannot see admin, planning, or other departments' private channels.</strong></td></tr>
+              <tr><td class="nowrap"><strong>Bot</strong></td><td>System</td><td>Permissions a bot needs to function — nothing broader. Re-check after every bot re-authorisation.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Channel &amp; category map</h3>
+        <p>A lean starting structure. <span style="color:var(--alert)">Red</span> = private category (hidden from <code>@everyone</code>; visible only to listed roles). Everything else is visible to all staff.</p>
+        <div class="tree">
+<span class="cat">📌 START HERE</span> <span class="cmt"># visible to everyone who joins</span>
+   #welcome-and-rules
+   #announcements        <span class="cmt"># read-only; Core/Admin post</span>
+   #role-and-access      <span class="cmt"># how access works; ping an Admin</span>
+
+<span class="cat">🗣️ GENERAL</span>
+   #general
+   #random
+   #standup              <span class="cmt"># daily async updates (see §08)</span>
+   🔊 War Room           <span class="cmt"># voice + screen-share for syncs/pairing</span>
+
+<span class="cat">🎬 PRODUCTION</span>
+   #ideas-and-backlog
+   #scripts-and-prep
+   #footage-and-links    <span class="cmt"># drop Drive / review links here</span>
+   #review-room          <span class="cmt"># cuts go here for timestamped notes</span>
+   #publishing
+
+<span class="cat">📈 OUTREACH &amp; MARKETING</span>
+   #guest-pipeline
+   #promo-and-social
+
+<span class="priv">💻 DEV [private — Core, Dev, Advisory, Admin]</span>
+   #dev-general
+   #builds-and-deploys
+
+<span class="priv">🔒 CORE [private — Core + Admin only]</span>
+   #planning
+   #sensitive            <span class="cmt"># anything not for contributors</span>
+        </div>
+        <p>Use <strong>threads</strong> liberally inside busy channels (one thread per video, per bug, per guest) so conversations stay findable instead of scrolling away. If <code>#footage-and-links</code> or <code>#guest-pipeline</code> ever gets crowded, convert it to a <strong>forum channel</strong> — but only past the point where threads in a normal channel stop coping. Below a dozen or so active people, a normal channel with threads is enough.</p>
+
+        <h3>How to make a category private (the contributor wall)</h3>
+        <p>This is the mechanic that lets a contributor join the staff server and see <em>only</em> their channels. Do it at the category level so every channel inside inherits the setting:</p>
+        <ol>
+          <li>Create the role first (e.g. <code>Contributor</code>) under <strong>Server Settings → Roles</strong>. Give it no special server-wide permissions.</li>
+          <li>On the category (e.g. <span style="color:var(--alert)">🔒 CORE</span>) → <strong>Edit Category → Permissions</strong>.</li>
+          <li>Select <code>@everyone</code> and set <strong>View Channels = ✖ (deny)</strong>. The whole category disappears for everyone by default.</li>
+          <li>Add the roles that <em>should</em> see it (e.g. <code>Core</code>, <code>Admin</code>) and set <strong>View Channels = ✔ (allow)</strong>.</li>
+          <li>Make sure channels inside are set to <strong>"Sync to category"</strong> so they inherit these rules. Override an individual channel only when one channel needs to differ.</li>
+        </ol>
+        <p>Result: a new contributor with only the <code>Contributor</code> role sees <span class="mono">START HERE</span>, <span class="mono">GENERAL</span>, and whatever production channels you explicitly grant them — and nothing in <span class="mono">CORE</span> or <span class="mono">DEV</span> ever renders for them.</p>
+
+        <h3>Onboarding flow</h3>
+        <p>For a private invite-only server you can skip Discord's "Community" features, but turning them on gives you a <strong>Welcome Screen</strong>, <strong>rules screening</strong> (members accept rules before they can chat), and <strong>AutoMod</strong> — all worth having. The flow:</p>
+        <ol class="tight">
+          <li>Person accepts the invite and completes rules screening.</li>
+          <li>An Admin assigns their role(s) — this is what unlocks the right channels.</li>
+          <li>A welcome bot posts a short greeting in <code>#welcome-and-rules</code> pointing to 2–3 starting channels.</li>
+          <li>They post a one-line intro and pick up their first task.</li>
+        </ol>
+
+        <h3>Recommended bots (free) — keep it to two or three</h3>
+        <div class="cardgrid">
+          <div class="minicard"><h4>Carl-bot</h4><p>Reaction/self-assign roles, welcome messages, automod, logging. The workhorse — covers most needs alone.</p></div>
+          <div class="minicard"><h4>Sesh or Apollo</h4><p>Scheduling &amp; events inside Discord — handy for syncs, recordings, and publish dates with RSVPs.</p></div>
+          <div class="minicard"><h4>A reminder bot</h4><p>Optional. Lightweight reminders/nudges. Don't over-automate a small team — fewer bots, fewer permissions to audit.</p></div>
+        </div>
+
+        <div class="callout note">
+          <span class="tag">Etiquette norms</span>
+          <p>One topic = one thread. Daily updates go in <code>#standup</code>, not scattered. Reserve <code>@here</code>/<code>@everyone</code> for things that genuinely need everyone now; use department/role mentions otherwise. Move any real-time discussion that runs long into the <strong>War Room</strong> voice channel and post the outcome back as a message.</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 04 -->
+      <section id="hub">
+        <div class="eyebrow">04 · Coordination</div>
+        <h2>The coordination hub</h2>
+        <p class="lead-p">One Google Sheet is the brain of the operation. It does not hold the work — it indexes it. Every row is one piece of work, and its cells link out to the script, the footage, the cut, the published URL. The Sheet answers "what's happening and where does it stand" at a glance; the depth lives behind the links.</p>
+
+        <h3>The master tracker (one Sheet, several tabs)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tab</th><th>Purpose</th><th>Key columns</th></tr></thead>
+            <tbody>
+              <tr><td class="nowrap"><strong>README</strong></td><td>How to use the sheet; the status legend; colour key.</td><td>—</td></tr>
+              <tr><td class="nowrap"><strong>PIPELINE</strong></td><td>Every content piece, from idea to published. The main board.</td><td>ID · Title · Type · Platform · Owner · Status · Due · Brief · Footage · Cut · Final · Published&nbsp;URL · Priority · Notes</td></tr>
+              <tr><td class="nowrap"><strong>CALENDAR</strong></td><td>What publishes when, per platform.</td><td>Date · Platform · Title · Owner · Status · Link</td></tr>
+              <tr><td class="nowrap"><strong>OUTREACH</strong></td><td>Guest &amp; prospect pipeline.</td><td>Name · Channel · Stage · Last&nbsp;contact · Next&nbsp;step · Owner · Notes</td></tr>
+              <tr><td class="nowrap"><strong>DEV</strong></td><td>Build tasks (or link out to GitHub Projects).</td><td>Task · Owner · Status · Priority · Link/PR · Notes</td></tr>
+              <tr><td class="nowrap"><strong>IDEAS</strong></td><td>Unfiltered backlog dump; promote good ones into PIPELINE.</td><td>Idea · Type · Suggested&nbsp;by · Date</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Make a spreadsheet feel like a board</h4>
+        <ul>
+          <li><strong>Status as a dropdown.</strong> Use <em>Data → Data validation</em> on the Status column with a fixed list: <code>Backlog</code> · <code>Scripting</code> · <code>Filming</code> · <code>Editing</code> · <code>In Review</code> · <code>Scheduled</code> · <code>Published</code> · <code>Archived</code>. Fixed words mean filtering and sorting actually work.</li>
+          <li><strong>Colour by status.</strong> <em>Format → Conditional formatting</em> to tint each status a colour. Now the sheet reads at a glance like a Kanban.</li>
+          <li><strong>Links as links.</strong> The Brief / Footage / Cut / Final / Published columns hold hyperlinks (paste the Drive or YouTube link, label it). The sheet stays the index; nothing heavy lives inside it.</li>
+          <li><strong>Filter views per person.</strong> Each owner can save a filter view ("my open items") without disturbing anyone else's view.</li>
+        </ul>
+
+        <div class="callout principle">
+          <span class="tag">The linking principle</span>
+          <p>The tracker never holds documents or media — it holds <strong>links to them</strong>. One row → its brief doc → its footage folder → its review link → its published URL. This is the entire reason status is always answerable without asking anyone.</p>
+        </div>
+
+        <h4>If you prefer cards over a sheet</h4>
+        <p><strong>Trello</strong> (free) gives a drag-and-drop Kanban with unlimited cards and is friendlier for people who think in cards. The trade-off: it's weaker at holding many structured fields and cross-links than a Sheet. A reasonable split is Trello for the visual board and the Sheet for the calendar/outreach/dev tabs — but running one tool is simpler than two, so default to the Sheet unless the team genuinely prefers cards.</p>
+
+        <h4>If the team later moves to Notion (paid)</h4>
+        <p>Kept here so the door stays open. In Notion, the PIPELINE becomes a single <em>database</em> with multiple <em>views</em> of the same data — a <strong>Board</strong> view grouped by Status, a <strong>Table</strong> view, a <strong>Calendar</strong> view by publish date — plus <em>relations</em> linking each piece to its guest, its tasks, and its assets. It is a nicer experience; it is only worth the per-seat cost once there's a budget. The Sheet structure above maps onto it one-to-one when that day comes.</p>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 05 -->
+      <section id="files">
+        <div class="eyebrow">05 · Storage</div>
+        <h2>Files &amp; asset management</h2>
+        <p class="lead-p">Files live in Google Drive in a fixed folder structure with strict naming. The structure is the difference between "I'll find it in a sec" and ten minutes of digging through someone's downloads. Two hard constraints shape everything: free Drive is 15&nbsp;GB per account, and raw video is enormous.</p>
+
+        <h3>Folder structure</h3>
+        <p>One top-level <code>WhatNow</code> folder, owned by the Lead, shared with the team. Stable top-level folders, project folders nested inside production.</p>
+        <div class="tree">
+<span class="cat">WhatNow/</span>
+   <span class="cat">00_ADMIN/</span>          <span class="cmt"># this manual, access list, decisions log</span>
+   <span class="cat">01_BRAND/</span>          <span class="cmt"># logo, colours, fonts, lower-thirds, intro/outro</span>
+   <span class="cat">02_TEMPLATES/</span>      <span class="cmt"># edit-brief, checklists, thumbnail templates</span>
+   <span class="cat">03_PRODUCTION/</span>     <span class="cmt"># one folder per project ↓</span>
+      <span class="cat">Interview - [Guest]/</span>
+         01_Prep/        <span class="cmt"># question doc, research, brief</span>
+         02_Raw/         <span class="cmt"># proxies only on free tier (see below)</span>
+         03_Edit/        <span class="cmt"># project files, working exports</span>
+         04_Exports/     <span class="cmt"># review cuts + final master</span>
+         05_Thumbnails/
+         06_Captions/    <span class="cmt"># .srt / transcript</span>
+   <span class="cat">04_PUBLISHED/</span>      <span class="cmt"># final masters of everything shipped</span>
+   <span class="cat">05_ASSETS/</span>         <span class="cmt"># reusable b-roll, music, SFX, stock</span>
+        </div>
+
+        <h3>File naming convention</h3>
+        <p>Non-negotiable, because consistent names are searchable and sortable. The pattern:</p>
+        <div class="callout note">
+          <span class="tag">Pattern</span>
+          <p><code>PROJECT_TYPE_descriptor_vNN_INITIALS.ext</code></p>
+          <p style="margin-top:8px">Examples: <code>INT-Rao_thumbnail_v03_IF.png</code> · <code>INT-Rao_master_v05_FINAL.mp4</code> · <code>REEL_launch-hook_v02_IF.mp4</code></p>
+        </div>
+        <ul class="tight">
+          <li><strong>Dates</strong> always <code>YYYY-MM-DD</code> so they sort chronologically.</li>
+          <li><strong>Versions</strong> are <code>v01, v02, v03…</code> — never overwrite a file with the same name.</li>
+          <li><strong>"FINAL" is a version, used once.</strong> When it's final, it's <code>…_v05_FINAL</code>. There is no <code>FINAL_FINAL</code>, no <code>FINAL-real</code>, no <code>FINAL-use-this-one</code>. If it changes after "final," it's <code>v06</code>.</li>
+        </ul>
+
+        <h3>Where heavy raw footage lives</h3>
+        <div class="callout warn">
+          <span class="tag">Watch out — the 15&nbsp;GB trap</span>
+          <p>Free Google Drive is 15&nbsp;GB shared across Drive, Gmail, and Photos. A single hour of interview footage can be tens of gigabytes — it will fill a free account instantly. <strong>Do not try to keep all raw footage in the cloud.</strong></p>
+        </div>
+        <p>The free-tier workflow that actually works:</p>
+        <ul>
+          <li><strong>Raw footage stays local</strong> — on the recorder's machine and backed up to an external SSD. It is not cloud-stored long-term.</li>
+          <li><strong>Only lightweight things go to Drive:</strong> proxy/review cuts, final exports, thumbnails, captions, brand assets. Crucially, <strong>Google Docs / Sheets / Slides don't count against the 15&nbsp;GB at all</strong> — so the entire coordination and SOP layer is free forever.</li>
+          <li><strong>To hand raw files between people:</strong> use a free large-transfer tool (Smash has no hard size cap with expiring links; WeTransfer free goes to ~2&nbsp;GB), or drop into a shared Drive folder temporarily and clear it after the editor pulls it down.</li>
+          <li><strong>After publish:</strong> archive raw to the SSD, keep the final master in <code>04_PUBLISHED</code>, and free the cloud space.</li>
+        </ul>
+
+        <h3>Access model</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Who</th><th>Drive access</th><th>Tracker access</th></tr></thead>
+            <tbody>
+              <tr><td>Lead</td><td>Owner of top folder</td><td>Owner</td></tr>
+              <tr><td>Core team</td><td>Editor on working folders</td><td>Editor</td></tr>
+              <tr><td>External contributor</td><td>Editor on <em>their project subfolder only</em> + view on Brand kit</td><td>Comment or no access</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn">
+          <span class="tag">Two free-Drive gotchas</span>
+          <p><strong>1. No Shared Drives on free.</strong> "Shared Drives" (team-owned folders) need paid Google Workspace. On free accounts you share a regular <em>My Drive</em> folder — which means files are owned by whoever created them. <strong>2. Ownership leaves with the person.</strong> If a contributor who owns files departs, those files can go with them. Keep important masters owned by the Lead's account, and transfer ownership before anyone offboards (see §10).</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 06 -->
+      <section id="pipelines">
+        <div class="eyebrow">06 · Workflow</div>
+        <h2>The production pipelines</h2>
+        <p class="lead-p">A pipeline is a sequence of stages, each with one owner and a clear definition of "done" that triggers the handoff to the next stage. When everyone knows the stages, work flows without the Lead having to push it through manually.</p>
+
+        <h3>6.1 — Long-form interview video</h3>
+        <p>The flagship pipeline. Each stage names its owner and what "done" means before it passes downstream.</p>
+
+        <div class="stage"><div class="n">1</div><div class="body"><div class="st">Idea &amp; guest selection</div><div class="owner">Lead · Outreach</div><div class="done"><b>Done =</b> guest approved and added to PIPELINE with a row.</div></div></div>
+        <div class="stage"><div class="n">2</div><div class="body"><div class="st">Outreach &amp; booking</div><div class="owner">Outreach</div><div class="done"><b>Done =</b> date confirmed, added to CALENDAR, slot booked (Cal.com), prep folder created in Drive.</div></div></div>
+        <div class="stage"><div class="n">3</div><div class="body"><div class="st">Research &amp; question prep</div><div class="owner">Interview Host · Lead</div><div class="done"><b>Done =</b> question doc finalised in <code>01_Prep</code>, shared with the host, guest briefed on format and timing.</div></div></div>
+        <div class="stage"><div class="n">4</div><div class="body"><div class="st">Recording</div><div class="owner">Interview Host</div><div class="done"><b>Done =</b> footage + a separate audio backup captured, copied to <code>02_Raw</code> / SSD, and logged. Status → Editing.</div></div></div>
+        <div class="stage"><div class="n">5</div><div class="body"><div class="st">Footage handoff + edit brief</div><div class="owner">Lead → Editor</div><div class="done"><b>Done =</b> editor has the footage link <em>and</em> the completed edit brief (§07). No edit starts without a brief.</div></div></div>
+        <div class="stage"><div class="n">6</div><div class="body"><div class="st">Editing</div><div class="owner">Long-Form Editor</div><div class="done"><b>Done =</b> review cut exported, uploaded unlisted to YouTube, link in the card + posted to <code>#review-room</code>. Status → In Review.</div></div></div>
+        <div class="stage"><div class="n">7</div><div class="body"><div class="st">Review &amp; revisions</div><div class="owner">Lead (+ relevant)</div><div class="done"><b>Done =</b> one consolidated set of timestamped notes per round, max two rounds, explicit approval given.</div></div></div>
+        <div class="stage"><div class="n">8</div><div class="body"><div class="st">Packaging</div><div class="owner">Design · Editor · Lead</div><div class="done"><b>Done =</b> thumbnail, title, description, chapters, and captions all finished and in the project folder.</div></div></div>
+        <div class="stage"><div class="n">9</div><div class="body"><div class="st">Schedule &amp; publish</div><div class="owner">Lead · Marketing</div><div class="done"><b>Done =</b> scheduled in YouTube Studio, publishing checklist cleared (§07), CALENDAR updated. Status → Scheduled/Published.</div></div></div>
+        <div class="stage"><div class="n">10</div><div class="body"><div class="st">Promote &amp; repurpose</div><div class="owner">Marketing · Design</div><div class="done"><b>Done =</b> promo posts out; clips queued into the short-form pipeline (§6.3).</div></div></div>
+        <div class="stage"><div class="n">11</div><div class="body"><div class="st">Archive</div><div class="owner">Editor · Lead</div><div class="done"><b>Done =</b> raw archived to SSD, final master in <code>04_PUBLISHED</code>, card → Archived.</div></div></div>
+
+        <h3>6.2 — Short-form (reels &amp; shorts)</h3>
+        <p>Leaner and faster — one review round, not two.</p>
+        <div class="stage"><div class="n">1</div><div class="body"><div class="st">Idea &amp; hook</div><div class="owner">Design · Marketing</div><div class="done"><b>Done =</b> concept + opening hook noted in the card.</div></div></div>
+        <div class="stage"><div class="n">2</div><div class="body"><div class="st">Source / shoot</div><div class="owner">Design</div><div class="done"><b>Done =</b> clip(s) or footage ready.</div></div></div>
+        <div class="stage"><div class="n">3</div><div class="body"><div class="st">Edit</div><div class="owner">Design</div><div class="done"><b>Done =</b> cut + captions on-brand, vertical aspect, exported.</div></div></div>
+        <div class="stage"><div class="n">4</div><div class="body"><div class="st">Review</div><div class="owner">Lead</div><div class="done"><b>Done =</b> single round of notes; approved.</div></div></div>
+        <div class="stage"><div class="n">5</div><div class="body"><div class="st">Publish &amp; log</div><div class="owner">Marketing</div><div class="done"><b>Done =</b> posted per platform checklist; CALENDAR updated.</div></div></div>
+
+        <h3>6.3 — Repurposing (long-form → clips)</h3>
+        <p>Every long-form video is raw material for several shorts. Make this systematic, not occasional: at packaging (stage 8 above), the editor or host flags 3–5 strong moments with timestamps directly in the card. Those become short-form cards in the backlog automatically, so one interview feeds weeks of short-form output instead of being mined ad hoc.</p>
+
+        <h3>6.4 — Dev workflow</h3>
+        <p>Lightweight and standard. Tasks live in <strong>GitHub Projects</strong> (or the DEV tab). Code in a <strong>GitHub repo</strong> (free private). Flow: pick a task → branch → open a pull request → review → merge → deploy. Core Dev handles day-to-day reviews; the <strong>Advisory Dev</strong> is pulled in for architecture decisions, risky changes, or a stuck bug — consulted, not blocking. Keep dev decisions in the repo (issues/PRs), not buried in Discord.</p>
+
+        <h3>6.5 — Outreach / guest pipeline</h3>
+        <p>Tracked in the OUTREACH tab as stages: <span class="pill">Prospect</span> → <span class="pill">Contacted</span> → <span class="pill">Booked</span> → <span class="pill">Recorded</span> → <span class="pill green">Published</span>. Each prospect gets a personalised first message and a defined follow-up cadence (e.g. follow up after 4–5 days, then once more, then park). On booking, hand off to the interview prep stage above. After publish, send the guest the link and their clips — good guests refer the next ones.</p>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 07 -->
+      <section id="sops">
+        <div class="eyebrow">07 · Standards</div>
+        <h2>SOPs, templates &amp; checklists</h2>
+        <p class="lead-p">These live as Google Docs in <code>02_TEMPLATES</code> and get duplicated per project. They make quality repeatable and remove the need to explain the same thing twice. Copy the lists below into Docs once and reuse forever.</p>
+
+        <h3>Interview prep checklist</h3>
+        <ul class="check">
+          <li>Guest confirmed, date in CALENDAR, calendar invite sent with the join link.</li>
+          <li>Format, expected duration, and topic shared with the guest in advance.</li>
+          <li>Question doc finalised; questions ordered; a few backups ready.</li>
+          <li>Recording setup tested: camera, lighting, and <strong>a separate audio recording</strong> as backup.</li>
+          <li>Storage space confirmed on the recording device before the session.</li>
+          <li>Quiet location; notifications silenced; water for the guest.</li>
+        </ul>
+
+        <h3>Edit brief / spec sheet</h3>
+        <p>What the editor receives before any edit begins. No brief, no edit.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Field</th><th>What to fill in</th></tr></thead>
+            <tbody>
+              <tr><td class="nowrap">Project</td><td>Name + tracker ID.</td></tr>
+              <tr><td class="nowrap">Deliverables</td><td>e.g. 1× long-form (16:9) + 3× shorts (9:16), with target durations.</td></tr>
+              <tr><td class="nowrap">Footage</td><td>Link to raw / proxies; note which takes to use or skip.</td></tr>
+              <tr><td class="nowrap">Brand kit</td><td>Link to <code>01_BRAND</code> — lower-thirds, intro/outro, fonts, colours.</td></tr>
+              <tr><td class="nowrap">Music / SFX</td><td>Style guidance + link to licensed library.</td></tr>
+              <tr><td class="nowrap">Captions</td><td>Yes/no + style.</td></tr>
+              <tr><td class="nowrap">Key moments</td><td>Timestamps that must make the cut; anything to cut out.</td></tr>
+              <tr><td class="nowrap">Deadline</td><td>Review-cut date.</td></tr>
+              <tr><td class="nowrap">Deliver to</td><td>Where the review cut goes (unlisted YouTube link → <code>#review-room</code>).</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Review &amp; feedback protocol</h3>
+        <div class="callout principle">
+          <span class="tag">How to give notes</span>
+          <p>Notes are <strong>timestamped</strong> (<code>01:24 — trim this pause</code>), collected into <strong>one consolidated list per round</strong>, with a <strong>maximum of two rounds</strong>. Approval is explicit ("approved"), not implied by silence. Free method: upload the cut unlisted to YouTube and leave timestamped notes in the linked review doc or <code>#review-room</code> thread. For nicer frame-accurate annotation, Filestage (free, unlimited reviewers) or Frame.io (free, 2 users) work — see §09.</p>
+        </div>
+
+        <h3>Publishing checklist — YouTube long-form</h3>
+        <ul class="check">
+          <li>Title finalised (clear, searchable, not clickbait-hollow).</li>
+          <li>Thumbnail uploaded (on-brand, readable at small size).</li>
+          <li>Description written with links, guest credit, and timestamps/chapters.</li>
+          <li>Chapters added; captions/subtitles uploaded.</li>
+          <li>End screen + cards set; relevant playlist added.</li>
+          <li>Visibility set / scheduled; pinned comment ready.</li>
+          <li>CALENDAR updated; clips queued for repurposing.</li>
+        </ul>
+
+        <h3>Publishing checklist — short-form (per platform)</h3>
+        <ul class="check">
+          <li>Strong first-second hook; caption + on-screen text checked.</li>
+          <li>Cover frame chosen; correct aspect ratio.</li>
+          <li>Hashtags / sound set per platform norms.</li>
+          <li>Posted at a sensible time; logged in CALENDAR.</li>
+        </ul>
+
+        <div class="callout note">
+          <span class="tag">Definition of Done</span>
+          <p>A content piece is <strong>Done</strong> only when it is published, its master is archived in <code>04_PUBLISHED</code>, and its card is moved to Archived. "The edit is finished" is not done. Published-and-filed is done.</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 08 -->
+      <section id="cadence">
+        <div class="eyebrow">08 · Rhythm</div>
+        <h2>Cadence &amp; rituals</h2>
+        <p class="lead-p">Async-first, because contributors keep different hours and availability. The rituals below replace the Lead manually chasing everyone for updates — the system surfaces status so nobody has to ask for it.</p>
+
+        <div class="cardgrid">
+          <div class="minicard"><div class="kicker">Daily · async</div><h4>Standup post</h4><p>Each active contributor drops a one-liner in <code>#standup</code>: what I did / what I'm on / any blocker. Thirty seconds. This is what removes the need for follow-up DMs.</p></div>
+          <div class="minicard"><div class="kicker">Weekly · 30 min</div><h4>Sync call</h4><p>In the War Room. Walk the PIPELINE top to bottom, clear blockers, assign the coming week. Keep it to thirty minutes — it's a working session, not a status theatre.</p></div>
+          <div class="minicard"><div class="kicker">Weekly · solo</div><h4>Board hygiene</h4><p>The Lead (or tracker owner) clears stale statuses, archives shipped work, and promotes ripe ideas from IDEAS into PIPELINE.</p></div>
+        </div>
+
+        <div class="callout note">
+          <span class="tag">Weekly sync agenda</span>
+          <p>1) Anything blocked? (fix or assign) · 2) Walk PIPELINE — confirm each owner + status · 3) What ships this week? · 4) Next guest / next dev task · 5) Anything to add to this manual. That's it.</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 09 -->
+      <section id="tools">
+        <div class="eyebrow">09 · Toolbox</div>
+        <h2>The free tool stack</h2>
+        <p class="lead-p">Everything below has a genuinely usable free tier. Free tiers change — verify current limits before betting a workflow on one, and watch storage caps most of all.</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Need</th><th>Primary (free)</th><th>Alternative (free)</th><th>Notes / limits</th></tr></thead>
+            <tbody>
+              <tr><td>Team chat &amp; voice</td><td>Discord</td><td>—</td><td>Free for our scale; voice + screen-share included.</td></tr>
+              <tr><td>Source of truth / tracking</td><td>Google Sheets</td><td>Trello</td><td>Sheets = unlimited free editors. Trello = nicer cards, weaker linking.</td></tr>
+              <tr><td>Docs / scripts / SOPs</td><td>Google Docs</td><td>—</td><td>Don't count against the 15&nbsp;GB. Unlimited editors.</td></tr>
+              <tr><td>File storage</td><td>Google Drive</td><td>Dropbox Basic</td><td>Drive 15&nbsp;GB/account; Dropbox free only ~2&nbsp;GB.</td></tr>
+              <tr><td>Video review</td><td>YouTube unlisted + notes</td><td>Filestage / Frame.io</td><td>Filestage free = unlimited reviewers, 2&nbsp;GB, 2 projects. Frame.io free = 2 users, 2&nbsp;GB.</td></tr>
+              <tr><td>Long-form editing</td><td>DaVinci Resolve (free)</td><td>Kdenlive / Shotcut</td><td>Resolve free is fully featured, no watermark — best free editor. (Studio is a one-time $295, optional.)</td></tr>
+              <tr><td>Short-form editing</td><td>CapCut (free)</td><td>Resolve "Cut" page</td><td>CapCut is fast for socials but increasingly push-to-subscribe and has privacy concerns — fine for quick cuts, not a dependency.</td></tr>
+              <tr><td>Thumbnails / graphics</td><td>Canva (free)</td><td>Photopea / GIMP</td><td>Canva free watermarks video exports (not images). Photopea = browser-based Photoshop, no install.</td></tr>
+              <tr><td>Design / UI / brand</td><td>Figma (free)</td><td>Penpot</td><td>Figma free covers a small team's design needs. Penpot is open-source.</td></tr>
+              <tr><td>Audio cleanup</td><td>Audacity (free)</td><td>Resolve "Fairlight"</td><td>Clean up interview audio; Resolve does it in-app too.</td></tr>
+              <tr><td>Screen recording</td><td>OBS Studio (free)</td><td>—</td><td>Open-source, no watermark, no time limit.</td></tr>
+              <tr><td>Guest / meeting scheduling</td><td>Cal.com (free)</td><td>Google Calendar</td><td>Cal.com gives a booking link guests pick a slot from.</td></tr>
+              <tr><td>Social scheduling</td><td>Meta Business Suite</td><td>YouTube Studio</td><td>Free native scheduling for IG/FB and YouTube respectively. Buffer free is limited.</td></tr>
+              <tr><td>Large file transfer</td><td>Smash (free)</td><td>WeTransfer free</td><td>Smash = no hard size cap, expiring links. WeTransfer free ~2&nbsp;GB.</td></tr>
+              <tr><td>Code &amp; dev tasks</td><td>GitHub (free)</td><td>—</td><td>Unlimited private repos, Issues, and Projects on free.</td></tr>
+              <tr><td>Password / secret sharing</td><td>Bitwarden (free)</td><td>—</td><td>Share logins safely instead of pasting them in chat.</td></tr>
+              <tr><td>Link-in-bio</td><td>Linktree (free)</td><td>simple static page</td><td>One link routing to all channels.</td></tr>
+              <tr><td>Analytics</td><td>Native dashboards</td><td>—</td><td>YouTube Studio + IG Insights are enough; no extra tool needed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 10 -->
+      <section id="onboarding">
+        <div class="eyebrow">10 · Runbook</div>
+        <h2>Onboarding a contributor</h2>
+        <p class="lead-p">A fixed sequence so bringing someone on takes minutes and grants exactly the right access — no more, no less.</p>
+
+        <ol>
+          <li><strong>Decide the role and access level.</strong> Are they core or scoped? This determines everything below.</li>
+          <li><strong>Discord:</strong> invite → assign their role(s) → they complete rules screening and post an intro. Their role is what reveals the right channels (§03).</li>
+          <li><strong>Google:</strong> share the relevant Drive folder(s) and the tracker, at the right permission level (Editor / Comment / none) per the access table in §05.</li>
+          <li><strong>Point them here:</strong> this manual, the brand kit, and the SOPs/templates for their role.</li>
+          <li><strong>Give a first task and a check-in.</strong> A small, clear first task beats a long briefing.</li>
+        </ol>
+
+        <div class="callout principle">
+          <span class="tag">Special case — external editor / freelancer</span>
+          <p><strong>Give:</strong> the <code>Contributor</code> Discord role (so they see only production channels relevant to them), Editor access to <em>their project subfolder only</em>, View access to the brand kit, and the edit brief.<br><strong>Do not give:</strong> the full Drive, tracker edit rights, the DEV or CORE channels, or admin. Scope tight; widen later if they become core.</p>
+        </div>
+
+        <div class="callout warn">
+          <span class="tag">Offboarding — do this every time</span>
+          <p>Remove their Discord role, revoke all Drive and tracker access, and <strong>transfer ownership of any files they own</strong> to the Lead's account before they leave. On free Drive, files owned by a departing person can disappear with them — this step is not optional.</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- 11 -->
+      <section id="maintain">
+        <div class="eyebrow">11 · Upkeep</div>
+        <h2>Maintaining the system</h2>
+        <p class="lead-p">A system only stays useful if someone owns keeping it clean. Left alone, channels go stale, folders sprawl, and free-tier limits shift under you.</p>
+        <ul>
+          <li><strong>Owner:</strong> the Lead, or a delegated ops owner, holds this manual and the structures it describes.</li>
+          <li><strong>Quarterly review:</strong> prune unused Discord roles/channels, archive finished projects in Drive, re-check the tool list (free tiers change), and refresh any SOP that's drifted from reality.</li>
+          <li><strong>Change deliberately, not mid-flight:</strong> don't restructure the board or folders on a whim while work is in progress. Make structural changes at review points, update this manual first, then announce.</li>
+          <li><strong>Version this document:</strong> when it changes meaningfully, note the date so everyone knows they're reading the current version.</li>
+        </ul>
+
+        <div class="callout principle">
+          <span class="tag">The test that catches every gap</span>
+          <p>Pick any task at random and ask: <strong>who owns it, what's its status, where does it live?</strong> If all three answers are instant, the system is working. If any answer requires asking a person, you've found the next thing to fix. That single test is the whole job of operations.</p>
+        </div>
+
+        <footer class="docfoot">
+          WhatNow — Operations &amp; Production Manual · Owner: Team Lead · Reviewed quarterly · Built for long-term use.<br>
+          Structure over status: this document describes how the team works, not what it's working on.
+        </footer>
+      </section>
+
+    </div><!-- /wrap -->
+  </main>
+</div>
+
+<script>
+  // Highlight the current section in the sidebar as you scroll.
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var map = {};
+    links.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if (sec) map[id] = a;
+    });
+    var sections = Object.keys(map).map(function (id) { return document.getElementById(id); });
+
+    if ('IntersectionObserver' in window) {
+      var current = null;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) current = e.target.id;
+        });
+        if (current && map[current]) {
+          links.forEach(function (l) { l.classList.remove('is-active'); });
+          map[current].classList.add('is-active');
+        }
+      }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+      sections.forEach(function (s) { io.observe(s); });
+    }
+  })();
+</script>
+</body>
+</html>
