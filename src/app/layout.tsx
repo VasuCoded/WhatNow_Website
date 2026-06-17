@@ -5,22 +5,32 @@ import SearchModal from "@/components/SearchModal";
 import ContextMenu from "@/components/ContextMenu";
 import NoticeBoard from "@/components/NoticeBoard";
 import AdminNoticeBoard from "@/components/AdminNoticeBoard";
-import { Geist, Mukta, Fraunces } from "next/font/google";
+import { Anton, Oswald, Inter, Mukta } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Body face — Inter, highly readable at small sizes on mobile.
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-// Display face — characterful editorial serif for headings ("senior who reads"
-// voice). Latin only; Hindi headings stay on Mukta (see globals.css).
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Title face — Anton, a heavy condensed display for the big blocky statement
+// titles via the .font-title helper. Single weight (400, very bold by design).
+const anton = Anton({
+  variable: "--font-anton",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "900"],
-  style: ["normal", "italic"],
+  weight: "400",
+  display: "swap",
+});
+
+// Heading face — Oswald, a tall condensed grotesk for subheads/other headings.
+// Latin only; Hindi headings stay on Mukta (see globals.css).
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -44,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${fraunces.variable} ${mukta.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${oswald.variable} ${anton.variable} ${mukta.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 font-medium pt-20">
         <LanguageProvider>
           <Navbar />

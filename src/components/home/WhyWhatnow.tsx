@@ -44,7 +44,7 @@ export default function WhyWhatnow() {
             </h3>
             <h2 className="text-4xl md:text-6xl lg:text-[4rem] font-black text-neutral-dark tracking-tight leading-[1.1]">
               {t.headlineMain}<br />
-              <span className="text-slate-400">{t.headlineSub}</span>
+              <span className="text-slate-500">{t.headlineSub}</span>
             </h2>
           </div>
           <div className="flex-1 lg:pt-10">

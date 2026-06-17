@@ -3,11 +3,12 @@
 @theme {
   --color-background: #ffffff;
   --color-foreground: #111827;
-  /* Body stays on Geist (clean, distinctive). Headings use Fraunces, a
-     characterful editorial serif — the "senior who reads" voice. */
-  --font-sans: var(--font-geist-sans), sans-serif;
-  --font-heading: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  /* Body: Inter. Headings/subheads: Oswald (condensed). Titles: Horizon (local
+     display bold) via the .font-title helper. */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-oswald), Impact, "Arial Narrow", sans-serif;
+  --font-display: var(--font-oswald), Impact, "Arial Narrow", sans-serif;
+  --font-title: var(--font-anton), Impact, "Arial Narrow", sans-serif;
   --color-primary: #4F46E5;
   --color-primary-hover: #4338ca;
   --color-secondary: #0A8B74;
@@ -43,10 +44,40 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Tighten tracking on display-scale headings — Fraunces reads best slightly
-   negative at large sizes. (Hindi/Mukta keeps default tracking below.) */
+/* Tighten tracking on display-scale headings. (Hindi/Mukta keeps default
+   tracking below.) */
 h1, h2, h3 {
   letter-spacing: -0.02em;
+}
+
+/* Statement titles use the Anton display face — a single 400 weight that is
+   heavy by design (forcing 700 makes it fall back), set in uppercase for the
+   blocky poster look. Hindi falls back to Mukta (no case, normal weight). */
+.font-title {
+  font-family: var(--font-title);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+html.lang-hi .font-title {
+  font-family: var(--font-mukta), sans-serif;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Hero aurora — soft, colourful, blurred background blobs that drift slowly. */
+@keyframes auroraFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(28px, -22px, 0) scale(1.12); }
+  66% { transform: translate3d(-24px, 18px, 0) scale(0.94); }
+}
+.aurora-blob {
+  animation: auroraFloat 20s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob { animation: none; }
 }
 
 /* Hindi Font Override */

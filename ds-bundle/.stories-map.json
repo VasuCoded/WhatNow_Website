@@ -1,0 +1,100 @@
+{
+  "global": "WhatNow",
+  "pkg": "whatnow-web",
+  "pkgDir": "D:\\projects\\WhatNow_Website",
+  "extraEntries": [],
+  "exported": [],
+  "storybookStatic": null,
+  "components": [
+    {
+      "name": "AdminNoticeBoard",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "Button",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "ComingSoon",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "ContextMenu",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "FeaturedGuides",
+      "group": "home",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "Footer",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "Hero",
+      "group": "home",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "Marquee",
+      "group": "home",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "Navbar",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "NoticeBoard",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "ScrollVelocity",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "SearchModal",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "Testimonials",
+      "group": "home",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "VisualAnalytics",
+      "group": "general",
+      "srcSha": null,
+      "stories": []
+    },
+    {
+      "name": "WhyWhatnow",
+      "group": "home",
+      "srcSha": null,
+      "stories": []
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "sheet": 1,
+    "components": [
+      "AdminNoticeBoard",
+      "Button",
+      "ComingSoon",
+      "ContextMenu",
+      "FeaturedGuides",
+      "Footer",
+      "Hero",
+      "Marquee",
+      "Navbar",
+      "NoticeBoard",
+      "ScrollVelocity",
+      "SearchModal",
+      "Testimonials",
+      "VisualAnalytics",
+      "WhyWhatnow"
+    ]
+  }
+]

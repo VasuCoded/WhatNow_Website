@@ -94,7 +94,7 @@ export default function AdminNoticeBoard() {
 
   return (
     <>
-      {/* Floating Trigger Button — bottom-left */}
+      {/* Floating Trigger Button — bottom-right (clears the left-aligned hero) */}
       <AnimatePresence>
         {!isOpen && (
           <motion.button
@@ -103,7 +103,7 @@ export default function AdminNoticeBoard() {
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             onClick={handleOpen}
-            className="fixed bottom-6 left-6 z-40 flex items-center gap-2.5 bg-white border border-slate-200 shadow-xl shadow-slate-900/10 rounded-2xl px-4 py-2.5 cursor-pointer hover:shadow-2xl hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300 group"
+            className="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 bg-white border border-slate-200 shadow-xl shadow-slate-900/10 rounded-2xl px-4 py-2.5 cursor-pointer hover:shadow-2xl hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300 group"
             title="WhatNow Updates & Changelog"
           >
             <div className="relative">
@@ -141,13 +141,13 @@ export default function AdminNoticeBoard() {
               className="fixed inset-0 bg-slate-900/30 backdrop-blur-xs z-50"
             />
 
-            {/* Panel — slides from bottom-left */}
+            {/* Panel — slides from bottom-right */}
             <motion.div
               initial={{ opacity: 0, y: 40, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.97 }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
-              className="fixed bottom-6 left-6 z-50 w-full max-w-[22rem] bg-white rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 flex flex-col overflow-hidden"
+              className="fixed bottom-6 right-6 z-50 w-[calc(100%-3rem)] max-w-[22rem] bg-white rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 flex flex-col overflow-hidden"
               style={{ maxHeight: "calc(100vh - 120px)" }}
             >
               {/* Header */}

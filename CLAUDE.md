@@ -12,13 +12,17 @@ concrete, dry, anti-hype. **"Built like a senior, not like a brand."**
 ## Design direction (hold the line — pick nothing new without reason)
 High-end **editorial magazine**, NOT a SaaS landing page. Three deliberate moves:
 1. **Distinctive editorial typography** — display serif headings + clean body.
-2. **Authored, never generic-stock imagery** — typographic/illustrative over photo-stock.
+2. **Authored over generic-stock imagery.** The hero is a two-column layout with
+   an image beside the headline (`/hero.png`, right-sized via `next/image`).
+   Interim: replace `/hero.png` with a specific/authored asset when available.
 3. **One signature interaction per view; everything else calm.**
 
 ## Type system
-- **Display (headings h1–h3):** Fraunces (`--font-heading` / `--font-display`),
-  tracking `-0.02em`. Latin only — Hindi headings fall back to Mukta.
-- **Body:** Geist (`--font-sans`). Distinctive and clean; do not swap to Inter.
+- **Display (headings h1–h3):** Archivo (`--font-heading` / `--font-display`), a
+  blocky grotesk, weights to 900 (so `font-black` is truly heavy), tracking `-0.02em`.
+  Style the hero highlight with colour + underline, not italic. Latin only — Hindi
+  headings use Mukta.
+- **Body:** Inter (`--font-sans`). Paired intentionally with the display grotesk.
 - **Hindi:** Mukta for both headings and body (handled in `globals.css`).
 - Loaded via `next/font` with `display:'swap'` — no layout shift.
 - Type scale: 1.25 major third, `--step--1 … --step-6` in `globals.css`.
