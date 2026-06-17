@@ -41,7 +41,7 @@ export default function Hero() {
                 {/* Left Content */}
                 <div className="flex flex-col items-start order-1 lg:order-1">
 
-                    <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-extrabold text-[#111827] mb-6 tracking-tight">
+                    <h1 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-extrabold text-[#111827] dark:text-slate-50 mb-6 tracking-tight">
                         {t.title1}<br />
                         {t.title2}<br />
                         {t.title3}
@@ -54,7 +54,7 @@ export default function Hero() {
                         </span>
                     </h1>
 
-                    <p className="text-gray-600 text-base lg:text-lg mb-8 max-w-lg leading-relaxed">
+                    <p className="text-gray-600 dark:text-slate-400 text-base lg:text-lg mb-8 max-w-lg leading-relaxed">
                         {t.subtitle}
                     </p>
 

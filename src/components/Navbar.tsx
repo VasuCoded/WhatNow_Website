@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useTheme } from "@/context/ThemeContext";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -137,6 +138,7 @@ const THEMES = [
 
 export default function Navbar() {
   const { language, setLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const t = translations[language];
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -170,15 +172,13 @@ export default function Navbar() {
     };
   }, []);
 
-  // Load theme and clean up dark mode on mount
+  // Load the saved accent ("vibe") theme on mount. Light/dark is handled
+  // separately by ThemeContext + the no-flash script in layout.tsx.
   useEffect(() => {
     const savedTheme = localStorage.getItem("whatnow-vibe-theme");
     if (savedTheme) {
       applyTheme(savedTheme);
     }
-    // Force light mode
-    document.documentElement.classList.remove("dark");
-    localStorage.removeItem("whatnow-dark-mode");
   }, []);
 
   // Mobile Accordion state
@@ -237,7 +237,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full bg-white/90 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50">
+      <nav className="w-full bg-white/90 dark:bg-slate-900/85 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200/50 dark:border-slate-700/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20 gap-4">
             
@@ -282,7 +282,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-900/8 overflow-hidden z-50 flex"
+                      className="absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl shadow-slate-900/8 dark:shadow-black/40 overflow-hidden z-50 flex"
                     >
                       {/* Active Blueprints */}
                       <div className="w-7/12 p-5 flex flex-col justify-between">
@@ -295,7 +295,7 @@ export default function Navbar() {
                               <Link
                                 key={item.href}
                                 href={item.href || "#"}
-                                className="flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-primary/[0.06] transition-all duration-150 group"
+                                className="flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-primary/[0.06] dark:hover:bg-primary/[0.15] transition-all duration-150 group"
                               >
                                 <div className="flex items-center gap-3 group-hover:translate-x-0.5 transition-transform duration-150">
                                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
@@ -307,7 +307,7 @@ export default function Navbar() {
                           </div>
                         </div>
 
-                        <div className="mt-5 pt-4 border-t border-slate-100">
+                        <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
                           <Link 
                             href="/careers" 
                             className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:text-primary-hover transition-colors tracking-wide"
@@ -319,7 +319,7 @@ export default function Navbar() {
                       </div>
 
                       {/* Coming Soon */}
-                      <div className="w-5/12 bg-slate-50 border-l border-slate-100 p-5">
+                      <div className="w-5/12 bg-slate-50 dark:bg-slate-800/50 border-l border-slate-100 dark:border-slate-700 p-5">
                         <span className="text-[10px] font-semibold uppercase text-slate-400 tracking-[0.12em] block mb-3">
                           {t.comingSoonLabel}
                         </span>
@@ -327,7 +327,7 @@ export default function Navbar() {
                           {careersItems.filter(i => i.status === "coming-soon").map((item, index) => (
                             <div 
                               key={index}
-                              className="px-3 py-2 rounded-lg flex items-center justify-between gap-2 bg-white border border-slate-100"
+                              className="px-3 py-2 rounded-lg flex items-center justify-between gap-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700"
                             >
                               <span className="text-[12px] font-medium text-slate-400 leading-tight">{item.label}</span>
                               <span className="text-[9px] font-semibold uppercase text-slate-400 tracking-wide shrink-0">
@@ -363,7 +363,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-900/8 overflow-hidden z-50 flex"
+                      className="absolute left-1/2 -translate-x-1/2 top-full w-[520px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl shadow-slate-900/8 dark:shadow-black/40 overflow-hidden z-50 flex"
                     >
                       {/* Active Exams */}
                       <div className="w-6/12 p-5 flex flex-col justify-between">
@@ -376,7 +376,7 @@ export default function Navbar() {
                               <Link
                                 key={item.href}
                                 href={item.href || "#"}
-                                className="flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-primary/[0.06] transition-all duration-150 group"
+                                className="flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-primary/[0.06] dark:hover:bg-primary/[0.15] transition-all duration-150 group"
                               >
                                 <div className="flex items-center gap-3 group-hover:translate-x-0.5 transition-transform duration-150">
                                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
@@ -388,7 +388,7 @@ export default function Navbar() {
                           </div>
                         </div>
 
-                        <div className="mt-5 pt-4 border-t border-slate-100">
+                        <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
                           <Link 
                             href="/exams" 
                             className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:text-primary-hover transition-colors tracking-wide"
@@ -400,7 +400,7 @@ export default function Navbar() {
                       </div>
 
                       {/* Coming Soon Exams */}
-                      <div className="w-6/12 bg-slate-50 border-l border-slate-100 p-5 max-h-[320px] overflow-y-auto">
+                      <div className="w-6/12 bg-slate-50 dark:bg-slate-800/50 border-l border-slate-100 dark:border-slate-700 p-5 max-h-[320px] overflow-y-auto">
                         <span className="text-[10px] font-semibold uppercase text-slate-400 tracking-[0.12em] block mb-3">
                           {t.comingSoonLabel}
                         </span>
@@ -408,7 +408,7 @@ export default function Navbar() {
                           {examsItems.filter(i => i.status === "coming-soon").map((item, index) => (
                             <div 
                               key={index}
-                              className="px-3 py-2 rounded-lg flex items-center justify-between gap-2 bg-white border border-slate-100"
+                              className="px-3 py-2 rounded-lg flex items-center justify-between gap-2 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700"
                             >
                               <span className="text-[12px] font-medium text-slate-400 truncate">{item.label}</span>
                               <span className="text-[9px] font-semibold uppercase text-slate-400 tracking-wide shrink-0">
@@ -444,7 +444,7 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       transition={{ duration: 0.18, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full w-[340px] bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-900/8 p-5 z-50 flex flex-col"
+                      className="absolute left-1/2 -translate-x-1/2 top-full w-[340px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl shadow-slate-900/8 dark:shadow-black/40 p-5 z-50 flex flex-col"
                     >
                       <span className="text-[10px] font-semibold uppercase text-slate-400 tracking-[0.12em] block mb-3">
                         {t.comingSoonLabel}
@@ -453,7 +453,7 @@ export default function Navbar() {
                         {readsItems.map((item, index) => (
                           <div 
                             key={index}
-                            className="px-3 py-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-between gap-2"
+                            className="px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 flex items-center justify-between gap-2"
                           >
                             <span className="text-[12px] font-medium text-slate-500 leading-tight">{item.label}</span>
                             <span className="text-[9px] font-semibold uppercase text-slate-400 tracking-wide shrink-0">{language === "hi" ? "जल्द" : "Soon"}</span>
@@ -461,7 +461,7 @@ export default function Navbar() {
                         ))}
                       </div>
 
-                      <div className="pt-4 border-t border-slate-100">
+                      <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
                         <Link 
                           href="/reads" 
                           className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:text-primary-hover transition-colors tracking-wide"
@@ -527,6 +527,21 @@ export default function Navbar() {
                 }`}>हि</span>
               </button>
 
+              {/* Dark Mode Toggle — Desktop */}
+              <button
+                onClick={toggleTheme}
+                className="text-gray-600 hover:text-gray-900 dark:text-slate-300 dark:hover:text-white transition-colors p-2 cursor-pointer flex items-center justify-center rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800"
+                title={theme === "dark"
+                  ? (language === "hi" ? "लाइट मोड" : "Light mode")
+                  : (language === "hi" ? "डार्क मोड" : "Dark mode")}
+                aria-label="Toggle dark mode"
+              >
+                <Icon
+                  icon={theme === "dark" ? "solar:sun-bold-duotone" : "solar:moon-bold-duotone"}
+                  className="w-5.5 h-5.5 text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+                />
+              </button>
+
               {/* Vibe Theme Switcher */}
               <div className="relative" ref={themeDropdownRef}>
                 <button
@@ -559,8 +574,8 @@ export default function Navbar() {
                             }}
                             className={`flex items-center justify-between px-2.5 py-2 rounded-xl text-left text-xs font-bold transition-all cursor-pointer ${
                               activeTheme === theme.id
-                                ? "bg-slate-50 text-slate-900"
-                                : "text-slate-650 hover:bg-slate-50"
+                                ? "bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                                : "text-slate-650 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                             }`}
                           >
                             <div className="flex items-center gap-2.5">
@@ -638,7 +653,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 26, stiffness: 220 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[20rem] bg-white shadow-2xl p-6 lg:hidden flex flex-col justify-between overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[20rem] bg-white dark:bg-slate-900 shadow-2xl p-6 lg:hidden flex flex-col justify-between overflow-y-auto"
             >
               <div>
                 {/* Drawer Header */}
@@ -672,7 +687,7 @@ export default function Navbar() {
                     setIsOpen(false);
                     window.dispatchEvent(new CustomEvent("open-search"));
                   }}
-                  className="w-full flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-slate-400 hover:bg-slate-100 hover:border-slate-350 transition-all text-sm font-semibold mb-6 text-left cursor-pointer"
+                  className="w-full flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-slate-400 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-slate-350 transition-all text-sm font-semibold mb-6 text-left cursor-pointer"
                 >
                   <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400" />
                   <span>{t.searchMobile}...</span>
@@ -682,10 +697,10 @@ export default function Navbar() {
                 <div className="space-y-4">
                   
                   {/* Careers Accordion */}
-                  <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                  <div className="border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
                     <button
                       onClick={() => toggleMobileAccordion('careers')}
-                      className="w-full flex items-center justify-between px-4 py-3.5 bg-slate-50/50 hover:bg-slate-50 text-slate-700 text-sm font-extrabold cursor-pointer"
+                      className="w-full flex items-center justify-between px-4 py-3.5 bg-slate-50/50 dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-extrabold cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
                         <Icon icon="solar:compass-bold-duotone" className="w-4.5 h-4.5 text-slate-550" />
@@ -703,7 +718,7 @@ export default function Navbar() {
                           initial={{ height: 0 }}
                           animate={{ height: "auto" }}
                           exit={{ height: 0 }}
-                          className="overflow-hidden bg-white border-t border-slate-50"
+                          className="overflow-hidden bg-white dark:bg-slate-900 border-t border-slate-50 dark:border-slate-800"
                         >
                           <div className="p-3 space-y-1">
                             <Link
@@ -719,13 +734,13 @@ export default function Navbar() {
                                 key={item.href}
                                 href={item.href || "#"}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 rounded-xl"
+                                className="block px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl"
                               >
                                 {item.label}
                               </Link>
                             ))}
 
-                            <div className="pt-2 border-t border-slate-100 mt-2">
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
                               <span className="px-3 text-[9px] font-black uppercase text-slate-400 tracking-wider block mb-1">
                                 {t.comingSoonLabel}
                               </span>
@@ -742,10 +757,10 @@ export default function Navbar() {
                   </div>
 
                   {/* Exams Accordion */}
-                  <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                  <div className="border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
                     <button
                       onClick={() => toggleMobileAccordion('exams')}
-                      className="w-full flex items-center justify-between px-4 py-3.5 bg-slate-50/50 hover:bg-slate-50 text-slate-700 text-sm font-extrabold cursor-pointer"
+                      className="w-full flex items-center justify-between px-4 py-3.5 bg-slate-50/50 dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-extrabold cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
                         <Icon icon="solar:document-bold-duotone" className="w-4.5 h-4.5 text-slate-550" />
@@ -763,7 +778,7 @@ export default function Navbar() {
                           initial={{ height: 0 }}
                           animate={{ height: "auto" }}
                           exit={{ height: 0 }}
-                          className="overflow-hidden bg-white border-t border-slate-50"
+                          className="overflow-hidden bg-white dark:bg-slate-900 border-t border-slate-50 dark:border-slate-800"
                         >
                           <div className="p-3 space-y-1">
                             <Link
@@ -779,13 +794,13 @@ export default function Navbar() {
                                 key={item.href}
                                 href={item.href || "#"}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 rounded-xl"
+                                className="block px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl"
                               >
                                 {item.label}
                               </Link>
                             ))}
 
-                            <div className="pt-2 border-t border-slate-100 mt-2">
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
                               <span className="px-3 text-[9px] font-black uppercase text-slate-400 tracking-wider block mb-1">
                                 {t.comingSoonLabel}
                               </span>
@@ -804,10 +819,10 @@ export default function Navbar() {
                   </div>
 
                   {/* Reads Accordion */}
-                  <div className="border border-slate-100 rounded-2xl overflow-hidden">
+                  <div className="border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
                     <button
                       onClick={() => toggleMobileAccordion('reads')}
-                      className="w-full flex items-center justify-between px-4 py-3.5 bg-slate-50/50 hover:bg-slate-50 text-slate-700 text-sm font-extrabold cursor-pointer"
+                      className="w-full flex items-center justify-between px-4 py-3.5 bg-slate-50/50 dark:bg-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-extrabold cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
                         <Icon icon="solar:notes-bold-duotone" className="w-4.5 h-4.5 text-slate-550" />
@@ -825,7 +840,7 @@ export default function Navbar() {
                           initial={{ height: 0 }}
                           animate={{ height: "auto" }}
                           exit={{ height: 0 }}
-                          className="overflow-hidden bg-white border-t border-slate-50"
+                          className="overflow-hidden bg-white dark:bg-slate-900 border-t border-slate-50 dark:border-slate-800"
                         >
                           <div className="p-3 space-y-1">
                             <Link
@@ -856,14 +871,14 @@ export default function Navbar() {
                   <Link
                     href="/about"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-2 px-4 py-3.5 border border-slate-100 rounded-2xl hover:bg-slate-50 text-slate-700 text-sm font-extrabold"
+                    className="flex items-center gap-2 px-4 py-3.5 border border-slate-100 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-extrabold"
                   >
                     <Icon icon="solar:info-circle-bold-duotone" className="w-4.5 h-4.5 text-slate-550" />
                     <span>{t.about}</span>
                   </Link>
 
                   {/* Language Toggle — Mobile */}
-                  <div className="border-t border-slate-100 pt-5 mt-4">
+                  <div className="border-t border-slate-100 dark:border-slate-800 pt-5 mt-4">
                     <span className="px-2 text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-3">
                       {language === "en" ? "Language" : "भाषा"}
                     </span>
@@ -873,7 +888,7 @@ export default function Navbar() {
                         className={`flex-1 py-2.5 rounded-xl text-sm font-black transition-all cursor-pointer border ${
                           language === "en"
                             ? "bg-primary text-white border-primary"
-                            : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                            : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
                         }`}
                       >
                         English
@@ -883,7 +898,7 @@ export default function Navbar() {
                         className={`flex-1 py-2.5 rounded-xl text-sm font-black transition-all cursor-pointer border ${
                           language === "hi"
                             ? "bg-primary text-white border-primary"
-                            : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                            : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
                         }`}
                       >
                         हिंदी
@@ -891,8 +906,39 @@ export default function Navbar() {
                     </div>
                   </div>
 
+                  {/* Dark Mode Toggle — Mobile */}
+                  <div className="border-t border-slate-100 dark:border-slate-800 dark:border-slate-800 pt-5 mt-4">
+                    <span className="px-2 text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-3">
+                      {language === "en" ? "Appearance" : "दिखावट"}
+                    </span>
+                    <div className="flex gap-3 px-2">
+                      <button
+                        onClick={() => theme === "dark" && toggleTheme()}
+                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-black transition-all cursor-pointer border ${
+                          theme === "light"
+                            ? "bg-primary text-white border-primary"
+                            : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
+                        }`}
+                      >
+                        <Icon icon="solar:sun-bold-duotone" className="w-4.5 h-4.5" />
+                        {language === "en" ? "Light" : "लाइट"}
+                      </button>
+                      <button
+                        onClick={() => theme === "light" && toggleTheme()}
+                        className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-black transition-all cursor-pointer border ${
+                          theme === "dark"
+                            ? "bg-primary text-white border-primary"
+                            : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700"
+                        }`}
+                      >
+                        <Icon icon="solar:moon-bold-duotone" className="w-4.5 h-4.5" />
+                        {language === "en" ? "Dark" : "डार्क"}
+                      </button>
+                    </div>
+                  </div>
+
                   {/* Mobile Vibe Theme Switcher */}
-                  <div className="border-t border-slate-100 pt-5 mt-4">
+                  <div className="border-t border-slate-100 dark:border-slate-800 dark:border-slate-800 pt-5 mt-4">
                     <span className="px-2 text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-3">
                       {t.themeLabel}
                     </span>

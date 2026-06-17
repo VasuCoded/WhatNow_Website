@@ -70,7 +70,7 @@ function GuideCard({ category, title, description, badgeClass, status, href }: G
     return (
       <Link
         href={href || "#"}
-        className="relative rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 hover:border-slate-300 bg-white/80 backdrop-blur-md cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 text-left select-none group"
+        className="relative rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/80 dark:border-slate-700/70 hover:border-slate-300 dark:hover:border-slate-600 bg-white/80 dark:bg-slate-800/50 backdrop-blur-md cursor-pointer shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/40 hover:-translate-y-1.5 transition-all duration-500 text-left select-none group"
       >
         {/* Ambient background glow */}
         <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowColor(category)}`} />
@@ -85,7 +85,7 @@ function GuideCard({ category, title, description, badgeClass, status, href }: G
           {title}
         </h3>
 
-        <p className="text-slate-550 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
+        <p className="text-slate-550 dark:text-slate-400 leading-relaxed mb-10 flex-grow font-medium text-sm sm:text-base relative z-10">
           {description}
         </p>
 
@@ -101,7 +101,7 @@ function GuideCard({ category, title, description, badgeClass, status, href }: G
 
   return (
     <div
-      className="relative rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/60 bg-slate-50 opacity-65 cursor-not-allowed shadow-none transition-all duration-500 text-left select-none"
+      className="relative rounded-3xl p-8 sm:p-10 flex flex-col h-full border border-slate-200/60 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-800/30 opacity-65 cursor-not-allowed shadow-none transition-all duration-500 text-left select-none"
     >
       {/* Ambient background glow */}
       <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowColor(category)}`} />
@@ -223,20 +223,20 @@ export default function FeaturedGuides() {
   const guides = GUIDES_DATA[language];
 
   return (
-    <section className="bg-[#F8F8F6] py-20 lg:py-28 overflow-hidden">
+    <section className="bg-[#F8F8F6] dark:bg-[#0B111C] py-20 lg:py-28 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 lg:mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-extrabold text-[#111827] tracking-tight">
+            <h2 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-extrabold text-[#111827] dark:text-slate-50 tracking-tight">
               {t.startHere}
             </h2>
           </div>
 
           <Link
             href="/reads"
-            className="group flex items-center gap-2 font-medium text-neutral-500 hover:text-neutral-800 transition-colors w-fit pb-2"
+            className="group flex items-center gap-2 font-medium text-neutral-500 dark:text-slate-400 hover:text-neutral-800 dark:hover:text-slate-100 transition-colors w-fit pb-2"
           >
             <span>{t.viewAll}</span>
             <Icon icon="ph:arrow-right" className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
@@ -247,7 +247,7 @@ export default function FeaturedGuides() {
         <div className="relative w-full mt-10">
 
           {/* Left Arrow Button */}
-          <div className={`hidden md:flex absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-[#F8F8F6] via-[#F8F8F6]/90 to-transparent z-10 items-center justify-start pointer-events-none transition-opacity duration-300 ${showLeft ? "opacity-100" : "opacity-0"}`}>
+          <div className={`hidden md:flex absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-[#F8F8F6] via-[#F8F8F6]/90 dark:from-[#0B111C] dark:via-[#0B111C]/90 to-transparent z-10 items-center justify-start pointer-events-none transition-opacity duration-300 ${showLeft ? "opacity-100" : "opacity-0"}`}>
             <button
               onClick={() => scroll("left")}
               disabled={!showLeft}
@@ -259,7 +259,7 @@ export default function FeaturedGuides() {
           </div>
 
           {/* Right Arrow Button */}
-          <div className={`hidden md:flex absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-[#F8F8F6] via-[#F8F8F6]/90 to-transparent z-10 items-center justify-end pointer-events-none transition-opacity duration-300 ${showRight ? "opacity-100" : "opacity-0"}`}>
+          <div className={`hidden md:flex absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-[#F8F8F6] via-[#F8F8F6]/90 dark:from-[#0B111C] dark:via-[#0B111C]/90 to-transparent z-10 items-center justify-end pointer-events-none transition-opacity duration-300 ${showRight ? "opacity-100" : "opacity-0"}`}>
             <button
               onClick={() => scroll("right")}
               disabled={!showRight}

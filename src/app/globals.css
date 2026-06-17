@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Dark mode = `.dark` class on <html> (set by the no-flash script + ThemeContext) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-background: #ffffff;
   --color-foreground: #111827;
@@ -16,9 +19,26 @@
   --color-bg-tint2: #F1F5F9;
 }
 
+/*
+  Dark theme token overrides. Because --color-neutral-dark is the site-wide
+  heading colour (used 355× across 58 files) and --color-background/foreground
+  drive the body, overriding them here flips headings + canvas everywhere.
+*/
+.dark {
+  --color-background: #0B0F1A;
+  --color-foreground: #E5E7EB;
+  --color-neutral-dark: #EEF2F7;
+  --color-bg-tint: #0E1422;
+  --color-bg-tint2: #0B111C;
+  color-scheme: dark;
+}
+
+html { color-scheme: light; }
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,11 +50,11 @@ html.lang-hi body {
   font-family: var(--font-mukta), sans-serif;
 }
 
-html.lang-hi h1, 
-html.lang-hi h2, 
-html.lang-hi h3, 
-html.lang-hi h4, 
-html.lang-hi h5, 
+html.lang-hi h1,
+html.lang-hi h2,
+html.lang-hi h3,
+html.lang-hi h4,
+html.lang-hi h5,
 html.lang-hi h6 {
   font-family: var(--font-mukta), sans-serif;
 }
@@ -62,4 +82,15 @@ html.lang-hi h6 {
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: rgba(15, 23, 42, 0.3);
+}
+
+/* Dark-mode scrollbar */
+.dark * {
+  scrollbar-color: rgba(226, 232, 240, 0.18) transparent;
+}
+.dark *::-webkit-scrollbar-thumb {
+  background-color: rgba(226, 232, 240, 0.18);
+}
+.dark *::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(226, 232, 240, 0.32);
 }

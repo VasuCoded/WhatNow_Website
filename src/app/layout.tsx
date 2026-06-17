@@ -7,7 +7,11 @@ import NoticeBoard from "@/components/NoticeBoard";
 import AdminNoticeBoard from "@/components/AdminNoticeBoard";
 import { Geist, Mukta } from "next/font/google";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import "./globals.css";
+
+// Runs before paint to set the theme class and avoid a light flash on dark loads.
+const themeScript = `(function(){try{var t=localStorage.getItem('whatnow-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}if(t==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,19 +38,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${mukta.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 font-medium pt-20">
-        <LanguageProvider>
-          <Navbar />
+    <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${mukta.variable} h-full antialiased`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 dark:bg-[#0B0F1A] dark:text-slate-100 font-medium pt-20">
+        <ThemeProvider>
+          <LanguageProvider>
+            <Navbar />
 
-          {children}
-          
-          <Footer />
-          <SearchModal />
-          <ContextMenu />
-          <NoticeBoard />
-          <AdminNoticeBoard />
-        </LanguageProvider>
+            {children}
+
+            <Footer />
+            <SearchModal />
+            <ContextMenu />
+            <NoticeBoard />
+            <AdminNoticeBoard />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -35,7 +35,7 @@ export default function WhyWhatnow() {
   const t = translations[language];
 
   return (
-    <section className="py-24 md:py-32 px-6 lg:px-12 bg-slate-50 overflow-hidden relative">
+    <section className="py-24 md:py-32 px-6 lg:px-12 bg-slate-50 dark:bg-[#0B111C] overflow-hidden relative">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-20">
           <div className="flex-1">
@@ -48,7 +48,7 @@ export default function WhyWhatnow() {
             </h2>
           </div>
           <div className="flex-1 lg:pt-10">
-            <p className="text-base md:text-xl text-slate-600 leading-relaxed font-medium">
+            <p className="text-base md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
               {t.description}
             </p>
           </div>
@@ -56,7 +56,7 @@ export default function WhyWhatnow() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="relative bg-white hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 hover:border-green-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 dark:border-slate-700/70 hover:border-green-500/30 dark:hover:border-green-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
             <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:lock-unlocked-bold-duotone" className="w-64 h-64 text-green-600" />
             </div>
@@ -67,13 +67,13 @@ export default function WhyWhatnow() {
               <span className="text-green-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">01</span>
               <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card1Title}</h4>
             </div>
-            <p className="text-slate-600 leading-relaxed relative z-10 text-base sm:text-lg">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base sm:text-lg">
               {t.card1Desc}
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="relative bg-white hover:bg-gradient-to-b hover:from-white hover:to-orange-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 hover:border-orange-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(249,115,22,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-orange-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 dark:border-slate-700/70 hover:border-orange-500/30 dark:hover:border-orange-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(249,115,22,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
             <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:shield-check-bold-duotone" className="w-64 h-64 text-orange-500" />
             </div>
@@ -84,13 +84,13 @@ export default function WhyWhatnow() {
               <span className="text-orange-500 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">02</span>
               <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card2Title}</h4>
             </div>
-            <p className="text-slate-600 leading-relaxed relative z-10 text-base sm:text-lg">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base sm:text-lg">
               {t.card2Desc}
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="relative bg-white hover:bg-gradient-to-b hover:from-white hover:to-blue-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 hover:border-blue-500/30 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-blue-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 dark:border-slate-700/70 hover:border-blue-500/30 dark:hover:border-blue-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
             <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:compass-bold-duotone" className="w-64 h-64 text-blue-600" />
             </div>
@@ -101,7 +101,7 @@ export default function WhyWhatnow() {
               <span className="text-blue-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">03</span>
               <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card3Title}</h4>
             </div>
-            <p className="text-slate-600 leading-relaxed relative z-10 text-base sm:text-lg">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base sm:text-lg">
               {t.card3Desc}
             </p>
           </div>
