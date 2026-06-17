@@ -24,7 +24,7 @@ const translations = {
       { id: "contact", label: "Contact" },
     ],
     intro:
-      "These terms govern your use of WhatNow at whatnowindia.vercel.app, operated by Sanskar Chauhan, Hyderabad, Telangana, India. By using the site you agree to them. If you don't agree, please don't use the site.",
+      "These terms govern your use of WhatNow at whatnowindia.vercel.app, operated by Vasu, Hyderabad, Telangana, India. By using the site you agree to them. If you don't agree, please don't use the site.",
     sections: {
       whatWhatNowIs: {
         heading: "What WhatNow Is — and Isn't",
@@ -46,7 +46,7 @@ You may share links freely.`,
       },
       ip: {
         heading: "Intellectual Property",
-        body: `Unless stated otherwise, the content on WhatNow is owned by Sanskar Chauhan or used with permission, and is provided for your personal, non-commercial use.
+        body: `Unless stated otherwise, the content on WhatNow is owned by Vasu or used with permission, and is provided for your personal, non-commercial use.
 
 Trademarks and logos referenced — exam names, institution names — belong to their respective owners and are used for identification only.`,
       },
@@ -58,7 +58,7 @@ Trademarks and logos referenced — exam names, institution names — belong to 
         heading: "Disclaimers and Limitation of Liability",
         body: `WhatNow is provided "as is" and "as available," without warranties of any kind to the extent permitted by law.
 
-To the maximum extent permitted by applicable law, Sanskar Chauhan will not be liable for any indirect, incidental, or consequential loss arising from your use of, or reliance on, the site or its content.`,
+To the maximum extent permitted by applicable law, Vasu will not be liable for any indirect, incidental, or consequential loss arising from your use of, or reliance on, the site or its content.`,
       },
       indemnity: {
         heading: "Indemnity",

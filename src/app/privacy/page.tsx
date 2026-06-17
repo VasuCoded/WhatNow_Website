@@ -28,7 +28,7 @@ const translations = {
     sections: {
       overview: {
         heading: "Overview",
-        body: `WhatNow ("WhatNow", "we", "us") is operated by Sanskar Chauhan, an individual based in Hyderabad, Telangana, India. We publish free, independent career and exam guidance for students in India.
+        body: `WhatNow ("WhatNow", "we", "us") is operated by Vasu, an individual based in Hyderabad, Telangana, India. We publish free, independent career and exam guidance for students in India.
 
 This policy explains what personal data we handle, why, and the choices you have. For the purposes of India's Digital Personal Data Protection Act, 2023 ("DPDP Act"), we act as a Data Fiduciary for the limited personal data described below.
 
@@ -127,7 +127,7 @@ To exercise any of these rights, or to raise a grievance, contact our Grievance 
       },
       grievance: {
         heading: "Grievance Redressal",
-        body: `Grievance Officer: Sanskar Chauhan
+        body: `Grievance Officer: Vasu
 Email: indiawhatnow@gmail.com
 
 If you are not satisfied with our response, you may escalate to the Data Protection Board of India.`,
