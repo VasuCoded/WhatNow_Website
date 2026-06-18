@@ -133,7 +133,7 @@ export default function ContextMenu() {
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.12, ease: "easeOut" }}
           style={{ top: `${top}px`, left: `${left}px` }}
-          className="fixed z-[100] w-[210px] bg-white/70 backdrop-blur-md border border-slate-200/80 shadow-[0_12px_45px_rgba(0,0,0,0.12)] rounded-2xl p-1.5 select-none"
+          className="fixed z-[100] w-[210px] bg-white/70 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-700/80 shadow-[0_12px_45px_rgba(0,0,0,0.12)] dark:shadow-black/50 rounded-2xl p-1.5 select-none"
         >
           {/* Navigation Options */}
           <button
@@ -141,7 +141,7 @@ export default function ContextMenu() {
               router.back();
               setIsOpen(false);
             }}
-            className="w-full text-left hover:bg-primary/5 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 cursor-pointer"
+            className="w-full text-left hover:bg-primary/5 dark:hover:bg-primary/15 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer"
           >
             <Icon icon="solar:arrow-left-bold-duotone" className="w-4 h-4 text-slate-400 group-hover:text-primary" />
             <span>{t.back}</span>
@@ -152,13 +152,13 @@ export default function ContextMenu() {
               router.push("/");
               setIsOpen(false);
             }}
-            className="w-full text-left hover:bg-primary/5 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 cursor-pointer"
+            className="w-full text-left hover:bg-primary/5 dark:hover:bg-primary/15 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer"
           >
             <Icon icon="solar:home-2-bold-duotone" className="w-4 h-4 text-slate-400" />
             <span>{t.home}</span>
           </button>
 
-          <div className="h-[1px] bg-slate-100 my-1" />
+          <div className="h-[1px] bg-slate-100 dark:bg-slate-700/60 my-1" />
 
           {/* Interactive Utilities */}
           <button
@@ -166,7 +166,7 @@ export default function ContextMenu() {
               setIsOpen(false);
               window.dispatchEvent(new CustomEvent("open-search"));
             }}
-            className="w-full text-left hover:bg-primary/5 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 cursor-pointer"
+            className="w-full text-left hover:bg-primary/5 dark:hover:bg-primary/15 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer"
           >
             <Icon icon="solar:magnifer-bold-duotone" className="w-4 h-4 text-slate-400" />
             <span>{t.search}</span>
@@ -174,18 +174,18 @@ export default function ContextMenu() {
 
           <button
             onClick={handleToggleLanguage}
-            className="w-full text-left hover:bg-primary/5 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 cursor-pointer"
+            className="w-full text-left hover:bg-primary/5 dark:hover:bg-primary/15 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer"
           >
             <Icon icon="solar:global-bold-duotone" className="w-4 h-4 text-slate-400" />
             <span>{t.switchLang}</span>
           </button>
 
-          <div className="h-[1px] bg-slate-100 my-1" />
+          <div className="h-[1px] bg-slate-100 dark:bg-slate-700/60 my-1" />
 
           {/* Page Actions */}
           <button
             onClick={handleScrollToTop}
-            className="w-full text-left hover:bg-primary/5 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 cursor-pointer"
+            className="w-full text-left hover:bg-primary/5 dark:hover:bg-primary/15 hover:text-primary transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer"
           >
             <Icon icon="solar:double-alt-arrow-up-bold-duotone" className="w-4 h-4 text-slate-400" />
             <span>{t.scrollToTop}</span>
@@ -196,8 +196,8 @@ export default function ContextMenu() {
             disabled={copied}
             className={`w-full text-left transition-all duration-150 rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs font-bold cursor-pointer ${
               copied 
-                ? "bg-emerald-50 text-emerald-600 border border-emerald-100/50" 
-                : "hover:bg-primary/5 hover:text-primary text-slate-700"
+                ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-800/40"
+                : "hover:bg-primary/5 dark:hover:bg-primary/15 hover:text-primary text-slate-700 dark:text-slate-200"
             }`}
           >
             {copied ? (

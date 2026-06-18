@@ -92,14 +92,14 @@ const TestimonialsColumn = (props: {
                   key={`${index}-${i}`}
                   aria-hidden={index === 1 ? "true" : "false"}
                   tabIndex={index === 1 ? -1 : 0}
-                  className="p-10 rounded-[2rem] border border-slate-200/60 backdrop-blur-md bg-white/80 hover:bg-white shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 max-w-xs w-full"
+                  className="p-10 rounded-[2rem] border border-slate-200/60 dark:border-slate-700/60 backdrop-blur-md bg-white/80 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.015)] hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/40 hover:-translate-y-1 transition-all duration-500 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 max-w-xs w-full"
                 >
                   <blockquote className="m-0 p-0">
-                    <p className="text-slate-650 leading-relaxed font-medium m-0 transition-colors duration-300">
+                    <p className="text-slate-650 dark:text-slate-300 leading-relaxed font-medium m-0 transition-colors duration-300">
                       {text}
                     </p>
                     <footer className="flex items-center gap-3 mt-6">
-                      <div className="h-10 w-10 rounded-full bg-slate-50 border border-slate-200/80 group-hover:bg-primary/5 group-hover:text-primary group-hover:border-primary/20 flex items-center justify-center text-slate-400 select-none transition-all duration-500">
+                      <div className="h-10 w-10 rounded-full bg-slate-50 dark:bg-slate-700/50 border border-slate-200/80 dark:border-slate-700 group-hover:bg-primary/5 group-hover:text-primary group-hover:border-primary/20 flex items-center justify-center text-slate-400 select-none transition-all duration-500">
                         <Icon icon="solar:user-linear" className="w-5 h-5 transition-colors duration-500 group-hover:text-primary" />
                       </div>
                       <div className="flex flex-col">
@@ -140,10 +140,10 @@ export default function Testimonials() {
         className="container px-4 z-10 mx-auto"
       >
         <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto mb-16">
-          <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-center text-neutral-900 transition-colors">
+          <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-center text-neutral-900 dark:text-slate-100 transition-colors">
             Our students&apos; reaction
           </h2>
-          <p className="text-center mt-5 text-neutral-500 text-lg leading-relaxed max-w-sm transition-colors">
+          <p className="text-center mt-5 text-neutral-500 dark:text-slate-400 text-lg leading-relaxed max-w-sm transition-colors">
             Discover how students like you found their way with our guidance.
           </p>
         </div>

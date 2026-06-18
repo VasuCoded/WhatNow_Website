@@ -212,7 +212,7 @@ export default function SearchModal() {
       <>
         {parts.map((part, i) =>
           part.toLowerCase() === search.toLowerCase().trim() ? (
-            <span key={i} className="text-primary font-black bg-indigo-50/60 px-1.5 py-0.5 rounded">
+            <span key={i} className="text-primary font-black bg-indigo-50/60 dark:bg-primary/20 px-1.5 py-0.5 rounded">
               {part}
             </span>
           ) : (
@@ -268,13 +268,13 @@ export default function SearchModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-2xl bg-white rounded-3xl border border-slate-200/80 shadow-2xl shadow-slate-950/10 overflow-hidden flex flex-col mx-4 max-h-[70vh] z-10"
+            className="relative w-full max-w-2xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-2xl shadow-slate-950/10 dark:shadow-black/60 overflow-hidden flex flex-col mx-4 max-h-[70vh] z-10"
           >
             {/* Top theme gradient accent line */}
             <div className="h-[3px] w-full bg-gradient-to-r from-primary via-[#a855f7] to-secondary shrink-0" />
 
             {/* Input Header */}
-            <div className="flex items-center gap-3 px-6 py-5 border-b border-slate-100">
+            <div className="flex items-center gap-3 px-6 py-5 border-b border-slate-100 dark:border-slate-800">
               <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400 shrink-0" />
               <input
                 ref={inputRef}
@@ -293,19 +293,19 @@ export default function SearchModal() {
                     setQuery("");
                     setSelectedIndex(0);
                   }}
-                  className="p-1 rounded-full text-slate-400 hover:text-neutral-dark hover:bg-slate-100 transition-colors cursor-pointer"
+                  className="p-1 rounded-full text-slate-400 hover:text-neutral-dark hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                   title="Clear input"
                 >
                   <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
                 </button>
               )}
-              <span className="hidden sm:inline-block text-[9px] font-black text-slate-400 border border-slate-200/80 rounded-md px-2 py-0.5 bg-slate-50 uppercase tracking-widest shrink-0">
+              <span className="hidden sm:inline-block text-[9px] font-black text-slate-400 border border-slate-200/80 dark:border-slate-700 rounded-md px-2 py-0.5 bg-slate-50 dark:bg-slate-800 uppercase tracking-widest shrink-0">
                 ESC
               </span>
             </div>
 
             {/* Filter Tabs */}
-            <div className="flex items-center gap-6 px-6 bg-white border-b border-slate-100 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+            <div className="flex items-center gap-6 px-6 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 overflow-x-auto [&::-webkit-scrollbar]:hidden">
               {(["All", "Careers", "Exams", "Reads"] as const).map((tab) => {
                 const isActive = activeTab === tab;
                 return (
@@ -316,7 +316,7 @@ export default function SearchModal() {
                       setSelectedIndex(0);
                     }}
                     className={`relative py-3.5 text-xs font-black uppercase tracking-wider transition-colors cursor-pointer whitespace-nowrap focus:outline-none ${
-                      isActive ? "text-primary" : "text-slate-400 hover:text-slate-800"
+                      isActive ? "text-primary" : "text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
                     }`}
                   >
                     <span>{catLabels[tab]}</span>
@@ -350,8 +350,8 @@ export default function SearchModal() {
                       onMouseEnter={() => setSelectedIndex(idx)}
                       className={`flex items-start gap-4 p-3.5 rounded-2xl border transition-all select-none cursor-pointer group ${
                         isActive
-                          ? "bg-slate-50/80 border-slate-200 shadow-sm shadow-slate-100/50"
-                          : "bg-white border-transparent hover:bg-slate-50/40"
+                          ? "bg-slate-50/80 dark:bg-slate-800/70 border-slate-200 dark:border-slate-700 shadow-sm shadow-slate-100/50"
+                          : "bg-white dark:bg-transparent border-transparent hover:bg-slate-50/40 dark:hover:bg-slate-800/40"
                       } ${isComingSoon ? "opacity-75 cursor-not-allowed" : ""}`}
                     >
                       {/* Icon */}
@@ -375,7 +375,7 @@ export default function SearchModal() {
                             </span>
                           )}
                         </div>
-                        <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
                           {highlightMatch(item.description, query)}
                         </p>
                       </div>
@@ -384,7 +384,7 @@ export default function SearchModal() {
                       {!isComingSoon && (
                         <div className="self-center shrink-0">
                           {isActive ? (
-                            <div className="hidden sm:flex items-center gap-1 text-[9px] font-black uppercase text-slate-400 bg-white border border-slate-200/80 px-2 py-1 rounded-lg shadow-sm">
+                            <div className="hidden sm:flex items-center gap-1 text-[9px] font-black uppercase text-slate-400 bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 px-2 py-1 rounded-lg shadow-sm">
                               <span>{t.open}</span>
                               <kbd className="font-sans text-[8px] font-bold">↵</kbd>
                             </div>
@@ -400,7 +400,7 @@ export default function SearchModal() {
                 })
               ) : (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
-                  <div className="h-14 w-14 bg-slate-50 text-slate-300 rounded-2xl flex items-center justify-center mb-4 border border-slate-100">
+                  <div className="h-14 w-14 bg-slate-50 dark:bg-slate-800 text-slate-300 dark:text-slate-500 rounded-2xl flex items-center justify-center mb-4 border border-slate-100 dark:border-slate-700">
                     <Icon icon="solar:shield-warning-linear" className="w-7 h-7" />
                   </div>
                   <h3 className="text-base font-black text-neutral-dark mb-1">{t.noResults}</h3>
@@ -412,13 +412,13 @@ export default function SearchModal() {
             </div>
 
             {/* Bottom Keyboard Guide */}
-            <div className="hidden sm:flex items-center justify-between px-6 py-4 bg-slate-50 border-t border-slate-100 text-[10px] text-slate-400 font-bold uppercase tracking-wider select-none">
+            <div className="hidden sm:flex items-center justify-between px-6 py-4 bg-slate-50 dark:bg-slate-800/60 border-t border-slate-100 dark:border-slate-800 text-[10px] text-slate-400 font-bold uppercase tracking-wider select-none">
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1.5">
-                  <kbd className="border border-slate-200/80 bg-white rounded px-1.5 py-0.5 shadow-sm font-sans font-black text-[9px]">↑↓</kbd> {t.navigate}
+                  <kbd className="border border-slate-200/80 dark:border-slate-700 bg-white dark:bg-slate-900 rounded px-1.5 py-0.5 shadow-sm font-sans font-black text-[9px]">↑↓</kbd> {t.navigate}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <kbd className="border border-slate-200/80 bg-white rounded px-1.5 py-0.5 shadow-sm font-sans font-black text-[9px]">Enter</kbd> {t.select}
+                  <kbd className="border border-slate-200/80 dark:border-slate-700 bg-white dark:bg-slate-900 rounded px-1.5 py-0.5 shadow-sm font-sans font-black text-[9px]">Enter</kbd> {t.select}
                 </span>
               </div>
               <span className="flex items-center gap-1.5">

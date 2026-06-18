@@ -32,7 +32,7 @@ export default function NotFound() {
   };
 
   return (
-    <main className="flex-grow flex flex-col items-center justify-center bg-slate-50 min-h-[85vh] relative overflow-hidden px-6 py-12">
+    <main className="flex-grow flex flex-col items-center justify-center bg-slate-50 dark:bg-[#0B111C] min-h-[85vh] relative overflow-hidden px-6 py-12">
       {/* Background decoration */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         {/* Subtle grid pattern */}
@@ -227,7 +227,7 @@ export default function NotFound() {
           {t.title}
         </h1>
 
-        <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium mb-10 max-w-sm">
+        <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed font-medium mb-10 max-w-sm">
           {t.message}
         </p>
 
@@ -235,7 +235,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
           <Link
             href="/"
-            className="group flex items-center justify-center gap-2 bg-neutral-dark hover:bg-neutral-dark/95 border border-neutral-dark text-white rounded-2xl px-6 py-4 w-full text-sm font-black uppercase tracking-wider transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+            className="group flex items-center justify-center gap-2 bg-neutral-dark hover:bg-neutral-dark/95 dark:bg-primary dark:hover:bg-primary/90 border border-neutral-dark dark:border-primary text-white dark:text-white rounded-2xl px-6 py-4 w-full text-sm font-black uppercase tracking-wider transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
           >
             <Icon icon="solar:home-2-linear" className="w-5 h-5" />
             <span>{t.returnHome}</span>
@@ -243,7 +243,7 @@ export default function NotFound() {
 
           <button
             onClick={handleSearchTrigger}
-            className="group flex items-center justify-center gap-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-600 hover:text-slate-800 rounded-2xl px-6 py-4 w-full text-sm font-black uppercase tracking-wider transition-all shadow-sm cursor-pointer"
+            className="group flex items-center justify-center gap-2 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white rounded-2xl px-6 py-4 w-full text-sm font-black uppercase tracking-wider transition-all shadow-sm cursor-pointer"
           >
             <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors" />
             <span>{t.searchResource}</span>

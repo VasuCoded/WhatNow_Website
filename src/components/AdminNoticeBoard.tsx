@@ -21,27 +21,27 @@ const typeMeta: Record<NoticeType, { label: string; icon: string; classes: strin
   feature: {
     label: "New Feature",
     icon: "solar:magic-stick-3-bold-duotone",
-    classes: "bg-violet-50 text-violet-600 border-violet-100",
+    classes: "bg-violet-50 text-violet-600 border-violet-100 dark:bg-violet-950/40 dark:text-violet-300 dark:border-violet-900/50",
   },
   new: {
     label: "New Guide",
     icon: "solar:book-bold-duotone",
-    classes: "bg-emerald-50 text-emerald-600 border-emerald-100",
+    classes: "bg-emerald-50 text-emerald-600 border-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-900/50",
   },
   update: {
     label: "Update",
     icon: "solar:refresh-bold-duotone",
-    classes: "bg-blue-50 text-blue-600 border-blue-100",
+    classes: "bg-blue-50 text-blue-600 border-blue-100 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-900/50",
   },
   announcement: {
     label: "Announcement",
     icon: "solar:megaphone-bold-duotone",
-    classes: "bg-amber-50 text-amber-600 border-amber-100",
+    classes: "bg-amber-50 text-amber-600 border-amber-100 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-900/50",
   },
   fix: {
     label: "Fix",
     icon: "solar:bug-bold-duotone",
-    classes: "bg-rose-50 text-rose-600 border-rose-100",
+    classes: "bg-rose-50 text-rose-600 border-rose-100 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-900/50",
   },
 };
 
@@ -103,7 +103,7 @@ export default function AdminNoticeBoard() {
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 320, damping: 28 }}
             onClick={handleOpen}
-            className="fixed bottom-6 left-6 z-40 flex items-center gap-2.5 bg-white border border-slate-200 shadow-xl shadow-slate-900/10 rounded-2xl px-4 py-2.5 cursor-pointer hover:shadow-2xl hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300 group"
+            className="fixed bottom-6 left-6 z-40 flex items-center gap-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-900/10 rounded-2xl px-4 py-2.5 cursor-pointer hover:shadow-2xl hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300 group"
             title="WhatNow Updates & Changelog"
           >
             <div className="relative">
@@ -117,7 +117,7 @@ export default function AdminNoticeBoard() {
                 </span>
               )}
             </div>
-            <span className="text-xs font-black text-slate-700 group-hover:text-primary transition-colors tracking-tight">
+            <span className="text-xs font-black text-slate-700 dark:text-slate-200 group-hover:text-primary transition-colors tracking-tight">
               Site Updates
             </span>
             <Icon
@@ -147,11 +147,11 @@ export default function AdminNoticeBoard() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 40, scale: 0.97 }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
-              className="fixed bottom-6 left-6 z-50 w-full max-w-[22rem] bg-white rounded-3xl shadow-2xl shadow-slate-900/15 border border-slate-100 flex flex-col overflow-hidden"
+              className="fixed bottom-6 left-6 z-50 w-full max-w-[22rem] bg-white dark:bg-slate-900 rounded-3xl shadow-2xl shadow-slate-900/15 dark:shadow-black/60 border border-slate-100 dark:border-slate-800 flex flex-col overflow-hidden"
               style={{ maxHeight: "calc(100vh - 120px)" }}
             >
               {/* Header */}
-              <div className="px-5 pt-5 pb-4 border-b border-slate-100 flex items-center justify-between shrink-0">
+              <div className="px-5 pt-5 pb-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2.5">
                   <div className="h-9 w-9 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     <Icon icon="solar:notebook-bold-duotone" className="w-5 h-5 text-primary" />
@@ -167,7 +167,7 @@ export default function AdminNoticeBoard() {
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+                  className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
                 >
                   <Icon icon="solar:close-circle-bold" className="w-5 h-5" />
                 </button>
@@ -187,8 +187,8 @@ export default function AdminNoticeBoard() {
                       transition={{ delay: idx * 0.04 }}
                       className={`relative p-4 rounded-2xl border transition-all duration-200 ${
                         isUnread
-                          ? "bg-primary/[0.03] border-primary/20"
-                          : "bg-white border-slate-100 hover:border-slate-200"
+                          ? "bg-primary/[0.03] dark:bg-primary/10 border-primary/20 dark:border-primary/30"
+                          : "bg-white dark:bg-slate-800/50 border-slate-100 dark:border-slate-700 hover:border-slate-200 dark:hover:border-slate-600"
                       }`}
                     >
                       {/* Unread dot */}
@@ -218,7 +218,7 @@ export default function AdminNoticeBoard() {
                       </h3>
 
                       {/* Body */}
-                      <p className="text-[11.5px] text-slate-500 leading-relaxed font-medium">
+                      <p className="text-[11.5px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                         {notice.body}
                       </p>
 
@@ -239,7 +239,7 @@ export default function AdminNoticeBoard() {
               </div>
 
               {/* Footer */}
-              <div className="px-5 py-3.5 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between shrink-0">
+              <div className="px-5 py-3.5 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 flex items-center justify-between shrink-0">
                 <p className="text-[10px] text-slate-400 font-bold flex items-center gap-1">
                   <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5 text-emerald-500" />
                   Official WhatNow team updates

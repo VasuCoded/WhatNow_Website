@@ -133,10 +133,10 @@ export default function NoticeBoard() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 240 }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-[24rem] bg-white shadow-2xl z-50 flex flex-col overflow-hidden border-l border-slate-100"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[24rem] bg-white dark:bg-slate-900 shadow-2xl z-50 flex flex-col overflow-hidden border-l border-slate-100 dark:border-slate-800"
           >
             {/* Drawer Header */}
-            <div className="p-5 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
+            <div className="p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="relative flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -148,7 +148,7 @@ export default function NoticeBoard() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 text-slate-450 hover:text-neutral-dark hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
+                className="p-1.5 text-slate-450 hover:text-neutral-dark hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
               >
                 <Icon icon="solar:close-circle-bold" className="w-5.5 h-5.5" />
               </button>
@@ -159,17 +159,17 @@ export default function NoticeBoard() {
               {loading ? (
                 // Skeletons while loading
                 Array.from({ length: 4 }).map((_, idx) => (
-                  <div key={idx} className="p-4 border border-slate-100 rounded-xl space-y-2.5 animate-pulse">
-                    <div className="h-3.5 bg-slate-200 rounded w-1/3" />
-                    <div className="h-5 bg-slate-200 rounded w-full" />
-                    <div className="h-3 bg-slate-200 rounded w-5/6" />
+                  <div key={idx} className="p-4 border border-slate-100 dark:border-slate-800 rounded-xl space-y-2.5 animate-pulse">
+                    <div className="h-3.5 bg-slate-200 dark:bg-slate-700 rounded w-1/3" />
+                    <div className="h-5 bg-slate-200 dark:bg-slate-700 rounded w-full" />
+                    <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-5/6" />
                   </div>
                 ))
               ) : error ? (
                 // Error feedback block
-                <div className="p-4 border border-rose-100 bg-rose-50/30 rounded-xl text-center space-y-2">
+                <div className="p-4 border border-rose-100 dark:border-rose-900/40 bg-rose-50/30 dark:bg-rose-950/20 rounded-xl text-center space-y-2">
                   <Icon icon="solar:danger-bold" className="w-7 h-7 text-rose-500 mx-auto" />
-                  <p className="text-xs font-semibold text-rose-700">Real-time fetch issue. Showing cached guide updates.</p>
+                  <p className="text-xs font-semibold text-rose-700 dark:text-rose-300">Real-time fetch issue. Showing cached guide updates.</p>
                 </div>
               ) : null}
 
@@ -182,7 +182,7 @@ export default function NoticeBoard() {
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="p-4 bg-white border border-slate-150 rounded-xl hover:shadow-md hover:border-primary/30 transition-all duration-200 group flex flex-col gap-3 relative overflow-hidden"
+                      className="p-4 bg-white dark:bg-slate-800/50 border border-slate-150 dark:border-slate-700 rounded-xl hover:shadow-md hover:border-primary/30 transition-all duration-200 group flex flex-col gap-3 relative overflow-hidden"
                     >
                       {/* Badge / Timestamp */}
                       <div className="flex items-center justify-between gap-2">
@@ -201,7 +201,7 @@ export default function NoticeBoard() {
 
                       {/* Content image if present in media enclosure */}
                       {notice.enclosure?.link && (
-                        <div className="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 border border-slate-100">
+                        <div className="relative w-full h-32 rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
                           <img 
                             src={notice.enclosure.link} 
                             alt={notice.title}
@@ -212,7 +212,7 @@ export default function NoticeBoard() {
                       )}
 
                       {/* Description */}
-                      <p className="text-xs text-slate-500 leading-normal line-clamp-3 font-medium">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-normal line-clamp-3 font-medium">
                         {notice.description}
                       </p>
 
@@ -233,7 +233,7 @@ export default function NoticeBoard() {
             </div>
 
             {/* Panel footer */}
-            <div className="p-4 border-t border-slate-100 bg-slate-50/50 text-center">
+            <div className="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 text-center">
               <p className="text-[10px] font-bold text-slate-400 flex items-center justify-center gap-1">
                 <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5 text-emerald-500" />
                 Real-time aggregated feed from educational networks.

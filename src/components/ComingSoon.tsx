@@ -55,7 +55,7 @@ export default function ComingSoon({ pageNameEn, pageNameHi }: ComingSoonProps) 
   };
 
   return (
-    <div className="relative overflow-hidden bg-slate-50 min-h-[85vh] flex items-center justify-center py-20 px-6 sm:px-8">
+    <div className="relative overflow-hidden bg-slate-50 dark:bg-[#0B111C] min-h-[85vh] flex items-center justify-center py-20 px-6 sm:px-8">
       {/* Blueprint Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <svg className="absolute inset-0 w-full h-full opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2500/svg">
@@ -110,12 +110,12 @@ export default function ComingSoon({ pageNameEn, pageNameHi }: ComingSoonProps) 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-neutral-dark tracking-tight leading-tight mb-6">
           {t.title} <span className="text-primary block sm:inline">{pageTitleName}</span>
         </h1>
-        <p className="text-sm sm:text-base text-slate-550 leading-relaxed font-semibold mb-8 max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-550 dark:text-slate-400 leading-relaxed font-semibold mb-8 max-w-xl mx-auto">
           {t.desc}
         </p>
 
         {/* Prioritize Feature Callout */}
-        <div className="bg-white border border-slate-200/80 rounded-3xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.015)] max-w-lg mx-auto mb-10">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/70 rounded-3xl p-6 shadow-[0_8px_30px_rgba(0,0,0,0.015)] max-w-lg mx-auto mb-10">
           <AnimatePresence mode="wait">
             {!requested ? (
               <motion.button
@@ -141,7 +141,7 @@ export default function ComingSoon({ pageNameEn, pageNameHi }: ComingSoonProps) 
                 key="success-msg"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-emerald-50 border border-emerald-100/50 text-emerald-700 text-sm font-bold justify-center"
+                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100/50 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-300 text-sm font-bold justify-center"
               >
                 <Icon icon="solar:check-circle-bold-duotone" className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>{t.prioritizedSuccess}</span>
@@ -154,7 +154,7 @@ export default function ComingSoon({ pageNameEn, pageNameHi }: ComingSoonProps) 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/"
-            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-bold transition-all shadow-sm flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold transition-all shadow-sm flex items-center justify-center gap-2"
           >
             <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
             {t.goHome}
@@ -169,11 +169,11 @@ export default function ComingSoon({ pageNameEn, pageNameHi }: ComingSoonProps) 
         </div>
 
         {/* Contributors info */}
-        <div className="mt-16 pt-8 border-t border-slate-200/60 max-w-md mx-auto">
-          <h4 className="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">
+        <div className="mt-16 pt-8 border-t border-slate-200/60 dark:border-slate-700/60 max-w-md mx-auto">
+          <h4 className="text-xs font-extrabold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
             {t.contributorsNeeded}
           </h4>
-          <p className="text-xs text-slate-500 font-semibold leading-relaxed mb-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed mb-4">
             {t.contributorsDesc}
           </p>
           <Link
