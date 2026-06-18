@@ -82,20 +82,13 @@ export default function Hero() {
                 {/* Right Content - Image */}
                 <div className="order-2 lg:order-2 w-full flex justify-center relative">
                     <div className="relative w-full max-w-[550px] lg:max-w-[750px] aspect-[4/3] lg:aspect-auto lg:h-[600px]">
-                        {/* Light-mode hero (default, LCP-priority) — transparent PNG blends on the white page */}
+                        {/* Single transparent hero — blends on both light and dark backgrounds. */}
                         <Image
                             src="/transparent-hero.png"
                             alt={t.alt}
                             fill
                             priority
-                            className="object-contain object-center lg:object-right block dark:hidden"
-                        />
-                        {/* Dark-mode hero. Only loads when dark mode is active (display:none until then). */}
-                        <Image
-                            src="/hero-dark.png"
-                            alt={t.alt}
-                            fill
-                            className="object-contain object-center lg:object-right hidden dark:block"
+                            className="object-contain object-center lg:object-right"
                         />
                     </div>
                 </div>
