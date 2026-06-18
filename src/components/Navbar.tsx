@@ -230,9 +230,9 @@ export default function Navbar() {
   ];
 
   const readsItems = [
-    { label: t.iitDrop, status: "coming-soon" },
-    { label: t.parentConvince, status: "coming-soon" },
-    { label: t.metroMove, status: "coming-soon" }
+    { href: "/reads/iit-drop-year", label: t.iitDrop, status: "ready" },
+    { href: "/reads/talk-creative-fields", label: t.parentConvince, status: "ready" },
+    { href: "/reads/transitioning-cities", label: t.metroMove, status: "ready" }
   ];
 
   return (
@@ -447,17 +447,21 @@ export default function Navbar() {
                       className="absolute left-1/2 -translate-x-1/2 top-full w-[340px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-xl shadow-slate-900/8 dark:shadow-black/40 p-5 z-50 flex flex-col"
                     >
                       <span className="text-[10px] font-semibold uppercase text-slate-400 tracking-[0.12em] block mb-3">
-                        {t.comingSoonLabel}
+                        {t.activeGuidesHeader}
                       </span>
-                      <div className="space-y-1.5 mb-5">
-                        {readsItems.map((item, index) => (
-                          <div 
-                            key={index}
-                            className="px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 flex items-center justify-between gap-2"
+                      <div className="space-y-0.5 mb-5">
+                        {readsItems.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href || "#"}
+                            className="flex items-center justify-between gap-2 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-primary/[0.06] dark:hover:bg-primary/[0.15] transition-all duration-150 group"
                           >
-                            <span className="text-[12px] font-medium text-slate-500 leading-tight">{item.label}</span>
-                            <span className="text-[9px] font-semibold uppercase text-slate-400 tracking-wide shrink-0">{language === "hi" ? "जल्द" : "Soon"}</span>
-                          </div>
+                            <div className="flex items-center gap-3 group-hover:translate-x-0.5 transition-transform duration-150">
+                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0" />
+                              <span className="font-medium text-[13px] leading-tight">{item.label}</span>
+                            </div>
+                            <Icon icon="ph:arrow-right" className="w-3 h-3 opacity-0 group-hover:opacity-100 text-primary -translate-x-1 group-hover:translate-x-0 transition-all duration-150 shrink-0" />
+                          </Link>
                         ))}
                       </div>
 
@@ -851,16 +855,16 @@ export default function Navbar() {
                               {t.allReads} →
                             </Link>
 
-                            <div className="pt-2">
-                              <span className="px-3 text-[9px] font-black uppercase text-slate-400 tracking-wider block mb-1">
-                                {t.comingSoonLabel}
-                              </span>
-                              {readsItems.map((item, idx) => (
-                                <div key={idx} className="px-3 py-1.5 text-xs text-slate-400 font-semibold italic">
-                                  {item.label}
-                                </div>
-                              ))}
-                            </div>
+                            {readsItems.filter(i => i.status === "ready").map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href || "#"}
+                                onClick={() => setIsOpen(false)}
+                                className="block px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl"
+                              >
+                                {item.label}
+                              </Link>
+                            ))}
                           </div>
                         </motion.div>
                       )}
