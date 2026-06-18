@@ -621,7 +621,7 @@ export default function ExamsPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* ─── HERO / HEADER ─── */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0E111E] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         {/* SVG Hero Background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Subtle grid pattern */}
@@ -994,7 +994,7 @@ export default function ExamsPage() {
       </section>
 
       {/* ─── WHY OUR GUIDES ARE DIFFERENT ─── */}
-      <section className="bg-white dark:bg-[#0B0F1A] border-y border-slate-200/60 dark:border-slate-700 py-20 md:py-28 px-6 lg:px-12">
+      <section className="bg-white dark:bg-[#0E111E] border-y border-slate-200/60 dark:border-slate-700 py-20 md:py-28 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-4">{t.operateTitle}</h2>

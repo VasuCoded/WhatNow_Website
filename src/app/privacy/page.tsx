@@ -178,7 +178,7 @@ export default function PrivacyPage() {
   const en = translations.en;
 
   return (
-    <main className="flex-grow bg-white dark:bg-[#0B0F1A]">
+    <main className="flex-grow bg-white dark:bg-[#0E111E]">
       {/* Hero */}
       <section className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-[#0B111C] pt-16 pb-12 px-6">
         <div className="max-w-4xl mx-auto">

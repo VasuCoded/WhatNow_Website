@@ -30,10 +30,10 @@ export default function Marquee() {
   );
 
   return (
-    <div className="relative w-full overflow-hidden bg-white dark:bg-[#0B0F1A] py-6 lg:py-8 flex items-center">
+    <div className="relative w-full overflow-hidden bg-white dark:bg-[#0E111E] py-6 lg:py-8 flex items-center">
       {/* Gradient Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white dark:from-[#0B0F1A] to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white dark:from-[#0B0F1A] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white dark:from-[#0E111E] to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white dark:from-[#0E111E] to-transparent z-10 pointer-events-none"></div>
 
       <ScrollVelocity
         texts={[marqueeContent]}

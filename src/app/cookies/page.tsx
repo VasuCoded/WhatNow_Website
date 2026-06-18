@@ -11,7 +11,7 @@ export default function CookiesRedirect() {
   }, [router]);
 
   return (
-    <main className="flex-grow bg-white dark:bg-[#0B0F1A] flex items-center justify-center py-20 px-6">
+    <main className="flex-grow bg-white dark:bg-[#0E111E] flex items-center justify-center py-20 px-6">
       <p className="text-slate-500 dark:text-slate-400 text-sm font-semibold">
         Redirecting to{" "}
         <a href="/privacy#cookies" className="text-[#5563ED] underline">

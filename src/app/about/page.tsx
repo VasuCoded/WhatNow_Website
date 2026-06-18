@@ -384,7 +384,7 @@ export default function AboutPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* ─── HERO SECTION ─── */}
-      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-28 pb-20 md:pt-36 md:pb-28">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0E111E] border-b border-slate-200/60 dark:border-slate-700 pt-28 pb-20 md:pt-36 md:pb-28">
         {/* SVG Hero Background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Subtle grid pattern */}
@@ -565,7 +565,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="py-20 md:py-28 px-6 lg:px-12 bg-white dark:bg-[#0B0F1A]"
+        className="py-20 md:py-28 px-6 lg:px-12 bg-white dark:bg-[#0E111E]"
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
@@ -821,7 +821,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="py-20 md:py-28 px-6 lg:px-12 bg-white dark:bg-[#0B0F1A] border-b border-slate-200/50 dark:border-slate-800"
+        className="py-20 md:py-28 px-6 lg:px-12 bg-white dark:bg-[#0E111E] border-b border-slate-200/50 dark:border-slate-800"
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-24 items-center">
           <div className="flex-1">

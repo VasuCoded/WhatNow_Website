@@ -25,7 +25,7 @@
   drive the body, overriding them here flips headings + canvas everywhere.
 */
 .dark {
-  --color-background: #0B0F1A;
+  --color-background: #0E111E;
   --color-foreground: #E5E7EB;
   --color-neutral-dark: #EEF2F7;
   --color-bg-tint: #0E1422;

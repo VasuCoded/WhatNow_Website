@@ -42,7 +42,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 dark:bg-[#0B0F1A] dark:text-slate-100 font-medium pt-20">
+      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 dark:bg-[#0E111E] dark:text-slate-100 font-medium pt-20">
         <ThemeProvider>
           <LanguageProvider>
             <Navbar />

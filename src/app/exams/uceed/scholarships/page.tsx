@@ -14,7 +14,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0E111E] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     {/* SVG Hero Background */}
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       {/* Subtle grid pattern */}
