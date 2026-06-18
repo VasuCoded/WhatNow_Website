@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg
         className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
@@ -52,13 +52,13 @@ const PageHeader = ({
       </svg>
     </div>
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
         {title}
       </h1>
-      <div className="text-sm font-bold text-slate-400">
+      <div className="text-sm font-bold text-slate-400 dark:text-slate-400">
         Last reviewed: June 2026 · Researched from first-hand accounts of serving and trainee mariners, plus DG Shipping &amp; BIMCO/ICS data.
       </div>
     </div>
@@ -74,8 +74,8 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
-    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 dark:text-slate-800 leading-none select-none z-0">
       {number}
     </div>
     <div className="relative z-10">
@@ -92,7 +92,7 @@ const Section = ({
 
 export default function MerchantNavyEntryRoutesPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="Entry Routes — DNS vs B.Sc vs B.Tech vs GME"
         breadcrumbs={
@@ -111,65 +111,65 @@ export default function MerchantNavyEntryRoutesPage() {
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24 mt-12">
 
         <Section number="01" title="The first real decision: Deck or Engine">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Before you pick a course, pick a side. <strong>Deck officers</strong> navigate the ship, plan passages, and run cargo and safety operations; the top of the ladder is Captain (Master). <strong>Marine engineers</strong> run and maintain the engines, electrical and machinery systems; the top is Chief Engineer. Both command, both are paid comparably at a given rank.
           </p>
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl">
-            <p className="text-slate-800 leading-relaxed font-medium">
-              <strong className="font-black text-orange-700">The quiet tiebreaker:</strong> The engine side has wider options ashore if you ever want off the ships — a mechanical/technical skillset transfers to far more shore jobs than pure navigation does.
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
+              <strong className="font-black text-orange-700 dark:text-orange-300">The quiet tiebreaker:</strong> The engine side has wider options ashore if you ever want off the ships — a mechanical/technical skillset transfers to far more shore jobs than pure navigation does.
             </p>
           </div>
         </Section>
 
         <Section number="02" title="The four routes, compared">
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
             All four lead to the same officer ranks and the same DG Shipping competency exams. DNS gets you to sea — and to earning — fastest. The degree routes cost more years but leave you with a full degree in hand if you decide the sea isn&apos;t for you.
           </p>
 
-          <div className="overflow-x-auto border border-slate-200 rounded-xl">
-            <table className="w-full text-left border-collapse min-w-[720px] bg-white">
-              <thead className="bg-slate-50">
+          <div className="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl">
+            <table className="w-full text-left border-collapse min-w-[720px] bg-white dark:bg-slate-800/50">
+              <thead className="bg-slate-50 dark:bg-slate-800/40">
                 <tr>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Route</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Enter after</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Length</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Degree you end with</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Side</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Sponsorship</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Route</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Enter after</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Length</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Degree you end with</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Side</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Sponsorship</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 font-black text-slate-700 border-b border-slate-100">DNS<br /><span className="font-medium text-slate-500 text-sm">(Diploma in Nautical Science)</span></td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Class 12 (PCM)</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">1 yr ashore + 18 mo sea</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">B.Sc Nautical Science (awarded after sea time + IMU sems)</td>
-                  <td className="p-4 text-orange-600 border-b border-slate-100 font-black">Deck</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Mandatory (by rule)</td>
+                  <td className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800">DNS<br /><span className="font-medium text-slate-500 dark:text-slate-400 text-sm">(Diploma in Nautical Science)</span></td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Class 12 (PCM)</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">1 yr ashore + 18 mo sea</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">B.Sc Nautical Science (awarded after sea time + IMU sems)</td>
+                  <td className="p-4 text-orange-600 border-b border-slate-100 dark:border-slate-800 font-black">Deck</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Mandatory (by rule)</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-black text-slate-700 border-b border-slate-100">B.Sc Nautical Science</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Class 12 (PCM)</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">3 yr</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">B.Sc Nautical Science</td>
-                  <td className="p-4 text-orange-600 border-b border-slate-100 font-black">Deck</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Helpful, not required</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Class 12 (PCM)</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">3 yr</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">B.Sc Nautical Science</td>
+                  <td className="p-4 text-orange-600 border-b border-slate-100 dark:border-slate-800 font-black">Deck</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Helpful, not required</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-black text-slate-700 border-b border-slate-100">B.Tech Marine Engineering</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Class 12 (PCM)</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">4 yr</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">B.Tech Marine Engineering</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Class 12 (PCM)</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">4 yr</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">B.Tech Marine Engineering</td>
                   <td className="p-4 text-orange-600 border-b border-slate-100 font-black">Engine</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Helpful, not required</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Helpful, not required</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-black text-slate-700">GME<br /><span className="font-medium text-slate-500 text-sm">(Graduate Marine Engineering)</span></td>
-                  <td className="p-4 text-slate-600 font-medium">A Mechanical / Naval-Arch B.E./B.Tech</td>
-                  <td className="p-4 text-slate-600 font-medium">1 yr</td>
-                  <td className="p-4 text-slate-600 font-medium">— (conversion course; you already hold a degree)</td>
+                  <td className="p-4 font-black text-slate-700 dark:text-slate-300">GME<br /><span className="font-medium text-slate-500 dark:text-slate-400 text-sm">(Graduate Marine Engineering)</span></td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 font-medium">A Mechanical / Naval-Arch B.E./B.Tech</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 font-medium">1 yr</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 font-medium">— (conversion course; you already hold a degree)</td>
                   <td className="p-4 text-orange-600 font-black">Engine</td>
-                  <td className="p-4 text-slate-600 font-medium">Often via institute placement</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 font-medium">Often via institute placement</td>
                 </tr>
               </tbody>
             </table>
@@ -177,11 +177,11 @@ export default function MerchantNavyEntryRoutesPage() {
         </Section>
 
         <Section number="03" title="The route nobody tells you about: regular Mechanical + GME">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             If you are <em>not</em> certain about the sea — and most 17-year-olds shouldn&apos;t be — the smartest hedge is rarely sold to you, because no maritime academy makes money from it: do a normal <strong>B.Tech in Mechanical Engineering</strong> (not marine) at a good college, then convert with a <strong>1-year GME</strong> if and when you still want the sea.
           </p>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-8">
+          <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 mb-8">
             <h3 className="font-black text-xl text-neutral-dark mb-4">Why it&apos;s the strongest fallback:</h3>
             <ul className="space-y-3">
               {[
@@ -189,7 +189,7 @@ export default function MerchantNavyEntryRoutesPage() {
                 "You can still become a marine engineer through one extra year (GME → MEO Class IV → 4th Engineer).",
                 "You keep the decision open until you're older and actually informed, instead of locking into the sea at 17.",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-slate-700 font-medium">
+                <li key={item} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="text-orange-500 font-black mt-0.5 flex-shrink-0">›</span>
                   <span>{item}</span>
                 </li>
@@ -197,38 +197,38 @@ export default function MerchantNavyEntryRoutesPage() {
             </ul>
           </div>
 
-          <p className="text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             The trade-off vs a marine-only degree: you spend one extra year overall (4+1 vs 4), and a dedicated marine campus gives more hands-on shipboard exposure earlier. Marine-academy life is also closer to a quasi-military setup — uniforms, strict routine, limited social life — which suits some and not others. If you are <strong>certain</strong> about the sea and want the fastest start, DNS or B.Tech Marine is more direct. If you want an exit hatch, Mechanical + GME is hard to beat.
           </p>
         </Section>
 
         <Section number="04" title="Sponsorship: what it is, why it matters">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             A <strong>company-sponsored cadetship</strong> means a shipping company commits to taking you on board <em>before or at the time of admission</em> — your sea berth (the hard part) is secured up front. For the <strong>DNS route this isn&apos;t optional: a sponsorship is legally required to join.</strong> Some institutes are owned by shipping companies and pre-place every cadet; others run campus recruitment.
           </p>
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl">
-            <p className="text-slate-800 leading-relaxed font-medium">
-              <strong className="font-black text-orange-700">Treat sponsorship as the thing to chase, not the college brochure.</strong> Without sponsorship, you complete the course and then have to find a berth yourself — manageable from a top institute, genuinely risky from a low-tier one. A course completed with no onboard placement is the single most common way this plan fails.
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
+              <strong className="font-black text-orange-700 dark:text-orange-300">Treat sponsorship as the thing to chase, not the college brochure.</strong> Without sponsorship, you complete the course and then have to find a berth yourself — manageable from a top institute, genuinely risky from a low-tier one. A course completed with no onboard placement is the single most common way this plan fails.
             </p>
           </div>
         </Section>
 
         <Section number="05" title="Eligibility snapshot">
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
             Cut-offs and age limits vary by institute and year — confirm against the IMU CET notification and the institute&apos;s DG-approved prospectus. See the{" "}
             <Link href="/exams/imu-cet" className="text-orange-600 hover:underline font-bold">IMU CET guide →</Link>{" "}
             for the exam and eligibility detail.
           </p>
 
-          <div className="overflow-x-auto border border-slate-200 rounded-xl">
-            <table className="w-full text-left border-collapse min-w-[640px] bg-white">
-              <thead className="bg-slate-50">
+          <div className="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl">
+            <table className="w-full text-left border-collapse min-w-[640px] bg-white dark:bg-slate-800/50">
+              <thead className="bg-slate-50 dark:bg-slate-800/40">
                 <tr>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Route</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Academics</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">English</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Age (typical)</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Medical</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Route</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Academics</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">English</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Age (typical)</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Medical</th>
                 </tr>
               </thead>
               <tbody>
@@ -239,11 +239,11 @@ export default function MerchantNavyEntryRoutesPage() {
                   ["GME", "Mech/Naval-Arch degree, ~50–55% final year", "≥50% in 10+2", "≤28", "DG medical"],
                 ].map(([route, acad, eng, age, med], i, arr) => (
                   <tr key={route}>
-                    <td className={`p-4 font-black text-slate-700 ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{route}</td>
-                    <td className={`p-4 text-slate-600 font-medium ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{acad}</td>
-                    <td className={`p-4 text-slate-600 font-medium ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{eng}</td>
-                    <td className={`p-4 text-slate-600 font-medium ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{age}</td>
-                    <td className={`p-4 text-slate-600 font-medium ${i < arr.length - 1 ? "border-b border-slate-100" : ""}`}>{med}</td>
+                    <td className={`p-4 font-black text-slate-700 dark:text-slate-300 ${i < arr.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>{route}</td>
+                    <td className={`p-4 text-slate-600 dark:text-slate-400 font-medium ${i < arr.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>{acad}</td>
+                    <td className={`p-4 text-slate-600 dark:text-slate-400 font-medium ${i < arr.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>{eng}</td>
+                    <td className={`p-4 text-slate-600 dark:text-slate-400 font-medium ${i < arr.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>{age}</td>
+                    <td className={`p-4 text-slate-600 dark:text-slate-400 font-medium ${i < arr.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>{med}</td>
                   </tr>
                 ))}
               </tbody>
@@ -260,9 +260,9 @@ export default function MerchantNavyEntryRoutesPage() {
           </div>
         </Section>
 
-        <div className="pt-8 border-t border-slate-200">
-          <p className="text-sm text-slate-500 font-medium">
-            <strong className="text-slate-700">See also:</strong>{" "}
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-700">
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <strong className="text-slate-700 dark:text-slate-300">See also:</strong>{" "}
             <Link href="/careers/merchant-navy/colleges" className="text-orange-600 hover:underline font-bold">Colleges & DG Approval →</Link>{" "}
             ·{" "}
             <Link href="/careers/merchant-navy/salary-ranks" className="text-orange-600 hover:underline font-bold">Salary, Ranks & Progression →</Link>{" "}

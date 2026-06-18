@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -45,7 +45,7 @@ const PageHeader = ({
     </div>
 
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
@@ -64,7 +64,7 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
     <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
       {number}
     </div>
@@ -82,7 +82,7 @@ const Section = ({
 
 export default function ClatResourcesPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="CLAT — Self-Study Blueprint"
         breadcrumbs={
@@ -102,28 +102,28 @@ export default function ClatResourcesPage() {
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
         <Section number="01" title="Self-Prep Books Worth Buying">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Instead of spending ₹1L on corporate coaching packages, you can build legal reasoning and analytical speed using standard publications:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-xs">
+            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-xs">
               <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">Legal Reasoning</span>
               <h4 className="font-black text-lg text-neutral-dark mb-2">Legal Awareness & Reasoning</h4>
-              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
                 By AP Bhardwaj. Exceptional guide for learning legal terminology, constitution basics, torts, contracts, and solving previous years' legal problem passages.
               </p>
             </div>
-            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-xs">
+            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-xs">
               <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">Logical Reasoning</span>
               <h4 className="font-black text-lg text-neutral-dark mb-2">Analytical Reasoning</h4>
-              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
                 By MK Pandey. Highly recommended for critical logical analysis: identifying arguments, premises, fallacies, and assumptions tested in the logic section.
               </p>
             </div>
-            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-xs">
+            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-xs">
               <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">Quantitative Aptitude</span>
               <h4 className="font-black text-lg text-neutral-dark mb-2">Quantitative Aptitude</h4>
-              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
                 By RS Aggarwal. Practice data interpretation chapters (graphs, tables, pie charts) which make up 10% of the CLAT paper.
               </p>
             </div>
@@ -131,41 +131,41 @@ export default function ClatResourcesPage() {
         </Section>
 
         <Section number="02" title="The Daily Reading Ritual">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Since CLAT consists of ~15,000 words across all passages to read in 120 minutes, your **reading speed is your primary asset**.
           </p>
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 space-y-4">
+          <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 space-y-4">
             <h4 className="font-black text-xl text-neutral-dark">How to build speed:</h4>
-            <p className="text-slate-650 leading-relaxed font-semibold">
+            <p className="text-slate-650 dark:text-slate-300 leading-relaxed font-semibold">
               Read the Editorial and Opinion pages of **The Hindu** or **The Indian Express** daily. Highlight the central argument, trace how the author supports it, and summarize the passage in two sentences. This directly mirrors the reading comprehension and logical reasoning questions.
             </p>
           </div>
         </Section>
 
         <Section number="03" title="Mock Log & Error Analysis">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Attempt at least 30 full-length mocks. For each mock, maintain an error tracker separating mistakes into:
           </p>
           <div className="space-y-4">
-            <div className="border border-slate-200 p-4 rounded-xl bg-white flex items-start gap-4">
+            <div className="border border-slate-200 dark:border-slate-700 p-4 rounded-xl bg-white dark:bg-slate-800/50 flex items-start gap-4">
               <span className="h-6 w-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-black shrink-0 text-xs">A</span>
               <div>
-                <h5 className="font-black text-slate-700">Conceptual Errors</h5>
-                <p className="text-xs text-slate-500 font-semibold">You didn't know the legal principle (e.g. difference between theft and extortion). Revise theory.</p>
+                <h5 className="font-black text-slate-700 dark:text-slate-300">Conceptual Errors</h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">You didn't know the legal principle (e.g. difference between theft and extortion). Revise theory.</p>
               </div>
             </div>
-            <div className="border border-slate-200 p-4 rounded-xl bg-white flex items-start gap-4">
+            <div className="border border-slate-200 dark:border-slate-700 p-4 rounded-xl bg-white dark:bg-slate-800/50 flex items-start gap-4">
               <span className="h-6 w-6 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-black shrink-0 text-xs">B</span>
               <div>
-                <h5 className="font-black text-slate-700">Silly Mistakes</h5>
-                <p className="text-xs text-slate-500 font-semibold">Misread the word "NOT" in the option. Focus on deliberate, calm reading during tests.</p>
+                <h5 className="font-black text-slate-700 dark:text-slate-300">Silly Mistakes</h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">Misread the word "NOT" in the option. Focus on deliberate, calm reading during tests.</p>
               </div>
             </div>
-            <div className="border border-slate-200 p-4 rounded-xl bg-white flex items-start gap-4">
+            <div className="border border-slate-200 dark:border-slate-700 p-4 rounded-xl bg-white dark:bg-slate-800/50 flex items-start gap-4">
               <span className="h-6 w-6 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center font-black shrink-0 text-xs">C</span>
               <div>
-                <h5 className="font-black text-slate-700">Time Penalties</h5>
-                <p className="text-xs text-slate-500 font-semibold">Stuck on a GK question for 3 minutes. Practice immediate skipping; you cannot afford to waste seconds.</p>
+                <h5 className="font-black text-slate-700 dark:text-slate-300">Time Penalties</h5>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold">Stuck on a GK question for 3 minutes. Practice immediate skipping; you cannot afford to waste seconds.</p>
               </div>
             </div>
           </div>

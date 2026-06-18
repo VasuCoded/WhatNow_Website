@@ -178,17 +178,17 @@ export default function PrivacyPage() {
   const en = translations.en;
 
   return (
-    <main className="flex-grow bg-white">
+    <main className="flex-grow bg-white dark:bg-[#0B0F1A]">
       {/* Hero */}
-      <section className="border-b border-slate-200 bg-slate-50 pt-16 pb-12 px-6">
+      <section className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-[#0B111C] pt-16 pb-12 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#5563ED] mb-3">
             {t.pageLabel}
           </p>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             {t.title}
           </h1>
-          <p className="text-sm text-slate-500 font-medium">{t.lastUpdated}</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{t.lastUpdated}</p>
         </div>
       </section>
 
@@ -196,7 +196,7 @@ export default function PrivacyPage() {
       <div className="max-w-4xl mx-auto px-6 py-12 md:py-16">
         {/* Hindi pending notice */}
         {t.pendingNotice && (
-          <div className="mb-10 rounded-2xl border border-amber-200 bg-amber-50 px-6 py-4 text-sm text-amber-800 font-semibold">
+          <div className="mb-10 rounded-2xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/30 px-6 py-4 text-sm text-amber-800 dark:text-amber-300 font-semibold">
             {t.pendingNotice}
           </div>
         )}
@@ -205,7 +205,7 @@ export default function PrivacyPage() {
           {/* Table of contents */}
           <aside className="lg:w-56 shrink-0">
             <nav className="lg:sticky lg:top-28">
-              <p className="text-xs font-extrabold tracking-[0.15em] uppercase text-slate-400 mb-4">
+              <p className="text-xs font-extrabold tracking-[0.15em] uppercase text-slate-400 dark:text-slate-400 mb-4">
                 Contents
               </p>
               <ul className="space-y-2">
@@ -213,7 +213,7 @@ export default function PrivacyPage() {
                   <li key={item.id}>
                     <a
                       href={`#${item.id}`}
-                      className="text-sm text-slate-500 hover:text-[#5563ED] font-semibold transition-colors"
+                      className="text-sm text-slate-500 dark:text-slate-400 hover:text-[#5563ED] font-semibold transition-colors"
                     >
                       {item.label}
                     </a>
@@ -227,11 +227,11 @@ export default function PrivacyPage() {
           <article className="flex-1 min-w-0 prose-legal">
             {/* Overview */}
             <section id="overview" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.overview.heading}
               </h2>
               {en.sections.overview.body.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                <p key={i} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                   {para}
                 </p>
               ))}
@@ -239,51 +239,51 @@ export default function PrivacyPage() {
 
             {/* What We Collect */}
             <section id="what-we-collect" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.whatWeCollect.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 font-medium">
                 {en.sections.whatWeCollect.intro}
               </p>
               <ul className="space-y-4 mb-6">
                 {en.sections.whatWeCollect.items.map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
                     <span className="mt-1 h-2 w-2 rounded-full bg-[#5563ED] shrink-0" />
-                    <span className="text-sm text-slate-600 font-medium leading-relaxed">
-                      <strong className="text-slate-800 font-black">{item.label}</strong>{" "}
+                    <span className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                      <strong className="text-slate-800 dark:text-slate-100 font-black">{item.label}</strong>{" "}
                       — {item.detail}
                     </span>
                   </li>
                 ))}
               </ul>
-              <div className="rounded-2xl border border-emerald-100 bg-emerald-50 px-5 py-4 text-sm text-emerald-800 font-semibold">
+              <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/30 px-5 py-4 text-sm text-emerald-800 dark:text-emerald-300 font-semibold">
                 {en.sections.whatWeCollect.noCollect}
               </div>
             </section>
 
             {/* Why We Process */}
             <section id="why-we-process" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.whyWeProcess.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {en.sections.whyWeProcess.body}
               </p>
             </section>
 
             {/* Children */}
             <section id="children" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.children.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                 {en.sections.children.intro}
               </p>
               <ul className="space-y-3">
                 {en.sections.children.items.map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
                     <span className="mt-1 h-2 w-2 rounded-full bg-[#ff5a1f] shrink-0" />
-                    <span className="text-sm text-slate-600 font-medium leading-relaxed">
+                    <span className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
                       {item}
                     </span>
                   </li>
@@ -293,13 +293,13 @@ export default function PrivacyPage() {
 
             {/* Cookies */}
             <section id="cookies" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.cookies.heading}
               </h2>
               {en.sections.cookies.body.split("\n\n").map((para, i) => (
                 <p
                   key={i}
-                  className="text-slate-600 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
+                  className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
                 >
                   {para}
                 </p>
@@ -308,13 +308,13 @@ export default function PrivacyPage() {
 
             {/* Third Parties */}
             <section id="third-parties" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.thirdParties.heading}
               </h2>
               {en.sections.thirdParties.body.split("\n\n").map((para, i) => (
                 <p
                   key={i}
-                  className="text-slate-600 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
+                  className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
                 >
                   {para}
                 </p>
@@ -323,13 +323,13 @@ export default function PrivacyPage() {
 
             {/* Retention */}
             <section id="retention" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.retention.heading}
               </h2>
               {en.sections.retention.body.split("\n\n").map((para, i) => (
                 <p
                   key={i}
-                  className="text-slate-600 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
+                  className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
                 >
                   {para}
                 </p>
@@ -338,23 +338,23 @@ export default function PrivacyPage() {
 
             {/* Security */}
             <section id="security" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.security.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {en.sections.security.body}
               </p>
             </section>
 
             {/* Your Rights */}
             <section id="your-rights" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.yourRights.heading}
               </h2>
               {en.sections.yourRights.body.split("\n\n").map((para, i) => (
                 <p
                   key={i}
-                  className="text-slate-600 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
+                  className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium whitespace-pre-line"
                 >
                   {para}
                 </p>
@@ -363,12 +363,12 @@ export default function PrivacyPage() {
 
             {/* Grievance */}
             <section id="grievance" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.grievance.heading}
               </h2>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5">
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 px-6 py-5">
                 {en.sections.grievance.body.split("\n").map((line, i) => (
-                  <p key={i} className="text-sm text-slate-700 font-semibold leading-relaxed">
+                  <p key={i} className="text-sm text-slate-700 dark:text-slate-300 font-semibold leading-relaxed">
                     {line.includes("indiawhatnow@gmail.com") ? (
                       <>
                         {line.split("indiawhatnow@gmail.com")[0]}
@@ -390,32 +390,32 @@ export default function PrivacyPage() {
 
             {/* International Transfers */}
             <section id="transfers" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.transfers.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {en.sections.transfers.body}
               </p>
             </section>
 
             {/* Changes */}
             <section id="changes" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.changes.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {en.sections.changes.body}
               </p>
             </section>
 
             {/* Contact */}
             <section id="contact" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.contact.heading}
               </h2>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5">
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 px-6 py-5">
                 {en.sections.contact.body.split("\n").map((line, i) => (
-                  <p key={i} className="text-sm text-slate-700 font-semibold leading-relaxed">
+                  <p key={i} className="text-sm text-slate-700 dark:text-slate-300 font-semibold leading-relaxed">
                     {line.includes("indiawhatnow@gmail.com") ? (
                       <>
                         {line.split("indiawhatnow@gmail.com")[0]}
@@ -435,7 +435,7 @@ export default function PrivacyPage() {
             </section>
 
             {/* Nav back */}
-            <div className="mt-12 pt-8 border-t border-slate-100 flex gap-4 flex-wrap">
+            <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex gap-4 flex-wrap">
               <Link
                 href="/terms"
                 className="text-sm font-black text-[#5563ED] hover:underline"

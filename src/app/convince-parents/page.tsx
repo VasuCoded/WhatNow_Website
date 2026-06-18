@@ -262,8 +262,8 @@ export default function ConvinceParentsPage() {
       : objectionsData.filter((obj) => obj.field === selectedField);
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
@@ -281,49 +281,49 @@ export default function ConvinceParentsPage() {
         </div>
 
         <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-black uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 text-xs font-black uppercase tracking-wider mb-6">
             <Icon icon="solar:users-group-two-rounded-bold" className="w-4 h-4" />
             {t.pageBadge}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
             {t.pageTitle}
           </h1>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed font-medium">
             {t.pageDescription}
           </p>
         </div>
       </section>
 
       <section className="max-w-5xl mx-auto w-full px-6 lg:px-12 py-12 md:py-16">
-        <div className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 shadow-sm relative overflow-hidden mb-12">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 shadow-sm relative overflow-hidden mb-12">
           <h2 className="text-2xl md:text-3xl font-black text-neutral-dark mb-8 tracking-tight">
             {t.blueprintTitle}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-black text-lg">
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-300 flex items-center justify-center font-black text-lg">
                 1
               </div>
-              <h3 className="font-black text-slate-800 text-lg">{t.blueprintStep1}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <h3 className="font-black text-slate-800 dark:text-slate-100 text-lg">{t.blueprintStep1}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {t.blueprintStep1Desc}
               </p>
             </div>
             <div className="space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-black text-lg">
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-300 flex items-center justify-center font-black text-lg">
                 2
               </div>
-              <h3 className="font-black text-slate-800 text-lg">{t.blueprintStep2}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <h3 className="font-black text-slate-800 dark:text-slate-100 text-lg">{t.blueprintStep2}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {t.blueprintStep2Desc}
               </p>
             </div>
             <div className="space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-black text-lg">
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-300 flex items-center justify-center font-black text-lg">
                 3
               </div>
-              <h3 className="font-black text-slate-800 text-lg">{t.blueprintStep3}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <h3 className="font-black text-slate-800 dark:text-slate-100 text-lg">{t.blueprintStep3}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {t.blueprintStep3Desc}
               </p>
             </div>
@@ -349,7 +349,7 @@ export default function ConvinceParentsPage() {
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all shadow-sm ${
                   selectedField === tab.id
                     ? "bg-indigo-600 text-white"
-                    : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+                    : "bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50"
                 }`}
               >
                 <Icon icon={tab.icon} className="w-4 h-4" />
@@ -363,9 +363,9 @@ export default function ConvinceParentsPage() {
           {filteredObjections.map((obj) => (
             <div
               key={obj.id}
-              className="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-10 shadow-sm relative overflow-hidden transition-all hover:border-slate-300"
+              className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-10 shadow-sm relative overflow-hidden transition-all hover:border-slate-300"
             >
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100 dark:border-slate-800">
                 <span className="text-xs font-black uppercase tracking-widest text-indigo-600">
                   {fieldLabels[obj.field]}
                 </span>
@@ -377,21 +377,21 @@ export default function ConvinceParentsPage() {
               </h3>
 
               <div className="space-y-4 mb-6">
-                <h4 className="font-black text-slate-800 text-sm uppercase tracking-wider">
+                <h4 className="font-black text-slate-800 dark:text-slate-100 text-sm uppercase tracking-wider">
                   {t.realityLabel}
                 </h4>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed font-semibold">
+                <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed font-semibold">
                   {obj.reality}
                 </p>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 md:p-8 space-y-4 mb-8">
-                <h4 className="font-black text-slate-800 text-sm uppercase tracking-wider">
+              <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 rounded-2xl p-6 md:p-8 space-y-4 mb-8">
+                <h4 className="font-black text-slate-800 dark:text-slate-100 text-sm uppercase tracking-wider">
                   {t.explainLabel}
                 </h4>
                 <ul className="space-y-3">
                   {obj.talkingPoints.map((point, index) => (
-                    <li key={index} className="flex gap-3 text-sm text-slate-650 font-semibold leading-relaxed">
+                    <li key={index} className="flex gap-3 text-sm text-slate-650 dark:text-slate-300 font-semibold leading-relaxed">
                       <span className="text-indigo-600 font-black">•</span>
                       <span>{point}</span>
                     </li>
@@ -400,12 +400,12 @@ export default function ConvinceParentsPage() {
               </div>
 
               <div>
-                <h4 className="font-black text-slate-800 text-xs uppercase tracking-wider mb-4">
+                <h4 className="font-black text-slate-800 dark:text-slate-100 text-xs uppercase tracking-wider mb-4">
                   {t.supportingData}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {obj.stats.map((stat, index) => (
-                    <div key={index} className="border border-slate-200/60 rounded-xl p-4 bg-white shadow-sm flex flex-col justify-center">
+                    <div key={index} className="border border-slate-200/60 dark:border-slate-700 rounded-xl p-4 bg-white dark:bg-slate-800/50 shadow-sm flex flex-col justify-center">
                       <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">{stat.label}</span>
                       <span className="text-lg font-black text-indigo-600">{stat.value}</span>
                     </div>

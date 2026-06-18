@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -45,7 +45,7 @@ const PageHeader = ({
     </div>
 
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
@@ -64,7 +64,7 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
     <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
       {number}
     </div>
@@ -82,7 +82,7 @@ const Section = ({
 
 export default function ImuCetMedicalPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="IMU CET — Medical Test & DG Shipping Norms"
         breadcrumbs={
@@ -102,35 +102,35 @@ export default function ImuCetMedicalPage() {
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
         <Section number="01" title="Mandatory DGS Eyesight & Physical Criteria">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Unlike other professional courses where any student can register, the Merchant Navy enforces strict medical regulations mandated by the Directorate General of Shipping (DGS). If you do not meet these, you cannot join, regardless of your IMU CET rank.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm">
+            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-sm">
               <span className="text-xs font-black uppercase tracking-wider text-orange-600 block mb-2">Deck Cadet (DNS / B.Sc)</span>
               <h4 className="font-black text-lg text-neutral-dark mb-2">Eyesight & Vision</h4>
-              <p className="text-sm text-slate-600 font-semibold leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 font-semibold leading-relaxed">
                 Must have <strong>6/6 vision in each eye</strong> (uncorrected, or corrected to 6/6 by surgery done and healed before admission). Glasses are not permitted for deck officers at sea. Candidates must have <strong>no colour blindness</strong> whatsoever — navigation lights require reliable colour distinction.
               </p>
             </div>
-            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm">
+            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-sm">
               <span className="text-xs font-black uppercase tracking-wider text-orange-600 block mb-2">Engine Cadet (B.Tech / GME)</span>
               <h4 className="font-black text-lg text-neutral-dark mb-2">Eyesight & Vision</h4>
-              <p className="text-sm text-slate-600 font-semibold leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 font-semibold leading-relaxed">
                 Minor corrective glasses up to <strong>6/12</strong> are allowed in each eye. However, candidates must have <strong>no colour blindness</strong> — electrical wiring and alarm systems use colour coding that is safety-critical.
               </p>
             </div>
           </div>
 
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl mt-4">
-            <p className="text-slate-800 leading-relaxed font-medium">
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl mt-4">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
               <strong className="font-black text-orange-700">Get checked before you prepare.</strong> A full DG-standard eye and medical examination takes a few hours and costs very little compared to a year of coaching fees or course fees. Do not invest a year planning around this career without confirming you clear the medical first. Confirm current eyesight rules on the DG Shipping website — they are periodically revised.
             </p>
           </div>
         </Section>
 
         <Section number="02" title="The Isolation Self-Check">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Beyond physical fitness, assess your psychological readiness for seafaring:
           </p>
           <ul className="space-y-4">
@@ -140,7 +140,7 @@ export default function ImuCetMedicalPage() {
               "Are you comfortable in high-stress weather events (rough seas, storms) far from shore facilities?",
               "Do you have interests or habits you can sustain alone, indefinitely, with no audience?",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-slate-700 font-medium">
+              <li key={item} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 font-medium">
                 <span className="text-orange-500 font-black mt-0.5 flex-shrink-0">›</span>
                 <span>{item}</span>
               </li>
@@ -149,7 +149,7 @@ export default function ImuCetMedicalPage() {
         </Section>
 
         <Section number="03" title="The 'Fix Your Eyes Later' Myth — Read This First">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             A claim circulates in forums and WhatsApp groups that you can skip the medical via company sponsorship and simply do LASIK after your course. Do not build a plan on this.
           </p>
 
@@ -162,14 +162,14 @@ export default function ImuCetMedicalPage() {
             </p>
           </div>
 
-          <p className="text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             The reason this myth persists: a small number of candidates in grey-area situations have described unofficial workarounds in online communities. These accounts are not evidence of a reliable path — they are exceptions that occasionally end badly. A plan built on &quot;maybe they&apos;ll let it slide&quot; is not a plan.
           </p>
         </Section>
 
-        <div className="mt-8 pt-8 border-t border-slate-200">
-          <p className="text-sm text-slate-500 font-medium">
-            <strong className="text-slate-700">See also:</strong>{" "}
+        <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700">
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <strong className="text-slate-700 dark:text-slate-300">See also:</strong>{" "}
             <Link href="/careers/merchant-navy/is-it-for-you" className="text-orange-600 hover:underline font-bold">Is it for you — the full reality check →</Link>{" "}
             ·{" "}
             <Link href="/exams/imu-cet/entry-paths" className="text-orange-600 hover:underline font-bold">DNS vs B.Sc vs B.Tech →</Link>{" "}

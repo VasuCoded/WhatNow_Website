@@ -619,9 +619,9 @@ export default function ExamsPage() {
   };
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* ─── HERO / HEADER ─── */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         {/* SVG Hero Background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Subtle grid pattern */}
@@ -663,7 +663,7 @@ export default function ExamsPage() {
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 mb-8">
+              <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 dark:text-slate-400 mb-8">
                 <Link href="/" className="hover:text-primary transition-colors">{t.home}</Link>
                 <span>›</span>
                 <span className="text-primary">{t.exams}</span>
@@ -673,7 +673,7 @@ export default function ExamsPage() {
                 {t.heroHeadline}<br />
                 <span className="text-primary">{t.heroHeadlineSub}</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
+              <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl">
                 {t.heroDesc}
               </p>
             </div>
@@ -684,19 +684,19 @@ export default function ExamsPage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="relative overflow-hidden bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-[2.5rem] p-8 shadow-xl shadow-slate-100/50"
+                className="relative overflow-hidden bg-white/70 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 rounded-[2.5rem] p-8 shadow-xl shadow-slate-100/50"
               >
                 {/* Subtle top primary highlight bar */}
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-secondary" />
 
-                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-6 flex items-center gap-2">
                   <Icon icon="solar:document-text-bold-duotone" className="w-4 h-4 text-primary" />
                   <span>{language === 'hi' ? 'परीक्षा निर्देशिका' : 'Exams Directory'}</span>
                 </h3>
 
                 {/* Inline Search Bar with Dropdown */}
                 <div ref={searchContainerRef} className="relative mb-6">
-                  <div className="flex items-center gap-3 bg-slate-50 border border-slate-200/60 rounded-2xl px-5 py-4 w-full text-slate-500 text-sm font-medium transition-all shadow-xs focus-within:border-primary focus-within:bg-white">
+                  <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 rounded-2xl px-5 py-4 w-full text-slate-500 dark:text-slate-400 text-sm font-medium transition-all shadow-xs focus-within:border-primary focus-within:bg-white">
                     <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400 shrink-0" />
                     <input
                       ref={searchInputRef}
@@ -722,7 +722,7 @@ export default function ExamsPage() {
                         <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
                       </button>
                     )}
-                    <kbd className="hidden sm:inline-block border border-slate-250 bg-white rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400 shrink-0">
+                    <kbd className="hidden sm:inline-block border border-slate-250 dark:border-slate-700 bg-white dark:bg-slate-800/50 rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400 dark:text-slate-400 shrink-0">
                       Ctrl+K
                     </kbd>
                   </div>
@@ -735,7 +735,7 @@ export default function ExamsPage() {
                         animate={{ opacity: 1, y: 4, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.98 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-2xl shadow-slate-900/10 max-h-[300px] overflow-y-auto p-2 space-y-1"
+                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white/95 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 rounded-2xl shadow-2xl shadow-slate-900/10 max-h-[300px] overflow-y-auto p-2 space-y-1"
                       >
                         {searchResults.map((item, idx) => {
                           const isSelected = idx === searchSelectedIndex;
@@ -751,8 +751,8 @@ export default function ExamsPage() {
                               }}
                               onMouseEnter={() => setSearchSelectedIndex(idx)}
                               className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer select-none transition-all ${
-                                isSelected 
-                                  ? "bg-slate-50 border border-slate-100" 
+                                isSelected
+                                  ? "bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700"
                                   : "bg-transparent border border-transparent"
                               } ${isComingSoon ? "opacity-60 cursor-not-allowed" : ""}`}
                             >
@@ -778,12 +778,12 @@ export default function ExamsPage() {
                                 <div className="flex items-center gap-1.5 flex-wrap">
                                   <span className="text-xs font-black text-neutral-dark truncate">{item.title}</span>
                                   {isComingSoon && (
-                                    <span className="text-[8px] font-black uppercase bg-orange-50 text-orange-500 border border-orange-100 px-1 py-0.2 rounded-sm tracking-wider">
+                                    <span className="text-[8px] font-black uppercase bg-orange-50 dark:bg-orange-950/30 text-orange-500 dark:text-orange-300 border border-orange-100 dark:border-orange-900/40 px-1 py-0.2 rounded-sm tracking-wider">
                                       Soon
                                     </span>
                                   )}
                                 </div>
-                                <span className="text-[10px] text-slate-450 line-clamp-1 leading-tight">{item.description}</span>
+                                <span className="text-[10px] text-slate-450 dark:text-slate-400 line-clamp-1 leading-tight">{item.description}</span>
                               </div>
                             </div>
                           );
@@ -799,12 +799,12 @@ export default function ExamsPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 4 }}
                         exit={{ opacity: 0, y: 8 }}
-                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200/80 rounded-2xl shadow-xl p-6 text-center"
+                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700 rounded-2xl shadow-xl p-6 text-center"
                       >
-                        <span className="text-xs font-bold text-slate-400 block mb-1">
+                        <span className="text-xs font-bold text-slate-400 dark:text-slate-400 block mb-1">
                           {language === 'hi' ? 'कोई परिणाम नहीं मिला' : 'No results found'}
                         </span>
-                        <span className="text-[10px] text-slate-400 block">
+                        <span className="text-[10px] text-slate-400 dark:text-slate-400 block">
                           {language === 'hi' ? 'सक्रिय करियर या परीक्षाओं की खोज करें।' : 'Try searching for active guides.'}
                         </span>
                       </motion.div>
@@ -813,17 +813,17 @@ export default function ExamsPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
+                  <div className="bg-slate-50/60 dark:bg-slate-800/40 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-700 flex flex-col justify-center">
                     <span className="text-3xl font-black text-neutral-dark block mb-0.5 leading-none">5</span>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 leading-none">{language === 'hi' ? 'सक्रिय परीक्षाएं' : 'Active Exams'}</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 leading-none">{language === 'hi' ? 'सक्रिय परीक्षाएं' : 'Active Exams'}</span>
                   </div>
                   
-                  <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
+                  <div className="bg-slate-50/60 dark:bg-slate-800/40 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-700 flex flex-col justify-center">
                     <span className="text-3xl font-black text-primary block mb-0.5 leading-none">6+</span>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 leading-none">{language === 'hi' ? 'जल्द आ रहे हैं' : 'Upcoming Exams'}</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 leading-none">{language === 'hi' ? 'जल्द आ रहे हैं' : 'Upcoming Exams'}</span>
                   </div>
 
-                  <div className="bg-emerald-50/60 border border-emerald-100/50 rounded-2xl p-4 col-span-2 flex items-center gap-3">
+                  <div className="bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100/50 dark:border-emerald-900/40 rounded-2xl p-4 col-span-2 flex items-center gap-3">
                     <div className="h-8 w-8 rounded-lg bg-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0">
                       <Icon icon="solar:shield-check-bold" className="w-4.5 h-4.5" />
                     </div>
@@ -842,7 +842,7 @@ export default function ExamsPage() {
       {/* ─── MAIN CATALOG DIRECTORY ─── */}
       <section className="py-16 md:py-24 container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         {/* Category Filters */}
-        <div className="flex items-center gap-8 overflow-x-auto pb-0 mb-12 scrollbar-none border-b border-slate-200/50">
+        <div className="flex items-center gap-8 overflow-x-auto pb-0 mb-12 scrollbar-none border-b border-slate-200/50 dark:border-slate-700">
           {(["All", "Design", "Law", "Defense", "Maritime", "Engineering", "Medical", "Planning"] as const).map((category) => {
             const isActive = selectedCategory === category;
             return (
@@ -851,7 +851,7 @@ export default function ExamsPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`relative pb-4 text-xs md:text-sm font-extrabold uppercase tracking-widest transition-colors duration-300 cursor-pointer whitespace-nowrap select-none focus:outline-none ${isActive
                     ? "text-neutral-dark font-black"
-                    : "text-slate-400 hover:text-neutral-dark"
+                    : "text-slate-400 dark:text-slate-400 hover:text-neutral-dark"
                   }`}
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
@@ -913,7 +913,7 @@ export default function ExamsPage() {
                 >
                   <CardWrapper
                     href={exam.href || "#"}
-                    className={`relative overflow-hidden bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-8 flex flex-col justify-between w-full shadow-sm group transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 ${exam.colorClass.border} ${exam.colorClass.glow}`}
+                    className={`relative overflow-hidden bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 flex flex-col justify-between w-full shadow-sm group transition-all duration-500 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 ${exam.colorClass.border} ${exam.colorClass.glow}`}
                   >
                     {/* Ambient glow blob */}
                     <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowBg(exam.category)}`} />
@@ -942,34 +942,34 @@ export default function ExamsPage() {
                         <h3 className="text-2xl font-black text-neutral-dark mb-1 group-hover:text-primary transition-colors duration-300">
                           {exam.title}
                         </h3>
-                        <p className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
+                        <p className="text-sm font-semibold text-slate-400 dark:text-slate-400 uppercase tracking-wider">
                           {exam.subtitle}
                         </p>
                       </div>
 
                       {/* Description */}
-                      <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8">
+                      <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8">
                         {exam.description}
                       </p>
                     </div>
 
                     {/* Stats & Footer */}
-                    <div className="relative z-10 border-t border-slate-100 pt-6 mt-auto">
-                      <div className="grid grid-cols-2 gap-y-4 gap-x-2 text-xs font-semibold text-slate-500 mb-6 bg-slate-50/50 border border-slate-100/50 rounded-2xl p-4">
+                    <div className="relative z-10 border-t border-slate-100 dark:border-slate-800 pt-6 mt-auto">
+                      <div className="grid grid-cols-2 gap-y-4 gap-x-2 text-xs font-semibold text-slate-500 dark:text-slate-400 mb-6 bg-slate-50/50 dark:bg-slate-800/40 border border-slate-100/50 dark:border-slate-700 rounded-2xl p-4">
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.colleges}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.colleges}</span>
                           <span className="font-bold text-neutral-dark truncate block">{exam.colleges}</span>
                         </div>
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.seats}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.seats}</span>
                           <span className="font-bold text-neutral-dark truncate block">{exam.seats}</span>
                         </div>
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.applicants}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.applicants}</span>
                           <span className="font-bold text-neutral-dark truncate block">{exam.applicants}</span>
                         </div>
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.date}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.date}</span>
                           <span className="font-bold text-neutral-dark truncate block">{exam.date}</span>
                         </div>
                       </div>
@@ -980,7 +980,7 @@ export default function ExamsPage() {
                           <Icon icon="ph:arrow-right" className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                         </div>
                       ) : (
-                        <div className="text-right text-xs font-bold text-slate-400 italic">
+                        <div className="text-right text-xs font-bold text-slate-400 dark:text-slate-400 italic">
                           {t.inDev}
                         </div>
                       )}
@@ -994,42 +994,42 @@ export default function ExamsPage() {
       </section>
 
       {/* ─── WHY OUR GUIDES ARE DIFFERENT ─── */}
-      <section className="bg-white border-y border-slate-200/60 py-20 md:py-28 px-6 lg:px-12">
+      <section className="bg-white dark:bg-[#0B0F1A] border-y border-slate-200/60 dark:border-slate-700 py-20 md:py-28 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4">{t.operateTitle}</h2>
+            <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-4">{t.operateTitle}</h2>
             <h3 className="text-3xl md:text-5xl font-black text-neutral-dark tracking-tight leading-tight">
               {t.operateHeadline}
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 border border-slate-200/50 rounded-3xl p-8 lg:p-10">
-              <div className="h-12 w-12 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 mb-6 shadow-inner">
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200/50 dark:border-slate-700 rounded-3xl p-8 lg:p-10">
+              <div className="h-12 w-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 flex items-center justify-center text-indigo-600 dark:text-indigo-300 mb-6 shadow-inner">
                 <Icon icon="solar:question-square-bold-duotone" className="w-6 h-6" />
               </div>
               <h4 className="text-xl font-black text-neutral-dark mb-3">{t.op1Title}</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 {t.op1Desc}
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200/50 rounded-3xl p-8 lg:p-10">
-              <div className="h-12 w-12 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 mb-6 shadow-inner">
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200/50 dark:border-slate-700 rounded-3xl p-8 lg:p-10">
+              <div className="h-12 w-12 rounded-2xl bg-orange-50 dark:bg-orange-950/30 border border-orange-100 dark:border-orange-900/40 flex items-center justify-center text-orange-600 dark:text-orange-300 mb-6 shadow-inner">
                 <Icon icon="solar:close-circle-bold-duotone" className="w-6 h-6" />
               </div>
               <h4 className="text-xl font-black text-neutral-dark mb-3">{t.op2Title}</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 {t.op2Desc}
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200/50 rounded-3xl p-8 lg:p-10">
-              <div className="h-12 w-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 mb-6 shadow-inner">
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200/50 dark:border-slate-700 rounded-3xl p-8 lg:p-10">
+              <div className="h-12 w-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-300 mb-6 shadow-inner">
                 <Icon icon="solar:book-linear" className="w-6 h-6" />
               </div>
               <h4 className="text-xl font-black text-neutral-dark mb-3">{t.op3Title}</h4>
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                 {t.op3Desc}
               </p>
             </div>

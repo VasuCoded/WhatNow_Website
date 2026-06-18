@@ -146,22 +146,22 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
       };
 
       return (
-        <div className="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
           {/* Header Controls */}
           <div className="flex justify-between items-center mb-6">
-            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400">
+            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-400">
               {t.competitionTab}
             </h4>
-            <div className="flex gap-2 bg-slate-50 border border-slate-200/60 p-0.5 rounded-xl">
+            <div className="flex gap-2 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 p-0.5 rounded-xl">
               <button
                 onClick={() => { setActiveTab('tab1'); setHoveredIdx(null); }}
-                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white shadow-xs`}
+                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white dark:bg-slate-700 shadow-xs`}
               >
                 {t.competitionTab}
               </button>
               <button
                 onClick={() => { setActiveTab('tab2'); setHoveredIdx(null); }}
-                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555"
+                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555 dark:text-slate-400"
               >
                 {t.funnelTab}
               </button>
@@ -313,13 +313,13 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
           </div>
 
           {/* Legend and Active Tooltip Info */}
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-200/50">
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 justify-between items-center bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-700">
             <div className="flex gap-4">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-650">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-650 dark:text-slate-300">
                 <span className={`w-3 h-3 rounded-full ${theme.primary}`} />
                 <span>{t.applicants}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-650">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-650 dark:text-slate-300">
                 <span className="w-3 h-3 rounded-full bg-slate-450 border border-dashed border-slate-600" />
                 <span>{t.seats}</span>
               </div>
@@ -332,18 +332,18 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
                   initial={{ opacity: 0, x: 5 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -5 }}
-                  className="text-xs font-black text-slate-800 flex gap-3"
+                  className="text-xs font-black text-slate-800 dark:text-slate-100 flex gap-3"
                 >
                   <span>
                     {t.applicants}: <span className={theme.text}>{examData.trends[hoveredIdx].applicants.toLocaleString()}</span>
                   </span>
-                  <span className="text-slate-350">|</span>
+                  <span className="text-slate-350 dark:text-slate-600">|</span>
                   <span>
-                    {t.seats}: <span className="text-slate-600">{examData.trends[hoveredIdx].seats.toLocaleString()}</span>
+                    {t.seats}: <span className="text-slate-600 dark:text-slate-400">{examData.trends[hoveredIdx].seats.toLocaleString()}</span>
                   </span>
                 </motion.div>
               ) : (
-                <span className="text-xs font-bold text-slate-405 italic">
+                <span className="text-xs font-bold text-slate-405 dark:text-slate-400 italic">
                   Hover points to inspect values
                 </span>
               )}
@@ -355,22 +355,22 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
       // Funnel Chart
       const rate = ((examData.seatFunnel.seats / examData.seatFunnel.applicants) * 100).toFixed(1);
       return (
-        <div className="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
           {/* Header Controls */}
           <div className="flex justify-between items-center mb-6">
-            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400">
+            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-400">
               {t.funnelTab}
             </h4>
-            <div className="flex gap-2 bg-slate-50 border border-slate-200/60 p-0.5 rounded-xl">
+            <div className="flex gap-2 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 p-0.5 rounded-xl">
               <button
                 onClick={() => { setActiveTab('tab1'); setHoveredIdx(null); }}
-                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555"
+                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555 dark:text-slate-400"
               >
                 {t.competitionTab}
               </button>
               <button
                 onClick={() => { setActiveTab('tab2'); setHoveredIdx(null); }}
-                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white shadow-xs`}
+                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white dark:bg-slate-700 shadow-xs`}
               >
                 {t.funnelTab}
               </button>
@@ -382,11 +382,11 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
             <div className="space-y-4">
               {/* Applicants Bar */}
               <div className="space-y-2">
-                <div className="flex justify-between text-xs font-black text-slate-700">
+                <div className="flex justify-between text-xs font-black text-slate-700 dark:text-slate-300">
                   <span>{t.applicants}</span>
                   <span>{examData.seatFunnel.applicants.toLocaleString()}</span>
                 </div>
-                <div className="h-6 bg-slate-100 rounded-lg overflow-hidden border border-slate-200/50">
+                <div className="h-6 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
@@ -398,11 +398,11 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
 
               {/* Seats Bar */}
               <div className="space-y-2">
-                <div className="flex justify-between text-xs font-black text-slate-700">
+                <div className="flex justify-between text-xs font-black text-slate-700 dark:text-slate-300">
                   <span>{t.seats}</span>
                   <span className={theme.text}>{examData.seatFunnel.seats.toLocaleString()}</span>
                 </div>
-                <div className="h-6 bg-slate-100 rounded-lg overflow-hidden border border-slate-200/50">
+                <div className="h-6 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden border border-slate-200/50 dark:border-slate-700">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${(examData.seatFunnel.seats / examData.seatFunnel.applicants) * 100}%` }}
@@ -414,14 +414,14 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
             </div>
 
             {/* Acceptance Callout Box */}
-            <div className="bg-slate-50 border border-slate-200/50 rounded-2xl p-4 text-center">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-slate-400 block mb-1">
+            <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200/50 dark:border-slate-700 rounded-2xl p-4 text-center">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-slate-400 dark:text-slate-400 block mb-1">
                 {t.acceptanceRate}
               </span>
               <span className={`text-4xl font-black ${theme.text}`}>
                 {rate}%
               </span>
-              <p className="text-[11px] font-bold text-slate-500 mt-2 max-w-xs mx-auto">
+              <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 mt-2 max-w-xs mx-auto">
                 Only {examData.seatFunnel.seats.toLocaleString()} seats are allocated for every {examData.seatFunnel.applicants.toLocaleString()} total applicants.
               </p>
             </div>
@@ -438,22 +438,22 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
       const maxVal = Math.max(...careerData.jobs.map(d => d.openings));
 
       return (
-        <div className="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
           {/* Header Controls */}
           <div className="flex justify-between items-center mb-6">
-            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400">
+            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-400">
               {t.jobTab}
             </h4>
-            <div className="flex gap-2 bg-slate-50 border border-slate-200/60 p-0.5 rounded-xl">
+            <div className="flex gap-2 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 p-0.5 rounded-xl">
               <button
                 onClick={() => { setActiveTab('tab1'); setHoveredIdx(null); }}
-                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white shadow-xs`}
+                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white dark:bg-slate-700 shadow-xs`}
               >
                 {t.jobTab}
               </button>
               <button
                 onClick={() => { setActiveTab('tab2'); setHoveredIdx(null); }}
-                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555"
+                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555 dark:text-slate-400"
               >
                 {t.salaryTab}
               </button>
@@ -556,8 +556,8 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
           </div>
 
           {/* Active Tooltip and info */}
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-200/50">
-            <span className="text-xs font-bold text-slate-650 flex items-center gap-1.5">
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 justify-between items-center bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-700">
+            <span className="text-xs font-bold text-slate-650 dark:text-slate-300 flex items-center gap-1.5">
               <span className={`w-3.5 h-3.5 rounded-md ${theme.primary}`} />
               <span>{t.annualOpenings}</span>
             </span>
@@ -569,18 +569,18 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
                   initial={{ opacity: 0, x: 5 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -5 }}
-                  className="text-xs font-black text-slate-800"
+                  className="text-xs font-black text-slate-800 dark:text-slate-100"
                 >
                   <span>
-                    {t.yearLabel}: <span className="text-slate-600">{careerData.jobs[hoveredIdx].year}</span>
+                    {t.yearLabel}: <span className="text-slate-600 dark:text-slate-400">{careerData.jobs[hoveredIdx].year}</span>
                   </span>
-                  <span className="text-slate-300 mx-2">|</span>
+                  <span className="text-slate-300 dark:text-slate-600 mx-2">|</span>
                   <span>
                     {t.hiringDemand}: <span className={theme.text}>{careerData.jobs[hoveredIdx].openings.toLocaleString()}</span>
                   </span>
                 </motion.div>
               ) : (
-                <span className="text-xs font-bold text-slate-405 italic">
+                <span className="text-xs font-bold text-slate-405 dark:text-slate-400 italic">
                   Hover bars to inspect values
                 </span>
               )}
@@ -593,22 +593,22 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
       const maxVal = Math.max(...careerData.salaries.map(d => d.numericAmount));
 
       return (
-        <div className="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 shadow-sm flex flex-col h-full w-full">
           {/* Header Controls */}
           <div className="flex justify-between items-center mb-6">
-            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400">
+            <h4 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-400">
               {t.salaryTab} <span className="text-[10px] lowercase font-normal">{t.perMonth}</span>
             </h4>
-            <div className="flex gap-2 bg-slate-50 border border-slate-200/60 p-0.5 rounded-xl">
+            <div className="flex gap-2 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 p-0.5 rounded-xl">
               <button
                 onClick={() => { setActiveTab('tab1'); setHoveredIdx(null); }}
-                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555"
+                className="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer text-slate-555 dark:text-slate-400"
               >
                 {t.jobTab}
               </button>
               <button
                 onClick={() => { setActiveTab('tab2'); setHoveredIdx(null); }}
-                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white shadow-xs`}
+                className={`text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all cursor-pointer ${theme.primaryLight} bg-white dark:bg-slate-700 shadow-xs`}
               >
                 {t.salaryTab}
               </button>
@@ -731,8 +731,8 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
           </div>
 
           {/* Active Tooltip and info */}
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 justify-between items-center bg-slate-50 p-4 rounded-2xl border border-slate-200/50">
-            <span className="text-xs font-bold text-slate-650 flex items-center gap-1.5">
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 justify-between items-center bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200/50 dark:border-slate-700">
+            <span className="text-xs font-bold text-slate-650 dark:text-slate-300 flex items-center gap-1.5">
               <span className={`w-3.5 h-3.5 rounded-full ${theme.primary}`} />
               <span>{t.salaryLabel}</span>
             </span>
@@ -744,18 +744,18 @@ export default function VisualAnalytics({ type, data, colorTheme = 'indigo' }: V
                   initial={{ opacity: 0, x: 5 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -5 }}
-                  className="text-xs font-black text-slate-800"
+                  className="text-xs font-black text-slate-800 dark:text-slate-100"
                 >
                   <span>
-                    {t.levelLabel}: <span className="text-slate-600">{language === 'hi' ? careerData.salaries[hoveredIdx].levelHi : careerData.salaries[hoveredIdx].level}</span>
+                    {t.levelLabel}: <span className="text-slate-600 dark:text-slate-400">{language === 'hi' ? careerData.salaries[hoveredIdx].levelHi : careerData.salaries[hoveredIdx].level}</span>
                   </span>
-                  <span className="text-slate-300 mx-2">|</span>
+                  <span className="text-slate-300 dark:text-slate-600 mx-2">|</span>
                   <span>
                     {t.salaryLabel}: <span className={theme.text}>{careerData.salaries[hoveredIdx].amount}</span>
                   </span>
                 </motion.div>
               ) : (
-                <span className="text-xs font-bold text-slate-405 italic">
+                <span className="text-xs font-bold text-slate-405 dark:text-slate-400 italic">
                   Hover points to inspect values
                 </span>
               )}

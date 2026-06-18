@@ -210,8 +210,8 @@ export default function ScholarshipsPage() {
   });
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <svg
             className="absolute inset-0 w-full h-full opacity-[0.12] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
@@ -229,14 +229,14 @@ export default function ScholarshipsPage() {
         </div>
 
         <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 text-xs font-black uppercase tracking-wider mb-6">
             <Icon icon="solar:diploma-bold" className="w-4 h-4" />
             {t.pageHeaderBadge}
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
             {t.pageTitle}
           </h1>
-          <p className="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed font-medium">
             {t.pageDescription}
           </p>
         </div>
@@ -251,7 +251,7 @@ export default function ScholarshipsPage() {
               placeholder={t.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-medium text-slate-700 shadow-sm"
+              className="w-full pl-12 pr-4 py-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 font-medium text-slate-700 dark:text-slate-300 shadow-sm"
             />
           </div>
           <div className="flex flex-wrap gap-2">
@@ -269,7 +269,7 @@ export default function ScholarshipsPage() {
               className={`flex items-center gap-2 px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-sm ${
                 selectedField === tab.id
                   ? "bg-emerald-600 text-white"
-                  : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+                  : "bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50"
               }`}
             >
               <Icon icon={tab.icon} className="w-4 h-4" />
@@ -286,7 +286,7 @@ export default function ScholarshipsPage() {
               return (
                 <div
                   key={sch.id}
-                  className="bg-white border border-slate-200 rounded-[2rem] p-6 md:p-10 shadow-sm relative overflow-hidden transition-all hover:border-slate-300"
+                  className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-10 shadow-sm relative overflow-hidden transition-all hover:border-slate-300"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                     <span className={`px-3 py-1 rounded-lg text-xs font-black uppercase tracking-wider border ${theme.bg}`}>
@@ -299,22 +299,22 @@ export default function ScholarshipsPage() {
                     {sch.name}
                   </h3>
 
-                  <p className="text-slate-600 font-semibold mb-6 leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 font-semibold mb-6 leading-relaxed">
                     {sch.details}
                   </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-100">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
                     <div>
                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-1">{t.financialBenefit}</h4>
                       <p className="text-sm font-black text-emerald-600">{sch.coverage}</p>
                     </div>
                     <div>
                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-1">{t.eligibleLabel}</h4>
-                      <p className="text-sm font-medium text-slate-705 leading-relaxed">{sch.eligibility}</p>
+                      <p className="text-sm font-medium text-slate-705 dark:text-slate-300 leading-relaxed">{sch.eligibility}</p>
                     </div>
                     <div>
                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-1">{t.applyLabel}</h4>
-                      <p className="text-sm font-medium text-slate-700 leading-relaxed">{sch.process}</p>
+                      <p className="text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed">{sch.process}</p>
                     </div>
                   </div>
                 </div>
@@ -322,9 +322,9 @@ export default function ScholarshipsPage() {
             })}
           </div>
         ) : (
-          <div className="text-center py-20 bg-white border border-slate-200 rounded-[2rem]">
+          <div className="text-center py-20 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem]">
             <Icon icon="solar:clipboard-remove-bold-duotone" className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-            <h3 className="text-xl font-black text-slate-700 mb-2">{t.noResultsTitle}</h3>
+            <h3 className="text-xl font-black text-slate-700 dark:text-slate-300 mb-2">{t.noResultsTitle}</h3>
             <p className="text-slate-400 text-sm font-medium">{t.noResultsDescription}</p>
           </div>
         )}

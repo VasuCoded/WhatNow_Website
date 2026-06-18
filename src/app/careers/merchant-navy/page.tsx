@@ -108,9 +108,9 @@ export default function MerchantNavyCareerHubPage() {
   const t = translations[language];
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C]">
       {/* PAGE HEADER */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -129,7 +129,7 @@ export default function MerchantNavyCareerHubPage() {
         </div>
 
         <div className="max-w-4xl mx-auto w-full px-6 lg:px-12 relative z-10">
-          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
             <Link href="/" className="hover:text-primary transition-colors">{t.breadcrumbsHome}</Link>
             <span>›</span>
             <Link href="/careers" className="hover:text-primary transition-colors">{t.breadcrumbsCareers}</Link>
@@ -141,11 +141,11 @@ export default function MerchantNavyCareerHubPage() {
             {t.title}
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium mb-6">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed font-medium mb-6">
             {t.subtitle}
           </p>
 
-          <div className="text-sm font-bold text-slate-400">
+          <div className="text-sm font-bold text-slate-400 dark:text-slate-400">
             {t.lastReviewed}
           </div>
         </div>
@@ -153,38 +153,38 @@ export default function MerchantNavyCareerHubPage() {
 
       <div className="px-6 lg:px-12 pb-20 md:pb-32 max-w-4xl mx-auto w-full space-y-20 mt-12">
         {/* STAT BAR */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4 shadow-sm">
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-4 shadow-sm">
           <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat1Label}</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-2">{t.stat1Label}</span>
             <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat1Val}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat2Label}</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-2">{t.stat2Label}</span>
             <span className="text-2xl md:text-3xl font-black text-orange-600">{t.stat2Val}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat3Label}</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-2">{t.stat3Label}</span>
             <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat3Val}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat4Label}</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-2">{t.stat4Label}</span>
             <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat4Val}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat5Label}</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-2">{t.stat5Label}</span>
             <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat5Val}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{t.stat6Label}</span>
+            <span className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-2">{t.stat6Label}</span>
             <span className="text-2xl md:text-3xl font-black text-neutral-dark">{t.stat6Val}</span>
           </div>
         </div>
 
         {/* TAX FOOTNOTE */}
-        <p className="text-xs text-slate-400 font-medium -mt-14">{t.taxFootnote}</p>
+        <p className="text-xs text-slate-400 dark:text-slate-400 font-medium -mt-14">{t.taxFootnote}</p>
 
         {/* RELATED EXAM LINK */}
-        <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6 flex items-center justify-between shadow-sm">
+        <div className="bg-orange-50 dark:bg-orange-950/30 border border-orange-100 dark:border-orange-900/40 rounded-2xl p-6 flex items-center justify-between shadow-sm">
           <div className="flex items-center gap-3">
             <Icon icon="solar:document-bold-duotone" className="w-8 h-8 text-orange-600" />
             <span className="font-bold text-neutral-dark text-sm md:text-base">{t.imucetExamLinkText}</span>
@@ -199,19 +199,19 @@ export default function MerchantNavyCareerHubPage() {
 
         {/* WHAT IS MERCHANT NAVY */}
         <section>
-          <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b-2 border-slate-200 pb-4 mb-8">
+          <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 border-b-2 border-slate-200 dark:border-slate-700 pb-4 mb-8">
             {t.sectionTitle}
           </h2>
 
-          <div className="space-y-6 text-lg text-slate-700 leading-relaxed font-medium mb-12">
+          <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium mb-12">
             <p>{t.descParagraph1}</p>
             <p>{t.descParagraph2}</p>
             <p>{t.descParagraph3}</p>
           </div>
 
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl">
-            <p className="text-slate-800 leading-relaxed font-medium">
-              <strong className="font-black text-orange-700">{t.warningTitle} </strong>
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
+              <strong className="font-black text-orange-700 dark:text-orange-300">{t.warningTitle} </strong>
               {t.warningText}
             </p>
           </div>
@@ -219,48 +219,48 @@ export default function MerchantNavyCareerHubPage() {
 
         {/* CAREER GUIDES */}
         <section>
-          <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b-2 border-slate-200 pb-4 mb-8">
+          <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 border-b-2 border-slate-200 dark:border-slate-700 pb-4 mb-8">
             {t.roadmapTitle}
           </h2>
 
           <div className="space-y-4">
             {/* Card 1 */}
-            <Link href="/careers/merchant-navy/is-it-for-you" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
+            <Link href="/careers/merchant-navy/is-it-for-you" className="group flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
               <div className="text-4xl md:text-5xl font-black text-orange-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">01</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-orange-600 transition-colors duration-300">{t.card1Title}</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card1Desc}</p>
-                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 shadow-sm">{t.badgeReady}</span>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm md:text-base">{t.card1Desc}</p>
+                <span className="inline-block bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-900/40 shadow-sm">{t.badgeReady}</span>
               </div>
             </Link>
 
             {/* Card 2 */}
-            <Link href="/careers/merchant-navy/entry-routes" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
+            <Link href="/careers/merchant-navy/entry-routes" className="group flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
               <div className="text-4xl md:text-5xl font-black text-orange-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">02</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-orange-600 transition-colors duration-300">{t.card2Title}</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card2Desc}</p>
-                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 shadow-sm">{t.badgeReady}</span>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm md:text-base">{t.card2Desc}</p>
+                <span className="inline-block bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-900/40 shadow-sm">{t.badgeReady}</span>
               </div>
             </Link>
 
             {/* Card 3 */}
-            <Link href="/careers/merchant-navy/colleges" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
+            <Link href="/careers/merchant-navy/colleges" className="group flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
               <div className="text-4xl md:text-5xl font-black text-orange-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">03</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-orange-600 transition-colors duration-300">{t.card3Title}</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card3Desc}</p>
-                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 shadow-sm">{t.badgeReady}</span>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm md:text-base">{t.card3Desc}</p>
+                <span className="inline-block bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-900/40 shadow-sm">{t.badgeReady}</span>
               </div>
             </Link>
 
             {/* Card 4 */}
-            <Link href="/careers/merchant-navy/salary-ranks" className="group flex flex-col md:flex-row gap-6 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
+            <Link href="/careers/merchant-navy/salary-ranks" className="group flex flex-col md:flex-row gap-6 bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-[2rem] p-6 md:p-8 hover:border-orange-300 hover:bg-white/90 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1">
               <div className="text-4xl md:text-5xl font-black text-orange-600 leading-none opacity-80 group-hover:scale-105 transition-transform duration-300">04</div>
               <div className="flex-1">
                 <h3 className="text-xl md:text-2xl font-black text-neutral-dark mb-1 group-hover:text-orange-600 transition-colors duration-300">{t.card4Title}</h3>
-                <p className="text-slate-500 leading-relaxed mb-4 text-sm md:text-base">{t.card4Desc}</p>
-                <span className="inline-block bg-emerald-50 text-emerald-700 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 shadow-sm">{t.badgeReady}</span>
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-sm md:text-base">{t.card4Desc}</p>
+                <span className="inline-block bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-emerald-100 dark:border-emerald-900/40 shadow-sm">{t.badgeReady}</span>
               </div>
             </Link>
           </div>

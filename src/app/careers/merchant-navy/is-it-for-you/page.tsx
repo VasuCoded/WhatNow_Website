@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg
         className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
@@ -52,13 +52,13 @@ const PageHeader = ({
       </svg>
     </div>
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
         {title}
       </h1>
-      <div className="text-sm font-bold text-slate-400">
+      <div className="text-sm font-bold text-slate-400 dark:text-slate-400">
         Last reviewed: June 2026 · Researched from first-hand accounts of serving and trainee mariners, plus DG Shipping &amp; BIMCO/ICS data.
       </div>
     </div>
@@ -74,8 +74,8 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
-    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 dark:text-slate-800 leading-none select-none z-0">
       {number}
     </div>
     <div className="relative z-10">
@@ -92,7 +92,7 @@ const Section = ({
 
 export default function MerchantNavyIsItForYouPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="Is It For You — The Hard Truth"
         breadcrumbs={
@@ -111,27 +111,27 @@ export default function MerchantNavyIsItForYouPage() {
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24 mt-12">
 
         <Section number="01" title="The trade you're actually making">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Strip away the uniform and the travel photos, and a career at sea is one exchange, repeated for twenty years: you give up being present in your own life on land, and in return you get money that&apos;s high for your age, time off in large blocks, and a job that switches off completely the moment your contract ends. If that trade sounds good to you stated this plainly, read on. If it only sounds good wrapped in glamour, this career will hurt.
           </p>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8">
+          <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8">
             <h3 className="font-black text-xl text-neutral-dark mb-4">Two honest outcomes, both real</h3>
-            <p className="text-slate-700 leading-relaxed font-medium">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
               The same career produces a Chief Engineer who retired at 45, debt-free, having travelled the world — and a Captain who says he missed his children&apos;s entire childhood and would not do it again. Neither is lying. Which one you become depends less on luck than on one trait: how you handle isolation.
             </p>
           </div>
         </Section>
 
         <Section number="02" title="The isolation test (this is the real deciding factor)">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Talk to enough serving officers and the pattern is unmistakable: the people who quit rarely quit over money or hours. They quit because they could not handle the isolation. You will spend 4–9 months at a stretch on a steel box with the same 20–25 people, often with slow and expensive internet, no weekends, and no exit until the contract ends. There is nowhere to go.
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
             The ones who thrive almost all share one habit — they bring something that travels: the gym, books, a craft, study for the next certificate. Idle time at sea is what breaks people. Occupied time at sea is survivable, even good.
           </p>
 
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8">
+          <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8">
             <h3 className="font-black text-lg text-neutral-dark mb-4">Ask yourself, honestly:</h3>
             <ul className="space-y-3">
               {[
@@ -139,7 +139,7 @@ export default function MerchantNavyIsItForYouPage() {
                 "Do you have an interest you can sustain alone, indefinitely, with no audience?",
                 "When you're bored and stuck somewhere, do you get resourceful — or do you spiral?",
               ].map((q) => (
-                <li key={q} className="flex items-start gap-3 text-slate-700 font-medium">
+                <li key={q} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 font-medium">
                   <span className="text-orange-500 font-black mt-0.5 flex-shrink-0">›</span>
                   <span>{q}</span>
                 </li>
@@ -149,13 +149,13 @@ export default function MerchantNavyIsItForYouPage() {
         </Section>
 
         <Section number="03" title="What you will actually miss">
-          <p className="text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             Not abstractly. Specifically. Over a sailing career you will miss weddings, funerals, festivals, birthdays, a parent falling ill, a partner&apos;s milestones, and — if you have them — stretches of your children growing up. Companies grant emergency leave for the worst events, but a ship mid-ocean cannot simply drop you home, and reliefs take time to arrange. Relationships survive this only with a partner who genuinely understands the rhythm. Go in knowing the price; do not let anyone sell you a version where it isn&apos;t there.
           </p>
         </Section>
 
         <Section number="04" title="The physical reality (heaviest as a junior)">
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
             Glamour shots don&apos;t show the engine room at 45 °C, the noise, or a junior engineer on a watch rotation doing hot, manual, dirty work. On the deck side it&apos;s bridge watches including nights, mooring operations, cargo work, and weather that doesn&apos;t care about your schedule. The good news: the heavy physical labour decreases as you rise in rank. The catch: it&apos;s replaced by responsibility and accountability — at the top, every decision and every incident is on you.
           </p>
 
@@ -166,16 +166,16 @@ export default function MerchantNavyIsItForYouPage() {
               { v: "45 °C+", l: "engine room, for juniors" },
               { v: "No", l: "weekends, while sailing" },
             ].map(({ v, l }) => (
-              <div key={l} className="bg-white border border-slate-200 rounded-2xl p-5">
+              <div key={l} className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-5">
                 <div className="text-2xl md:text-3xl font-black text-orange-600 leading-none mb-2">{v}</div>
-                <div className="text-xs font-bold text-slate-500 uppercase tracking-wider leading-snug">{l}</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider leading-snug">{l}</div>
               </div>
             ))}
           </div>
         </Section>
 
         <Section number="05" title="The medical gate (read this before you plan anything)">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             None of the above matters if you can&apos;t clear the DG Shipping medical. Core requirements: vision of 6/6 (correctable to 6/6 by surgery <em>before</em> admission in most cases), no colour blindness, BMI in range, and no disqualifying chronic conditions. Get a full DG-standard eye and medical check <strong>before</strong> you invest a year and lakhs — not after you have a rank in hand. Details and the current eyesight rules are on the{" "}
             <Link href="/exams/imu-cet/medical" className="text-orange-600 hover:underline font-bold">
               IMU CET medical guide →
@@ -193,7 +193,7 @@ export default function MerchantNavyIsItForYouPage() {
         </Section>
 
         <Section number="06" title="The blunt self-check">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             If you&apos;re flinching at most of these, this career isn&apos;t for you — and that&apos;s a useful answer, not a failure.
           </p>
           <ul className="space-y-3 mb-8">
@@ -205,7 +205,7 @@ export default function MerchantNavyIsItForYouPage() {
               "I'm doing this for the money/time-off trade with eyes open — not for an image of it.",
               "I have a fallback plan if the medical or the market doesn't cooperate.",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-slate-700 font-medium">
+              <li key={item} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 font-medium">
                 <span className="text-orange-500 font-black mt-0.5 flex-shrink-0">›</span>
                 <span>{item}</span>
               </li>
@@ -213,9 +213,9 @@ export default function MerchantNavyIsItForYouPage() {
           </ul>
         </Section>
 
-        <div className="pt-8 border-t border-slate-200">
-          <p className="text-sm text-slate-500 font-medium">
-            <strong className="text-slate-700">Next:</strong>{" "}
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-700">
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <strong className="text-slate-700 dark:text-slate-300">Next:</strong>{" "}
             <Link href="/careers/merchant-navy/entry-routes" className="text-orange-600 hover:underline font-bold">Entry Routes →</Link>{" "}
             ·{" "}
             <Link href="/careers/merchant-navy/salary-ranks" className="text-orange-600 hover:underline font-bold">Salary, Ranks & Progression →</Link>{" "}

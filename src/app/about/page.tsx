@@ -382,9 +382,9 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* ─── HERO SECTION ─── */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-28 pb-20 md:pt-36 md:pb-28">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-28 pb-20 md:pt-36 md:pb-28">
         {/* SVG Hero Background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Subtle grid pattern */}
@@ -459,7 +459,7 @@ export default function AboutPage() {
               </svg>
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed font-semibold">
+          <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed font-semibold">
             {t.subDesc}
           </p>
         </motion.div>
@@ -479,7 +479,7 @@ export default function AboutPage() {
               <motion.div
                 key={idx}
                 variants={cardVariants}
-                className="bg-white/80 backdrop-blur-md border border-slate-200/80 p-8 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 group flex flex-col items-start"
+                className="bg-white/80 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 p-8 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.015)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300 group flex flex-col items-start"
               >
                 <div className={`p-3.5 rounded-2.5xl mb-6 flex items-center justify-center border ${stat.iconBg} group-hover:scale-105 transition-transform duration-300`}>
                   <Icon icon={stat.icon} className={`w-6 h-6 ${stat.iconColor}`} />
@@ -487,8 +487,8 @@ export default function AboutPage() {
                 <h3 className="text-3xl sm:text-4xl font-black text-neutral-dark tracking-tight mb-2 flex items-center gap-1">
                   {stat.number}
                 </h3>
-                <h4 className="text-sm font-black text-slate-800 mb-2">{stat.label}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed font-semibold">{stat.description}</p>
+                <h4 className="text-sm font-black text-slate-800 dark:text-slate-100 mb-2">{stat.label}</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-semibold">{stat.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -501,7 +501,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="border-b border-slate-200/50 py-20 md:py-28 px-6 lg:px-12 bg-[#F8F9FB]"
+        className="border-b border-slate-200/50 dark:border-slate-800 py-20 md:py-28 px-6 lg:px-12 bg-[#F8F9FB] dark:bg-[#0B111C]"
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
@@ -512,8 +512,8 @@ export default function AboutPage() {
               </h2>
               
               {/* Highlight Block Quote Card */}
-              <div className="relative bg-white border-l-4 border-secondary p-8 rounded-r-3xl rounded-bl-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <p className="font-semibold italic text-lg md:text-xl text-slate-700 leading-relaxed">
+              <div className="relative bg-white dark:bg-slate-800/50 border-l-4 border-secondary p-8 rounded-r-3xl rounded-bl-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                <p className="font-semibold italic text-lg md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
@@ -521,13 +521,13 @@ export default function AboutPage() {
 
             <div className="flex-1 lg:pt-10 space-y-8">
               {/* Point 1: Outdated Defaults */}
-              <div className="flex gap-4 items-start bg-white border border-slate-200/60 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="p-3 bg-rose-50 text-rose-600 border border-rose-100 rounded-xl shrink-0">
+              <div className="flex gap-4 items-start bg-white dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="p-3 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-300 border border-rose-100 dark:border-rose-900/40 rounded-xl shrink-0">
                   <Icon icon="solar:shield-warning-bold-duotone" className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-lg font-black text-neutral-dark mb-1">{t.para1Title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">{t.para1}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium">{t.para1}</p>
                 </div>
               </div>
 
@@ -538,20 +538,20 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h4 className="text-lg font-black text-primary mb-1">{t.para2Title}</h4>
-                  <p className="text-slate-700 text-sm leading-relaxed font-semibold">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed font-semibold">
                     {t.para2}
                   </p>
                 </div>
               </div>
 
               {/* Point 3: Real Realities */}
-              <div className="flex gap-4 items-start bg-white border border-slate-200/60 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="p-3 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-xl shrink-0">
+              <div className="flex gap-4 items-start bg-white dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700 p-6 rounded-[1.8rem] shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="p-3 bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/40 rounded-xl shrink-0">
                   <Icon icon="solar:compass-bold-duotone" className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-lg font-black text-neutral-dark mb-1">{t.para3Title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed font-medium">{t.para3}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium">{t.para3}</p>
                 </div>
               </div>
             </div>
@@ -565,7 +565,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="py-20 md:py-28 px-6 lg:px-12 bg-white"
+        className="py-20 md:py-28 px-6 lg:px-12 bg-white dark:bg-[#0B0F1A]"
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
@@ -581,8 +581,8 @@ export default function AboutPage() {
                   t.bullet3,
                   t.bullet4
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 font-semibold text-slate-700">
-                    <span className="h-6 w-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100/60 shadow-sm">
+                  <li key={idx} className="flex items-center gap-3 font-semibold text-slate-700 dark:text-slate-300">
+                    <span className="h-6 w-6 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-300 flex items-center justify-center shrink-0 border border-emerald-100/60 dark:border-emerald-900/40 shadow-sm">
                       <Icon icon="solar:check-read-bold" className="w-3.5 h-3.5" />
                     </span>
                     <span>{item}</span>
@@ -591,14 +591,14 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="flex-1 lg:pl-16 lg:pt-4 border-t border-slate-100 lg:border-t-0 lg:border-l lg:border-slate-200/60 relative">
+            <div className="flex-1 lg:pl-16 lg:pt-4 border-t border-slate-100 dark:border-slate-800 lg:border-t-0 lg:border-l lg:border-slate-200/60 dark:lg:border-slate-700 relative">
               <div className="relative space-y-12">
                 {/* Vertical connector line */}
                 <div className="absolute left-[18px] top-8 bottom-8 w-[1.5px] bg-gradient-to-b from-primary/30 via-secondary/20 to-slate-200 pointer-events-none hidden sm:block" />
 
                 {/* Node 1 */}
                 <div className="relative pl-0 sm:pl-16 group cursor-default">
-                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-white border border-slate-200 text-slate-400 font-extrabold text-xs flex items-center justify-center group-hover:border-primary group-hover:text-primary group-hover:bg-primary/5 transition-all duration-300 shadow-sm hidden sm:flex">
+                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-400 font-extrabold text-xs flex items-center justify-center group-hover:border-primary group-hover:text-primary group-hover:bg-primary/5 transition-all duration-300 shadow-sm hidden sm:flex">
                     01
                   </div>
                   <div className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -608,7 +608,7 @@ export default function AboutPage() {
                     <h4 className="text-xl font-black text-neutral-dark mb-2.5 group-hover:text-primary transition-colors duration-300">
                       {t.commitPara1Title}
                     </h4>
-                    <p className="text-sm md:text-base text-slate-500 leading-relaxed font-semibold group-hover:text-slate-700 transition-colors duration-300">
+                    <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-semibold group-hover:text-slate-700 transition-colors duration-300">
                       {t.commitPara1}
                     </p>
                   </div>
@@ -616,7 +616,7 @@ export default function AboutPage() {
 
                 {/* Node 2 */}
                 <div className="relative pl-0 sm:pl-16 group cursor-default">
-                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-white border border-slate-200 text-slate-400 font-extrabold text-xs flex items-center justify-center group-hover:border-secondary group-hover:text-secondary group-hover:bg-secondary/5 transition-all duration-300 shadow-sm hidden sm:flex">
+                  <div className="absolute left-0 top-1 h-9 w-9 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-400 font-extrabold text-xs flex items-center justify-center group-hover:border-secondary group-hover:text-secondary group-hover:bg-secondary/5 transition-all duration-300 shadow-sm hidden sm:flex">
                     02
                   </div>
                   <div className="transform group-hover:translate-x-1 transition-transform duration-300">
@@ -626,7 +626,7 @@ export default function AboutPage() {
                     <h4 className="text-xl font-black text-neutral-dark mb-2.5 group-hover:text-secondary transition-colors duration-300">
                       {t.commitPara2Title}
                     </h4>
-                    <p className="text-sm md:text-base text-slate-500 leading-relaxed font-semibold group-hover:text-slate-700 transition-colors duration-300">
+                    <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed font-semibold group-hover:text-slate-700 transition-colors duration-300">
                       {t.commitPara2}
                     </p>
                   </div>
@@ -644,7 +644,7 @@ export default function AboutPage() {
                     <h4 className="text-xl font-black text-emerald-600 mb-2.5">
                       {t.commitPara3Title}
                     </h4>
-                    <p className="text-base md:text-lg text-slate-800 leading-relaxed font-black tracking-tight">
+                    <p className="text-base md:text-lg text-slate-800 dark:text-slate-100 leading-relaxed font-black tracking-tight">
                       {t.commitPara3}
                     </p>
                   </div>
@@ -661,7 +661,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="py-20 md:py-28 px-6 lg:px-12 bg-[#F8F9FB] border-t border-slate-200/50"
+        className="py-20 md:py-28 px-6 lg:px-12 bg-[#F8F9FB] dark:bg-[#0B111C] border-t border-slate-200/50 dark:border-slate-800"
       >
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -669,7 +669,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black text-neutral-dark tracking-tight leading-tight">
               {t.structureHeadline}
             </h2>
-            <p className="text-slate-500 font-medium mt-4">
+            <p className="text-slate-500 dark:text-slate-400 font-medium mt-4">
               {t.structureSub}
             </p>
           </div>
@@ -681,15 +681,15 @@ export default function AboutPage() {
             {/* Careers */}
             <motion.div
               variants={cardVariants}
-              className="relative bg-white border border-slate-200 rounded-[2.5rem] p-8 lg:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 group overflow-hidden cursor-default"
+              className="relative bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2.5rem] p-8 lg:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 group overflow-hidden cursor-default"
             >
               <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 bg-orange-500/5 group-hover:bg-orange-500/10 pointer-events-none" />
               <div className="relative z-10">
-                <div className="h-14 w-14 rounded-2xl bg-orange-50 text-orange-600 border border-orange-100 flex items-center justify-center mb-8 shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <div className="h-14 w-14 rounded-2xl bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-300 border border-orange-100 dark:border-orange-900/40 flex items-center justify-center mb-8 shadow-inner group-hover:scale-105 transition-transform duration-500">
                   <Icon icon="solar:compass-bold-duotone" className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-black text-neutral-dark mb-4 tracking-tight group-hover:text-primary transition-colors">{t.cardCareersTitle}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-8">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
                   {t.cardCareersDesc}
                 </p>
               </div>
@@ -701,15 +701,15 @@ export default function AboutPage() {
             {/* Exams */}
             <motion.div
               variants={cardVariants}
-              className="relative bg-white border border-slate-200 rounded-[2.5rem] p-8 lg:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 group overflow-hidden cursor-default"
+              className="relative bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2.5rem] p-8 lg:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 group overflow-hidden cursor-default"
             >
               <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 bg-indigo-500/5 group-hover:bg-indigo-500/10 pointer-events-none" />
               <div className="relative z-10">
-                <div className="h-14 w-14 rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-100/50 flex items-center justify-center mb-8 shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <div className="h-14 w-14 rounded-2xl bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-300 border border-indigo-100/50 dark:border-indigo-900/40 flex items-center justify-center mb-8 shadow-inner group-hover:scale-105 transition-transform duration-500">
                   <Icon icon="solar:document-text-bold-duotone" className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-black text-neutral-dark mb-4 tracking-tight group-hover:text-primary transition-colors">{t.cardExamsTitle}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-8">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
                   {t.cardExamsDesc}
                 </p>
               </div>
@@ -721,15 +721,15 @@ export default function AboutPage() {
             {/* Reads */}
             <motion.div
               variants={cardVariants}
-              className="relative bg-white border border-slate-200 rounded-[2.5rem] p-8 lg:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 group overflow-hidden cursor-default"
+              className="relative bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2.5rem] p-8 lg:p-10 flex flex-col justify-between shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 group overflow-hidden cursor-default"
             >
               <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 bg-purple-500/5 group-hover:bg-purple-500/10 pointer-events-none" />
               <div className="relative z-10">
-                <div className="h-14 w-14 rounded-2xl bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center mb-8 shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <div className="h-14 w-14 rounded-2xl bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-300 border border-purple-100 dark:border-purple-900/40 flex items-center justify-center mb-8 shadow-inner group-hover:scale-105 transition-transform duration-500">
                   <Icon icon="solar:book-bookmark-bold-duotone" className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-black text-neutral-dark mb-4 tracking-tight group-hover:text-primary transition-colors">{t.cardReadsTitle}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-8">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
                   {t.cardReadsDesc}
                 </p>
               </div>
@@ -821,7 +821,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="py-20 md:py-28 px-6 lg:px-12 bg-white border-b border-slate-200/50"
+        className="py-20 md:py-28 px-6 lg:px-12 bg-white dark:bg-[#0B0F1A] border-b border-slate-200/50 dark:border-slate-800"
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-24 items-center">
           <div className="flex-1">
@@ -829,25 +829,25 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-neutral-dark tracking-tight">
               {t.focusHeadline}
             </h2>
-            <p className="text-slate-500 font-medium leading-relaxed mb-8">
+            <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-8">
               {t.focusSub}
             </p>
             
             {/* Social pills */}
             <div className="flex flex-wrap gap-3">
-              <span className="border border-slate-200 text-slate-600 font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 transition-all duration-300">
+              <span className="border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 transition-all duration-300">
                 <Icon icon="solar:global-line-duotone" className="w-4 h-4 text-primary" /> {t.webHub}
               </span>
-              <span className="border border-slate-200 text-slate-600 font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 transition-all duration-300">
+              <span className="border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 transition-all duration-300">
                 <Icon icon="solar:play-circle-line-duotone" className="w-4 h-4 text-red-500" /> {t.youtube}
               </span>
-              <span className="border border-slate-200 text-slate-600 font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 transition-all duration-300">
+              <span className="border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 font-bold text-xs px-4 py-2.5 rounded-full flex items-center gap-2 shadow-sm hover:-translate-y-0.5 hover:border-slate-300 transition-all duration-300">
                 <Icon icon="solar:camera-line-duotone" className="w-4 h-4 text-pink-500" /> {t.instagram}
               </span>
             </div>
           </div>
           
-          <div className="flex-1 space-y-6 text-base md:text-lg text-slate-500 leading-relaxed font-medium md:border-l md:border-slate-100 md:pl-16">
+          <div className="flex-1 space-y-6 text-base md:text-lg text-slate-500 dark:text-slate-400 leading-relaxed font-medium md:border-l md:border-slate-100 dark:md:border-slate-800 md:pl-16">
             <p>{t.focusPara1}</p>
             <p>{t.focusPara2}</p>
           </div>
@@ -860,7 +860,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="py-20 md:py-28 px-6 lg:px-12 bg-slate-50 border-b border-slate-200/60"
+        className="py-20 md:py-28 px-6 lg:px-12 bg-slate-50 dark:bg-[#0B111C] border-b border-slate-200/60 dark:border-slate-800"
       >
         <div className="max-w-4xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -868,7 +868,7 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-5xl font-black text-neutral-dark tracking-tight">
               {t.faqHeadline}
             </h2>
-            <p className="text-slate-500 font-semibold mt-4 text-sm sm:text-base">
+            <p className="text-slate-500 dark:text-slate-400 font-semibold mt-4 text-sm sm:text-base">
               {t.faqSub}
             </p>
           </div>
@@ -884,7 +884,7 @@ export default function AboutPage() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t.searchPlaceholder}
-                className="w-full pl-12 pr-10 py-3.5 bg-white border border-slate-200 focus:border-primary rounded-2xl shadow-sm focus:outline-none text-sm text-neutral-dark font-semibold placeholder:text-slate-400 transition-all duration-300"
+                className="w-full pl-12 pr-10 py-3.5 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary rounded-2xl shadow-sm focus:outline-none text-sm text-neutral-dark font-semibold placeholder:text-slate-400 transition-all duration-300"
               />
               {searchQuery && (
                 <button
@@ -897,7 +897,7 @@ export default function AboutPage() {
             </div>
 
             {/* Category tabs */}
-            <div className="flex flex-wrap gap-8 justify-center border-b border-slate-200/50 pb-0 mb-10">
+            <div className="flex flex-wrap gap-8 justify-center border-b border-slate-200/50 dark:border-slate-800 pb-0 mb-10">
               {CATEGORIES.map((cat) => {
                 const isActive = activeCategory === cat;
                 return (
@@ -942,7 +942,7 @@ export default function AboutPage() {
                       transition={{ duration: 0.3 }}
                       key={faq.question}
                       className={`border rounded-2xl transition-all duration-300 ${
-                        isOpen ? "bg-white border-slate-300 shadow-[0_4px_25px_rgba(0,0,0,0.015)]" : "bg-white border-slate-200/80 hover:border-slate-300 shadow-sm"
+                        isOpen ? "bg-white dark:bg-slate-800/50 border-slate-300 dark:border-slate-700 shadow-[0_4px_25px_rgba(0,0,0,0.015)]" : "bg-white dark:bg-slate-800/50 border-slate-200/80 dark:border-slate-700 hover:border-slate-300 shadow-sm"
                       }`}
                     >
                       <button
@@ -967,7 +967,7 @@ export default function AboutPage() {
                             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
                             className="overflow-hidden"
                           >
-                            <div className="p-6 pt-0 text-slate-500 text-sm leading-relaxed font-semibold border-t border-slate-100/80 mt-1">
+                            <div className="p-6 pt-0 text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-semibold border-t border-slate-100/80 dark:border-slate-800 mt-1">
                               {faq.answer}
                             </div>
                           </motion.div>
@@ -979,7 +979,7 @@ export default function AboutPage() {
               ) : (
                 <motion.div
                   layout
-                  className="text-center py-12 px-6 bg-white border border-dashed border-slate-300 rounded-3xl"
+                  className="text-center py-12 px-6 bg-white dark:bg-slate-800/50 border border-dashed border-slate-300 dark:border-slate-700 rounded-3xl"
                 >
                   <Icon icon="solar:info-circle-bold-duotone" className="w-10 h-10 text-slate-300 mx-auto mb-4" />
                   <h4 className="text-base font-black text-neutral-dark mb-1">{t.noFaqTitle}</h4>
@@ -991,7 +991,7 @@ export default function AboutPage() {
                       setSearchQuery("");
                       setActiveCategory("all");
                     }}
-                    className="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold px-4 py-2.5 rounded-xl transition-all cursor-pointer"
+                    className="text-xs bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-extrabold px-4 py-2.5 rounded-xl transition-all cursor-pointer"
                   >
                     {t.resetSearch}
                   </button>
@@ -1008,7 +1008,7 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={fadeUpVariants}
-        className="relative py-28 md:py-40 px-6 lg:px-12 bg-neutral-dark text-center overflow-hidden flex flex-col items-center justify-center"
+        className="relative py-28 md:py-40 px-6 lg:px-12 bg-neutral-dark dark:bg-primary dark:border-primary text-center overflow-hidden flex flex-col items-center justify-center"
       >
         {/* Subtle grid backdrop */}
         <svg className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none select-none" xmlns="http://www.w3.org/2000/svg">

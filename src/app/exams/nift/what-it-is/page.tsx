@@ -15,7 +15,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     {/* SVG Hero Background */}
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       {/* Subtle grid pattern */}
@@ -52,10 +52,10 @@ const PageHeader = ({
     </div>
 
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
-      <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
+      <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark dark:text-slate-100">
         {title}
       </h1>
     </div>
@@ -71,15 +71,15 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
-    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 dark:text-slate-800 leading-none select-none z-0">
       {number}
     </div>
     <div className="relative z-10">
       <div className="text-pink-600 font-black text-sm uppercase tracking-widest mb-4">
         Section {number}
       </div>
-      <h2 className="text-3xl md:text-4xl font-black mb-8 text-neutral-dark tracking-tight">
+      <h2 className="text-3xl md:text-4xl font-black mb-8 text-neutral-dark dark:text-slate-100 tracking-tight">
         {title}
       </h2>
       {children}
@@ -95,7 +95,7 @@ const InfoBox = ({
   type?: "info" | "warning";
 }) => (
   <div
-    className={`p-6 md:p-8 my-8 rounded-2xl border-l-4 ${type === "info" ? "bg-pink-50 border-pink-500" : "bg-orange-50 border-accent"}`}
+    className={`p-6 md:p-8 my-8 rounded-2xl border-l-4 ${type === "info" ? "bg-pink-50 dark:bg-pink-950/30 border-pink-500" : "bg-orange-50 dark:bg-orange-950/30 border-accent"}`}
   >
     {children}
   </div>
@@ -117,10 +117,10 @@ const BentoCard = ({
   primary?: boolean;
 }) => (
   <div
-    className={`border rounded-2xl p-8 relative overflow-hidden ${primary ? "bg-pink-600 text-white border-pink-600" : "bg-slate-50 border-slate-200 text-neutral-dark"}`}
+    className={`border rounded-2xl p-8 relative overflow-hidden ${primary ? "bg-pink-600 text-white border-pink-600" : "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 text-neutral-dark dark:text-slate-100"}`}
   >
     <div
-      className={`text-sm font-bold uppercase tracking-wider mb-8 ${primary ? "text-pink-200" : "text-slate-500"}`}
+      className={`text-sm font-bold uppercase tracking-wider mb-8 ${primary ? "text-pink-200" : "text-slate-500 dark:text-slate-400"}`}
     >
       {label}
     </div>
@@ -131,7 +131,7 @@ const BentoCard = ({
 
 export default function NiftWhatItIsPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="NIFT Entrance — What It Is"
         breadcrumbs={
@@ -151,7 +151,7 @@ export default function NiftWhatItIsPage() {
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
         <Section number="01" title="The basics">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             The NIFT (National Institute of Fashion Technology) Entrance Exam is India's premier gateway for fashion and design education. Conducted annually in February, it opens doors to Bachelor of Design (B.Des) and Bachelor of Fashion Technology (B.FTech) programs across 16 campuses nationwide.
           </p>
           <BentoGrid>
@@ -168,7 +168,7 @@ export default function NiftWhatItIsPage() {
             />
           </BentoGrid>
           <InfoBox type="warning">
-            <p className="text-slate-800 leading-relaxed font-medium">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
               <strong className="font-black text-accent">
                 Key Distinction:
               </strong>{" "}
@@ -178,34 +178,34 @@ export default function NiftWhatItIsPage() {
         </Section>
 
         <Section number="02" title="Eligibility">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Candidates must satisfy the following criteria to apply:
           </p>
 
           <div className="space-y-6 mt-8">
-            <div className="bg-white border border-slate-200 p-6 rounded-2xl flex gap-6 items-start">
-              <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-pink-600 font-black shrink-0">
+            <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl flex gap-6 items-start">
+              <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-pink-600 font-black shrink-0">
                 1
               </div>
               <div>
-                <h3 className="text-xl font-bold text-neutral-dark mb-2">
+                <h3 className="text-xl font-bold text-neutral-dark dark:text-slate-100 mb-2">
                   Age limit
                 </h3>
-                <p className="text-slate-600 font-medium">
+                <p className="text-slate-600 dark:text-slate-400 font-medium">
                   Maximum age must be 24 years as of August 1st of the admission year. Upper age limit is relaxed by 5 years for SC, ST, and PwD candidates.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white border border-slate-200 p-6 rounded-2xl flex gap-6 items-start">
-              <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-pink-600 font-black shrink-0">
+            <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-6 rounded-2xl flex gap-6 items-start">
+              <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-pink-600 font-black shrink-0">
                 2
               </div>
               <div>
-                <h3 className="text-xl font-bold text-neutral-dark mb-2">
+                <h3 className="text-xl font-bold text-neutral-dark dark:text-slate-100 mb-2">
                   Academic qualifications
                 </h3>
-                <p className="text-slate-600 font-medium">
+                <p className="text-slate-600 dark:text-slate-400 font-medium">
                   Must have passed Class XII or equivalent. Candidates appearing for Class XII in the admission year are also eligible to sit for the exam.
                 </p>
               </div>
@@ -214,7 +214,7 @@ export default function NiftWhatItIsPage() {
         </Section>
 
         <Section number="03" title="Exam Structure">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Stage 1 comprises two tests on the same day. Both tests are mandatory for design aspirants.
           </p>
 
@@ -234,34 +234,34 @@ export default function NiftWhatItIsPage() {
         </Section>
 
         <Section number="04" title="Weightage & Selection">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             For Bachelor of Design (B.Des), admission relies on a three-stage weightage scheme. Shortlisted candidates from Stage 1 are invited for Stage 2 (Situation Test).
           </p>
 
-          <div className="overflow-x-auto border border-slate-200 rounded-xl my-8">
-            <table className="w-full text-left border-collapse min-w-[600px] bg-white">
-              <thead className="bg-slate-50">
+          <div className="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl my-8">
+            <table className="w-full text-left border-collapse min-w-[600px] bg-white dark:bg-slate-800/50">
+              <thead className="bg-slate-50 dark:bg-slate-800/40">
                 <tr>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Component</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Weightage (B.Des)</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Format</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Component</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Weightage (B.Des)</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Format</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black">Stage 1: CAT</td>
-                  <td className="p-4 text-pink-600 border-b border-slate-100 font-black">50%</td>
-                  <td className="p-4 text-slate-500 border-b border-slate-100 font-medium">Paper-based drawing test</td>
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-black">Stage 1: CAT</td>
+                  <td className="p-4 text-pink-600 border-b border-slate-100 dark:border-slate-800 font-black">50%</td>
+                  <td className="p-4 text-slate-500 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Paper-based drawing test</td>
                 </tr>
                 <tr>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black">Stage 1: GAT</td>
-                  <td className="p-4 text-pink-600 border-b border-slate-100 font-black">30%</td>
-                  <td className="p-4 text-slate-500 border-b border-slate-100 font-medium">Computer-based multiple-choice test</td>
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-black">Stage 1: GAT</td>
+                  <td className="p-4 text-pink-600 border-b border-slate-100 dark:border-slate-800 font-black">30%</td>
+                  <td className="p-4 text-slate-500 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Computer-based multiple-choice test</td>
                 </tr>
                 <tr>
-                  <td className="p-4 text-slate-700 font-black">Stage 2: Situation Test</td>
+                  <td className="p-4 text-slate-700 dark:text-slate-300 font-black">Stage 2: Situation Test</td>
                   <td className="p-4 text-pink-600 font-black">20%</td>
-                  <td className="p-4 text-slate-500 font-medium">Hands-on material model making in NIFT studios</td>
+                  <td className="p-4 text-slate-500 dark:text-slate-400 font-medium">Hands-on material model making in NIFT studios</td>
                 </tr>
               </tbody>
             </table>
@@ -269,7 +269,7 @@ export default function NiftWhatItIsPage() {
 
           <InfoBox type="info">
             <h4 className="font-black mb-2">What is the Situation Test?</h4>
-            <p className="text-slate-750 font-medium">
+            <p className="text-slate-750 dark:text-slate-300 font-medium">
               Candidates are given a set of raw materials (clay, wire, board, paper, etc.) and must construct a 3D model addressing a specific prompt under a strict 2-hour limit. They also write a short explanation of the concept. This test evaluates practical material execution and design thinking under pressure.
             </p>
           </InfoBox>

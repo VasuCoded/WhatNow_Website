@@ -145,9 +145,9 @@ export default function ReadsPage() {
   const articles = ARTICLES_DATA[language] as ArticleItem[];
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* HERO / HEADER */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Subtle grid pattern */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.18] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +165,7 @@ export default function ReadsPage() {
         </div>
 
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
-          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 mb-8">
+          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 dark:text-slate-400 mb-8">
             <Link href="/" className="hover:text-primary transition-colors">{t.home}</Link>
             <span>›</span>
             <span className="text-primary">{t.reads}</span>
@@ -176,7 +176,7 @@ export default function ReadsPage() {
               {t.heroHeadline}<br />
               <span className="text-primary">{t.heroHeadlineSub}</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl">
               {t.heroDesc}
             </p>
           </div>
@@ -190,7 +190,7 @@ export default function ReadsPage() {
             <Link
               key={article.id}
               href={`/reads/${article.id}`}
-              className={`group relative overflow-hidden bg-white border border-slate-200 rounded-[2rem] p-8 flex flex-col justify-between w-full shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer ${article.colorClass.hoverBorder}`}
+              className={`group relative overflow-hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 flex flex-col justify-between w-full shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer ${article.colorClass.hoverBorder}`}
             >
               {/* Ambient glow */}
               <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${article.colorClass.glow}`} />
@@ -201,7 +201,7 @@ export default function ReadsPage() {
                   <span className={`text-[10px] font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full border shadow-sm ${article.colorClass.badge}`}>
                     {article.tag}
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600 bg-indigo-50/50 border border-indigo-100 px-3.5 py-1.5 rounded-full shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600 dark:text-indigo-300 bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 px-3.5 py-1.5 rounded-full shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
                     {t.readArticle} →
                   </span>
                 </div>
@@ -210,13 +210,13 @@ export default function ReadsPage() {
                   {article.title}
                 </h3>
 
-                <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8">
+                <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8">
                   {article.description}
                 </p>
               </div>
 
               {/* Footer */}
-              <div className="relative z-10 border-t border-slate-100 pt-6 mt-auto flex items-center justify-between text-xs font-semibold text-slate-400">
+              <div className="relative z-10 border-t border-slate-100 dark:border-slate-800 pt-6 mt-auto flex items-center justify-between text-xs font-semibold text-slate-400 dark:text-slate-400">
                 <div className="flex items-center gap-2">
                   <Icon icon="solar:user-bold" className="w-4 h-4 text-slate-350" />
                   <span>{t.by} {article.author}</span>

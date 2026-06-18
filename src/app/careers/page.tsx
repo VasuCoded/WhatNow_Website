@@ -431,9 +431,9 @@ export default function CareersPage() {
   };
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* HERO / HEADER */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           {/* Subtle grid pattern */}
           <svg className="absolute inset-0 w-full h-full opacity-[0.18] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
@@ -453,7 +453,7 @@ export default function CareersPage() {
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
-              <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 mb-8">
+              <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 dark:text-slate-400 mb-8">
                 <Link href="/" className="hover:text-primary transition-colors">{t.home}</Link>
                 <span>›</span>
                 <span className="text-primary">{t.careers}</span>
@@ -463,7 +463,7 @@ export default function CareersPage() {
                 {t.heroHeadline}<br />
                 <span className="text-primary">{t.heroHeadlineSub}</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
+              <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl">
                 {t.heroDesc}
               </p>
             </div>
@@ -474,19 +474,19 @@ export default function CareersPage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="relative overflow-hidden bg-white/70 backdrop-blur-md border border-slate-200/80 rounded-[2.5rem] p-8 shadow-xl shadow-slate-100/50"
+                className="relative overflow-hidden bg-white/70 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 rounded-[2.5rem] p-8 shadow-xl shadow-slate-100/50"
               >
                 {/* Subtle top primary highlight bar */}
                 <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-secondary" />
 
-                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6 flex items-center gap-2">
+                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 mb-6 flex items-center gap-2">
                   <Icon icon="solar:compass-bold-duotone" className="w-4 h-4 text-primary" />
                   <span>{language === 'hi' ? 'करियर निर्देशिका' : 'Careers Directory'}</span>
                 </h3>
 
                 {/* Inline Search Bar with Dropdown */}
                 <div ref={searchContainerRef} className="relative mb-6">
-                  <div className="flex items-center gap-3 bg-slate-50 border border-slate-200/60 rounded-2xl px-5 py-4 w-full text-slate-550 text-sm font-medium transition-all shadow-xs focus-within:border-primary focus-within:bg-white">
+                  <div className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 rounded-2xl px-5 py-4 w-full text-slate-550 dark:text-slate-400 text-sm font-medium transition-all shadow-xs focus-within:border-primary focus-within:bg-white">
                     <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400 shrink-0" />
                     <input
                       ref={searchInputRef}
@@ -512,7 +512,7 @@ export default function CareersPage() {
                         <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
                       </button>
                     )}
-                    <kbd className="hidden sm:inline-block border border-slate-250 bg-white rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400 shrink-0">
+                    <kbd className="hidden sm:inline-block border border-slate-250 dark:border-slate-700 bg-white dark:bg-slate-800/50 rounded-md px-1.5 py-0.5 text-[10px] font-bold text-slate-400 dark:text-slate-400 shrink-0">
                       Ctrl+K
                     </kbd>
                   </div>
@@ -525,7 +525,7 @@ export default function CareersPage() {
                         animate={{ opacity: 1, y: 4, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.98 }}
                         transition={{ duration: 0.15, ease: "easeOut" }}
-                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-2xl shadow-slate-900/10 max-h-[300px] overflow-y-auto p-2 space-y-1"
+                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white/95 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 rounded-2xl shadow-2xl shadow-slate-900/10 max-h-[300px] overflow-y-auto p-2 space-y-1"
                       >
                         {searchResults.map((item, idx) => {
                           const isSelected = idx === searchSelectedIndex;
@@ -541,8 +541,8 @@ export default function CareersPage() {
                               }}
                               onMouseEnter={() => setSearchSelectedIndex(idx)}
                               className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer select-none transition-all ${
-                                isSelected 
-                                  ? "bg-slate-50 border border-slate-100" 
+                                isSelected
+                                  ? "bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700"
                                   : "bg-transparent border border-transparent"
                               } ${isComingSoon ? "opacity-60 cursor-not-allowed" : ""}`}
                             >
@@ -568,12 +568,12 @@ export default function CareersPage() {
                                 <div className="flex items-center gap-1.5 flex-wrap">
                                   <span className="text-xs font-black text-neutral-dark truncate">{item.title}</span>
                                   {isComingSoon && (
-                                    <span className="text-[8px] font-black uppercase bg-orange-50 text-orange-500 border border-orange-100 px-1 py-0.2 rounded-sm tracking-wider">
+                                    <span className="text-[8px] font-black uppercase bg-orange-50 dark:bg-orange-950/30 text-orange-500 dark:text-orange-300 border border-orange-100 dark:border-orange-900/40 px-1 py-0.2 rounded-sm tracking-wider">
                                       Soon
                                     </span>
                                   )}
                                 </div>
-                                <span className="text-[10px] text-slate-450 line-clamp-1 leading-tight">{item.description}</span>
+                                <span className="text-[10px] text-slate-450 dark:text-slate-400 line-clamp-1 leading-tight">{item.description}</span>
                               </div>
                             </div>
                           );
@@ -589,12 +589,12 @@ export default function CareersPage() {
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 4 }}
                         exit={{ opacity: 0, y: 8 }}
-                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200/80 rounded-2xl shadow-xl p-6 text-center"
+                        className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700 rounded-2xl shadow-xl p-6 text-center"
                       >
-                        <span className="text-xs font-bold text-slate-400 block mb-1">
+                        <span className="text-xs font-bold text-slate-400 dark:text-slate-400 block mb-1">
                           {language === 'hi' ? 'कोई परिणाम नहीं मिला' : 'No results found'}
                         </span>
-                        <span className="text-[10px] text-slate-400 block">
+                        <span className="text-[10px] text-slate-400 dark:text-slate-400 block">
                           {language === 'hi' ? 'सक्रिय करियर या परीक्षाओं की खोज करें।' : 'Try searching for active guides.'}
                         </span>
                       </motion.div>
@@ -603,23 +603,23 @@ export default function CareersPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
+                  <div className="bg-slate-50/60 dark:bg-slate-800/40 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-700 flex flex-col justify-center">
                     <span className="text-3xl font-black text-neutral-dark block mb-0.5 leading-none">5</span>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 leading-none">{language === 'hi' ? 'सक्रिय गाइड' : 'Active Guides'}</span>
-                  </div>
-                  
-                  <div className="bg-slate-50/60 rounded-2xl p-4 border border-slate-100/80 flex flex-col justify-center">
-                    <span className="text-3xl font-black text-primary block mb-0.5 leading-none">12+</span>
-                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 leading-none">{language === 'hi' ? 'जल्द आ रहे हैं' : 'Coming Soon'}</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 leading-none">{language === 'hi' ? 'सक्रिय गाइड' : 'Active Guides'}</span>
                   </div>
 
-                  <div className="bg-emerald-50/60 border border-emerald-100/50 rounded-2xl p-4 col-span-2 flex items-center gap-3">
+                  <div className="bg-slate-50/60 dark:bg-slate-800/40 rounded-2xl p-4 border border-slate-100/80 dark:border-slate-700 flex flex-col justify-center">
+                    <span className="text-3xl font-black text-primary block mb-0.5 leading-none">12+</span>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 leading-none">{language === 'hi' ? 'जल्द आ रहे हैं' : 'Coming Soon'}</span>
+                  </div>
+
+                  <div className="bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100/50 dark:border-emerald-900/40 rounded-2xl p-4 col-span-2 flex items-center gap-3">
                     <div className="h-8 w-8 rounded-lg bg-emerald-100/60 flex items-center justify-center text-emerald-600 shrink-0">
                       <Icon icon="solar:shield-check-bold" className="w-4.5 h-4.5" />
                     </div>
                     <div>
-                      <span className="text-[11px] font-black text-emerald-800 block mb-0.5 leading-tight">{language === 'hi' ? '100% निष्पक्ष और स्वतंत्र' : '100% Unbiased & Independent'}</span>
-                      <span className="text-[9px] font-bold text-emerald-600/90 uppercase tracking-wide leading-none">{language === 'hi' ? 'कोई कोचिंग संबद्धता नहीं' : 'No coaching sponsors or agenda'}</span>
+                      <span className="text-[11px] font-black text-emerald-800 dark:text-emerald-300 block mb-0.5 leading-tight">{language === 'hi' ? '100% निष्पक्ष और स्वतंत्र' : '100% Unbiased & Independent'}</span>
+                      <span className="text-[9px] font-bold text-emerald-600/90 dark:text-emerald-300 uppercase tracking-wide leading-none">{language === 'hi' ? 'कोई कोचिंग संबद्धता नहीं' : 'No coaching sponsors or agenda'}</span>
                     </div>
                   </div>
                 </div>
@@ -632,7 +632,7 @@ export default function CareersPage() {
       {/* CATALOG DIRECTORY */}
       <section className="py-16 md:py-24 container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         {/* Category Filters */}
-        <div className="flex items-center gap-8 overflow-x-auto pb-0 mb-12 scrollbar-none border-b border-slate-200/50">
+        <div className="flex items-center gap-8 overflow-x-auto pb-0 mb-12 scrollbar-none border-b border-slate-200/50 dark:border-slate-700">
           {(["All", "Design", "Fashion Design", "Law", "Defence", "Management", "Maritime", "Urban Planning"] as const).map((category) => {
             const isActive = selectedCategory === category;
             return (
@@ -641,7 +641,7 @@ export default function CareersPage() {
                 onClick={() => setSelectedCategory(category)}
                 className={`relative pb-4 text-xs md:text-sm font-extrabold uppercase tracking-widest transition-colors duration-300 cursor-pointer whitespace-nowrap select-none focus:outline-none ${isActive
                     ? "text-neutral-dark font-black"
-                    : "text-slate-400 hover:text-neutral-dark"
+                    : "text-slate-400 dark:text-slate-400 hover:text-neutral-dark"
                   }`}
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
@@ -703,7 +703,7 @@ export default function CareersPage() {
                   >
                     <Link
                       href={career.href || "#"}
-                      className="relative overflow-hidden bg-white border border-slate-200 rounded-[2rem] p-8 flex flex-col justify-between w-full shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 text-left select-none group"
+                      className="relative overflow-hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 flex flex-col justify-between w-full shadow-sm hover:shadow-xl hover:shadow-black/5 hover:-translate-y-1.5 transition-all duration-500 text-left select-none group"
                     >
                       {/* Ambient glow blob */}
                       <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowBg(career.category)}`} />
@@ -721,34 +721,34 @@ export default function CareersPage() {
                           <h3 className="text-2xl font-black text-neutral-dark mb-1 group-hover:text-primary transition-colors duration-300">
                             {career.title}
                           </h3>
-                          <p className="text-sm font-semibold text-slate-450 uppercase tracking-wider">
+                          <p className="text-sm font-semibold text-slate-450 dark:text-slate-400 uppercase tracking-wider">
                             {career.subtitle}
                           </p>
                         </div>
 
                         {/* Description */}
-                        <p className="text-slate-550 text-sm md:text-base leading-relaxed mb-8">
+                        <p className="text-slate-550 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8">
                           {career.description}
                         </p>
                       </div>
 
                       {/* Stats & Footer */}
-                      <div className="relative z-10 border-t border-slate-200/60 pt-6 mt-auto w-full">
-                        <div className="grid grid-cols-2 gap-y-4 gap-x-2 text-xs font-semibold text-slate-550 mb-6 bg-slate-50 border border-slate-200/30 rounded-2xl p-4">
+                      <div className="relative z-10 border-t border-slate-200/60 dark:border-slate-700 pt-6 mt-auto w-full">
+                        <div className="grid grid-cols-2 gap-y-4 gap-x-2 text-xs font-semibold text-slate-550 dark:text-slate-400 mb-6 bg-slate-50 dark:bg-slate-800/40 border border-slate-200/30 dark:border-slate-700 rounded-2xl p-4">
                           <div>
-                            <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.duration}</span>
+                            <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.duration}</span>
                             <span className="font-bold text-neutral-dark truncate block">{career.duration}</span>
                           </div>
                           <div>
-                            <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.salary}</span>
+                            <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.salary}</span>
                             <span className="font-bold text-neutral-dark truncate block">{career.salary}</span>
                           </div>
                           <div>
-                            <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.colleges}</span>
+                            <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.colleges}</span>
                             <span className="font-bold text-neutral-dark truncate block">{career.colleges}</span>
                           </div>
                           <div>
-                            <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.exitRisk}</span>
+                            <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.exitRisk}</span>
                             <span className="font-bold text-neutral-dark truncate block">{career.exitRisk}</span>
                           </div>
                         </div>
@@ -774,7 +774,7 @@ export default function CareersPage() {
                   className="group flex"
                 >
                   <div
-                    className="relative overflow-hidden bg-slate-50 border border-slate-200/60 rounded-[2rem] p-8 flex flex-col justify-between w-full opacity-70 shadow-none cursor-not-allowed select-none transition-all duration-500"
+                    className="relative overflow-hidden bg-slate-50 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700 rounded-[2rem] p-8 flex flex-col justify-between w-full opacity-70 shadow-none cursor-not-allowed select-none transition-all duration-500"
                   >
                     {/* Ambient glow blob */}
                     <div className={`absolute -right-10 -bottom-10 w-44 h-44 rounded-full blur-3xl transition-all duration-500 pointer-events-none ${getGlowBg(career.category)}`} />
@@ -786,7 +786,7 @@ export default function CareersPage() {
                           {displayCategory}
                         </span>
 
-                        <span className="text-[10px] font-black uppercase tracking-widest text-orange-500 bg-orange-50/50 border border-orange-100 px-3.5 py-1.5 rounded-full shadow-sm">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-orange-500 dark:text-orange-300 bg-orange-50/50 dark:bg-orange-950/30 border border-orange-100 dark:border-orange-900/40 px-3.5 py-1.5 rounded-full shadow-sm">
                           {t.comingSoon}
                         </span>
                       </div>
@@ -796,39 +796,39 @@ export default function CareersPage() {
                         <h3 className="text-2xl font-black text-neutral-dark mb-1">
                           {career.title}
                         </h3>
-                        <p className="text-sm font-semibold text-slate-450 uppercase tracking-wider">
+                        <p className="text-sm font-semibold text-slate-450 dark:text-slate-400 uppercase tracking-wider">
                           {career.subtitle}
                         </p>
                       </div>
 
                       {/* Description */}
-                      <p className="text-slate-550 text-sm md:text-base leading-relaxed mb-8">
+                      <p className="text-slate-550 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8">
                         {career.description}
                       </p>
                     </div>
 
                     {/* Stats & Footer */}
-                    <div className="relative z-10 border-t border-slate-200/60 pt-6 mt-auto">
-                      <div className="grid grid-cols-2 gap-y-4 gap-x-2 text-xs font-semibold text-slate-550 mb-6 bg-slate-100/50 border border-slate-200/30 rounded-2xl p-4">
+                    <div className="relative z-10 border-t border-slate-200/60 dark:border-slate-700 pt-6 mt-auto">
+                      <div className="grid grid-cols-2 gap-y-4 gap-x-2 text-xs font-semibold text-slate-550 dark:text-slate-400 mb-6 bg-slate-100/50 dark:bg-slate-800/40 border border-slate-200/30 dark:border-slate-700 rounded-2xl p-4">
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.duration}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.duration}</span>
                           <span className="font-bold text-neutral-dark truncate block">{career.duration}</span>
                         </div>
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.salary}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.salary}</span>
                           <span className="font-bold text-neutral-dark truncate block">{career.salary}</span>
                         </div>
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.colleges}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.colleges}</span>
                           <span className="font-bold text-neutral-dark truncate block">{career.colleges}</span>
                         </div>
                         <div>
-                          <span className="block text-[10px] font-black text-slate-400 uppercase tracking-wider mb-0.5">{t.exitRisk}</span>
+                          <span className="block text-[10px] font-black text-slate-400 dark:text-slate-400 uppercase tracking-wider mb-0.5">{t.exitRisk}</span>
                           <span className="font-bold text-neutral-dark truncate block">{career.exitRisk}</span>
                         </div>
                       </div>
 
-                      <div className="text-right text-xs font-bold text-slate-400 italic">
+                      <div className="text-right text-xs font-bold text-slate-400 dark:text-slate-400 italic">
                         {t.inDev}
                       </div>
                     </div>

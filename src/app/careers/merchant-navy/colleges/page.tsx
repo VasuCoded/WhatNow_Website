@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg
         className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
@@ -52,13 +52,13 @@ const PageHeader = ({
       </svg>
     </div>
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
         {title}
       </h1>
-      <div className="text-sm font-bold text-slate-400">
+      <div className="text-sm font-bold text-slate-400 dark:text-slate-400">
         Last reviewed: June 2026 · Researched from first-hand accounts of serving and trainee mariners, plus DG Shipping &amp; BIMCO/ICS data. Institutes listed as examples, not endorsements — verify on DG Shipping.
       </div>
     </div>
@@ -74,8 +74,8 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
-    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 dark:text-slate-800 leading-none select-none z-0">
       {number}
     </div>
     <div className="relative z-10">
@@ -92,7 +92,7 @@ const Section = ({
 
 export default function MerchantNavyCollegesPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="Colleges & DG Shipping Approval"
         breadcrumbs={
@@ -111,58 +111,58 @@ export default function MerchantNavyCollegesPage() {
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24 mt-12">
 
         <Section number="01" title="The one rule that matters: DG Shipping approval">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Before fees, brochures or campus photos, check one thing: is the <strong>specific course</strong> at that <strong>specific institute</strong> approved by the Directorate General of Shipping (DG Shipping)? Without it, your certificate is not valid for a seafaring career and is not recognised internationally.
           </p>
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl">
-            <p className="text-slate-800 leading-relaxed font-medium">
-              <strong className="font-black text-orange-700">Approval is granted course-by-course.</strong> An institute can be approved for one programme and not another — so verify <em>both</em> the institute and the exact course, every time. An institute cagey about its approval number or status? Treat that as the answer.
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
+              <strong className="font-black text-orange-700 dark:text-orange-300">Approval is granted course-by-course.</strong> An institute can be approved for one programme and not another — so verify <em>both</em> the institute and the exact course, every time. An institute cagey about its approval number or status? Treat that as the answer.
             </p>
           </div>
         </Section>
 
         <Section number="02" title="The tier map (honest)">
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
             Indian maritime education runs from world-class to predatory. Roughly:
           </p>
-          <p className="text-xs text-slate-400 font-medium mb-4 italic">
+          <p className="text-xs text-slate-400 dark:text-slate-400 font-medium mb-4 italic">
             This is orientation, not endorsement. WhatNow doesn&apos;t rank colleges or take referrals — always confirm current status yourself on DG Shipping.
           </p>
 
-          <div className="overflow-x-auto border border-slate-200 rounded-xl">
-            <table className="w-full text-left border-collapse min-w-[640px] bg-white">
-              <thead className="bg-slate-50">
+          <div className="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl">
+            <table className="w-full text-left border-collapse min-w-[640px] bg-white dark:bg-slate-800/50">
+              <thead className="bg-slate-50 dark:bg-slate-800/40">
                 <tr>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Tier</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">What it is</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">Examples</th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">The catch</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Tier</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">What it is</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">Examples</th>
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">The catch</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 font-black text-slate-700 border-b border-slate-100">Govt (IMU)</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Indian Maritime University — public, lowest fees, strong brand, merit via IMU CET</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">IMU Chennai (flagship), IMU Mumbai / Navi Mumbai, Kolkata, Visakhapatnam, Cochin; TS Chanakya</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Competitive entry; you still arrange your own berth unless sponsored</td>
+                  <td className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800">Govt (IMU)</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Indian Maritime University — public, lowest fees, strong brand, merit via IMU CET</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">IMU Chennai (flagship), IMU Mumbai / Navi Mumbai, Kolkata, Visakhapatnam, Cochin; TS Chanakya</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Competitive entry; you still arrange your own berth unless sponsored</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-black text-slate-700 border-b border-slate-100">Company-owned</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Academies run by shipping companies that pre-place their own cadets — the safest route to an actual job</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Anglo-Eastern Maritime Academy (Karjat); Samundra / SIMS (Lonavala); Tolani / TMI (Pune); SCI&apos;s training institute</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Selective; often bonded to the sponsoring company</td>
+                  <td className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800">Company-owned</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Academies run by shipping companies that pre-place their own cadets — the safest route to an actual job</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Anglo-Eastern Maritime Academy (Karjat); Samundra / SIMS (Lonavala); Tolani / TMI (Pune); SCI&apos;s training institute</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Selective; often bonded to the sponsoring company</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-black text-slate-700 border-b border-slate-100">Reputed private</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Long-running private institutes with real infrastructure and recruiters</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">HIMT, IMI, MANET, AMET, GEIMS, BP Marine, Fleet Management Training Institute, MASSA</td>
-                  <td className="p-4 text-slate-600 border-b border-slate-100 font-medium">Verify placement reality, not just the brochure</td>
+                  <td className="p-4 font-black text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800">Reputed private</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Long-running private institutes with real infrastructure and recruiters</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">HIMT, IMI, MANET, AMET, GEIMS, BP Marine, Fleet Management Training Institute, MASSA</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 border-b border-slate-100 dark:border-slate-800 font-medium">Verify placement reality, not just the brochure</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-black text-slate-700">Everyone else</td>
-                  <td className="p-4 text-slate-600 font-medium">150+ DG-approved institutes of widely varying quality</td>
-                  <td className="p-4 text-slate-500 font-medium italic">—</td>
-                  <td className="p-4 text-slate-600 font-medium">A seat here is not a job; &quot;100% placement&quot; claims need scrutiny</td>
+                  <td className="p-4 font-black text-slate-700 dark:text-slate-300">Everyone else</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 font-medium">150+ DG-approved institutes of widely varying quality</td>
+                  <td className="p-4 text-slate-500 dark:text-slate-400 font-medium italic">—</td>
+                  <td className="p-4 text-slate-600 dark:text-slate-400 font-medium">A seat here is not a job; &quot;100% placement&quot; claims need scrutiny</td>
                 </tr>
               </tbody>
             </table>
@@ -177,7 +177,7 @@ export default function MerchantNavyCollegesPage() {
               "Confirm the approval is current, not lapsed, and that intake/seats match what the institute is advertising.",
               "Separately confirm any STCW short-courses you'll need are DG-approved at that centre.",
             ].map((step, i) => (
-              <li key={i} className="flex items-start gap-4 text-slate-700 font-medium">
+              <li key={i} className="flex items-start gap-4 text-slate-700 dark:text-slate-300 font-medium">
                 <span className="flex-shrink-0 w-7 h-7 rounded-full bg-orange-600 text-white font-black text-sm flex items-center justify-center mt-0.5">
                   {i + 1}
                 </span>
@@ -186,15 +186,15 @@ export default function MerchantNavyCollegesPage() {
             ))}
           </ol>
 
-          <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl mt-8">
-            <p className="text-slate-800 leading-relaxed font-medium">
-              <strong className="font-black text-orange-700">If an institute is cagey about its approval number or status, treat that as the answer.</strong>
+          <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl mt-8">
+            <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
+              <strong className="font-black text-orange-700 dark:text-orange-300">If an institute is cagey about its approval number or status, treat that as the answer.</strong>
             </p>
           </div>
         </Section>
 
         <Section number="04" title="Fees, roughly">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Ballpark, varying widely by institute and year. Always confirm exact fees, bond terms and stipend in writing before paying anything.
           </p>
           <ul className="space-y-4">
@@ -203,13 +203,13 @@ export default function MerchantNavyCollegesPage() {
               { label: "B.Sc Nautical Science / B.Tech Marine Engineering", detail: "A full multi-year degree's fees; higher total, spread over 3–4 years." },
               { label: "GME", detail: "Roughly ₹3–6 lakh for the one year." },
             ].map(({ label, detail }) => (
-              <li key={label} className="flex items-start gap-3 text-slate-700 font-medium">
+              <li key={label} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 font-medium">
                 <span className="text-orange-500 font-black mt-0.5 flex-shrink-0">›</span>
-                <span><strong className="text-slate-900">{label}</strong> — {detail}</span>
+                <span><strong className="text-slate-900 dark:text-slate-100">{label}</strong> — {detail}</span>
               </li>
             ))}
           </ul>
-          <p className="text-slate-600 font-medium mt-6 text-base">
+          <p className="text-slate-600 dark:text-slate-400 font-medium mt-6 text-base">
             Company-sponsored seats can be subsidised — sometimes with a service bond in return.
           </p>
 
@@ -223,9 +223,9 @@ export default function MerchantNavyCollegesPage() {
           </div>
         </Section>
 
-        <div className="pt-8 border-t border-slate-200">
-          <p className="text-sm text-slate-500 font-medium">
-            <strong className="text-slate-700">See also:</strong>{" "}
+        <div className="pt-8 border-t border-slate-200 dark:border-slate-700">
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <strong className="text-slate-700 dark:text-slate-300">See also:</strong>{" "}
             <Link href="/careers/merchant-navy/entry-routes" className="text-orange-600 hover:underline font-bold">Entry Routes →</Link>{" "}
             ·{" "}
             <Link href="/exams/imu-cet" className="text-orange-600 hover:underline font-bold">IMU CET (how the entrance & counselling work) →</Link>{" "}

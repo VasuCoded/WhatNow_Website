@@ -94,24 +94,24 @@ export default function EditorialGuidelinesPage() {
   const en = translations.en;
 
   return (
-    <main className="flex-grow bg-white">
+    <main className="flex-grow bg-white dark:bg-[#0B0F1A]">
       {/* Hero */}
-      <section className="border-b border-slate-200 bg-slate-50 pt-16 pb-12 px-6">
+      <section className="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-[#0B111C] pt-16 pb-12 px-6">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#5563ED] mb-3">
             {t.pageLabel}
           </p>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             {t.title}
           </h1>
-          <p className="text-sm text-slate-500 font-medium">{t.lastUpdated}</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">{t.lastUpdated}</p>
         </div>
       </section>
 
       {/* Body */}
       <div className="max-w-4xl mx-auto px-6 py-12 md:py-16">
         {t.pendingNotice && (
-          <div className="mb-10 rounded-2xl border border-amber-200 bg-amber-50 px-6 py-4 text-sm text-amber-800 font-semibold">
+          <div className="mb-10 rounded-2xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/30 px-6 py-4 text-sm text-amber-800 dark:text-amber-300 font-semibold">
             {t.pendingNotice}
           </div>
         )}
@@ -120,7 +120,7 @@ export default function EditorialGuidelinesPage() {
           {/* Table of contents */}
           <aside className="lg:w-56 shrink-0">
             <nav className="lg:sticky lg:top-28">
-              <p className="text-xs font-extrabold tracking-[0.15em] uppercase text-slate-400 mb-4">
+              <p className="text-xs font-extrabold tracking-[0.15em] uppercase text-slate-400 dark:text-slate-400 mb-4">
                 Contents
               </p>
               <ul className="space-y-2">
@@ -128,7 +128,7 @@ export default function EditorialGuidelinesPage() {
                   <li key={item.id}>
                     <a
                       href={`#${item.id}`}
-                      className="text-sm text-slate-500 hover:text-[#5563ED] font-semibold transition-colors"
+                      className="text-sm text-slate-500 dark:text-slate-400 hover:text-[#5563ED] font-semibold transition-colors"
                     >
                       {item.label}
                     </a>
@@ -141,17 +141,17 @@ export default function EditorialGuidelinesPage() {
           {/* Content */}
           <article className="flex-1 min-w-0">
             {/* Intro */}
-            <p className="text-lg font-black text-slate-900 mb-10 leading-relaxed">
+            <p className="text-lg font-black text-slate-900 dark:text-slate-100 mb-10 leading-relaxed">
               {en.intro}
             </p>
 
             {/* Independence */}
             <section id="independence" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.independence.heading}
               </h2>
               {en.sections.independence.body.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                <p key={i} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                   {para}
                 </p>
               ))}
@@ -159,11 +159,11 @@ export default function EditorialGuidelinesPage() {
 
             {/* No Agenda */}
             <section id="no-agenda" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.noAgenda.heading}
               </h2>
               {en.sections.noAgenda.body.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                <p key={i} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                   {para}
                 </p>
               ))}
@@ -171,11 +171,11 @@ export default function EditorialGuidelinesPage() {
 
             {/* Research */}
             <section id="research" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.research.heading}
               </h2>
               {en.sections.research.body.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                <p key={i} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                   {para}
                 </p>
               ))}
@@ -183,11 +183,11 @@ export default function EditorialGuidelinesPage() {
 
             {/* Accuracy */}
             <section id="accuracy" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.accuracy.heading}
               </h2>
               {en.sections.accuracy.body.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                <p key={i} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                   {para.includes("indiawhatnow@gmail.com") ? (
                     <>
                       {para.split("indiawhatnow@gmail.com")[0]}
@@ -208,14 +208,14 @@ export default function EditorialGuidelinesPage() {
 
             {/* What We Don't Do */}
             <section id="what-we-dont-do" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.whatWeDontDo.heading}
               </h2>
               <ul className="space-y-3">
                 {en.sections.whatWeDontDo.items.map((item, i) => (
                   <li key={i} className="flex gap-3 items-start">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-400 shrink-0" />
-                    <span className="text-sm text-slate-600 font-medium leading-relaxed">
+                    <span className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
                       {item}
                     </span>
                   </li>
@@ -225,21 +225,21 @@ export default function EditorialGuidelinesPage() {
 
             {/* Updating */}
             <section id="updating" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.updating.heading}
               </h2>
-              <p className="text-slate-600 text-sm leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
                 {en.sections.updating.body}
               </p>
             </section>
 
             {/* Feedback */}
             <section id="feedback" className="mb-10">
-              <h2 className="text-xl font-black text-slate-900 mb-4 pb-2 border-b border-slate-100">
+              <h2 className="text-xl font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
                 {en.sections.feedback.heading}
               </h2>
               {en.sections.feedback.body.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                <p key={i} className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
                   {para.includes("indiawhatnow@gmail.com") ? (
                     <>
                       {para.split("indiawhatnow@gmail.com")[0]}
@@ -259,7 +259,7 @@ export default function EditorialGuidelinesPage() {
             </section>
 
             {/* Nav */}
-            <div className="mt-12 pt-8 border-t border-slate-100 flex gap-4 flex-wrap">
+            <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex gap-4 flex-wrap">
               <Link
                 href="/privacy"
                 className="text-sm font-black text-[#5563ED] hover:underline"

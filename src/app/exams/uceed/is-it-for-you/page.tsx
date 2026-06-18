@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -45,7 +45,7 @@ const PageHeader = ({
     </div>
 
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
@@ -64,8 +64,8 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
-    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+    <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 dark:text-slate-800 leading-none select-none z-0">
       {number}
     </div>
     <div className="relative z-10">
@@ -82,7 +82,7 @@ const Section = ({
 
 export default function UceedIsItForYouPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="UCEED — Is Design at an IIT For You?"
         breadcrumbs={
@@ -102,25 +102,25 @@ export default function UceedIsItForYouPage() {
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
         <Section number="01" title="What kind of person actually ends up here">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Most people who end up at a B.Des program at an IIT didn&apos;t follow a
             straight path to it. Some found design early — through drawing, through
             noticing how things are made, through frustration with how apps or
             products work. Others found it by elimination — they knew they didn&apos;t
             want pure engineering, but they didn&apos;t want to lose the IIT option either.
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             Both are valid starting points. But they lead to very different
             experiences. If design is the thing you&apos;re actually drawn to, the program
             feeds it. If you&apos;re there because you wanted the IIT tag and this seemed
             like a less competitive route, it&apos;s a miserable four years.
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed mb-8 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
             This page is about helping you figure out which one you are — before you
             spend a year preparing.
           </p>
-          <blockquote className="border-l-4 border-primary bg-indigo-50 rounded-r-2xl p-6 md:p-8 my-8">
-            <p className="text-slate-700 italic font-medium leading-relaxed mb-4">
+          <blockquote className="border-l-4 border-primary bg-indigo-50 dark:bg-indigo-950/30 rounded-r-2xl p-6 md:p-8 my-8">
+            <p className="text-slate-700 dark:text-slate-300 italic font-medium leading-relaxed mb-4">
               &ldquo;The first time I came across UCEED, I was around 13. I had joined
               a portrait course at what I later found out was a design coaching. I just
               kept drawing after that and made up my mind about a creative field. UCEED
@@ -135,9 +135,9 @@ export default function UceedIsItForYouPage() {
 
         <Section number="02" title="Four honest questions to ask yourself">
           <div className="space-y-6">
-            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+            <div className="border border-slate-200 dark:border-slate-700 p-6 rounded-2xl bg-white dark:bg-slate-800/50">
               <h4 className="font-black text-lg text-neutral-dark mb-2">1. Do you notice the world, or just move through it?</h4>
-              <p className="text-slate-600 font-semibold leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 font-semibold leading-relaxed">
                 UCEED Part A has a section on observation and design sensitivity.
                 It asks you to look at an image and catch what most people miss — a
                 structural anomaly, a visual inconsistency, something that doesn&apos;t belong.
@@ -148,9 +148,9 @@ export default function UceedIsItForYouPage() {
                 whether you&apos;ll enjoy developing it.
               </p>
             </div>
-            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+            <div className="border border-slate-200 dark:border-slate-700 p-6 rounded-2xl bg-white dark:bg-slate-800/50">
               <h4 className="font-black text-lg text-neutral-dark mb-2">2. Are you drawn to making things, or to figuring things out — or both?</h4>
-              <p className="text-slate-600 font-semibold leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 font-semibold leading-relaxed">
                 B.Des covers a wide range: product design, communication design,
                 interaction design, animation, spatial design. The common thread is that
                 you&apos;re either making something or solving a problem that results in
@@ -159,9 +159,9 @@ export default function UceedIsItForYouPage() {
                 image, the space.
               </p>
             </div>
-            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+            <div className="border border-slate-200 dark:border-slate-700 p-6 rounded-2xl bg-white dark:bg-slate-800/50">
               <h4 className="font-black text-lg text-neutral-dark mb-2">3. Can you sit with a bad drawing and keep going?</h4>
-              <p className="text-slate-600 font-semibold leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 font-semibold leading-relaxed">
                 Part B has a drawing question. If you&apos;ve never drawn anything in
                 your life, you&apos;ll need to build this skill — and it takes more than a few
                 weeks. But drawing ability is not fixed talent. What separates people who
@@ -169,9 +169,9 @@ export default function UceedIsItForYouPage() {
                 bad at something and continuing anyway.
               </p>
             </div>
-            <div className="border border-slate-200 p-6 rounded-2xl bg-white">
+            <div className="border border-slate-200 dark:border-slate-700 p-6 rounded-2xl bg-white dark:bg-slate-800/50">
               <h4 className="font-black text-lg text-neutral-dark mb-2">4. What specifically draws you to design? Can you answer this in one sentence?</h4>
-              <p className="text-slate-600 font-semibold leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 font-semibold leading-relaxed">
                 You don&apos;t need a polished answer. But if you have no answer
                 at all — if you can&apos;t point to a thing you like, a type of problem you want
                 to work on, a kind of output you find satisfying — that&apos;s worth paying
@@ -183,15 +183,15 @@ export default function UceedIsItForYouPage() {
         </Section>
 
         <Section number="03" title="What the program is actually like">
-          <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50">
-            <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
+          <div className="p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40">
+            <p className="text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-4">
               B.Des at an IIT is studio-based learning. That means project work,
               critiques, iteration, and a lot of time working on things that don&apos;t
               have one correct answer. It is not lecture-heavy. The workload is real —
               design projects take time in ways that are different from solving problem
               sets — but the stress is creative rather than exam-based.
             </p>
-            <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
+            <p className="text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-4">
               Most B.Des programs at IITs cover a broad design foundation in years one
               and two before you specialise. The disciplines available vary by institute
               — IIT Bombay&apos;s IDC covers industrial design, communication design,
@@ -200,7 +200,7 @@ export default function UceedIsItForYouPage() {
               design, and film and animation. IIT Indore&apos;s program is framed around
               innovation systems — urban, healthcare, education, energy.
             </p>
-            <p className="text-lg text-slate-700 font-medium leading-relaxed">
+            <p className="text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
               On careers: fresh B.Des graduates from IITs primarily enter tech sectors,
               design consultancies, and product companies. Starting salary ranges are
               broadly comparable to B.Tech graduates from the same institutes — ₹8–20
@@ -212,19 +212,19 @@ export default function UceedIsItForYouPage() {
         </Section>
 
         <Section number="04" title="If you're from Arts or Commerce">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             You can write UCEED. And you can get into IIT Bombay, IIT Delhi, IIT
             Hyderabad, and IIT Indore — which includes the most prestigious design
             program in the country (IDC, IIT Bombay). The PCM stream restriction
             applies only to IIT Guwahati, IIT Roorkee, and IIITDM Jabalpur.
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             This is not a consolation prize. Arts and Commerce students bring
             something to design programs that Science students often have to work
             to develop — comfort with ambiguity, cultural awareness, a different
             relationship with visual language.
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             What you will need to prepare for: Part A tests logical reasoning, spatial
             ability, and English comprehension — none of which requires a Science
             background. Part B tests drawing and design thinking. Neither section has

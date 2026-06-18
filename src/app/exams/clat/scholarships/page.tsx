@@ -13,7 +13,7 @@ const PageHeader = ({
   title: string;
   breadcrumbs: React.ReactNode;
 }) => (
-  <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+  <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
       <svg className="absolute inset-0 w-full h-full opacity-[0.15] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -45,7 +45,7 @@ const PageHeader = ({
     </div>
 
     <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 relative z-10">
-      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 mb-8">
+      <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400 mb-8">
         {breadcrumbs}
       </div>
       <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-black leading-[1.1] tracking-tight mb-6 text-neutral-dark">
@@ -64,7 +64,7 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
+  <section className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 mb-12 shadow-sm relative overflow-hidden">
     <div className="absolute top-0 right-0 p-8 text-[6rem] font-black text-slate-50 leading-none select-none z-0">
       {number}
     </div>
@@ -93,20 +93,20 @@ const ScholarshipCard = ({
   description: React.ReactNode;
   note?: string;
 }) => (
-  <div className="border border-slate-200 rounded-2xl p-6 md:p-8 bg-white shadow-sm mb-6 flex flex-col md:flex-row gap-8">
+  <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 bg-white dark:bg-slate-800/50 shadow-sm mb-6 flex flex-col md:flex-row gap-8">
     <div className="md:w-1/3">
-      <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-600 text-xs font-black uppercase tracking-wider rounded-full mb-4">
+      <div className="inline-block px-3 py-1 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-300 text-xs font-black uppercase tracking-wider rounded-full mb-4">
         {type}
       </div>
       <h3 className="text-2xl font-black text-neutral-dark mb-2">{title}</h3>
-      <p className="text-sm font-bold text-slate-500 italic">{audience}</p>
+      <p className="text-sm font-bold text-slate-500 dark:text-slate-400 italic">{audience}</p>
     </div>
     <div className="md:w-2/3 flex flex-col justify-center">
-      <div className="text-lg text-slate-600 font-medium leading-relaxed mb-4">
+      <div className="text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-4">
         {description}
       </div>
       {note && (
-        <div className="pt-4 border-t border-slate-100 text-sm font-bold text-slate-500">
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-800 text-sm font-bold text-slate-500 dark:text-slate-400">
           Note: {note}
         </div>
       )}
@@ -116,7 +116,7 @@ const ScholarshipCard = ({
 
 export default function ClatScholarshipsPage() {
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       <PageHeader
         title="CLAT — NLU Fees & Scholarships"
         breadcrumbs={
@@ -136,64 +136,64 @@ export default function ClatScholarshipsPage() {
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
         <Section number="01" title="What does studying at an NLU cost?">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             National Law Universities (NLUs) are autonomous public institutions, but they receive minimal state funding compared to IITs. Consequently, NLU fee structures are relatively high, averaging ₹2.5L to ₹3.5L annually. This covers tuition, library access, residential facilities, and university utilities.
           </p>
 
-          <div className="overflow-x-auto border border-slate-200 rounded-xl my-8">
-            <table className="w-full text-left border-collapse min-w-[600px] bg-white">
-              <thead className="bg-slate-50">
+          <div className="overflow-x-auto border border-slate-200 dark:border-slate-700 rounded-xl my-8">
+            <table className="w-full text-left border-collapse min-w-[600px] bg-white dark:bg-slate-800/50">
+              <thead className="bg-slate-50 dark:bg-slate-800/40">
                 <tr>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
                     NLU Campus
                   </th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
                     Tuition Fees (Per Year)
                   </th>
-                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 border-b border-slate-200">
+                  <th className="p-4 font-black text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
                     Approx. Total Annual Cost (Inc. Hostel & Mess)
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-black">
                     NLSIU Bangalore (Tier 1)
                   </td>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-medium">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-medium">
                     ~₹2.75 lakhs
                   </td>
-                  <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
+                  <td className="p-4 text-emerald-600 border-b border-slate-100 dark:border-slate-800 font-black">
                     ~₹3.50 lakhs/year
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-black">
                     NALSAR Hyderabad (Tier 1)
                   </td>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-medium">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-medium">
                     ~₹2.40 lakhs
                   </td>
-                  <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
+                  <td className="p-4 text-emerald-600 border-b border-slate-100 dark:border-slate-800 font-black">
                     ~₹3.10 lakhs/year
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-black">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-black">
                     WBNUJS Kolkata (Tier 1)
                   </td>
-                  <td className="p-4 text-slate-700 border-b border-slate-100 font-medium">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 border-b border-slate-100 dark:border-slate-800 font-medium">
                     ~₹2.50 lakhs
                   </td>
-                  <td className="p-4 text-emerald-600 border-b border-slate-100 font-black">
+                  <td className="p-4 text-emerald-600 border-b border-slate-100 dark:border-slate-800 font-black">
                     ~₹3.20 lakhs/year
                   </td>
                 </tr>
                 <tr>
-                  <td className="p-4 text-slate-700 font-black">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 font-black">
                     NLU Jodhpur / GNLU Gandhinagar
                   </td>
-                  <td className="p-4 text-slate-700 font-medium">
+                  <td className="p-4 text-slate-700 dark:text-slate-300 font-medium">
                     ~₹2.50 lakhs
                   </td>
                   <td className="p-4 text-emerald-600 font-black">
@@ -206,7 +206,7 @@ export default function ClatScholarshipsPage() {
         </Section>
 
         <Section number="02" title="Available Scholarships & Financial Aid">
-          <p className="text-lg text-slate-600 leading-relaxed mb-6 font-medium">
+          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
             To ensure economic constraints do not stop deserving candidates from pursuing law, multiple central, state, and institutional support mechanisms exist.
           </p>
 
@@ -236,14 +236,14 @@ export default function ClatScholarshipsPage() {
         </Section>
 
         <Section number="03" title="The Honest ROI Picture">
-          <div className="p-6 md:p-8 rounded-2xl border border-slate-200 bg-slate-50 mb-6">
+          <div className="p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 mb-6">
             <h3 className="text-xl font-black text-neutral-dark mb-4">
               Is NLU tuition worth the high cost?
             </h3>
-            <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
+            <p className="text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-4">
               If you secure a seat in a Tier-1 NLU (top 5-6 campuses), the return on investment is extremely strong. Top law firms (Cyril Amarchand Mangaldas, Shardul Amarchand Mangaldas, Khaitan & Co, Trilegal) recruit heavily from these campuses, with starting salaries for associates ranging from **₹12L to ₹18L per annum**.
             </p>
-            <p className="text-lg text-slate-750 font-medium leading-relaxed">
+            <p className="text-lg text-slate-750 dark:text-slate-300 font-medium leading-relaxed">
               For lower-tier NLUs, salaries start around ₹5L - ₹8L, and placement rates are less certain. In such cases, qualifying for **State Scholarships** or **MCM waivers** is highly recommended to keep your student debt low and secure a favorable financial outcome.
             </p>
           </div>

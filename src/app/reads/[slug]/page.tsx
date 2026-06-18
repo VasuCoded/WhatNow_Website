@@ -209,11 +209,11 @@ export default function ArticleReaderPage({
 
   if (!article) {
     return (
-      <main className="flex-grow flex flex-col bg-slate-50 min-h-screen items-center justify-center py-20">
-        <div className="text-center bg-white border border-slate-200 rounded-[2rem] p-10 max-w-md shadow-sm">
+      <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen items-center justify-center py-20">
+        <div className="text-center bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-10 max-w-md shadow-sm">
           <Icon icon="solar:document-text-bold-duotone" className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-          <h3 className="text-xl font-black text-slate-700 mb-2">Article not found</h3>
-          <p className="text-slate-400 text-sm font-medium mb-6">The requested article could not be loaded.</p>
+          <h3 className="text-xl font-black text-slate-700 dark:text-slate-300 mb-2">Article not found</h3>
+          <p className="text-slate-400 dark:text-slate-400 text-sm font-medium mb-6">The requested article could not be loaded.</p>
           <Link href="/reads" className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-sm">
             <Icon icon="solar:arrow-left-bold" className="w-4 h-4" />
             Back to Reads
@@ -224,9 +224,9 @@ export default function ArticleReaderPage({
   }
 
   return (
-    <main className="flex-grow flex flex-col bg-slate-50 min-h-screen">
+    <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
       {/* ─── ARTICLE HEADER ─── */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-200/60 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white dark:bg-[#0B0F1A] border-b border-slate-200/60 dark:border-slate-700 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
           <svg className="absolute inset-0 w-full h-full opacity-[0.1] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -239,20 +239,20 @@ export default function ArticleReaderPage({
         </div>
 
         <div className="max-w-4xl mx-auto w-full px-6 relative z-10">
-          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 mb-8">
+          <div className="flex items-center gap-2 text-xs md:text-sm font-extrabold tracking-[0.2em] uppercase text-slate-400 dark:text-slate-400 mb-8">
             <Link href="/reads" className="hover:text-indigo-600 transition-colors">Reads</Link>
             <span>›</span>
             <span className="text-indigo-600">{article.tag}</span>
           </div>
 
-          <span className="inline-block px-3.5 py-1.5 bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-black uppercase tracking-widest rounded-full mb-6 shadow-sm">
+          <span className="inline-block px-3.5 py-1.5 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-xs font-black uppercase tracking-widest rounded-full mb-6 shadow-sm">
             {article.tag}
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] tracking-tight mb-8 text-neutral-dark">
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-450 border-t border-slate-100 pt-6">
+          <div className="flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-450 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800 pt-6">
             <div className="flex items-center gap-2">
               <Icon icon="solar:user-bold" className="w-4 h-4 text-slate-400" />
               <span>By {article.author}</span>
@@ -271,10 +271,10 @@ export default function ArticleReaderPage({
 
       {/* ─── ARTICLE CONTENT ─── */}
       <section className="max-w-4xl mx-auto w-full px-6 py-12 md:py-16">
-        <div className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 shadow-sm relative">
-          
+        <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-[2rem] p-8 md:p-12 shadow-sm relative">
+
           {/* Introduction */}
-          <p className="text-lg md:text-xl text-slate-650 leading-relaxed font-semibold mb-10 border-b border-slate-100 pb-8">
+          <p className="text-lg md:text-xl text-slate-650 dark:text-slate-300 leading-relaxed font-semibold mb-10 border-b border-slate-100 dark:border-slate-800 pb-8">
             {article.introduction}
           </p>
 
@@ -286,12 +286,12 @@ export default function ArticleReaderPage({
                   {section.title}
                 </h2>
                 
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
+                <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed font-medium">
                   {section.content}
                 </p>
 
                 {section.quote && (
-                  <blockquote className="border-l-4 border-indigo-500 bg-indigo-50/50 rounded-r-xl p-6 my-6 italic text-slate-700 font-bold">
+                  <blockquote className="border-l-4 border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/30 rounded-r-xl p-6 my-6 italic text-slate-700 dark:text-slate-300 font-bold">
                     &ldquo;{section.quote}&rdquo;
                   </blockquote>
                 )}
@@ -299,7 +299,7 @@ export default function ArticleReaderPage({
                 {section.bullets && (
                   <ul className="space-y-3 pl-5 list-disc my-6">
                     {section.bullets.map((bullet, bIndex) => (
-                      <li key={bIndex} className="text-slate-600 text-sm md:text-base leading-relaxed font-semibold">
+                      <li key={bIndex} className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed font-semibold">
                         {bullet}
                       </li>
                     ))}
@@ -310,7 +310,7 @@ export default function ArticleReaderPage({
           </div>
 
           {/* Back to reads link */}
-          <div className="mt-12 pt-8 border-t border-slate-100 flex justify-between items-center">
+          <div className="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
             <Link href="/reads" className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-black text-xs uppercase tracking-wider transition-colors">
               <Icon icon="solar:arrow-left-bold" className="w-4 h-4" />
               Back to all reads
