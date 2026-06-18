@@ -90,9 +90,9 @@ export default function Hero() {
                             priority
                             className="object-contain object-center lg:object-right block dark:hidden"
                         />
-                        {/* Dark-mode hero. Only loads when dark mode is active. */}
+                        {/* Dark-mode hero (watermark-free, bg matches #0E111E). Only loads in dark mode. */}
                         <Image
-                            src="/hero-dark.png"
+                            src="/hero-dark.webp"
                             alt={t.alt}
                             fill
                             className="object-contain object-center lg:object-right hidden dark:block"
