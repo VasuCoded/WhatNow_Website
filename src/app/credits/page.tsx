@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const EMAIL = "indiawhatnow@gmail.com";
@@ -27,10 +28,10 @@ const iconSets = [
   { name: "Lucide", by: "open-source icon set", url: "https://lucide.dev" },
 ];
 
-const team = [
+const team: { name: string; role: string; url?: string }[] = [
   { name: "Vasu", role: "Founder & direction" },
   { name: "Yawwsh", role: "Lead developer — tech & product" },
-  { name: "Arsh", role: "Developer & lead maintainer" },
+  { name: "Arsh", role: "Developer & lead maintainer", url: "https://github.com/arshnah" },
   { name: "Antinity", role: "Advisory developer" },
   { name: "Infernum", role: "Design & short-form content" },
   { name: "Saammm", role: "Outreach & partnerships" },
@@ -117,7 +118,19 @@ export default function CreditsPage() {
           <ul className="space-y-2.5 mb-6">
             {team.map((m) => (
               <li key={m.name} className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                <span className="text-sm font-black text-slate-900 dark:text-slate-100">{m.name}</span>
+                {m.url ? (
+                  <a
+                    href={m.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-black text-[#5563ED] hover:underline underline-offset-2"
+                  >
+                    {m.name}
+                    <Icon icon="ri:github-fill" aria-hidden="true" className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <span className="text-sm font-black text-slate-900 dark:text-slate-100">{m.name}</span>
+                )}
                 <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">— {m.role}</span>
               </li>
             ))}
