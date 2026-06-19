@@ -54,56 +54,60 @@ export default function WhyWhatnow() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 dark:border-slate-700/70 hover:border-green-500/30 dark:hover:border-green-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
-            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
-              <Icon icon="solar:lock-unlocked-bold-duotone" className="w-64 h-64 text-green-600" />
+        {/* Asymmetric bento: the lead value gets a big tile; 02 + 03 stack smaller. */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-8 items-stretch">
+          {/* Card 1 — lead tile */}
+          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-14 border border-slate-200/85 dark:border-slate-700/70 hover:border-green-500/30 dark:hover:border-green-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default flex flex-col">
+            <div className="absolute -top-12 -right-12 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
+              <Icon icon="solar:lock-unlocked-bold-duotone" className="w-80 h-80 text-green-600" />
             </div>
             <div className="h-16 w-16 bg-green-50 text-green-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
               <Icon icon="solar:lock-unlocked-bold-duotone" className="w-8 h-8" />
             </div>
-            <div className="flex items-end gap-4 mb-6 relative z-10">
-              <span className="text-green-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">01</span>
-              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card1Title}</h4>
+            <div className="flex items-end gap-4 mb-6 relative z-10 mt-auto">
+              <span className="text-green-600 font-black text-3xl lg:text-4xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">01</span>
+              <h4 className="text-2xl lg:text-[2rem] font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card1Title}</h4>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base sm:text-lg">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-lg max-w-md">
               {t.card1Desc}
             </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-orange-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 dark:border-slate-700/70 hover:border-orange-500/30 dark:hover:border-orange-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(249,115,22,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
-            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
-              <Icon icon="solar:shield-check-bold-duotone" className="w-64 h-64 text-orange-500" />
+          {/* Cards 02 + 03 — stacked, secondary */}
+          <div className="flex flex-col gap-8">
+            {/* Card 2 */}
+            <div className="relative flex-1 bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-orange-50/10 rounded-[2.5rem] p-8 lg:p-10 border border-slate-200/85 dark:border-slate-700/70 hover:border-orange-500/30 dark:hover:border-orange-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(249,115,22,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+              <div className="absolute -top-8 -right-8 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
+                <Icon icon="solar:shield-check-bold-duotone" className="w-52 h-52 text-orange-500" />
+              </div>
+              <div className="h-14 w-14 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center mb-7 shadow-inner group-hover:scale-110 transition-transform duration-500">
+                <Icon icon="solar:shield-check-bold-duotone" className="w-7 h-7" />
+              </div>
+              <div className="flex items-end gap-3 mb-4 relative z-10">
+                <span className="text-orange-500 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">02</span>
+                <h4 className="text-xl lg:text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card2Title}</h4>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base">
+                {t.card2Desc}
+              </p>
             </div>
-            <div className="h-16 w-16 bg-orange-50 text-orange-500 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
-              <Icon icon="solar:shield-check-bold-duotone" className="w-8 h-8" />
-            </div>
-            <div className="flex items-end gap-4 mb-6 relative z-10">
-              <span className="text-orange-500 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">02</span>
-              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card2Title}</h4>
-            </div>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base sm:text-lg">
-              {t.card2Desc}
-            </p>
-          </div>
 
-          {/* Card 3 */}
-          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-blue-50/10 rounded-[2.5rem] p-10 lg:p-12 border border-slate-200/85 dark:border-slate-700/70 hover:border-blue-500/30 dark:hover:border-blue-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
-            <div className="absolute -top-10 -right-10 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
-              <Icon icon="solar:compass-bold-duotone" className="w-64 h-64 text-blue-600" />
+            {/* Card 3 */}
+            <div className="relative flex-1 bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-blue-50/10 rounded-[2.5rem] p-8 lg:p-10 border border-slate-200/85 dark:border-slate-700/70 hover:border-blue-500/30 dark:hover:border-blue-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(59,130,246,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default">
+              <div className="absolute -top-8 -right-8 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
+                <Icon icon="solar:compass-bold-duotone" className="w-52 h-52 text-blue-600" />
+              </div>
+              <div className="h-14 w-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-7 shadow-inner group-hover:scale-110 transition-transform duration-500">
+                <Icon icon="solar:compass-bold-duotone" className="w-7 h-7" />
+              </div>
+              <div className="flex items-end gap-3 mb-4 relative z-10">
+                <span className="text-blue-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">03</span>
+                <h4 className="text-xl lg:text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card3Title}</h4>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base">
+                {t.card3Desc}
+              </p>
             </div>
-            <div className="h-16 w-16 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
-              <Icon icon="solar:compass-bold-duotone" className="w-8 h-8" />
-            </div>
-            <div className="flex items-end gap-4 mb-6 relative z-10">
-              <span className="text-blue-600 font-black text-2xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">03</span>
-              <h4 className="text-2xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card3Title}</h4>
-            </div>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-base sm:text-lg">
-              {t.card3Desc}
-            </p>
           </div>
         </div>
       </div>
