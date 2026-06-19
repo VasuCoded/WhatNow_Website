@@ -32,7 +32,6 @@ export const VOICES: Voice[] = [
     name: "Abhay Singh",
     rank: "Deck Cadet (currently serving)",
     dept: "Deck",
-    handle: "@merchant_man21",
     date: "June 2026",
     vertical: "merchant-navy",
     // GATED: do not flip to published until (1) Abhay consents to being named/quoted,
