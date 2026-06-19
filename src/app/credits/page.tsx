@@ -100,9 +100,9 @@ export default function CreditsPage() {
             People
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 font-medium">
-            Built and maintained by Vasu (Hyderabad, Telangana) along with a small, low-key team of
-            students and developers who pitch in on design, code, and the guides themselves. Vasu is
-            the registered operator; the rest of the crew mostly stay behind the scenes.
+            Built and maintained by Vasu (Hyderabad, Telangana), with a small team of students and
+            developers who contribute design, code, and the guides themselves. Vasu is the
+            registered operator.
           </p>
           <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
             The guides draw on first-hand accounts from students and professionals who have actually
