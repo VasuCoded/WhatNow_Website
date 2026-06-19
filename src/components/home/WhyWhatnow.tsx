@@ -57,18 +57,18 @@ export default function WhyWhatnow() {
         {/* Asymmetric bento: the lead value gets a big tile; 02 + 03 stack smaller. */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-8 items-stretch">
           {/* Card 1 — lead tile */}
-          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-14 border border-slate-200/85 dark:border-slate-700/70 hover:border-green-500/30 dark:hover:border-green-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default flex flex-col">
+          <div className="relative bg-white dark:bg-slate-800/50 dark:hover:from-slate-800 dark:hover:to-slate-800 hover:bg-gradient-to-b hover:from-white hover:to-green-50/10 rounded-[2.5rem] p-10 lg:p-14 border border-slate-200/85 dark:border-slate-700/70 hover:border-green-500/30 dark:hover:border-green-500/40 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_25px_60px_rgba(34,197,94,0.07)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden group cursor-default flex flex-col justify-center min-h-[20rem]">
             <div className="absolute -top-12 -right-12 opacity-[0.03] rotate-12 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-[24deg] select-none pointer-events-none">
               <Icon icon="solar:lock-unlocked-bold-duotone" className="w-80 h-80 text-green-600" />
             </div>
-            <div className="h-16 w-16 bg-green-50 text-green-600 rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500">
-              <Icon icon="solar:lock-unlocked-bold-duotone" className="w-8 h-8" />
+            <div className="h-20 w-20 bg-green-50 text-green-600 rounded-3xl flex items-center justify-center mb-8 shadow-inner group-hover:scale-110 transition-transform duration-500">
+              <Icon icon="solar:lock-unlocked-bold-duotone" className="w-10 h-10" />
             </div>
-            <div className="flex items-end gap-4 mb-6 relative z-10 mt-auto">
-              <span className="text-green-600 font-black text-3xl lg:text-4xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">01</span>
-              <h4 className="text-2xl lg:text-[2rem] font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card1Title}</h4>
+            <div className="flex items-end gap-4 mb-6 relative z-10">
+              <span className="text-green-600 font-black text-4xl lg:text-5xl tracking-tighter transition-all duration-300 group-hover:scale-105 origin-left">01</span>
+              <h4 className="text-3xl lg:text-4xl font-black text-neutral-dark tracking-tight leading-none pb-0.5">{t.card1Title}</h4>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-lg max-w-md">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed relative z-10 text-lg lg:text-xl max-w-md">
               {t.card1Desc}
             </p>
           </div>
