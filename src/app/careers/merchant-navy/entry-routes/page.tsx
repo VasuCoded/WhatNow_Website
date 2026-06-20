@@ -262,6 +262,7 @@ export default function MerchantNavyEntryRoutesPage() {
                   ["B.Sc Nautical Science", "Class 12 PCM", "≥50%", "17–25", "DG medical"],
                   ["B.Tech Marine Eng.", "Class 12, ~60% PCM", "≥50%", "17–25", "DG medical"],
                   ["GME", "Mech/Naval-Arch degree, ~50–55% final year", "≥50% in 10+2", "≤28", "DG medical"],
+                  ["GPR (Rating)", "Class 10 (Eng/Maths/Sci ~40%) or Class 12 any stream", "≥40%", "17.5–25", "DG medical incl. 6/6 unaided, no colour blindness"],
                 ].map(([route, acad, eng, age, med], i, arr) => (
                   <tr key={route}>
                     <td className={`p-4 font-black text-slate-700 dark:text-slate-300 ${i < arr.length - 1 ? "border-b border-slate-100 dark:border-slate-800" : ""}`}>{route}</td>

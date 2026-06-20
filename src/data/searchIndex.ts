@@ -366,6 +366,46 @@ export const SEARCH_INDEX: SearchItem[] = [
     status: "ready"
   },
   {
+    title: "Merchant Navy — Is It For You? (The Hard Truth)",
+    category: "Careers",
+    description: "The isolation test, the family cost, the DG medical gate, and a blunt self-check before you commit a year to life at sea.",
+    href: "/careers/merchant-navy/is-it-for-you",
+    keywords: ["merchant navy", "isolation", "mental health at sea", "day in the life", "medical", "eyesight", "is it for me"],
+    status: "ready"
+  },
+  {
+    title: "Merchant Navy Entry Routes — DNS vs B.Sc vs B.Tech vs GME vs GPR",
+    category: "Careers",
+    description: "The ways into the Merchant Navy compared on time, degree and risk — including the GP Rating route and the Mechanical + GME hedge.",
+    href: "/careers/merchant-navy/entry-routes",
+    keywords: ["dns", "bsc nautical science", "btech marine engineering", "gme", "gp rating", "gpr", "sponsorship", "imu cet"],
+    status: "ready"
+  },
+  {
+    title: "Merchant Navy Colleges & DG Shipping Approval",
+    category: "Careers",
+    description: "DG Shipping–approved institutes, fees, placement, and which ones are worth the investment.",
+    href: "/careers/merchant-navy/colleges",
+    keywords: ["merchant navy colleges", "dg shipping approved", "imu", "maritime institutes", "fees", "placement"],
+    status: "ready"
+  },
+  {
+    title: "Merchant Navy Salary, Ranks & Progression",
+    category: "Careers",
+    description: "Rank-by-rank pay in USD and INR, the CoC certification ladder, a realistic timeline to 4th Engineer, and the macro nobody mentions.",
+    href: "/careers/merchant-navy/salary-ranks",
+    keywords: ["merchant navy salary", "ranks", "coc", "meo", "chief engineer", "captain", "gp rating pay", "ratings"],
+    status: "ready"
+  },
+  {
+    title: "Real Voices: Abhay Singh, Deck Cadet",
+    category: "Careers",
+    description: "A serving Deck Cadet answers nine honest questions about life and work in the Merchant Navy — the real version, not the brochure.",
+    href: "/careers/merchant-navy/voices/abhay-singh",
+    keywords: ["real voices", "abhay singh", "deck cadet", "merchant navy interview", "seafarer story", "life at sea"],
+    status: "ready"
+  },
+  {
     title: "Urban & Regional Planner",
     category: "Careers",
     description: "Design public spaces, smart city transport layouts, sustainable developments, and municipal policies.",

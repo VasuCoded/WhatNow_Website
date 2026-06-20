@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { publishedVoices } from "@/data/voices";
 
 const BASE = "https://whatnowindia.vercel.app";
 
@@ -47,9 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: path === "/" ? 1 : priority,
     }));
 
+  const voices = publishedVoices().map((v) => `/careers/${v.vertical}/voices/${v.slug}`);
+
   return [
     ...make(core, 0.7, "monthly"),
     ...make(careers, 0.8, "monthly"),
+    ...make(voices, 0.6, "monthly"),
     ...make(exams, 0.8, "monthly"),
     ...make(reads, 0.7, "monthly"),
     ...make(legal, 0.3, "yearly"),
