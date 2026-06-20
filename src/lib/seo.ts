@@ -42,6 +42,50 @@ export function pageMeta({
   };
 }
 
+/**
+ * Article + BreadcrumbList JSON-LD for a guide/exam page, for SEO and GEO
+ * (so answer engines can parse what the page is and where it sits). Render the
+ * result through the <JsonLd> component. Reuse the same title/description/path
+ * passed to pageMeta(), plus the page's breadcrumb trail.
+ */
+export function guideJsonLd({
+  title,
+  description,
+  path,
+  breadcrumbs,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  breadcrumbs: { name: string; path: string }[];
+}) {
+  const url = `${SITE_URL}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: title.replace(/\s*\|\s*WhatNow\s*$/, ""),
+        description,
+        url,
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        inLanguage: "en-IN",
+        isPartOf: { "@type": "WebSite", name: "WhatNow", url: SITE_URL },
+        publisher: { "@type": "Organization", name: "WhatNow", url: SITE_URL },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((b, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: b.name,
+          item: `${SITE_URL}${b.path}`,
+        })),
+      },
+    ],
+  };
+}
+
 export function buildMetadata(href: string): Metadata {
   const entry = SEARCH_INDEX.find((i) => i.href === href);
   if (!entry) return {};

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta, guideJsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "CLAT — Convince Parents | WhatNow",
@@ -85,6 +86,19 @@ const Section = ({
 export default function ClatConvinceParentsPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <JsonLd
+        data={guideJsonLd({
+          title: "CLAT — Convince Parents | WhatNow",
+          description: "Equipping students with NLU placement statistics, corporate recruiter list, and logical arguments to align parents on corporate law careers.",
+          path: "/exams/clat/convince-parents",
+          breadcrumbs: [
+            { name: "Home", path: "/" },
+            { name: "Exams", path: "/exams" },
+            { name: "CLAT", path: "/exams/clat" },
+            { name: "Convince Parents", path: "/exams/clat/convince-parents" },
+          ],
+        })}
+      />
       <PageHeader
         title="CLAT — Talking to Your Parents"
         breadcrumbs={

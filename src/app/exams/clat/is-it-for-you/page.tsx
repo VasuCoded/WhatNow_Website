@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta, guideJsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "CLAT — Is It For You? & AILET Comparison | WhatNow",
@@ -85,6 +86,19 @@ const Section = ({
 export default function ClatIsItForYouPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <JsonLd
+        data={guideJsonLd({
+          title: "CLAT — Is It For You? & AILET Comparison | WhatNow",
+          description: "Assess your suitability for law careers, understand the corporate law vs litigation lifestyle split, and compare CLAT with AILET.",
+          path: "/exams/clat/is-it-for-you",
+          breadcrumbs: [
+            { name: "Home", path: "/" },
+            { name: "Exams", path: "/exams" },
+            { name: "CLAT", path: "/exams/clat" },
+            { name: "Is It For You?", path: "/exams/clat/is-it-for-you" },
+          ],
+        })}
+      />
       <PageHeader
         title="CLAT — Is Law the Right Choice?"
         breadcrumbs={

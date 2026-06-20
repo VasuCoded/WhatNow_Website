@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta, guideJsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "CLAT — Exam Pattern, Syllabus & Weightage | WhatNow",
@@ -85,6 +86,19 @@ const Section = ({
 export default function ClatWhatItIsPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <JsonLd
+        data={guideJsonLd({
+          title: "CLAT — Exam Pattern, Syllabus & Weightage | WhatNow",
+          description: "Complete guide to the CLAT exam pattern: 120 questions, section-wise weightage, marking scheme, and eligibility guidelines.",
+          path: "/exams/clat/what-it-is",
+          breadcrumbs: [
+            { name: "Home", path: "/" },
+            { name: "Exams", path: "/exams" },
+            { name: "CLAT", path: "/exams/clat" },
+            { name: "What It Is", path: "/exams/clat/what-it-is" },
+          ],
+        })}
+      />
       <PageHeader
         title="CLAT — The Exam Breakdown"
         breadcrumbs={

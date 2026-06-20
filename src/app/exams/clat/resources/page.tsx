@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta, guideJsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "CLAT — Preparation Strategy & Recommended Books | WhatNow",
@@ -85,6 +86,19 @@ const Section = ({
 export default function ClatResourcesPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <JsonLd
+        data={guideJsonLd({
+          title: "CLAT — Preparation Strategy & Recommended Books | WhatNow",
+          description: "Curated self-study roadmap, legal reasoning guides, mock analysis plans, and recommended books for CLAT aspirants.",
+          path: "/exams/clat/resources",
+          breadcrumbs: [
+            { name: "Home", path: "/" },
+            { name: "Exams", path: "/exams" },
+            { name: "CLAT", path: "/exams/clat" },
+            { name: "Prep & Resources", path: "/exams/clat/resources" },
+          ],
+        })}
+      />
       <PageHeader
         title="CLAT — Self-Study Blueprint"
         breadcrumbs={

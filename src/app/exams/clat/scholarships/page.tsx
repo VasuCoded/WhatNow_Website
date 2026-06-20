@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { pageMeta } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { pageMeta, guideJsonLd } from "@/lib/seo";
 
 export const metadata = pageMeta({
   title: "CLAT — NLU Seat Matrix, Fees & Scholarships | WhatNow",
@@ -119,6 +120,19 @@ const ScholarshipCard = ({
 export default function ClatScholarshipsPage() {
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
+      <JsonLd
+        data={guideJsonLd({
+          title: "CLAT — NLU Seat Matrix, Fees & Scholarships | WhatNow",
+          description: "Complete guide to fee structures across top NLUs, available Central Sector schemes, Aditya Birla scholarships, and NLU financial waivers.",
+          path: "/exams/clat/scholarships",
+          breadcrumbs: [
+            { name: "Home", path: "/" },
+            { name: "Exams", path: "/exams" },
+            { name: "CLAT", path: "/exams/clat" },
+            { name: "Fees & Scholarships", path: "/exams/clat/scholarships" },
+          ],
+        })}
+      />
       <PageHeader
         title="CLAT — NLU Fees & Scholarships"
         breadcrumbs={
