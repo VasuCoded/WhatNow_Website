@@ -346,7 +346,7 @@ export default function MerchantNavySalaryRanksPage() {
               The &quot;crore by 30&quot; lie
             </div>
             <p className="leading-relaxed font-medium text-slate-200">
-              <strong className="text-white">The viral &quot;earn crores in your twenties&quot; pitch quietly ignores unpaid leave, flat real wages, taxability if you don&apos;t clear the NRI day-count, and a promotion timeline that slips.</strong> The money is genuinely good for your age — but it&apos;s a disciplined-savings career with a real human cost, not a get-rich shortcut.
+              <strong className="text-white">The viral &quot;earn crores in your twenties&quot; pitch quietly ignores unpaid leave, flat real wages, taxability if you don&apos;t clear the NRI day-count, and a promotion timeline that slips.</strong>{" "}The money is genuinely good for your age — but it&apos;s a disciplined-savings career with a real human cost, not a get-rich shortcut.
             </p>
           </div>
         </Section>

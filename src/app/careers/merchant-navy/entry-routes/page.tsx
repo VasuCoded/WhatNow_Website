@@ -281,7 +281,7 @@ export default function MerchantNavyEntryRoutesPage() {
               The &quot;a marine degree = a marine job&quot; lie
             </div>
             <p className="leading-relaxed font-medium text-slate-200">
-              <strong className="text-white">A marine-only degree from a low-tier academy with no sponsorship can leave you with neither a sea job nor a portable one.</strong> The degree alone doesn&apos;t place you on a ship — the berth does. If you can&apos;t secure sponsorship or a top institute, a regular engineering degree (Mechanical + GME later) is the safer bet, because at worst you still hold a degree that works on land.
+              <strong className="text-white">A marine-only degree from a low-tier academy with no sponsorship can leave you with neither a sea job nor a portable one.</strong>{" "}The degree alone doesn&apos;t place you on a ship — the berth does. If you can&apos;t secure sponsorship or a top institute, a regular engineering degree (Mechanical + GME later) is the safer bet, because at worst you still hold a degree that works on land.
             </p>
           </div>
         </Section>

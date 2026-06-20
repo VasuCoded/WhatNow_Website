@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getVoice, publishedVoices } from "@/data/voices";
+import { SITE_URL } from "@/lib/seo";
 
 const VERTICAL = "merchant-navy";
 const isDev = process.env.NODE_ENV !== "production";
@@ -19,11 +20,25 @@ export async function generateMetadata({
   const v = getVoice(slug);
   if (!v) return {};
   const draft = v.status !== "published" || !v.consent;
+  const path = `/careers/${VERTICAL}/voices/${slug}`;
+  const title = `${v.name} — ${v.rank} | Real Voices`;
+  const ogTitle = `Real Voices: ${v.name}, ${v.rank}`;
   return {
-    title: `${v.name} — ${v.rank} | Real Voices`,
+    title,
     description: v.pullQuote,
     robots: draft ? { index: false, follow: false } : undefined,
-    alternates: { canonical: `/careers/${VERTICAL}/voices/${slug}` },
+    alternates: { canonical: path },
+    openGraph: {
+      title: ogTitle,
+      description: v.pullQuote,
+      url: `${SITE_URL}${path}`,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: v.pullQuote,
+    },
   };
 }
 
