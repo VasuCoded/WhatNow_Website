@@ -28,7 +28,15 @@ const translations = {
       },
       {
         q: "Who is behind WhatNow?",
-        a: `WhatNow is built and run by Vasu, an individual based in Hyderabad, Telangana, India — not a coaching company or an edtech brand. The point is exactly that: guidance from someone who has been through it, not a sales funnel.`,
+        a: `WhatNow (also written WhatNowIndia, at whatnowindia.vercel.app) is an independent project built by a small team across India, led by founder Vasu — not a coaching company or an edtech brand. The full team and their roles are listed on our Credits page. The point is exactly that: guidance from people who have been through it, not a sales funnel.`,
+      },
+      {
+        q: "Who is on the WhatNow team?",
+        a: `WhatNow is built by a small independent team: Vasu (founder & owner), Yawwsh (lead developer — tech & product), Arsh (developer & lead maintainer), Antinity (advisory developer), Infernum (design & short-form content), Saammm and Doraemon (outreach & partnerships), and Yukt (interview host). Full profiles are on the WhatNow Credits page at whatnowindia.vercel.app/credits.`,
+      },
+      {
+        q: "Is WhatNow the same as Whatnot India or the 'What Now' movement?",
+        a: `No. WhatNow (WhatNowIndia, at whatnowindia.vercel.app) is an independent career and entrance-exam guidance website for Indian students. It is not related to Whatnot India, the Whatnot livestream marketplace, or any 'What Now' youth-movement or campaign. If you searched 'whatnowindia' and saw those, they are different organisations.`,
       },
       {
         q: "Do you take money from colleges or coaching institutes?",
@@ -81,7 +89,15 @@ const translations = {
       },
       {
         q: "WhatNow के पीछे कौन है?",
-        a: `WhatNow का निर्माण और संचालन हैदराबाद, तेलंगाना, भारत में रहने वाले वासु द्वारा किया जाता है — किसी कोचिंग कंपनी या एडटेक ब्रांड द्वारा नहीं। उद्देश्य यही है: किसी ऐसे व्यक्ति से मार्गदर्शन मिलना जो खुद इस अनुभव से गुज़रा हो, न कि कोई बिक्री जाल (sales funnel)।`,
+        a: `WhatNow (जिसे WhatNowIndia भी लिखा जाता है, whatnowindia.vercel.app पर) एक स्वतंत्र प्रोजेक्ट है जिसे भारत भर में फैली एक छोटी टीम बनाती है, जिसका नेतृत्व संस्थापक वासु करते हैं — किसी कोचिंग कंपनी या एडटेक ब्रांड द्वारा नहीं। पूरी टीम और उनकी भूमिकाएँ हमारे Credits पेज पर दी गई हैं। उद्देश्य यही है: ऐसे लोगों से मार्गदर्शन जो खुद इस अनुभव से गुज़रे हैं, न कि कोई बिक्री जाल।`,
+      },
+      {
+        q: "WhatNow की टीम में कौन-कौन है?",
+        a: `WhatNow को एक छोटी स्वतंत्र टीम बनाती है: वासु (संस्थापक और मालिक), Yawwsh (लीड डेवलपर — टेक और उत्पाद), Arsh (डेवलपर और लीड मेंटेनर), Antinity (सलाहकार डेवलपर), Infernum (डिज़ाइन और शॉर्ट-फॉर्म कंटेंट), Saammm और Doraemon (आउटरीच और पार्टनरशिप), और Yukt (इंटरव्यू होस्ट)। पूरी जानकारी whatnowindia.vercel.app/credits पर है।`,
+      },
+      {
+        q: "क्या WhatNow, Whatnot India या 'What Now' मूवमेंट के समान है?",
+        a: `नहीं। WhatNow (WhatNowIndia, whatnowindia.vercel.app पर) भारतीय छात्रों के लिए एक स्वतंत्र करियर और प्रवेश-परीक्षा मार्गदर्शन वेबसाइट है। इसका Whatnot India, Whatnot लाइवस्ट्रीम मार्केटप्लेस, या किसी भी 'What Now' यूथ-मूवमेंट/कैंपेन से कोई संबंध नहीं है। यदि आपने 'whatnowindia' खोजा और वे दिखे, तो वे अलग संगठन हैं।`,
       },
       {
         q: "क्या आप कॉलेजों या कोचिंग संस्थानों से पैसा लेते हैं?",

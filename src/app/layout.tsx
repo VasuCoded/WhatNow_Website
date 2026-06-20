@@ -116,8 +116,10 @@ const siteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "WhatNow",
+  alternateName: ["WhatNowIndia", "WhatNow India", "What Now India"],
   url: SITE_URL,
   inLanguage: ["en-IN", "hi-IN"],
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 export default function RootLayout({
