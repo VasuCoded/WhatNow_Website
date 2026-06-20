@@ -211,7 +211,7 @@ export default function MerchantNavyIsItForYouPage() {
               The &quot;fix your eyes later&quot; lie
             </div>
             <p className="leading-relaxed font-medium text-slate-200">
-              <strong className="text-white">You&apos;ll hear that sponsorship lets you skip the medical and do LASIK afterwards. Don&apos;t build a plan on it.</strong> Medical fitness is mandatory before you sail, sponsorship or not, and corrective surgery has to be done and healed to standard <em>before</em> admission — not after you&apos;ve spent the year and the money. Check your eyes first.
+              <strong className="text-white">You&apos;ll hear that sponsorship lets you skip the medical and do LASIK afterwards. Don&apos;t build a plan on it.</strong> Medical fitness is mandatory before you sail, sponsorship or not, and corrective surgery has to be done and healed to standard <em>before</em>{" "}admission — not after you&apos;ve spent the year and the money. Check your eyes first.
             </p>
           </div>
         </Section>
