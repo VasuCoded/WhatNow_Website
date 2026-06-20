@@ -26,6 +26,14 @@ export const SEARCH_INDEX: SearchItem[] = [
     status: "ready"
   },
   {
+    title: "Real Voices",
+    category: "General",
+    description: "First-person, unfiltered interviews with professionals in non-traditional careers — salaries, daily grinds, steps, and real challenges.",
+    href: "/voices",
+    keywords: ["real voices", "interviews", "career stories", "abhay singh", "deck cadet", "professionals", "unfiltered", "career experiences"],
+    status: "ready"
+  },
+  {
     title: "How to Convince Your Parents",
     category: "General",
     description: "Arm yourself with placement stats, average salary data, and logical arguments for non-traditional careers.",

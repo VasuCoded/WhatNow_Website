@@ -48,7 +48,8 @@ const translations = {
     // Reads
     iitDrop: "IIT brand vs drop year?",
     parentConvince: "Talk design with parents?",
-    metroMove: "Relocating to metro cities?"
+    metroMove: "Relocating to metro cities?",
+    realVoices: "Real Voices (Interviews)"
   },
   hi: {
     careers: "करियर",
@@ -89,7 +90,8 @@ const translations = {
     // Reads
     iitDrop: "IIT ब्रांड बनाम ड्रॉप ईयर?",
     parentConvince: "माता-पिता से डिज़ाइन पर बात?",
-    metroMove: "मेट्रो शहरों में जाना?"
+    metroMove: "मेट्रो शहरों में जाना?",
+    realVoices: "असली आवाज़ें (साक्षात्कार)"
   }
 };
 
@@ -232,7 +234,8 @@ export default function Navbar() {
   const readsItems = [
     { href: "/reads/iit-drop-year", label: t.iitDrop, status: "ready" },
     { href: "/reads/talk-creative-fields", label: t.parentConvince, status: "ready" },
-    { href: "/reads/transitioning-cities", label: t.metroMove, status: "ready" }
+    { href: "/reads/transitioning-cities", label: t.metroMove, status: "ready" },
+    { href: "/voices", label: t.realVoices, status: "ready" }
   ];
 
   return (

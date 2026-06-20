@@ -15,6 +15,7 @@ const translations = {
     exams: "Exams",
     editorialReads: "Editorial Reads",
     featuredGuides: "Featured Guides",
+    realVoices: "Real Voices",
     company: "Company",
     aboutUs: "About Us",
     contact: "Contact",
@@ -37,6 +38,7 @@ const translations = {
     exams: "परीक्षाएं",
     editorialReads: "संपादकीय लेख",
     featuredGuides: "चुनिंदा मार्गदर्शिकाएँ",
+    realVoices: "असली आवाज़ें",
     company: "कंपनी",
     aboutUs: "हमारे बारे में",
     contact: "संपर्क करें",
@@ -101,6 +103,7 @@ export default function Footer() {
                 <li><Link href="/careers" className="text-white/90 hover:text-white hover:underline transition-all">{t.careers}</Link></li>
                 <li><Link href="/exams" className="text-white/90 hover:text-white hover:underline transition-all">{t.exams}</Link></li>
                 <li><Link href="/reads" className="text-white/90 hover:text-white hover:underline transition-all">{t.editorialReads}</Link></li>
+                <li><Link href="/voices" className="text-white/90 hover:text-white hover:underline transition-all">{t.realVoices}</Link></li>
                 <li><Link href="/#featured-guides" className="text-white/90 hover:text-white hover:underline transition-all">{t.featuredGuides}</Link></li>
               </ul>
             </div>

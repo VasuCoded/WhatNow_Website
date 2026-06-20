@@ -6,7 +6,7 @@ const BASE = "https://whatnowindia.vercel.app";
 // Public, indexable routes grouped by section. /coming-soon and /demo are
 // intentionally excluded (placeholder / non-content). Keep in sync when adding
 // guides — the reads slugs are the three published long-form articles.
-const core = ["/", "/about", "/convince-parents", "/scholarships", "/contact", "/faq", "/discord"];
+const core = ["/", "/about", "/convince-parents", "/scholarships", "/contact", "/faq", "/discord", "/voices"];
 
 const careers = [
   "/careers",
