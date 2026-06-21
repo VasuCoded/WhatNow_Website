@@ -1,13 +1,69 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import JsonLd from "@/components/JsonLd";
-import { pageMeta, guideJsonLd } from "@/lib/seo";
+import { useLanguage } from "@/context/LanguageContext";
 
-export const metadata = pageMeta({
-  title: "CLAT — Is It For You? & AILET Comparison | WhatNow",
-  description: "Assess your suitability for law careers, understand the corporate law vs litigation lifestyle split, and compare CLAT with AILET.",
-  path: "/exams/clat/is-it-for-you",
-});
+const translations = {
+  en: {
+    crumbExams: "Exams",
+    crumbClat: "CLAT",
+    crumbHere: "Is It For You?",
+    sectionLabel: "Section",
+    headerTitle: "CLAT — Is Law the Right Choice?",
+    s1Title: "Corporate Desk vs Courtroom Litigation",
+    s1Intro:
+      "Indian legal professions are divided into two distinct lifestyles. Ensure you understand what you are targeting before enrolling:",
+    s1aTag: "Corporate Advisory",
+    s1aTitle: "Corporate Law Firms",
+    s1aBody:
+      "Work involves mergers, acquisitions, regulatory compliance, contract drafting, and IP registration. Pay is immediate (₹12L-₹18L starting average at Tier-1 firms). The trade-off: 12-14 hour workdays at office desks with high corporate stress levels.",
+    s1bTag: "Courtroom Litigation",
+    s1bTitle: "Advocacy & Court Trials",
+    s1bBody:
+      "Traditional court litigation. Offers independence, prestige, and high long-term earning potential. The catch: years of low-paid apprenticeship (₹10,000 - ₹25,000/mo) under senior advocates before establishing a private practice.",
+    s2Title: "The Suitability Check",
+    s2Intro: "Law matches your personality if:",
+    s2Item1: "You can read, digest, and summarize over 50 pages of complex documents daily.",
+    s2Item2: "You enjoy structural logic, reasoning, debates, and looking up precise definitions.",
+    s2Item3: "You have high mental endurance to deal with intensive workloads, research, and client deadlines.",
+    s3Title: "CLAT vs AILET (NLU Delhi)",
+    s3Heading: "NLU Delhi's Separate Entrance Exam",
+    s3P1:
+      "NLU Delhi does not accept CLAT scores. It conducts its own entrance exam: AILET (All India Law Entrance Test).",
+    s3P2:
+      "AILET consists of 150 questions in 120 minutes across three sections: English Language, General Knowledge, and Logical Reasoning. While legal knowledge is not tested directly in a separate section, it is integrated into the Logical Reasoning section. Competition is fierce as there are only ~110 seats available for UG candidates.",
+  },
+  hi: {
+    crumbExams: "परीक्षाएँ",
+    crumbClat: "CLAT",
+    crumbHere: "क्या यह आपके लिए है?",
+    sectionLabel: "खंड",
+    headerTitle: "CLAT — क्या लॉ सही विकल्प है?",
+    s1Title: "कॉर्पोरेट डेस्क बनाम कोर्टरूम लिटिगेशन",
+    s1Intro:
+      "भारतीय विधिक पेशे दो अलग-अलग जीवनशैलियों में बँटे हैं। दाखिले से पहले सुनिश्चित करें कि आप किसे लक्ष्य बना रहे हैं:",
+    s1aTag: "कॉर्पोरेट सलाहकार",
+    s1aTitle: "कॉर्पोरेट लॉ फर्म",
+    s1aBody:
+      "काम में मर्जर, अधिग्रहण, नियामक अनुपालन, अनुबंध लेखन और IP पंजीकरण शामिल हैं। वेतन तुरंत मिलता है (Tier-1 फर्मों में औसतन ₹12L-₹18L शुरुआती)। बदले में: ऑफिस डेस्क पर 12-14 घंटे के कार्यदिवस और उच्च कॉर्पोरेट तनाव स्तर।",
+    s1bTag: "कोर्टरूम लिटिगेशन",
+    s1bTitle: "वकालत और कोर्ट ट्रायल",
+    s1bBody:
+      "पारंपरिक कोर्ट लिटिगेशन। यह स्वतंत्रता, प्रतिष्ठा और उच्च दीर्घकालिक कमाई की संभावना देता है। पेच यह है: निजी प्रैक्टिस स्थापित करने से पहले वरिष्ठ अधिवक्ताओं के अधीन वर्षों की कम-वेतन इंटर्नशिप (₹10,000 - ₹25,000/माह)।",
+    s2Title: "उपयुक्तता जाँच",
+    s2Intro: "लॉ आपके व्यक्तित्व से मेल खाता है यदि:",
+    s2Item1: "आप रोज़ाना 50 से अधिक पृष्ठों के जटिल दस्तावेज़ पढ़, समझ और सारांशित कर सकते हैं।",
+    s2Item2: "आपको संरचनात्मक तर्क, रीज़निंग, वाद-विवाद और सटीक परिभाषाएँ खोजने में आनंद आता है।",
+    s2Item3: "आपमें भारी कार्यभार, शोध और क्लाइंट डेडलाइन से निपटने की उच्च मानसिक सहनशक्ति है।",
+    s3Title: "CLAT बनाम AILET (NLU दिल्ली)",
+    s3Heading: "NLU दिल्ली की अलग प्रवेश परीक्षा",
+    s3P1:
+      "NLU दिल्ली CLAT स्कोर स्वीकार नहीं करता। यह अपनी खुद की प्रवेश परीक्षा आयोजित करता है: AILET (All India Law Entrance Test)।",
+    s3P2:
+      "AILET में तीन खंडों में 120 मिनट में 150 प्रश्न होते हैं: अंग्रेज़ी भाषा, सामान्य ज्ञान और तार्किक तर्क। हालाँकि विधिक ज्ञान को अलग खंड में सीधे नहीं परखा जाता, यह तार्किक तर्क खंड में शामिल है। प्रतिस्पर्धा कड़ी है क्योंकि UG उम्मीदवारों के लिए केवल ~110 सीटें उपलब्ध हैं।",
+  },
+} as const;
 
 const PageHeader = ({
   title,
@@ -28,7 +84,7 @@ const PageHeader = ({
       </svg>
       <div className="absolute -top-[10%] -right-[5%] w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px]" />
       <div className="absolute -bottom-[20%] -left-[5%] w-[300px] h-[300px] bg-teal-500/5 rounded-full blur-[60px]" />
-      
+
       <svg className="absolute right-0 bottom-0 w-full h-full min-w-[1200px]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
           <linearGradient id="clat-wii-wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -60,10 +116,12 @@ const PageHeader = ({
 
 const Section = ({
   number,
+  label,
   title,
   children,
 }: {
   number: string;
+  label: string;
   title: string;
   children: React.ReactNode;
 }) => (
@@ -73,7 +131,7 @@ const Section = ({
     </div>
     <div className="relative z-10">
       <div className="text-emerald-600 font-black text-sm uppercase tracking-widest mb-4">
-        Section {number}
+        {label} {number}
       </div>
       <h2 className="text-3xl md:text-4xl font-black mb-8 text-neutral-dark tracking-tight">
         {title}
@@ -84,82 +142,72 @@ const Section = ({
 );
 
 export default function ClatIsItForYouPage() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
-      <JsonLd
-        data={guideJsonLd({
-          title: "CLAT — Is It For You? & AILET Comparison | WhatNow",
-          description: "Assess your suitability for law careers, understand the corporate law vs litigation lifestyle split, and compare CLAT with AILET.",
-          path: "/exams/clat/is-it-for-you",
-          breadcrumbs: [
-            { name: "Home", path: "/" },
-            { name: "Exams", path: "/exams" },
-            { name: "CLAT", path: "/exams/clat" },
-            { name: "Is It For You?", path: "/exams/clat/is-it-for-you" },
-          ],
-        })}
-      />
       <PageHeader
-        title="CLAT — Is Law the Right Choice?"
+        title={t.headerTitle}
         breadcrumbs={
           <>
             <Link href="/exams" className="hover:text-emerald-600 transition-colors">
-              Exams
+              {t.crumbExams}
             </Link>{" "}
             <span>›</span>
             <Link href="/exams/clat" className="hover:text-emerald-600 transition-colors">
-              CLAT
+              {t.crumbClat}
             </Link>{" "}
             <span>›</span>
-            <span className="text-emerald-600">Is It For You?</span>
+            <span className="text-emerald-600">{t.crumbHere}</span>
           </>
         }
       />
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
-        <Section number="01" title="Corporate Desk vs Courtroom Litigation">
+        <Section number="01" label={t.sectionLabel} title={t.s1Title}>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
-            Indian legal professions are divided into two distinct lifestyles. Ensure you understand what you are targeting before enrolling:
+            {t.s1Intro}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
             <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-xs">
-              <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">Corporate Advisory</span>
-              <h4 className="font-black text-lg text-neutral-dark mb-2">Corporate Law Firms</h4>
+              <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">{t.s1aTag}</span>
+              <h4 className="font-black text-lg text-neutral-dark mb-2">{t.s1aTitle}</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
-                Work involves mergers, acquisitions, regulatory compliance, contract drafting, and IP registration. Pay is immediate (₹12L-₹18L starting average at Tier-1 firms). The trade-off: **12-14 hour workdays at office desks** with high corporate stress levels.
+                {t.s1aBody}
               </p>
             </div>
             <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-xs">
-              <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">Courtroom Litigation</span>
-              <h4 className="font-black text-lg text-neutral-dark mb-2">Advocacy & Court Trials</h4>
+              <span className="text-xs font-black uppercase tracking-wider text-emerald-600 block mb-2">{t.s1bTag}</span>
+              <h4 className="font-black text-lg text-neutral-dark mb-2">{t.s1bTitle}</h4>
               <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
-                Traditional court litigation. Offers independence, prestige, and high long-term earning potential. The catch: **years of low-paid apprenticeship (₹10,000 - ₹25,000/mo)** under senior advocates before establishing a private practice.
+                {t.s1bBody}
               </p>
             </div>
           </div>
         </Section>
 
-        <Section number="02" title="The Suitability Check">
+        <Section number="02" label={t.sectionLabel} title={t.s2Title}>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
-            Law matches your personality if:
+            {t.s2Intro}
           </p>
           <ul className="list-disc list-inside text-slate-600 dark:text-slate-300 leading-relaxed font-semibold space-y-3">
-            <li>You can read, digest, and summarize over 50 pages of complex documents daily.</li>
-            <li>You enjoy structural logic, reasoning, debates, and looking up precise definitions.</li>
-            <li>You have high mental endurance to deal with intensive workloads, research, and client deadlines.</li>
+            <li>{t.s2Item1}</li>
+            <li>{t.s2Item2}</li>
+            <li>{t.s2Item3}</li>
           </ul>
         </Section>
 
-        <Section number="03" title="CLAT vs AILET (NLU Delhi)">
+        <Section number="03" label={t.sectionLabel} title={t.s3Title}>
           <div className="p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40">
             <h3 className="text-xl font-black text-neutral-dark mb-4">
-              NLU Delhi's Separate Entrance Exam
+              {t.s3Heading}
             </h3>
             <p className="text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed mb-4">
-              NLU Delhi does not accept CLAT scores. It conducts its own entrance exam: **AILET (All India Law Entrance Test)**.
+              {t.s3P1}
             </p>
             <p className="text-lg text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
-              AILET consists of **150 questions in 120 minutes** across three sections: English Language, General Knowledge, and Logical Reasoning. While legal knowledge is not tested directly in a separate section, it is integrated into the Logical Reasoning section. Competition is fierce as there are only **~110 seats** available for UG candidates.
+              {t.s3P2}
             </p>
           </div>
         </Section>

@@ -1,13 +1,91 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { pageMeta, guideJsonLd } from "@/lib/seo";
-import JsonLd from "@/components/JsonLd";
+import { useLanguage } from "@/context/LanguageContext";
 
-export const metadata = pageMeta({
-  title: "IMU CET — Preparation Strategy & Study Material | WhatNow",
-  description: "Subject-wise prep strategy, recommended study materials, previous papers, and shipping company sponsorship interview tips.",
-  path: "/exams/imu-cet/prep",
-});
+const translations = {
+  en: {
+    crumbExams: "Exams",
+    crumbImuCet: "IMU CET",
+    crumbHere: "Prep",
+    headerTitle: "IMU CET — Preparation Strategy",
+    sectionLabel: "Section",
+    s1Title: "Core Academic Preparation (Class 11 & 12 NCERT)",
+    s1Body:
+      "Since IMU CET is heavily based on state board and CBSE syllabi, candidates do not need separate coaching modules. Master these foundational elements:",
+    cards: [
+      {
+        label: "Maths & Physics",
+        title: "NCERT Class 11 & 12",
+        body: "Re-solve textbook examples. Focus on Mechanics, Electromagnetism, Optics, Trigonometry, Calculus, and Coordinate Geometry.",
+      },
+      {
+        label: "Maritime Reference",
+        title: "Subodh Kumar Prep Guide",
+        body: "The most widely read guide for IMU CET. Contains compiled GAT papers, sample maritime aptitude questions, and general science questions.",
+      },
+      {
+        label: "General English",
+        title: "Wren & Martin Grammar",
+        body: "Practice basic grammar exercises, active/passive voice conversions, vocabulary synonyms, and spelling checks tested in the GAT English section.",
+      },
+    ],
+    s2Title: "Shipping Company Sponsorship Interview Preparation",
+    s2Body:
+      "Securing a sponsorship requires clearing the shipping company's own online test and interview. The exam rank alone is not enough — most serious candidates pursue sponsorship in parallel with their IMU CET prep.",
+    s2Heading: "Interview Key Areas:",
+    s2BoxBody:
+      "Prepare for basic physics/machinery questions (e.g. how a 4-stroke engine works, buoyancy principles, gears, and pulley systems). The interviewer will evaluate your communication skills, physical discipline, and suitability for long isolation onboard cargo ships. Show confidence, clear speech, and solid posture.",
+    s2CalloutStrong: "Coaching is not necessary for IMU CET.",
+    s2CalloutBody:
+      " The exam tests Class 11–12 PCM fundamentals. Candidates with a solid board-exam foundation and 3–4 months of focused self-study can clear it without coaching centres. Save that money for the sponsorship hunt instead.",
+    seeAlso: "See also:",
+    seeAlso1: "Full exam breakdown →",
+    seeAlso2: "DNS vs B.Sc vs B.Tech →",
+    seeAlso3: "Medical & eligibility →",
+  },
+  hi: {
+    crumbExams: "परीक्षाएँ",
+    crumbImuCet: "IMU CET",
+    crumbHere: "तैयारी",
+    headerTitle: "IMU CET — तैयारी रणनीति",
+    sectionLabel: "खंड",
+    s1Title: "मूल शैक्षणिक तैयारी (कक्षा 11 और 12 NCERT)",
+    s1Body:
+      "चूँकि IMU CET काफ़ी हद तक राज्य बोर्ड और CBSE पाठ्यक्रम पर आधारित है, उम्मीदवारों को अलग कोचिंग मॉड्यूल की ज़रूरत नहीं है। इन बुनियादी तत्वों में महारत हासिल करें:",
+    cards: [
+      {
+        label: "गणित और भौतिकी",
+        title: "NCERT कक्षा 11 और 12",
+        body: "पाठ्यपुस्तक के उदाहरण फिर से हल करें। मैकेनिक्स, इलेक्ट्रोमैग्नेटिज़्म, ऑप्टिक्स, त्रिकोणमिति, कैलकुलस और निर्देशांक ज्यामिति पर ध्यान दें।",
+      },
+      {
+        label: "मैरीटाइम संदर्भ",
+        title: "Subodh Kumar प्रेप गाइड",
+        body: "IMU CET के लिए सबसे व्यापक रूप से पढ़ी जाने वाली गाइड। इसमें संकलित GAT पेपर, नमूना मैरीटाइम अभिक्षमता प्रश्न और सामान्य विज्ञान प्रश्न शामिल हैं।",
+      },
+      {
+        label: "सामान्य अंग्रेज़ी",
+        title: "Wren & Martin व्याकरण",
+        body: "GAT अंग्रेज़ी खंड में परखे जाने वाले बुनियादी व्याकरण अभ्यास, सक्रिय/निष्क्रिय वाच्य रूपांतरण, शब्दावली पर्यायवाची और वर्तनी जाँच का अभ्यास करें।",
+      },
+    ],
+    s2Title: "शिपिंग कंपनी स्पॉन्सरशिप साक्षात्कार की तैयारी",
+    s2Body:
+      "स्पॉन्सरशिप हासिल करने के लिए शिपिंग कंपनी की अपनी ऑनलाइन परीक्षा और साक्षात्कार पास करना आवश्यक है। अकेले परीक्षा रैंक पर्याप्त नहीं है — अधिकांश गंभीर उम्मीदवार अपनी IMU CET तैयारी के साथ-साथ स्पॉन्सरशिप का प्रयास करते हैं।",
+    s2Heading: "साक्षात्कार के मुख्य क्षेत्र:",
+    s2BoxBody:
+      "बुनियादी भौतिकी/मशीनरी प्रश्नों के लिए तैयारी करें (जैसे 4-स्ट्रोक इंजन कैसे काम करता है, उत्प्लावन सिद्धांत, गियर और पुली सिस्टम)। साक्षात्कारकर्ता आपके संचार कौशल, शारीरिक अनुशासन और कार्गो जहाज़ों पर लंबे अकेलेपन के लिए उपयुक्तता का मूल्यांकन करेगा। आत्मविश्वास, स्पष्ट वाणी और मज़बूत मुद्रा दिखाएँ।",
+    s2CalloutStrong: "IMU CET के लिए कोचिंग ज़रूरी नहीं है।",
+    s2CalloutBody:
+      " परीक्षा कक्षा 11–12 PCM की बुनियादी बातें परखती है। मज़बूत बोर्ड-परीक्षा नींव और 3–4 महीने के केंद्रित स्व-अध्ययन वाले उम्मीदवार इसे कोचिंग सेंटरों के बिना पास कर सकते हैं। वह पैसा स्पॉन्सरशिप की तलाश के लिए बचाएँ।",
+    seeAlso: "यह भी देखें:",
+    seeAlso1: "पूरा परीक्षा ब्यौरा →",
+    seeAlso2: "DNS बनाम B.Sc बनाम B.Tech →",
+    seeAlso3: "मेडिकल और पात्रता →",
+  },
+} as const;
 
 const PageHeader = ({
   title,
@@ -60,10 +138,12 @@ const PageHeader = ({
 
 const Section = ({
   number,
+  label,
   title,
   children,
 }: {
   number: string;
+  label: string;
   title: string;
   children: React.ReactNode;
 }) => (
@@ -73,7 +153,7 @@ const Section = ({
     </div>
     <div className="relative z-10">
       <div className="text-orange-600 font-black text-sm uppercase tracking-widest mb-4">
-        Section {number}
+        {label} {number}
       </div>
       <h2 className="text-3xl md:text-4xl font-black mb-8 text-neutral-dark tracking-tight">
         {title}
@@ -84,95 +164,72 @@ const Section = ({
 );
 
 export default function ImuCetPrepPage() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <main className="flex-grow flex flex-col bg-slate-50 dark:bg-[#0B111C] min-h-screen">
-      <JsonLd
-        data={guideJsonLd({
-          title: "IMU CET — Preparation Strategy & Study Material | WhatNow",
-          description:
-            "Subject-wise prep strategy, recommended study materials, previous papers, and shipping company sponsorship interview tips.",
-          path: "/exams/imu-cet/prep",
-          breadcrumbs: [
-            { name: "Home", path: "/" },
-            { name: "Exams", path: "/exams" },
-            { name: "IMU CET", path: "/exams/imu-cet" },
-            { name: "Preparation", path: "/exams/imu-cet/prep" },
-          ],
-        })}
-      />
       <PageHeader
-        title="IMU CET — Preparation Strategy"
+        title={t.headerTitle}
         breadcrumbs={
           <>
             <Link href="/exams" className="hover:text-orange-600 transition-colors">
-              Exams
+              {t.crumbExams}
             </Link>{" "}
             <span>›</span>
             <Link href="/exams/imu-cet" className="hover:text-orange-600 transition-colors">
-              IMU CET
+              {t.crumbImuCet}
             </Link>{" "}
             <span>›</span>
-            <span className="text-orange-600">Prep</span>
+            <span className="text-orange-600">{t.crumbHere}</span>
           </>
         }
       />
 
       <div className="max-w-5xl mx-auto w-full px-6 lg:px-12 pb-24">
-        <Section number="01" title="Core Academic Preparation (Class 11 & 12 NCERT)">
+        <Section number="01" label={t.sectionLabel} title={t.s1Title}>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
-            Since IMU CET is heavily based on state board and CBSE syllabi, candidates do not need separate coaching modules. Master these foundational elements:
+            {t.s1Body}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-sm">
-              <span className="text-xs font-black uppercase tracking-wider text-orange-600 block mb-2">Maths & Physics</span>
-              <h4 className="font-black text-lg text-neutral-dark mb-2">NCERT Class 11 & 12</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
-                Re-solve textbook examples. Focus on Mechanics, Electromagnetism, Optics, Trigonometry, Calculus, and Coordinate Geometry.
-              </p>
-            </div>
-            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-sm">
-              <span className="text-xs font-black uppercase tracking-wider text-orange-600 block mb-2">Maritime Reference</span>
-              <h4 className="font-black text-lg text-neutral-dark mb-2">Subodh Kumar Prep Guide</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
-                The most widely read guide for IMU CET. Contains compiled GAT papers, sample maritime aptitude questions, and general science questions.
-              </p>
-            </div>
-            <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-sm">
-              <span className="text-xs font-black uppercase tracking-wider text-orange-600 block mb-2">General English</span>
-              <h4 className="font-black text-lg text-neutral-dark mb-2">Wren & Martin Grammar</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
-                Practice basic grammar exercises, active/passive voice conversions, vocabulary synonyms, and spelling checks tested in the GAT English section.
-              </p>
-            </div>
+            {t.cards.map((card) => (
+              <div key={card.title} className="border border-slate-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800/50 shadow-sm">
+                <span className="text-xs font-black uppercase tracking-wider text-orange-600 block mb-2">{card.label}</span>
+                <h4 className="font-black text-lg text-neutral-dark mb-2">{card.title}</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold leading-relaxed">
+                  {card.body}
+                </p>
+              </div>
+            ))}
           </div>
         </Section>
 
-        <Section number="02" title="Shipping Company Sponsorship Interview Preparation">
+        <Section number="02" label={t.sectionLabel} title={t.s2Title}>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-medium">
-            Securing a sponsorship requires clearing the shipping company&apos;s own online test and interview. The exam rank alone is not enough — most serious candidates pursue sponsorship in parallel with their IMU CET prep.
+            {t.s2Body}
           </p>
           <div className="bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 md:p-8 space-y-4">
-            <h4 className="font-black text-xl text-neutral-dark">Interview Key Areas:</h4>
+            <h4 className="font-black text-xl text-neutral-dark">{t.s2Heading}</h4>
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
-              Prepare for basic physics/machinery questions (e.g. how a 4-stroke engine works, buoyancy principles, gears, and pulley systems). The interviewer will evaluate your communication skills, physical discipline, and suitability for long isolation onboard cargo ships. Show confidence, clear speech, and solid posture.
+              {t.s2BoxBody}
             </p>
           </div>
 
           <div className="bg-orange-50 dark:bg-orange-950/30 border-l-4 border-orange-500 p-6 rounded-r-xl mt-8">
             <p className="text-slate-800 dark:text-slate-300 leading-relaxed font-medium">
-              <strong className="font-black text-orange-700">Coaching is not necessary for IMU CET.</strong> The exam tests Class 11–12 PCM fundamentals. Candidates with a solid board-exam foundation and 3–4 months of focused self-study can clear it without coaching centres. Save that money for the sponsorship hunt instead.
+              <strong className="font-black text-orange-700">{t.s2CalloutStrong}</strong>{t.s2CalloutBody}
             </p>
           </div>
         </Section>
 
         <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700">
           <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
-            <strong className="text-slate-700 dark:text-slate-300">See also:</strong>{" "}
-            <Link href="/exams/imu-cet/what-it-is" className="text-orange-600 hover:underline font-bold">Full exam breakdown →</Link>{" "}
+            <strong className="text-slate-700 dark:text-slate-300">{t.seeAlso}</strong>{" "}
+            <Link href="/exams/imu-cet/what-it-is" className="text-orange-600 hover:underline font-bold">{t.seeAlso1}</Link>{" "}
             ·{" "}
-            <Link href="/exams/imu-cet/entry-paths" className="text-orange-600 hover:underline font-bold">DNS vs B.Sc vs B.Tech →</Link>{" "}
+            <Link href="/exams/imu-cet/entry-paths" className="text-orange-600 hover:underline font-bold">{t.seeAlso2}</Link>{" "}
             ·{" "}
-            <Link href="/exams/imu-cet/medical" className="text-orange-600 hover:underline font-bold">Medical & eligibility →</Link>
+            <Link href="/exams/imu-cet/medical" className="text-orange-600 hover:underline font-bold">{t.seeAlso3}</Link>
           </p>
         </div>
       </div>
