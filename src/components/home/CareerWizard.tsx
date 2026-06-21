@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -211,7 +212,7 @@ export default function CareerWizard({ isOpen, onClose }: CareerWizardProps) {
 
   const matches = step === 4 ? calculateMatches() : [];
 
-  return (
+  const overlay = (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         {/* Backdrop overlay */}
@@ -440,4 +441,11 @@ export default function CareerWizard({ isOpen, onClose }: CareerWizardProps) {
       </div>
     </AnimatePresence>
   );
+
+  // Render into document.body via a portal so the modal escapes the
+  // `.page-enter` wrapper, whose lingering `transform` would otherwise become
+  // the containing block for `position: fixed` and push the modal off-screen.
+  return typeof document !== "undefined"
+    ? createPortal(overlay, document.body)
+    : null;
 }
