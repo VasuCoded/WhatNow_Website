@@ -307,4 +307,6 @@ export default function FeaturedGuides() {
           </div>
         </div>
       </div>
-    </s
+    </section>
+  );
+}
