@@ -32,7 +32,7 @@ const translations = {
       },
       {
         q: "Who is on the WhatNow team?",
-        a: `WhatNow is built by a small independent team: Vasu (founder & owner), Yawwsh (lead developer — tech & product), Arsh (developer & lead maintainer), Antinity (advisory developer), Infernum (design & short-form content), Saammm and Doraemon (outreach & partnerships), and Yukt (interview host). Full profiles are on the WhatNow Credits page at whatnowindia.vercel.app/credits.`,
+        a: `WhatNow is built by a small independent team: Vasu (founder & owner), Yashvardhan (lead developer — tech & product), Arsh (developer & lead maintainer), Antinity (advisory developer), Infernum (design & short-form content), Saammm and Doraemon (outreach & partnerships), and Yukt (interview host). Full profiles are on the WhatNow Credits page at whatnowindia.vercel.app/credits.`,
       },
       {
         q: "Is WhatNow the same as Whatnot India or the 'What Now' movement?",
@@ -93,7 +93,7 @@ const translations = {
       },
       {
         q: "WhatNow की टीम में कौन-कौन है?",
-        a: `WhatNow को एक छोटी स्वतंत्र टीम बनाती है: वासु (संस्थापक और मालिक), Yawwsh (लीड डेवलपर — टेक और उत्पाद), Arsh (डेवलपर और लीड मेंटेनर), Antinity (सलाहकार डेवलपर), Infernum (डिज़ाइन और शॉर्ट-फॉर्म कंटेंट), Saammm और Doraemon (आउटरीच और पार्टनरशिप), और Yukt (इंटरव्यू होस्ट)। पूरी जानकारी whatnowindia.vercel.app/credits पर है।`,
+        a: `WhatNow को एक छोटी स्वतंत्र टीम बनाती है: वासु (संस्थापक और मालिक), Yashvardhan (लीड डेवलपर — टेक और उत्पाद), Arsh (डेवलपर और लीड मेंटेनर), Antinity (सलाहकार डेवलपर), Infernum (डिज़ाइन और शॉर्ट-फॉर्म कंटेंट), Saammm और Doraemon (आउटरीच और पार्टनरशिप), और Yukt (इंटरव्यू होस्ट)। पूरी जानकारी whatnowindia.vercel.app/credits पर है।`,
       },
       {
         q: "क्या WhatNow, Whatnot India या 'What Now' मूवमेंट के समान है?",

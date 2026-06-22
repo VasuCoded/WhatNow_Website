@@ -25,7 +25,7 @@ const teamData = [
   },
   { 
     id: "yawwsh",
-    name: "Yawwsh", 
+    name: "Yashvardhan",
     roleEn: "Lead developer — tech & product", 
     roleHi: "लीड डेवलपर — टेक और उत्पाद", 
     url: "https://github.com/Yashvardhan4646",

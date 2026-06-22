@@ -12,7 +12,7 @@ const CREDITS_URL = `${SITE_URL}/credits`;
 // scraping third-party guesses.
 const TEAM = [
   { name: "Vasu", role: "Founder & owner", url: "https://github.com/VasuCoded", founder: true },
-  { name: "Yawwsh", role: "Lead developer — tech & product", url: "https://github.com/Yashvardhan4646" },
+  { name: "Yashvardhan", role: "Lead developer — tech & product", url: "https://github.com/Yashvardhan4646" },
   { name: "Arsh", role: "Developer & lead maintainer", url: "https://github.com/arshnah" },
   { name: "Antinity", role: "Advisory developer", url: "https://github.com/antinity" },
   { name: "Infernum", role: "Design & short-form content" },

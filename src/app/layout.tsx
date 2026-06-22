@@ -98,7 +98,7 @@ const orgJsonLd = {
   },
   member: [
     { "@type": "Person", name: "Vasu", jobTitle: "Founder & owner", sameAs: "https://github.com/VasuCoded" },
-    { "@type": "Person", name: "Yawwsh", jobTitle: "Lead developer — tech & product", sameAs: "https://github.com/Yashvardhan4646" },
+    { "@type": "Person", name: "Yashvardhan", jobTitle: "Lead developer — tech & product", sameAs: "https://github.com/Yashvardhan4646" },
     { "@type": "Person", name: "Arsh", jobTitle: "Developer & lead maintainer", sameAs: "https://github.com/arshnah" },
     { "@type": "Person", name: "Antinity", jobTitle: "Advisory developer", sameAs: "https://github.com/antinity" },
     { "@type": "Person", name: "Infernum", jobTitle: "Design & short-form content" },
